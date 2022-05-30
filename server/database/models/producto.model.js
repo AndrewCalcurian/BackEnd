@@ -7,6 +7,9 @@ let ProductoFinal = new Schema([{
                 type:Schema.Types.ObjectId,
                 ref: 'cliente'
             },
+            img:{
+                type:String
+            },
             grupo:{
                 type:Schema.Types.ObjectId,
                 ref: 'grupo'
