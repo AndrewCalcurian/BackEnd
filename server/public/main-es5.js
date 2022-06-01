@@ -62,19 +62,31 @@
       /* harmony import */
 
 
-      var src_app_services_rest_api_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      var src_environments_environment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! src/environments/environment */
+      "AytR");
+      /* harmony import */
+
+
+      var src_app_services_rest_api_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
       /*! src/app/services/rest-api.service */
       "n6ga");
       /* harmony import */
 
 
-      var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      var src_app_services_subir_archivos_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! src/app/services/subir-archivos.service */
+      "GaxR");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! @angular/common */
       "ofXK");
 
       function ProductosComponent_option_12_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 60);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 71);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -116,7 +128,7 @@
         if (rf & 1) {
           var _r24 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 61);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 72);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_button_19_Template_button_click_0_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r24);
@@ -218,7 +230,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate4"]("E ", producto_r25.cliente.codigo, " - ", producto_r25.codigo, " - ", producto_r25.version, " - ", producto_r25.edicion, "");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate4"]("E - ", producto_r25.cliente.codigo, " - ", producto_r25.codigo, " - ", producto_r25.version, " - ", producto_r25.edicion, "");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
@@ -240,7 +252,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "span", 62);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "span", 73);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_tr_59_Template_span_click_3_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r36);
@@ -252,7 +264,7 @@
             return ctx_r35.delete_this_almacen(i_r34);
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "i", 63);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](4, "i", 74);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -272,7 +284,7 @@
 
       function ProductosComponent_option_94_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 60);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 71);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -292,7 +304,7 @@
 
       function ProductosComponent_option_156_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 60);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 71);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -358,7 +370,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "button", 68);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "button", 79);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_div_172_table_1_tr_12_Template_button_click_9_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r51);
@@ -370,9 +382,9 @@
             return ctx_r50.Delete_Material(Material_r47.material);
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "span", 69);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "span", 80);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "i", 70);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "i", 81);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -466,7 +478,7 @@
 
       function ProductosComponent_div_172_div_2_option_9_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 60);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 71);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -502,7 +514,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 7);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "select", 71);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "select", 82);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function ProductosComponent_div_172_div_2_Template_select_change_6_listener($event) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r55);
@@ -512,7 +524,7 @@
             return ctx_r54.selecciona_producto($event.target.value);
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "option", 72);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "option", 83);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Selecciona Categoria");
 
@@ -562,7 +574,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "option", 60);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "option", 71);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
 
@@ -628,7 +640,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 7);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "select", 73, 74);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "select", 84, 85);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function ProductosComponent_div_172_div_3_Template_select_change_6_listener($event) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r65);
@@ -638,7 +650,7 @@
             return ctx_r64.producto_seleccionado($event.target.value);
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "option", 72);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "option", 83);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "Selecciona Producto");
 
@@ -656,7 +668,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "div", 12);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "div", 75);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "div", 86);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "label", 5);
 
@@ -666,7 +678,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](16, "input", 76, 77);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](16, "input", 87, 88);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -708,7 +720,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 78);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 89);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_div_172_div_4_Template_button_click_3_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r69);
@@ -720,9 +732,9 @@
             return ctx_r67.add_materia(i_r41, ctx_r67.size);
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "span", 69);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "span", 80);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "i", 70);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "i", 81);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -742,15 +754,15 @@
 
       function ProductosComponent_div_172_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 64);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 75);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_div_172_table_1_Template, 13, 1, "table", 65);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_div_172_table_1_Template, 13, 1, "table", 76);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProductosComponent_div_172_div_2_Template, 10, 1, "div", 66);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProductosComponent_div_172_div_2_Template, 10, 1, "div", 77);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, ProductosComponent_div_172_div_3_Template, 18, 4, "div", 66);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, ProductosComponent_div_172_div_3_Template, 18, 4, "div", 77);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, ProductosComponent_div_172_div_4_Template, 8, 0, "div", 67);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, ProductosComponent_div_172_div_4_Template, 8, 0, "div", 78);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -778,9 +790,9 @@
         }
       }
 
-      function ProductosComponent_option_214_Template(rf, ctx) {
+      function ProductosComponent_option_233_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 60);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 71);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -800,7 +812,7 @@
         }
       }
 
-      function ProductosComponent_tr_223_ng_container_1_Template(rf, ctx) {
+      function ProductosComponent_tr_242_ng_container_1_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
@@ -810,7 +822,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](3, "br");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "table", 53);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "table", 64);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "thead");
 
@@ -888,11 +900,11 @@
         }
       }
 
-      function ProductosComponent_tr_223_Template(rf, ctx) {
+      function ProductosComponent_tr_242_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_tr_223_ng_container_1_Template, 20, 6, "ng-container", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_tr_242_ng_container_1_Template, 20, 6, "ng-container", 16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -906,7 +918,7 @@
         }
       }
 
-      function ProductosComponent_tr_231_ng_container_1_Template(rf, ctx) {
+      function ProductosComponent_tr_250_ng_container_1_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
@@ -938,11 +950,11 @@
         }
       }
 
-      function ProductosComponent_tr_231_Template(rf, ctx) {
+      function ProductosComponent_tr_250_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_tr_231_ng_container_1_Template, 5, 3, "ng-container", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_tr_250_ng_container_1_Template, 5, 3, "ng-container", 16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -956,7 +968,7 @@
         }
       }
 
-      function ProductosComponent_tr_237_ng_container_1_Template(rf, ctx) {
+      function ProductosComponent_tr_256_ng_container_1_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
@@ -974,11 +986,11 @@
         }
       }
 
-      function ProductosComponent_tr_237_Template(rf, ctx) {
+      function ProductosComponent_tr_256_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_tr_237_ng_container_1_Template, 2, 2, "ng-container", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_tr_256_ng_container_1_Template, 2, 2, "ng-container", 16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -992,7 +1004,7 @@
         }
       }
 
-      function ProductosComponent_ng_container_246_ng_container_1_p_1_Template(rf, ctx) {
+      function ProductosComponent_ng_container_265_ng_container_1_p_1_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
 
@@ -1016,7 +1028,7 @@
         }
       }
 
-      function ProductosComponent_ng_container_246_ng_container_1_p_2_Template(rf, ctx) {
+      function ProductosComponent_ng_container_265_ng_container_1_p_2_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
 
@@ -1040,7 +1052,7 @@
         }
       }
 
-      function ProductosComponent_ng_container_246_ng_container_1_p_3_Template(rf, ctx) {
+      function ProductosComponent_ng_container_265_ng_container_1_p_3_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
 
@@ -1064,7 +1076,7 @@
         }
       }
 
-      function ProductosComponent_ng_container_246_ng_container_1_p_4_Template(rf, ctx) {
+      function ProductosComponent_ng_container_265_ng_container_1_p_4_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "p");
 
@@ -1088,7 +1100,7 @@
         }
       }
 
-      function ProductosComponent_ng_container_246_ng_container_1_div_5_ng_container_3_Template(rf, ctx) {
+      function ProductosComponent_ng_container_265_ng_container_1_div_5_ng_container_3_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
@@ -1108,7 +1120,7 @@
         }
       }
 
-      function ProductosComponent_ng_container_246_ng_container_1_div_5_Template(rf, ctx) {
+      function ProductosComponent_ng_container_265_ng_container_1_div_5_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
 
@@ -1118,7 +1130,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, ProductosComponent_ng_container_246_ng_container_1_div_5_ng_container_3_Template, 2, 5, "ng-container", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, ProductosComponent_ng_container_265_ng_container_1_div_5_ng_container_3_Template, 2, 5, "ng-container", 16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -1138,19 +1150,19 @@
         }
       }
 
-      function ProductosComponent_ng_container_246_ng_container_1_Template(rf, ctx) {
+      function ProductosComponent_ng_container_265_ng_container_1_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_ng_container_246_ng_container_1_p_1_Template, 4, 4, "p", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_ng_container_265_ng_container_1_p_1_Template, 4, 4, "p", 16);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProductosComponent_ng_container_246_ng_container_1_p_2_Template, 4, 4, "p", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProductosComponent_ng_container_265_ng_container_1_p_2_Template, 4, 4, "p", 16);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, ProductosComponent_ng_container_246_ng_container_1_p_3_Template, 4, 4, "p", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, ProductosComponent_ng_container_265_ng_container_1_p_3_Template, 4, 4, "p", 16);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, ProductosComponent_ng_container_246_ng_container_1_p_4_Template, 4, 4, "p", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, ProductosComponent_ng_container_265_ng_container_1_p_4_Template, 4, 4, "p", 16);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, ProductosComponent_ng_container_246_ng_container_1_div_5_Template, 4, 2, "div", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, ProductosComponent_ng_container_265_ng_container_1_div_5_Template, 4, 2, "div", 16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
         }
@@ -1180,11 +1192,11 @@
         }
       }
 
-      function ProductosComponent_ng_container_246_Template(rf, ctx) {
+      function ProductosComponent_ng_container_265_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0, 79);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0, 90);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_ng_container_246_ng_container_1_Template, 6, 5, "ng-container", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_ng_container_265_ng_container_1_Template, 6, 5, "ng-container", 16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
         }
@@ -1198,7 +1210,7 @@
         }
       }
 
-      function ProductosComponent_tr_265_ng_container_1_Template(rf, ctx) {
+      function ProductosComponent_tr_284_ng_container_1_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
@@ -1230,11 +1242,11 @@
         }
       }
 
-      function ProductosComponent_tr_265_Template(rf, ctx) {
+      function ProductosComponent_tr_284_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_tr_265_ng_container_1_Template, 5, 2, "ng-container", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_tr_284_ng_container_1_Template, 5, 2, "ng-container", 16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -1248,7 +1260,7 @@
         }
       }
 
-      function ProductosComponent_ng_container_273_ng_container_1_Template(rf, ctx) {
+      function ProductosComponent_ng_container_292_ng_container_1_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
@@ -1262,7 +1274,7 @@
         }
       }
 
-      function ProductosComponent_ng_container_273_ng_container_2_Template(rf, ctx) {
+      function ProductosComponent_ng_container_292_ng_container_2_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
@@ -1276,13 +1288,13 @@
         }
       }
 
-      function ProductosComponent_ng_container_273_Template(rf, ctx) {
+      function ProductosComponent_ng_container_292_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_ng_container_273_ng_container_1_Template, 3, 0, "ng-container", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_ng_container_292_ng_container_1_Template, 3, 0, "ng-container", 16);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProductosComponent_ng_container_273_ng_container_2_Template, 3, 0, "ng-container", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProductosComponent_ng_container_292_ng_container_2_Template, 3, 0, "ng-container", 16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
         }
@@ -1300,7 +1312,7 @@
         }
       }
 
-      function ProductosComponent_ng_container_275_ng_container_1_Template(rf, ctx) {
+      function ProductosComponent_ng_container_294_ng_container_1_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
@@ -1322,7 +1334,7 @@
         }
       }
 
-      function ProductosComponent_ng_container_275_ng_container_2_Template(rf, ctx) {
+      function ProductosComponent_ng_container_294_ng_container_2_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
@@ -1344,13 +1356,13 @@
         }
       }
 
-      function ProductosComponent_ng_container_275_Template(rf, ctx) {
+      function ProductosComponent_ng_container_294_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_ng_container_275_ng_container_1_Template, 3, 2, "ng-container", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_ng_container_294_ng_container_1_Template, 3, 2, "ng-container", 16);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProductosComponent_ng_container_275_ng_container_2_Template, 3, 1, "ng-container", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProductosComponent_ng_container_294_ng_container_2_Template, 3, 1, "ng-container", 16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
         }
@@ -1368,13 +1380,13 @@
         }
       }
 
-      function ProductosComponent_option_299_Template(rf, ctx) {
+      function ProductosComponent_option_318_Template(rf, ctx) {
         if (rf & 1) {
           var _r106 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 80);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 91);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_option_299_Template_option_ngModelChange_0_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_option_318_Template_option_ngModelChange_0_listener($event) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r106);
 
             var ctx_r105 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
@@ -1400,9 +1412,9 @@
         }
       }
 
-      function ProductosComponent_option_361_Template(rf, ctx) {
+      function ProductosComponent_option_380_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 60);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 71);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -1422,7 +1434,7 @@
         }
       }
 
-      function ProductosComponent_div_376_table_1_tr_12_ng_container_3_Template(rf, ctx) {
+      function ProductosComponent_div_395_table_1_tr_12_ng_container_3_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
@@ -1440,7 +1452,7 @@
         }
       }
 
-      function ProductosComponent_div_376_table_1_tr_12_Template(rf, ctx) {
+      function ProductosComponent_div_395_table_1_tr_12_Template(rf, ctx) {
         if (rf & 1) {
           var _r120 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
@@ -1450,7 +1462,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, ProductosComponent_div_376_table_1_tr_12_ng_container_3_Template, 2, 2, "ng-container", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, ProductosComponent_div_395_table_1_tr_12_ng_container_3_Template, 2, 2, "ng-container", 16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1468,9 +1480,9 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "button", 68);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "button", 79);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_div_376_table_1_tr_12_Template_button_click_9_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_div_395_table_1_tr_12_Template_button_click_9_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r120);
 
             var Material_r116 = ctx.$implicit;
@@ -1480,9 +1492,9 @@
             return ctx_r119.Delete_Material2(Material_r116.producto.nombre);
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "span", 69);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "span", 80);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "i", 70);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "i", 81);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1520,7 +1532,7 @@
         }
       }
 
-      function ProductosComponent_div_376_table_1_Template(rf, ctx) {
+      function ProductosComponent_div_395_table_1_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "table", 15);
 
@@ -1558,7 +1570,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "tbody");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](12, ProductosComponent_div_376_table_1_tr_12_Template, 14, 4, "tr", 17);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](12, ProductosComponent_div_395_table_1_tr_12_Template, 14, 4, "tr", 17);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1574,9 +1586,9 @@
         }
       }
 
-      function ProductosComponent_div_376_div_2_option_9_Template(rf, ctx) {
+      function ProductosComponent_div_395_div_2_option_9_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 60);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "option", 71);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
 
@@ -1594,7 +1606,7 @@
         }
       }
 
-      function ProductosComponent_div_376_div_2_Template(rf, ctx) {
+      function ProductosComponent_div_395_div_2_Template(rf, ctx) {
         if (rf & 1) {
           var _r124 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
@@ -1612,9 +1624,9 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 7);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "select", 71);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "select", 82);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function ProductosComponent_div_376_div_2_Template_select_change_6_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function ProductosComponent_div_395_div_2_Template_select_change_6_listener($event) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r124);
 
             var ctx_r123 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
@@ -1622,13 +1634,13 @@
             return ctx_r123.selecciona_producto2($event.target.value);
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "option", 72);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "option", 83);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Selecciona Categoria");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](9, ProductosComponent_div_376_div_2_option_9_Template, 2, 2, "option", 10);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](9, ProductosComponent_div_395_div_2_option_9_Template, 2, 2, "option", 10);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1650,7 +1662,7 @@
         }
       }
 
-      function ProductosComponent_div_376_div_3_ng_container_10_ng_container_1_ng_container_3_Template(rf, ctx) {
+      function ProductosComponent_div_395_div_3_ng_container_10_ng_container_1_ng_container_3_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
@@ -1668,15 +1680,15 @@
         }
       }
 
-      function ProductosComponent_div_376_div_3_ng_container_10_ng_container_1_Template(rf, ctx) {
+      function ProductosComponent_div_395_div_3_ng_container_10_ng_container_1_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "option", 60);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "option", 71);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, ProductosComponent_div_376_div_3_ng_container_10_ng_container_1_ng_container_3_Template, 2, 2, "ng-container", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, ProductosComponent_div_395_div_3_ng_container_10_ng_container_1_ng_container_3_Template, 2, 2, "ng-container", 16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1700,11 +1712,11 @@
         }
       }
 
-      function ProductosComponent_div_376_div_3_ng_container_10_Template(rf, ctx) {
+      function ProductosComponent_div_395_div_3_ng_container_10_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_div_376_div_3_ng_container_10_ng_container_1_Template, 4, 4, "ng-container", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_div_395_div_3_ng_container_10_ng_container_1_Template, 4, 4, "ng-container", 16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
         }
@@ -1720,7 +1732,7 @@
         }
       }
 
-      function ProductosComponent_div_376_div_3_Template(rf, ctx) {
+      function ProductosComponent_div_395_div_3_Template(rf, ctx) {
         if (rf & 1) {
           var _r134 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
@@ -1738,9 +1750,9 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 7);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "select", 73, 74);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "select", 84, 85);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function ProductosComponent_div_376_div_3_Template_select_change_6_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function ProductosComponent_div_395_div_3_Template_select_change_6_listener($event) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r134);
 
             var ctx_r133 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
@@ -1748,13 +1760,13 @@
             return ctx_r133.producto_seleccionado($event.target.value);
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "option", 72);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "option", 83);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, " Selecciona Producto");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](10, ProductosComponent_div_376_div_3_ng_container_10_Template, 2, 1, "ng-container", 17);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](10, ProductosComponent_div_395_div_3_ng_container_10_Template, 2, 1, "ng-container", 17);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1766,7 +1778,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](11, "div", 12);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "div", 75);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "div", 86);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "label", 5);
 
@@ -1776,7 +1788,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](16, "input", 76, 77);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](16, "input", 87, 88);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1808,7 +1820,7 @@
         }
       }
 
-      function ProductosComponent_div_376_div_4_Template(rf, ctx) {
+      function ProductosComponent_div_395_div_4_Template(rf, ctx) {
         if (rf & 1) {
           var _r138 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
 
@@ -1818,9 +1830,9 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 6);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 78);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "button", 89);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_div_376_div_4_Template_button_click_3_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_div_395_div_4_Template_button_click_3_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r138);
 
             var i_r110 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().index;
@@ -1830,9 +1842,9 @@
             return ctx_r136.add_materia3(i_r110, ctx_r136.size);
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "span", 69);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "span", 80);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "i", 70);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](5, "i", 81);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1850,17 +1862,17 @@
         }
       }
 
-      function ProductosComponent_div_376_Template(rf, ctx) {
+      function ProductosComponent_div_395_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 64);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 75);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_div_376_table_1_Template, 13, 1, "table", 65);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ProductosComponent_div_395_table_1_Template, 13, 1, "table", 76);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProductosComponent_div_376_div_2_Template, 10, 1, "div", 66);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, ProductosComponent_div_395_div_2_Template, 10, 1, "div", 77);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, ProductosComponent_div_376_div_3_Template, 18, 4, "div", 66);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, ProductosComponent_div_395_div_3_Template, 18, 4, "div", 77);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, ProductosComponent_div_376_div_4_Template, 8, 0, "div", 67);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, ProductosComponent_div_395_div_4_Template, 8, 0, "div", 78);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -1898,12 +1910,20 @@
         return [];
       };
 
+      var _c2 = function _c2(a0) {
+        return {
+          "is-loading": a0
+        };
+      };
+
       var ProductosComponent = /*#__PURE__*/function () {
-        function ProductosComponent(api, fb) {
+        function ProductosComponent(api, subirArchivo, fb) {
           _classCallCheck(this, ProductosComponent);
 
           this.api = api;
+          this.subirArchivo = subirArchivo;
           this.fb = fb;
+          this.baseUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].api;
           this.NUEVO_CLIENTE = false;
           this.MATERIALES_NECESARIOS = [];
           this.NUEVO_PRODUCTO = false;
@@ -1924,6 +1944,7 @@
           this.ocho = true;
           this.almacenes = [];
           this.new_almacen = '';
+          this.cargando = false;
           this.VER_PRODUCTO = false;
           this.OneProduct = {
             producto: '',
@@ -1998,6 +2019,32 @@
               case 8:
                 return "I";
             }
+          }
+        }, {
+          key: "CambiarImagen",
+          value: function CambiarImagen(event) {
+            this.ImgSubir = event.target.files[0];
+            document.getElementsByClassName('file-name')[0].innerHTML = this.ImgSubir.name;
+          }
+        }, {
+          key: "subirImagen",
+          value: function subirImagen() {
+            var _this = this;
+
+            this.cargando = true;
+            this.subirArchivo.actualizarFoto(this.ImgSubir, 'producto', this.OneProduct._id).then(function (img) {
+              if (img) {
+                _this.usuario.img = img;
+                document.getElementsByClassName('file-name')[0].innerHTML = 'Sin archivo...';
+                _this.ImgSubir = null;
+              }
+
+              _this.verProducto(_this.OneProduct._id);
+
+              _this.verProducto(_this.OneProduct._id);
+
+              _this.cargando = false;
+            });
           }
         }, {
           key: "producto_seleccionado",
@@ -2170,25 +2217,25 @@
         }, {
           key: "obtenerGrupodeMateriales",
           value: function obtenerGrupodeMateriales() {
-            var _this = this;
+            var _this2 = this;
 
             this.api.GetGrupoMp().subscribe(function (resp) {
-              _this.GRUPOS_MATERIA = resp;
+              _this2.GRUPOS_MATERIA = resp;
             });
           }
         }, {
           key: "obtenerClientes",
           value: function obtenerClientes() {
-            var _this2 = this;
+            var _this3 = this;
 
             this.api.GetClientes().subscribe(function (resp) {
-              _this2.CLIENTES = resp.clientes;
+              _this3.CLIENTES = resp.clientes;
             });
           }
         }, {
           key: "addCliente",
           value: function addCliente() {
-            var _this3 = this;
+            var _this4 = this;
 
             this.ClienteForm.get('almacenes').setValue(this.almacenes);
 
@@ -2204,12 +2251,12 @@
             }
 
             this.api.PostClientes(this.ClienteForm.value).subscribe(function (resp) {
-              _this3.obtenerClientes();
+              _this4.obtenerClientes();
 
-              _this3.ClienteForm.reset();
+              _this4.ClienteForm.reset();
 
-              _this3.NUEVO_CLIENTE = false;
-              _this3.almacenes = [];
+              _this4.NUEVO_CLIENTE = false;
+              _this4.almacenes = [];
               sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
                 title: 'Excelente!',
                 text: 'Se registro nuevo cliente',
@@ -2223,21 +2270,21 @@
         }, {
           key: "obtenerMateriales",
           value: function obtenerMateriales() {
-            var _this4 = this;
+            var _this5 = this;
 
             this.api.getAlmacen().subscribe(function (resp) {
-              _this4.MATERIALES = resp.materiales;
-              console.log(_this4.MATERIALES);
+              _this5.MATERIALES = resp.materiales;
+              console.log(_this5.MATERIALES);
             });
           }
         }, {
           key: "obtenerGrupos",
           value: function obtenerGrupos() {
-            var _this5 = this;
+            var _this6 = this;
 
             this.api.getGrupos().subscribe(function (resp) {
-              _this5.GRUPOS = resp.grupos;
-              console.log(_this5.GRUPOS, 'GRUPOOOOS');
+              _this6.GRUPOS = resp.grupos;
+              console.log(_this6.GRUPOS, 'GRUPOOOOS');
             });
           }
         }, {
@@ -2253,18 +2300,18 @@
         }, {
           key: "BuscarGruposEnAlmacen",
           value: function BuscarGruposEnAlmacen() {
-            var _this6 = this;
+            var _this7 = this;
 
             this.api.GetGrupoMp().subscribe(function (resp) {
-              _this6.SECCIONES = resp; // alert('THIS IS WORKING')
+              _this7.SECCIONES = resp; // alert('THIS IS WORKING')
 
-              console.log(_this6.SECCIONES, 'SECCIONEEEES');
+              console.log(_this7.SECCIONES, 'SECCIONEEEES');
             });
           }
         }, {
           key: "finalizar",
           value: function finalizar() {
-            var _this7 = this;
+            var _this8 = this;
 
             // let name = (<HTMLInputElement>document.getElementById('sustrato_name')).value
             // let marca = (<HTMLInputElement>document.getElementById('sustrato_marca')).value
@@ -2291,11 +2338,11 @@
               montajes: this.montajes
             };
             this.api.postProducto(data).subscribe(function (resp) {
-              _this7.Modal_Producto();
+              _this8.Modal_Producto();
 
               var cliente_id = document.getElementById('cliente_Seleccionado').value;
 
-              _this7.buscar_producto(cliente_id);
+              _this8.buscar_producto(cliente_id);
             });
           }
         }, {
@@ -2346,11 +2393,11 @@
         }, {
           key: "buscar_producto",
           value: function buscar_producto(e) {
-            var _this8 = this;
+            var _this9 = this;
 
             this.api.getById(e).subscribe(function (resp) {
-              _this8.PRODUCTOS = resp.productos;
-              console.log(_this8.PRODUCTOS);
+              _this9.PRODUCTOS = resp.productos;
+              console.log(_this9.PRODUCTOS);
             });
 
             if (e == "") {
@@ -2416,7 +2463,7 @@
         }, {
           key: "add_materia3",
           value: function add_materia3(producto, cantidad) {
-            var _this9 = this;
+            var _this10 = this;
 
             var i = this.i_montajes.toString();
             producto = document.getElementById("x-".concat(i)).value;
@@ -2446,15 +2493,15 @@
             this.api.updateProducto(this.OneProduct, this.OneProduct._id).subscribe(function (resp) {
               console.log(resp, 'respuesta');
 
-              _this9.editar(_this9.OneProduct);
+              _this10.editar(_this10.OneProduct);
 
-              _this9.api.getOneById(_this9.OneProduct._id).subscribe(function (resp) {
+              _this10.api.getOneById(_this10.OneProduct._id).subscribe(function (resp) {
                 console.log('ok');
               });
 
-              _this9.Modal_Producto_E();
+              _this10.Modal_Producto_E();
 
-              _this9.Modal_Producto_E();
+              _this10.Modal_Producto_E();
             }); // this.verProducto(producto)
           }
         }, {
@@ -2542,7 +2589,7 @@
         }, {
           key: "editar_producto",
           value: function editar_producto() {
-            var _this10 = this;
+            var _this11 = this;
 
             this.api.updateProducto(this.OneProduct, this.OneProduct._id).subscribe(function (resp) {
               sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
@@ -2551,23 +2598,28 @@
                 showConfirmButton: false
               });
 
-              _this10.editar(_this10.OneProduct);
+              _this11.editar(_this11.OneProduct);
 
-              _this10.buscar_producto(_this10.OneProduct.cliente._id);
+              _this11.buscar_producto(_this11.OneProduct.cliente._id);
 
-              _this10.Modal_Producto_E();
+              _this11.Modal_Producto_E();
             });
           }
         }, {
           key: "verProducto",
           value: function verProducto(producto) {
-            var _this11 = this;
+            var _this12 = this;
 
             this.api.getOneById(producto).subscribe(function (resp) {
-              _this11.OneProduct = resp.producto;
-              console.log('AQUIIIIIIIIIIIIII', _this11.OneProduct);
+              _this12.OneProduct = resp.producto;
 
-              _this11.ver_Modal_Producto();
+              if (_this12.OneProduct.img) {
+                _this12.ImageProducto = "".concat(_this12.baseUrl, "/imagen/producto/").concat(_this12.OneProduct.img);
+              } else {
+                _this12.ImageProducto = "../../../assets/no-picture.png";
+              }
+
+              _this12.ver_Modal_Producto();
             });
           }
         }, {
@@ -2587,11 +2639,11 @@
         }, {
           key: "editar",
           value: function editar(producto) {
-            var _this12 = this;
+            var _this13 = this;
 
             this.api.getOneById(producto).subscribe(function (resp) {
-              _this12.OneProduct = resp.producto;
-              console.log('AQUIIIIIIIIIIIIII', _this12.OneProduct);
+              _this13.OneProduct = resp.producto;
+              console.log('AQUIIIIIIIIIIIIII', _this13.OneProduct);
             });
 
             if (this.OneProduct) {
@@ -2604,15 +2656,15 @@
       }();
 
       ProductosComponent.ɵfac = function ProductosComponent_Factory(t) {
-        return new (t || ProductosComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_rest_api_service__WEBPACK_IMPORTED_MODULE_3__["RestApiService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]));
+        return new (t || ProductosComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_rest_api_service__WEBPACK_IMPORTED_MODULE_4__["RestApiService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_subir_archivos_service__WEBPACK_IMPORTED_MODULE_5__["SubirArchivosService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]));
       };
 
       ProductosComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
         type: ProductosComponent,
         selectors: [["app-productos"]],
-        decls: 380,
-        vars: 63,
-        consts: [[1, "columns", "mt-5"], [1, "column", "is-3"], [1, "card"], [1, "card-content"], [1, "field"], [1, "label"], [1, "control"], [1, "select"], ["id", "cliente_Seleccionado", "value", "", 3, "change"], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], ["class", "button is-primary", 3, "click", 4, "ngIf"], [1, "column"], [1, "titulo"], ["class", "button is-primary", "disabled", "", "id", "NP_button", 3, "click", 4, "ngIf"], [1, "table", "is-fullwidth"], [4, "ngIf"], [4, "ngFor", "ngForOf"], [1, "modal", 3, "ngClass"], [1, "modal-background", 3, "click"], [1, "modal-card"], [1, "modal-card-body"], ["autocomplete", "off", 3, "formGroup", "ngSubmit"], [1, "subtitulo"], [1, "columns"], ["type", "text", "formControlName", "nombre", 1, "input"], ["type", "text", "formControlName", "codigo", 1, "input"], [4, "ngFor", "ngForOf", "ngForFrom"], ["type", "text", "id", "almacen_nuevo", "formControlName", "almacenes", "name", "nuevoAlmacen", 1, "input", 3, "ngModel", "ngModelChange"], [1, "button", "is-success", "is-outlined", 3, "disabled", "click"], [1, "button", "is-primary"], [1, "modal-card-body", "tabla"], [1, "separador"], ["type", "text", "id", "nombre_nuevo_producto", "placeholder", "Nombre Producto", 1, "input"], ["id", "grupo_producto"], ["type", "text", "id", "cod_producto", "placeholder", "C\xF3digo de producto", 1, "input"], ["type", "text", "id", "version", "placeholder", "Versi\xF3n", 1, "input"], ["type", "text", "id", "edicion", "placeholder", "Especificaci\xF3n", 1, "input"], ["type", "text", "placeholder", "C\xF3digo de producto de cliente", "id", "cod_cliente", 1, "input"], ["type", "checkbox", "name", "troquelado", "id", "troquelado", 3, "click"], ["type", "checkbox", "name", "pegado", "id", "pegado", 3, "click"], ["type", "checkbox", "name", "corte", "id", "corte", 3, "click"], [1, "columns", "is-3"], ["for", "", 1, "label"], [1, "column", "is-4"], ["type", "number", "min", "1", "max", "5", "placeholder", "Cantidad de montajes", 1, "input", 3, "ngModel", "ngModelChange"], ["name", "montajes", 3, "ngModel", "ngModelChange"], ["type", "number", "placeholder", "Ejemplares montados", 1, "input", 3, "ngModel", "change", "ngModelChange"], ["class", "materiales", 4, "ngFor", "ngForOf"], [1, "button", "is-primary", 3, "click"], [1, "table"], ["id", "", "name", "montaje", 1, "select", 3, "ngModel", "click", "ngModelChange"], ["tr", "", 4, "ngFor", "ngForOf"], [1, "table", "is-bordered"], ["type", "text", "id", "nombre_nuevo_producto", "placeholder", "Nombre Producto", 1, "input", 3, "ngModel", "ngModelChange"], [3, "ngModel", "ngModelChange", 4, "ngFor", "ngForOf"], ["type", "text", "id", "cod_producto", "placeholder", "C\xF3digo de producto", 1, "input", 3, "ngModel", "ngModelChange"], ["type", "text", "id", "version", "placeholder", "Versi\xF3n", 1, "input", 3, "ngModel", "ngModelChange"], ["type", "text", "id", "edicion", "placeholder", "Especificaci\xF3n", 1, "input", 3, "ngModel", "ngModelChange"], ["type", "text", "placeholder", "C\xF3digo de producto de cliente", "id", "cod_cliente", 1, "input", 3, "ngModel", "ngModelChange"], [3, "value"], ["disabled", "", "id", "NP_button", 1, "button", "is-primary", 3, "click"], [1, "icon", 3, "click"], [1, "fas", "fa-times"], [1, "materiales"], ["class", "table is-fullwidth", 4, "ngIf"], ["class", "columns", 4, "ngIf"], ["class", "field", 4, "ngIf"], [1, "button", "is-danger", "is-outlined", "is-small", 3, "click"], [1, "icon", "is-small"], [1, "fas", "fa-check"], ["name", "", "id", "", 3, "change"], ["value", "0"], ["name", "", "disabled", "", 3, "id", "change"], ["producto", ""], ["id", "cant", 1, "field"], ["type", "text", 1, "input", 3, "id", "disabled"], ["size", ""], [1, "button", "is-success", "is-outlined", 3, "click"], ["tr", ""], [3, "ngModel", "ngModelChange"]],
+        decls: 399,
+        vars: 68,
+        consts: [[1, "columns", "mt-5"], [1, "column", "is-3"], [1, "card"], [1, "card-content"], [1, "field"], [1, "label"], [1, "control"], [1, "select"], ["id", "cliente_Seleccionado", "value", "", 3, "change"], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], ["class", "button is-primary", 3, "click", 4, "ngIf"], [1, "column"], [1, "titulo"], ["class", "button is-primary", "disabled", "", "id", "NP_button", 3, "click", 4, "ngIf"], [1, "table", "is-fullwidth"], [4, "ngIf"], [4, "ngFor", "ngForOf"], [1, "modal", 3, "ngClass"], [1, "modal-background", 3, "click"], [1, "modal-card"], [1, "modal-card-body"], ["autocomplete", "off", 3, "formGroup", "ngSubmit"], [1, "subtitulo"], [1, "columns"], ["type", "text", "formControlName", "nombre", 1, "input"], ["type", "text", "formControlName", "codigo", 1, "input"], [4, "ngFor", "ngForOf", "ngForFrom"], ["type", "text", "id", "almacen_nuevo", "formControlName", "almacenes", "name", "nuevoAlmacen", 1, "input", 3, "ngModel", "ngModelChange"], [1, "button", "is-success", "is-outlined", 3, "disabled", "click"], [1, "button", "is-primary"], [1, "modal-card-body", "tabla"], [1, "separador"], ["type", "text", "id", "nombre_nuevo_producto", "placeholder", "Nombre Producto", 1, "input"], ["id", "grupo_producto"], ["type", "text", "id", "cod_producto", "placeholder", "C\xF3digo de producto", 1, "input"], ["type", "text", "id", "version", "placeholder", "Versi\xF3n", 1, "input"], ["type", "text", "id", "edicion", "placeholder", "Especificaci\xF3n", 1, "input"], ["type", "text", "placeholder", "C\xF3digo de producto de cliente", "id", "cod_cliente", 1, "input"], ["type", "checkbox", "name", "troquelado", "id", "troquelado", 3, "click"], ["type", "checkbox", "name", "pegado", "id", "pegado", 3, "click"], ["type", "checkbox", "name", "corte", "id", "corte", 3, "click"], [1, "columns", "is-3"], ["for", "", 1, "label"], [1, "column", "is-4"], ["type", "number", "min", "1", "max", "5", "placeholder", "Cantidad de montajes", 1, "input", 3, "ngModel", "ngModelChange"], ["name", "montajes", 3, "ngModel", "ngModelChange"], ["type", "number", "placeholder", "Ejemplares montados", 1, "input", 3, "ngModel", "change", "ngModelChange"], ["class", "materiales", 4, "ngFor", "ngForOf"], [1, "button", "is-primary", 3, "click"], [1, "image", "is-4by5"], [3, "src"], [1, "column", "is-5"], [1, "table"], [1, "file", "is-small", "has-name", "is-primary"], [1, "file-label"], ["type", "file", "name", "resume", 1, "file-input", 3, "change"], [1, "file-cta"], [1, "file-icon"], [1, "fas", "fa-upload"], [1, "file-name"], [1, "button", "is-primary", "mt-5", "is-small", 3, "disabled", "ngClass", "click"], ["id", "", "name", "montaje", 1, "select", 3, "ngModel", "click", "ngModelChange"], ["tr", "", 4, "ngFor", "ngForOf"], [1, "table", "is-bordered"], ["type", "text", "id", "nombre_nuevo_producto", "placeholder", "Nombre Producto", 1, "input", 3, "ngModel", "ngModelChange"], [3, "ngModel", "ngModelChange", 4, "ngFor", "ngForOf"], ["type", "text", "id", "cod_producto", "placeholder", "C\xF3digo de producto", 1, "input", 3, "ngModel", "ngModelChange"], ["type", "text", "id", "version", "placeholder", "Versi\xF3n", 1, "input", 3, "ngModel", "ngModelChange"], ["type", "text", "id", "edicion", "placeholder", "Especificaci\xF3n", 1, "input", 3, "ngModel", "ngModelChange"], ["type", "text", "placeholder", "C\xF3digo de producto de cliente", "id", "cod_cliente", 1, "input", 3, "ngModel", "ngModelChange"], [3, "value"], ["disabled", "", "id", "NP_button", 1, "button", "is-primary", 3, "click"], [1, "icon", 3, "click"], [1, "fas", "fa-times"], [1, "materiales"], ["class", "table is-fullwidth", 4, "ngIf"], ["class", "columns", 4, "ngIf"], ["class", "field", 4, "ngIf"], [1, "button", "is-danger", "is-outlined", "is-small", 3, "click"], [1, "icon", "is-small"], [1, "fas", "fa-check"], ["name", "", "id", "", 3, "change"], ["value", "0"], ["name", "", "disabled", "", 3, "id", "change"], ["producto", ""], ["id", "cant", 1, "field"], ["type", "text", 1, "input", 3, "id", "disabled"], ["size", ""], [1, "button", "is-success", "is-outlined", 3, "click"], ["tr", ""], [3, "ngModel", "ngModelChange"]],
         template: function ProductosComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -3275,91 +3327,81 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](180, "div", 24);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](181, "div", 12);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](181, "div", 12);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](182, "div", 12);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](182, "figure", 50);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](183, "table", 50);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](184, "thead");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](185, "th");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](186, " Especificaci\xF3n del Producto ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](183, "img", 51);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](187, "tbody");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](184, "div", 52);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](188, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](185, "table", 53);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](189);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](186, "thead");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](187, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](188, " Especificaci\xF3n del Producto ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](190, "div", 32);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](189, "tbody");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](191, " Identificacion del Producto ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](190, "tr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](191, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](192, "br");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](193, "table", 15);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](194, "tr");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](195, "th");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](196, "Cliente:");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](197, "td");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](198);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](192);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](199, "tr");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](193, "tr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](200, "th");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](194, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](201, "Producto:");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](195, "br");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](196, "br");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](202, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](197, "div", 54);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](203);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](198, "label", 55);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](199, "input", 56);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](204, "tr");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](205, "th");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](206, "C\xF3digo del producto:");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function ProductosComponent_Template_input_change_199_listener($event) {
+              return ctx.CambiarImagen($event);
+            });
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](207, "td");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](200, "span", 57);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](208);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](201, "span", 58);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](202, "i", 59);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](203, "span", 55);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](204, " Seleccionar Imagen ");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](205, "span", 60);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](206, " Sin archivo ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -3367,25 +3409,107 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](209, "div", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](207, "button", 61);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](210, "label", 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_Template_button_click_207_listener() {
+              return ctx.subirImagen();
+            });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](211, "Montaje");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](208, " Cambiar imagen ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](212, "div", 7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](213, "select", 51);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_Template_select_click_213_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](209, "div", 32);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](210, " Identificaci\xF3n del Producto ");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](211, "br");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](212, "table", 15);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](213, "tr");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](214, "th");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](215, "Cliente:");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](216, "td");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](217);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](218, "tr");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](219, "th");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](220, "Producto:");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](221, "td");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](222);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](223, "tr");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](224, "th");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](225, "C\xF3digo del producto:");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](226, "td");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](227);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](228, "div", 4);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](229, "label", 5);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](230, "Montaje");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](231, "div", 7);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](232, "select", 62);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_Template_select_click_232_listener() {
               return ctx.cambiarCalculo();
-            })("ngModelChange", function ProductosComponent_Template_select_ngModelChange_213_listener($event) {
+            })("ngModelChange", function ProductosComponent_Template_select_ngModelChange_232_listener($event) {
               return ctx.i_montajes = $event;
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](214, ProductosComponent_option_214_Template, 2, 5, "option", 10);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](233, ProductosComponent_option_233_Template, 2, 5, "option", 10);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -3393,169 +3517,101 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](215, "div", 32);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](234, "div", 32);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](216, " Materia Prima ");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](217, "br");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](218, "table", 15);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](219, "thead");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](220, "th");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](221, " Sustrato ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](235, " Materia Prima ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](236, "br");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](222, "tbody");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](237, "table", 15);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](223, ProductosComponent_tr_223_Template, 2, 1, "tr", 17);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](238, "thead");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](239, "th");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](240, " Sustrato ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](224, "table", 15);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](241, "tbody");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](225, "thead");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](226, "th");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](227, " Colores Aprobados: ");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](228, "th");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](229, " Tintas (Marca): ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](242, ProductosComponent_tr_242_Template, 2, 1, "tr", 17);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](230, "tbody");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](243, "table", 15);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](231, ProductosComponent_tr_231_Template, 2, 1, "tr", 17);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](244, "thead");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](245, "th");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](246, " Colores Aprobados: ");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](247, "th");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](248, " Tintas (Marca): ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](232, "table", 15);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](249, "tbody");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](233, "thead");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](234, "th");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](235, " Barniz aprobado ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](250, ProductosComponent_tr_250_Template, 2, 1, "tr", 17);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](236, "tbody");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](251, "table", 15);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](237, ProductosComponent_tr_237_Template, 2, 1, "tr", 17);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](252, "thead");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](253, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](238, "div", 32);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](239, " Pre impresion ");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](240, "br");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](241, "table", 15);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](242, "thead");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](243, "th");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](244, " C\xF3digo de peliculas: ");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](245, "td");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](246, ProductosComponent_ng_container_246_Template, 2, 1, "ng-container", 52);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](254, " Barniz aprobado ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](255, "tbody");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](247, "div", 32);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](248, " Impresi\xF3n ");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](249, "br");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](250, "table", 15);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](251, "thead");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](252, "th");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](253, "Tama\xF1o de Impresi\xF3n");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](254, "th");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](255, "Ejemplares montados");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](256, ProductosComponent_tr_256_Template, 2, 1, "tr", 17);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](256, "tbody");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](257, "div", 32);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](257, "td");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](258, "table", 53);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](259, "thead");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](260, "th");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](261, "Ancho");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](258, " Pre impresi\xF3n ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](259, "br");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](260, "table", 15);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](261, "thead");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](262, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](263, "Largo");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](263, " C\xF3digo de peliculas: ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](264, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](264, "tbody");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](265, ProductosComponent_tr_265_Template, 2, 1, "tr", 17);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](266, "td");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](267);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](265, ProductosComponent_ng_container_265_Template, 2, 1, "ng-container", 63);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -3563,81 +3619,149 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](268, "div", 32);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](266, "div", 32);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](269, " Post Impresi\xF3n ");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](270, "br");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](271, "table", 15);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](272, "thead");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](273, ProductosComponent_ng_container_273_Template, 3, 2, "ng-container", 17);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](267, " Impresi\xF3n ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](274, "tbody");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](268, "br");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](275, ProductosComponent_ng_container_275_Template, 3, 2, "ng-container", 17);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](269, "table", 15);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](270, "thead");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](271, "th");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](272, "Tama\xF1o de Impresi\xF3n");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](273, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](274, "Ejemplares montados");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](276, "div", 18);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](275, "tbody");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](277, "div", 19);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](276, "td");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_Template_div_click_277_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](277, "table", 64);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](278, "thead");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](279, "th");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](280, "Ancho");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](281, "th");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](282, "Largo");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](283, "tbody");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](284, ProductosComponent_tr_284_Template, 2, 1, "tr", 17);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](285, "td");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](286);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](287, "div", 32);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](288, " Post Impresi\xF3n ");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](289, "br");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](290, "table", 15);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](291, "thead");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](292, ProductosComponent_ng_container_292_Template, 3, 2, "ng-container", 17);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](293, "tbody");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](294, ProductosComponent_ng_container_294_Template, 3, 2, "ng-container", 17);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](295, "div", 18);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](296, "div", 19);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_Template_div_click_296_listener() {
               return ctx.Modal_Producto_E();
             });
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](278, "div", 20);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](297, "div", 20);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](279, "div", 31);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](298, "div", 31);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](280, "div", 23);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](299, "div", 23);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](281, " Editar Producto ");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](282, "div", 32);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](283, " Informaci\xF3n del producto ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](300, " Editar Producto ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](284, "br");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](301, "div", 32);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](285, "div", 24);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](286, "div", 12);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](287, "div", 4);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](288, "label", 5);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](289, "Nombre Producto");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](302, " Informaci\xF3n del producto ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](290, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](303, "br");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](291, "input", 54);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](304, "div", 24);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_Template_input_ngModelChange_291_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](305, "div", 12);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](306, "div", 4);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](307, "label", 5);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](308, "Nombre Producto");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](309, "div", 6);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](310, "input", 65);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_Template_input_ngModelChange_310_listener($event) {
               return ctx.OneProduct.producto = $event;
             });
 
@@ -3651,47 +3775,47 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](292, "div", 24);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](311, "div", 24);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](293, "div", 12);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](312, "div", 12);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](294, "div", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](313, "div", 4);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](295, "label", 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](314, "label", 5);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](296, "Categoria");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](297, "div", 7);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](298, "select", 34);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](299, ProductosComponent_option_299_Template, 2, 2, "option", 55);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](315, "Categoria");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](316, "div", 7);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](317, "select", 34);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](318, ProductosComponent_option_318_Template, 2, 2, "option", 66);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](300, "div", 12);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](301, "div", 4);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](302, "label", 5);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](303, "Cod. Producto");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](304, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](319, "div", 12);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](305, "input", 56);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](320, "div", 4);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_Template_input_ngModelChange_305_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](321, "label", 5);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](322, "Cod. Producto");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](323, "div", 6);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](324, "input", 67);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_Template_input_ngModelChange_324_listener($event) {
               return ctx.OneProduct.codigo = $event;
             });
 
@@ -3705,23 +3829,23 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](306, "div", 24);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](325, "div", 24);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](307, "div", 12);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](326, "div", 12);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](308, "div", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](327, "div", 4);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](309, "label", 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](328, "label", 5);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](310, "Versi\xF3n");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](329, "Versi\xF3n");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](311, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](330, "div", 6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](312, "input", 57);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](331, "input", 68);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_Template_input_ngModelChange_312_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_Template_input_ngModelChange_331_listener($event) {
               return ctx.OneProduct.version = $event;
             });
 
@@ -3733,21 +3857,21 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](313, "div", 12);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](332, "div", 12);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](314, "div", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](333, "div", 4);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](315, "label", 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](334, "label", 5);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](316, "Especificaci\xF3n");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](335, "Especificaci\xF3n");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](317, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](336, "div", 6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](318, "input", 58);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](337, "input", 69);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_Template_input_ngModelChange_318_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_Template_input_ngModelChange_337_listener($event) {
               return ctx.OneProduct.edicion = $event;
             });
 
@@ -3761,23 +3885,23 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](319, "div", 24);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](338, "div", 24);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](320, "div", 12);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](339, "div", 12);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](321, "div", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](340, "div", 4);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](322, "label", 5);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](341, "label", 5);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](323, "C\xF3digo de producto de cliente");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](342, "C\xF3digo de producto de cliente");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](324, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](343, "div", 6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](325, "input", 59);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](344, "input", 70);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_Template_input_ngModelChange_325_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_Template_input_ngModelChange_344_listener($event) {
               return ctx.OneProduct.cod_cliente = $event;
             });
 
@@ -3789,91 +3913,91 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](326, "div", 12);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](345, "div", 12);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](327, "input", 39);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](346, "input", 39);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_Template_input_click_327_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_Template_input_click_346_listener() {
               return ctx.post_impresion("Troquelado");
             });
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](328, "label");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](347, "label");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](329, " Troquelado");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](348, " Troquelado");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](330, "br");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](349, "br");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](331, "input", 40);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](350, "input", 40);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_Template_input_click_331_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_Template_input_click_350_listener() {
               return ctx.post_impresion("Pegado");
             });
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](332, "label");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](351, "label");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](333, " Pegado");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](352, " Pegado");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](334, "br");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](353, "br");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](335, "input", 41);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](354, "input", 41);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_Template_input_click_335_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_Template_input_click_354_listener() {
               return ctx.post_impresion("Corte Recto");
             });
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](336, "label");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](355, "label");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](337, " Corte Recto");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](338, "br");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](356, " Corte Recto");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](339, "div", 32);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](340, " Pre Impresi\xF3n ");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](341, "br");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](342, "div", 42);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](343, "div", 12);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](344, "div", 24);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](345, "div", 12);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](346, "label", 43);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](347, "Cantidad de montajes:");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](357, "br");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](348, "div", 44);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](358, "div", 32);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](349, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](359, " Pre Impresi\xF3n ");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](350, "input", 45);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_Template_input_ngModelChange_350_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](360, "br");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](361, "div", 42);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](362, "div", 12);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](363, "div", 24);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](364, "div", 12);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](365, "label", 43);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](366, "Cantidad de montajes:");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](367, "div", 44);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](368, "div", 6);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](369, "input", 45);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_Template_input_ngModelChange_369_listener($event) {
               return ctx.OneProduct.montajes = $event;
             });
 
@@ -3887,35 +4011,35 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](351, "div", 12);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](370, "div", 12);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](352, "div", 24);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](371, "div", 24);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](353, "div", 12);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](372, "div", 12);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](354, "label", 43);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](373, "label", 43);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](355, "Montaje:");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](374, "Montaje:");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](356, "div", 12);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](357, "div", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](375, "div", 12);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](358, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](376, "div", 4);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](359, "div", 7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](377, "div", 6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](360, "select", 46);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](378, "div", 7);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_Template_select_ngModelChange_360_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](379, "select", 46);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function ProductosComponent_Template_select_ngModelChange_379_listener($event) {
               return ctx.i_montajes_ = $event;
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](361, ProductosComponent_option_361_Template, 2, 2, "option", 10);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](380, ProductosComponent_option_380_Template, 2, 2, "option", 10);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -3933,41 +4057,41 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](362, "div", 32);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](381, "div", 32);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](363, " Materia Prima - Montaje ");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](364, "br");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](365, "div", 24);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](366, "div", 12);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](367, "div", 24);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](368, "div", 12);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](369, "label", 5);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](370, "Ejemplares montados:");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](382, " Materia Prima - Montaje ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](383, "br");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](384, "div", 24);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](385, "div", 12);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](386, "div", 24);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](387, "div", 12);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](388, "label", 5);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](389, "Ejemplares montados:");
+
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](371, "div", 44);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](372, "div", 4);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](390, "div", 44);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](373, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](391, "div", 4);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](374, "input", 47);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](392, "div", 6);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function ProductosComponent_Template_input_change_374_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](393, "input", 47);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("change", function ProductosComponent_Template_input_change_393_listener($event) {
               return ctx.Ejemplar($event.target.value);
-            })("ngModelChange", function ProductosComponent_Template_input_ngModelChange_374_listener($event) {
+            })("ngModelChange", function ProductosComponent_Template_input_ngModelChange_393_listener($event) {
               return ctx.OneProduct.ejemplares[ctx.i_montajes_] = $event;
             });
 
@@ -3983,21 +4107,21 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](375, "div", 12);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](394, "div", 12);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](376, ProductosComponent_div_376_Template, 5, 4, "div", 48);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](395, ProductosComponent_div_395_Template, 5, 4, "div", 48);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](377, "hr");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](396, "hr");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](378, "button", 49);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](397, "button", 49);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_Template_button_click_378_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ProductosComponent_Template_button_click_397_listener() {
               return ctx.editar_producto();
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](379, "Editar Producto");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](398, "Editar Producto");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -4031,7 +4155,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](50, _c0, ctx.NUEVO_CLIENTE));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](53, _c0, ctx.NUEVO_CLIENTE));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
@@ -4051,7 +4175,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](52, _c0, ctx.NUEVO_PRODUCTO));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](55, _c0, ctx.NUEVO_PRODUCTO));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](23);
 
@@ -4067,7 +4191,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](54, _c1).constructor(ctx.montajes));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](57, _c1).constructor(ctx.montajes));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](14);
 
@@ -4075,17 +4199,25 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](55, _c1).constructor(ctx.montajes));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](58, _c1).constructor(ctx.montajes));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](56, _c0, ctx.VER_PRODUCTO));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](59, _c0, ctx.VER_PRODUCTO));
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](13);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](7);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpropertyInterpolate"]("src", ctx.ImageProducto, _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsanitizeUrl"]);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate4"]("\n\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0E-", ctx.OneProduct.cliente.codigo, "-", ctx.OneProduct.codigo, "-", ctx.OneProduct.version, "-", ctx.OneProduct.edicion, " ");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](15);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", !ctx.ImgSubir)("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](61, _c2, ctx.cargando));
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](10);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ctx.OneProduct.cliente.nombre);
 
@@ -4103,7 +4235,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](58, _c1).constructor(ctx.OneProduct.montajes));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](63, _c1).constructor(ctx.OneProduct.montajes));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
 
@@ -4139,7 +4271,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](59, _c0, ctx.EDITAR_PRODUCTO));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](64, _c0, ctx.EDITAR_PRODUCTO));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](15);
 
@@ -4175,7 +4307,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](61, _c1).constructor(ctx.OneProduct.montajes));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](66, _c1).constructor(ctx.OneProduct.montajes));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](13);
 
@@ -4183,11 +4315,11 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](62, _c1).constructor(ctx.OneProduct.montajes));
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction0"](67, _c1).constructor(ctx.OneProduct.montajes));
           }
         },
-        directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgSelectOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_x"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_4__["NgClass"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["SelectControlValueAccessor"]],
-        styles: ["@font-face {\r\n    font-family: Roboto;\r\n    src: url('Roboto-Black.ttf');\r\n}\r\n\r\n.titulo[_ngcontent-%COMP%]{\r\n    font-size: 50px;\r\n    font-family: Roboto;\r\n}\r\n\r\n.subtitulo[_ngcontent-%COMP%]{\r\n    font-size: 30px;\r\n    font-family: Roboto;\r\n}\r\n\r\n.mt-5[_ngcontent-%COMP%]{\r\n    margin-top: 5px;\r\n}\r\n\r\n.tabla[_ngcontent-%COMP%]{\r\n    align-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.separador[_ngcontent-%COMP%]{\r\n    display: block;\r\n    background-color: black;\r\n    border-radius: 5px;\r\n    color: white;\r\n    text-align: center;\r\n    font-weight: bold;\r\n}\r\n\r\n.icon[_ngcontent-%COMP%]{\r\n    color: rgb(196, 194, 194);\r\n    display: block;\r\n    float: right;\r\n}\r\n\r\n.icon[_ngcontent-%COMP%]:hover{\r\n    cursor: pointer;\r\n    color: gray;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvZHVjdG8teW1hcXVpbmFyaWEvcHJvZHVjdG9zL3Byb2R1Y3Rvcy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksbUJBQW1CO0lBQ25CLDRCQUFpRDtBQUNyRDs7QUFFQTtJQUNJLGVBQWU7SUFDZixtQkFBbUI7QUFDdkI7O0FBQ0E7SUFDSSxlQUFlO0lBQ2YsbUJBQW1CO0FBQ3ZCOztBQUVBO0lBQ0ksZUFBZTtBQUNuQjs7QUFFQTtJQUNJLHFCQUFxQjtJQUNyQixtQkFBbUI7QUFDdkI7O0FBRUE7SUFDSSxjQUFjO0lBQ2QsdUJBQXVCO0lBQ3ZCLGtCQUFrQjtJQUNsQixZQUFZO0lBQ1osa0JBQWtCO0lBQ2xCLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLHlCQUF5QjtJQUN6QixjQUFjO0lBQ2QsWUFBWTtBQUNoQjs7QUFDQTtJQUNJLGVBQWU7SUFDZixXQUFXO0FBQ2YiLCJmaWxlIjoic3JjL2FwcC9wcm9kdWN0by15bWFxdWluYXJpYS9wcm9kdWN0b3MvcHJvZHVjdG9zLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAZm9udC1mYWNlIHtcclxuICAgIGZvbnQtZmFtaWx5OiBSb2JvdG87XHJcbiAgICBzcmM6IHVybCguLi8uLi8uLi9hc3NldHMvUm9ib3RvL1JvYm90by1CbGFjay50dGYpO1xyXG59XHJcblxyXG4udGl0dWxve1xyXG4gICAgZm9udC1zaXplOiA1MHB4O1xyXG4gICAgZm9udC1mYW1pbHk6IFJvYm90bztcclxufVxyXG4uc3VidGl0dWxve1xyXG4gICAgZm9udC1zaXplOiAzMHB4O1xyXG4gICAgZm9udC1mYW1pbHk6IFJvYm90bztcclxufVxyXG5cclxuLm10LTV7XHJcbiAgICBtYXJnaW4tdG9wOiA1cHg7XHJcbn1cclxuXHJcbi50YWJsYXtcclxuICAgIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcbn1cclxuXHJcbi5zZXBhcmFkb3J7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIGJhY2tncm91bmQtY29sb3I6IGJsYWNrO1xyXG4gICAgYm9yZGVyLXJhZGl1czogNXB4O1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbn1cclxuXHJcbi5pY29ue1xyXG4gICAgY29sb3I6IHJnYigxOTYsIDE5NCwgMTk0KTtcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgZmxvYXQ6IHJpZ2h0O1xyXG59XHJcbi5pY29uOmhvdmVye1xyXG4gICAgY3Vyc29yOiBwb2ludGVyO1xyXG4gICAgY29sb3I6IGdyYXk7XHJcbn0iXX0= */"]
+        directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgSelectOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_x"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgForOf"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgIf"], _angular_common__WEBPACK_IMPORTED_MODULE_6__["NgClass"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NumberValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgModel"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["SelectControlValueAccessor"]],
+        styles: ["@font-face {\r\n    font-family: Roboto;\r\n    src: url('Roboto-Black.ttf');\r\n}\r\n\r\n.titulo[_ngcontent-%COMP%]{\r\n    font-size: 50px;\r\n    font-family: Roboto;\r\n}\r\n\r\n.subtitulo[_ngcontent-%COMP%]{\r\n    font-size: 30px;\r\n    font-family: Roboto;\r\n}\r\n\r\n.mt-5[_ngcontent-%COMP%]{\r\n    margin-top: 5px;\r\n}\r\n\r\n.tabla[_ngcontent-%COMP%]{\r\n    align-content: center;\r\n    align-items: center;\r\n}\r\n\r\n.separador[_ngcontent-%COMP%]{\r\n    display: block;\r\n    background-color: black;\r\n    border-radius: 5px;\r\n    color: white;\r\n    text-align: center;\r\n    font-weight: bold;\r\n}\r\n\r\n.icon[_ngcontent-%COMP%]{\r\n    color: rgb(196, 194, 194);\r\n    display: block;\r\n    float: right;\r\n}\r\n\r\n.icon[_ngcontent-%COMP%]:hover{\r\n    cursor: pointer;\r\n    color: gray;\r\n}\r\n\r\nimg[_ngcontent-%COMP%]{\r\n    width: 500px;\r\n    height: 200px;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcHJvZHVjdG8teW1hcXVpbmFyaWEvcHJvZHVjdG9zL3Byb2R1Y3Rvcy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0lBQ0ksbUJBQW1CO0lBQ25CLDRCQUFpRDtBQUNyRDs7QUFFQTtJQUNJLGVBQWU7SUFDZixtQkFBbUI7QUFDdkI7O0FBQ0E7SUFDSSxlQUFlO0lBQ2YsbUJBQW1CO0FBQ3ZCOztBQUVBO0lBQ0ksZUFBZTtBQUNuQjs7QUFFQTtJQUNJLHFCQUFxQjtJQUNyQixtQkFBbUI7QUFDdkI7O0FBRUE7SUFDSSxjQUFjO0lBQ2QsdUJBQXVCO0lBQ3ZCLGtCQUFrQjtJQUNsQixZQUFZO0lBQ1osa0JBQWtCO0lBQ2xCLGlCQUFpQjtBQUNyQjs7QUFFQTtJQUNJLHlCQUF5QjtJQUN6QixjQUFjO0lBQ2QsWUFBWTtBQUNoQjs7QUFDQTtJQUNJLGVBQWU7SUFDZixXQUFXO0FBQ2Y7O0FBRUE7SUFDSSxZQUFZO0lBQ1osYUFBYTtBQUNqQiIsImZpbGUiOiJzcmMvYXBwL3Byb2R1Y3RvLXltYXF1aW5hcmlhL3Byb2R1Y3Rvcy9wcm9kdWN0b3MuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIkBmb250LWZhY2Uge1xyXG4gICAgZm9udC1mYW1pbHk6IFJvYm90bztcclxuICAgIHNyYzogdXJsKC4uLy4uLy4uL2Fzc2V0cy9Sb2JvdG8vUm9ib3RvLUJsYWNrLnR0Zik7XHJcbn1cclxuXHJcbi50aXR1bG97XHJcbiAgICBmb250LXNpemU6IDUwcHg7XHJcbiAgICBmb250LWZhbWlseTogUm9ib3RvO1xyXG59XHJcbi5zdWJ0aXR1bG97XHJcbiAgICBmb250LXNpemU6IDMwcHg7XHJcbiAgICBmb250LWZhbWlseTogUm9ib3RvO1xyXG59XHJcblxyXG4ubXQtNXtcclxuICAgIG1hcmdpbi10b3A6IDVweDtcclxufVxyXG5cclxuLnRhYmxhe1xyXG4gICAgYWxpZ24tY29udGVudDogY2VudGVyO1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxufVxyXG5cclxuLnNlcGFyYWRvcntcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogYmxhY2s7XHJcbiAgICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG5cclxuLmljb257XHJcbiAgICBjb2xvcjogcmdiKDE5NiwgMTk0LCAxOTQpO1xyXG4gICAgZGlzcGxheTogYmxvY2s7XHJcbiAgICBmbG9hdDogcmlnaHQ7XHJcbn1cclxuLmljb246aG92ZXJ7XHJcbiAgICBjdXJzb3I6IHBvaW50ZXI7XHJcbiAgICBjb2xvcjogZ3JheTtcclxufVxyXG5cclxuaW1ne1xyXG4gICAgd2lkdGg6IDUwMHB4O1xyXG4gICAgaGVpZ2h0OiAyMDBweDtcclxufSJdfQ== */"]
       });
       /*@__PURE__*/
 
@@ -4201,7 +4333,9 @@
           }]
         }], function () {
           return [{
-            type: src_app_services_rest_api_service__WEBPACK_IMPORTED_MODULE_3__["RestApiService"]
+            type: src_app_services_rest_api_service__WEBPACK_IMPORTED_MODULE_4__["RestApiService"]
+          }, {
+            type: src_app_services_subir_archivos_service__WEBPACK_IMPORTED_MODULE_5__["SubirArchivosService"]
           }, {
             type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]
           }];
@@ -4279,7 +4413,7 @@
             return ctx_r9.Modal_Maquina();
           });
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Nueva Maquina");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Nueva M\xE1quina");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -4826,23 +4960,23 @@
         }, {
           key: "EditarMaquina",
           value: function EditarMaquina(id) {
-            var _this13 = this;
+            var _this14 = this;
 
             this.Edicion_Modal_Maquina();
             this.api.getMaquinaID(id).subscribe(function (resp) {
-              _this13.MaquinaID = resp;
+              _this14.MaquinaID = resp;
             });
           }
         }, {
           key: "Finalizar_Edicion_M",
           value: function Finalizar_Edicion_M() {
-            var _this14 = this;
+            var _this15 = this;
 
             this.MaquinaID.tipo = this.MaquinaID.tipo.toUpperCase();
             this.api.putMaquina(this.MaquinaID._id, this.MaquinaID).subscribe(function (resp) {
-              _this14.ObtenerMaquinas();
+              _this15.ObtenerMaquinas();
 
-              _this14.Edicion_Modal_Maquina();
+              _this15.Edicion_Modal_Maquina();
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
                 position: 'center',
@@ -4856,31 +4990,31 @@
         }, {
           key: "nuevaMaquina",
           value: function nuevaMaquina() {
-            var _this15 = this;
+            var _this16 = this;
 
             this.api.PostMaquinas(this.maquinaForm.value).subscribe(function (resp) {
-              _this15.maquinaForm.reset();
+              _this16.maquinaForm.reset();
 
-              _this15.NUEVA_MAQUINA = false;
+              _this16.NUEVA_MAQUINA = false;
 
-              _this15.ObtenerMaquinas();
+              _this16.ObtenerMaquinas();
             });
           }
         }, {
           key: "ObtenerMaquinas",
           value: function ObtenerMaquinas() {
-            var _this16 = this;
+            var _this17 = this;
 
             this.api.GetMaquinas().subscribe(function (maquinas) {
-              _this16.MAQUINAS = maquinas;
+              _this17.MAQUINAS = maquinas;
 
-              _this16.obtenerTipos();
+              _this17.obtenerTipos();
             });
           }
         }, {
           key: "BorrarMaquina_",
           value: function BorrarMaquina_(id) {
-            var _this17 = this;
+            var _this18 = this;
 
             sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
               title: '¿Estas Seguro?',
@@ -4893,7 +5027,7 @@
               confirmButtonText: 'Si, Eliminar!'
             }).then(function (result) {
               if (result.isConfirmed) {
-                _this17.BorrarMaquina(id);
+                _this18.BorrarMaquina(id);
 
                 sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
                   position: 'center',
@@ -4908,7 +5042,7 @@
         }, {
           key: "EliminarGrupo_",
           value: function EliminarGrupo_(id) {
-            var _this18 = this;
+            var _this19 = this;
 
             sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
               title: '¿Estas Seguro?',
@@ -4921,7 +5055,7 @@
               confirmButtonText: 'Si, Eliminar!'
             }).then(function (result) {
               if (result.isConfirmed) {
-                _this18.EliminarGrupo(id);
+                _this19.EliminarGrupo(id);
 
                 sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
                   position: 'center',
@@ -4936,19 +5070,19 @@
         }, {
           key: "EliminarGrupo",
           value: function EliminarGrupo(id) {
-            var _this19 = this;
+            var _this20 = this;
 
             this.api.deleteGrupo(id).subscribe(function (resp) {
-              _this19.obtenerGrupos();
+              _this20.obtenerGrupos();
             });
           }
         }, {
           key: "BorrarMaquina",
           value: function BorrarMaquina(id) {
-            var _this20 = this;
+            var _this21 = this;
 
             this.api.DeleteMaquinas(id).subscribe(function (resp) {
-              _this20.ObtenerMaquinas();
+              _this21.ObtenerMaquinas();
             });
           } // ----------------------GRUPOS -------------
 
@@ -4987,16 +5121,16 @@
         }, {
           key: "obtenerGrupos",
           value: function obtenerGrupos() {
-            var _this21 = this;
+            var _this22 = this;
 
             this.api.getGrupos().subscribe(function (resp) {
-              _this21.GRUPOS = resp.grupos;
+              _this22.GRUPOS = resp.grupos;
             });
           }
         }, {
           key: "nuevoTipo",
           value: function nuevoTipo() {
-            var _this22 = this;
+            var _this23 = this;
 
             var name = document.getElementById('name').value;
             var nuevoTipo = {
@@ -5005,9 +5139,9 @@
             }; // AGREGAR A LA BASE DE DATOS****************
 
             this.api.PostGrupos(nuevoTipo).subscribe(function (resp) {
-              _this22.obtenerGrupos();
+              _this23.obtenerGrupos();
 
-              _this22.NUEVO_GRUPO = false;
+              _this23.NUEVO_GRUPO = false;
             });
           }
         }]);
@@ -5051,13 +5185,13 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Nombre Maquina");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Nombre M\xE1quina");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Funci\xF3n de Maquina");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Funci\xF3n de M\xE1quina");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -5155,7 +5289,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](39, "div", 14);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](40, "Registrar Maquina");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](40, "Registrar M\xE1quina");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -5227,7 +5361,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](62, "button", 22);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](63, "Registrar Nueva Maquina");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](63, "Registrar Nueva M\xE1quina");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -5438,7 +5572,7 @@
     /***/
     function _(module, exports, __webpack_require__) {
       module.exports = __webpack_require__(
-      /*! C:\Users\administrador.POLINDUSTRIAL\Documents\SISTEMA SIO\FRONTEND\src\main.ts */
+      /*! C:\Users\administrador.POLINDUSTRIAL\Desktop\SIO_UPDATED\SIO_FRONTEND\src\main.ts */
       "zUnb");
       /***/
     },
@@ -6066,7 +6200,7 @@
         }, {
           key: "cambiarPass",
           value: function cambiarPass() {
-            var _this23 = this;
+            var _this24 = this;
 
             var data = {
               correo: this.usuario.Correo,
@@ -6078,10 +6212,10 @@
                 text: 'Se realizó el cambio de contraseña',
                 icon: 'success'
               });
-              _this23.pass1 = '';
-              _this23.pass2 = '';
+              _this24.pass1 = '';
+              _this24.pass2 = '';
 
-              _this23.cambiar();
+              _this24.cambiar();
             });
           }
         }]);
@@ -6368,6 +6502,150 @@
     },
 
     /***/
+    "GaxR":
+    /*!****************************************************!*\
+      !*** ./src/app/services/subir-archivos.service.ts ***!
+      \****************************************************/
+
+    /*! exports provided: SubirArchivosService */
+
+    /***/
+    function GaxR(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "SubirArchivosService", function () {
+        return SubirArchivosService;
+      });
+      /* harmony import */
+
+
+      var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! tslib */
+      "mrSG");
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
+
+
+      var src_environments_environment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! src/environments/environment */
+      "AytR");
+      /* harmony import */
+
+
+      var sweetalert2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! sweetalert2 */
+      "PSD3");
+      /* harmony import */
+
+
+      var sweetalert2__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_3__);
+
+      var SubirArchivosService = /*#__PURE__*/function () {
+        function SubirArchivosService() {
+          _classCallCheck(this, SubirArchivosService);
+
+          this.api_url = src_environments_environment__WEBPACK_IMPORTED_MODULE_2__["environment"].api;
+        }
+
+        _createClass(SubirArchivosService, [{
+          key: "actualizarFoto",
+          value: function actualizarFoto(archivo, tipo, id) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+              var url, formData, resp, data;
+              return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                  switch (_context.prev = _context.next) {
+                    case 0:
+                      _context.prev = 0;
+                      url = "".concat(this.api_url, "/upload/").concat(tipo, "/").concat(id);
+                      formData = new FormData();
+                      formData.append('archivo', archivo);
+                      _context.next = 6;
+                      return fetch(url, {
+                        method: 'PUT',
+                        headers: {
+                          'Authorization': localStorage.getItem('token') || ''
+                        },
+                        body: formData
+                      });
+
+                    case 6:
+                      resp = _context.sent;
+                      _context.next = 9;
+                      return resp.json();
+
+                    case 9:
+                      data = _context.sent;
+
+                      if (!data.ok) {
+                        _context.next = 15;
+                        break;
+                      }
+
+                      sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire('Excelente!', 'Se ha actualizado la imagen del producto', 'success');
+                      return _context.abrupt("return", data.img);
+
+                    case 15:
+                      sweetalert2__WEBPACK_IMPORTED_MODULE_3___default.a.fire('Error', data.err.message, 'error');
+                      return _context.abrupt("return", false);
+
+                    case 17:
+                      return _context.abrupt("return", 'path image');
+
+                    case 20:
+                      _context.prev = 20;
+                      _context.t0 = _context["catch"](0);
+                      console.log(_context.t0);
+                      return _context.abrupt("return", false);
+
+                    case 24:
+                    case "end":
+                      return _context.stop();
+                  }
+                }
+              }, _callee, this, [[0, 20]]);
+            }));
+          }
+        }]);
+
+        return SubirArchivosService;
+      }();
+
+      SubirArchivosService.ɵfac = function SubirArchivosService_Factory(t) {
+        return new (t || SubirArchivosService)();
+      };
+
+      SubirArchivosService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjectable"]({
+        token: SubirArchivosService,
+        factory: SubirArchivosService.ɵfac,
+        providedIn: 'root'
+      });
+      /*@__PURE__*/
+
+      (function () {
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](SubirArchivosService, [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"],
+          args: [{
+            providedIn: 'root'
+          }]
+        }], function () {
+          return [];
+        }, null);
+      })();
+      /***/
+
+    },
+
+    /***/
     "I1LG":
     /*!******************************************!*\
       !*** ./src/app/Auth/auth-guard.guard.ts ***!
@@ -6422,11 +6700,11 @@
         _createClass(AuthGuard, [{
           key: "canActivate",
           value: function canActivate(route, state) {
-            var _this24 = this;
+            var _this25 = this;
 
             return this.api.validarToken().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(function (isAuth) {
               if (!isAuth) {
-                _this24.router.navigateByUrl('login');
+                _this25.router.navigateByUrl('login');
               }
             }));
           }
@@ -6961,7 +7239,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "th");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Maquina");
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "M\xE1quina");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -7092,14 +7370,14 @@
         _createClass(GestionComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this25 = this;
+            var _this26 = this;
 
             this.Tarea();
             this.getMaquinas();
             this.getGestiones();
             this.api.getGrupos().subscribe(function (resp) {
-              _this25.GRUPOS = resp.grupos;
-              console.log(_this25.GRUPOS, '___________________________________________*');
+              _this26.GRUPOS = resp.grupos;
+              console.log(_this26.GRUPOS, '___________________________________________*');
             });
           }
         }, {
@@ -7121,12 +7399,12 @@
         }, {
           key: "getMaquinas",
           value: function getMaquinas() {
-            var _this26 = this;
+            var _this27 = this;
 
             this.api.GetMaquinas().subscribe(function (resp) {
-              _this26.MAQUINAS = resp;
+              _this27.MAQUINAS = resp;
 
-              _this26.obtenerTipos();
+              _this27.obtenerTipos();
             });
           }
         }, {
@@ -7173,7 +7451,7 @@
         }, {
           key: "retrasar",
           value: function retrasar(orden, maquina, fecha, trabajo) {
-            var _this27 = this;
+            var _this28 = this;
 
             var data = {
               orden: orden,
@@ -7188,19 +7466,19 @@
                 title: 'Se realizó un retraso en la planificación',
                 text: 'se agregó 1 dia mas a esta gestión y a todas las ordenes que utilicen estos mismos equipos'
               });
-              _this27.TRABAJOS = [];
+              _this28.TRABAJOS = [];
 
-              _this27.Tarea();
+              _this28.Tarea();
 
-              _this27.getMaquinas();
+              _this28.getMaquinas();
 
-              _this27.getGestiones();
+              _this28.getGestiones();
             });
           }
         }, {
           key: "acelerar",
           value: function acelerar(orden, maquina, fecha, trabajo, fechaI) {
-            var _this28 = this;
+            var _this29 = this;
 
             var fecha_lapsos = moment__WEBPACK_IMPORTED_MODULE_1__(fecha);
             var fechaI_lapso = moment__WEBPACK_IMPORTED_MODULE_1__(fechaI);
@@ -7226,13 +7504,13 @@
                 title: 'Fue adelantada la planificación',
                 text: 'se adelantó 1 dia mas a esta gestión y a todas las ordenes que utilizen estos mismos equipos'
               });
-              _this28.TRABAJOS = [];
+              _this29.TRABAJOS = [];
 
-              _this28.Tarea();
+              _this29.Tarea();
 
-              _this28.getMaquinas();
+              _this29.getMaquinas();
 
-              _this28.getGestiones();
+              _this29.getGestiones();
             });
           }
         }, {
@@ -7274,7 +7552,7 @@
         }, {
           key: "finalizar",
           value: function finalizar() {
-            var _this29 = this;
+            var _this30 = this;
 
             var hoy = moment__WEBPACK_IMPORTED_MODULE_1__().format('yyyy-MM-DD');
             var orden = '';
@@ -7329,30 +7607,30 @@
               document.getElementById('productos_input').value = '';
               document.getElementById('hojas_input').value = '';
 
-              _this29.modal_nueva_gestion();
+              _this30.modal_nueva_gestion();
 
-              _this29.getGestiones();
+              _this30.getGestiones();
             });
           }
         }, {
           key: "getGestiones",
           value: function getGestiones() {
-            var _this30 = this;
+            var _this31 = this;
 
             this.api.getGestiones().subscribe(function (resp) {
-              _this30.GESTIONES = resp;
+              _this31.GESTIONES = resp;
             });
           }
         }, {
           key: "Tarea",
           value: function Tarea() {
-            var _this31 = this;
+            var _this32 = this;
 
             var hoy = moment__WEBPACK_IMPORTED_MODULE_1__().format('yyyy-MM-DD');
             this.TRABAJOS = [];
             this.api.getTrabajos().subscribe(function (resp) {
               var nuevo = resp.filter(function (x) {
-                return x.maquina.tipo === _this31.FASE;
+                return x.maquina.tipo === _this32.FASE;
               });
 
               if (nuevo) {
@@ -7361,7 +7639,7 @@
                 for (var i = 0; i < Long; i++) {
                   if (hoy >= nuevo[i].fechaI) {
                     if (hoy <= nuevo[i].fecha) {
-                      _this31.TRABAJOS.push(nuevo[i]);
+                      _this32.TRABAJOS.push(nuevo[i]);
                     }
                   }
                 }
@@ -7371,7 +7649,7 @@
         }, {
           key: "finalizar_gestion",
           value: function finalizar_gestion(id) {
-            var _this32 = this;
+            var _this33 = this;
 
             var data = {
               id: id
@@ -7383,11 +7661,11 @@
                 showConfirmButton: false
               });
 
-              _this32.getGestiones();
+              _this33.getGestiones();
 
-              _this32.getMaquinas();
+              _this33.getMaquinas();
 
-              _this32.Tarea();
+              _this33.Tarea();
             });
           }
         }, {
@@ -7398,13 +7676,13 @@
         }, {
           key: "TraerTareasFueraDeFecha",
           value: function TraerTareasFueraDeFecha() {
-            var _this33 = this;
+            var _this34 = this;
 
             var hoy = moment__WEBPACK_IMPORTED_MODULE_1__().format('yyyy-MM-DD');
             this.TRABAJOS = [];
             this.api.getTrabajos().subscribe(function (resp) {
               var nuevo = resp.filter(function (x) {
-                return x.maquina.tipo === _this33.FASE;
+                return x.maquina.tipo === _this34.FASE;
               });
 
               if (nuevo) {
@@ -7415,7 +7693,7 @@
                   //   if(hoy <= nuevo[i].fecha){
                   //   }
                   // }
-                  _this33.TRABAJOS.push(nuevo[i]); // console.log(this.GRUPOS)
+                  _this34.TRABAJOS.push(nuevo[i]); // console.log(this.GRUPOS)
 
                 }
               }
@@ -7524,7 +7802,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](27, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28, "Maquina");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28, "M\xE1quina");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -7885,10 +8163,10 @@
         }, {
           key: "getOrdenes",
           value: function getOrdenes() {
-            var _this34 = this;
+            var _this35 = this;
 
             this.api.getOrden().subscribe(function (resp) {
-              _this34.ORDENES = resp;
+              _this35.ORDENES = resp;
             });
           }
         }, {
@@ -7920,10 +8198,10 @@
         }, {
           key: "obtenerTrabajos",
           value: function obtenerTrabajos() {
-            var _this35 = this;
+            var _this36 = this;
 
             this.api.getTrabajos().subscribe(function (resp) {
-              _this35.TRABAJOS = resp;
+              _this36.TRABAJOS = resp;
             });
           }
         }]);
@@ -9078,31 +9356,31 @@
         _createClass(OrdenComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this36 = this;
+            var _this37 = this;
 
             this.api.getOrdenById(this.id).subscribe(function (resp) {
-              _this36.PRODUCTO = resp;
-              _this36.cantidad = new Intl.NumberFormat('de-DE').format(_this36.PRODUCTO.cantidad);
-              _this36.demasia = Math.ceil(_this36.PRODUCTO.demasia * 100 / _this36.PRODUCTO.paginas);
-              var ejemplares_montados = _this36.PRODUCTO.producto.ejemplares[_this36.PRODUCTO.montaje];
-              var paginas_sin_demasia = _this36.PRODUCTO.cantidad / ejemplares_montados;
-              _this36.hojas_imprimir = Math.ceil(_this36.PRODUCTO.cantidad / _this36.PRODUCTO.producto.ejemplares[_this36.PRODUCTO.montaje]);
-              _this36.hojas_demasia = Math.ceil(_this36.PRODUCTO.demasia * _this36.hojas_imprimir / 100); // this.PRODUCTO.demasia = Math.ceil(this.demasia * paginas_sin_demasia / 100);
+              _this37.PRODUCTO = resp;
+              _this37.cantidad = new Intl.NumberFormat('de-DE').format(_this37.PRODUCTO.cantidad);
+              _this37.demasia = Math.ceil(_this37.PRODUCTO.demasia * 100 / _this37.PRODUCTO.paginas);
+              var ejemplares_montados = _this37.PRODUCTO.producto.ejemplares[_this37.PRODUCTO.montaje];
+              var paginas_sin_demasia = _this37.PRODUCTO.cantidad / ejemplares_montados;
+              _this37.hojas_imprimir = Math.ceil(_this37.PRODUCTO.cantidad / _this37.PRODUCTO.producto.ejemplares[_this37.PRODUCTO.montaje]);
+              _this37.hojas_demasia = Math.ceil(_this37.PRODUCTO.demasia * _this37.hojas_imprimir / 100); // this.PRODUCTO.demasia = Math.ceil(this.demasia * paginas_sin_demasia / 100);
               // this.PRODUCTO.demasia = this.PRODUCTO.producto.ejemplares[this.PRODUCTO.montaje]
 
-              console.log(_this36.PRODUCTO, 'este es el Producto');
+              console.log(_this37.PRODUCTO, 'este es el Producto');
 
-              _this36.getMaquinas(_this36.PRODUCTO._id);
+              _this37.getMaquinas(_this37.PRODUCTO._id);
             });
           }
         }, {
           key: "getMaquinas",
           value: function getMaquinas(orden) {
-            var _this37 = this;
+            var _this38 = this;
 
             this.api.getMaquinasByOrdens(orden).subscribe(function (resp) {
-              _this37.Maquinas = resp;
-              console.log(_this37.Maquinas, 'Estas son las maquinas');
+              _this38.Maquinas = resp;
+              console.log(_this38.Maquinas, 'Estas son las maquinas');
             });
           }
         }, {
@@ -9256,30 +9534,30 @@
             pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["PdfMakeWrapper"].setFonts(pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_3__);
 
             function generarPDF() {
-              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                return regeneratorRuntime.wrap(function _callee$(_context) {
+              return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+                return regeneratorRuntime.wrap(function _callee2$(_context2) {
                   while (1) {
-                    switch (_context.prev = _context.next) {
+                    switch (_context2.prev = _context2.next) {
                       case 0:
-                        _context.t0 = pdf;
-                        _context.t1 = pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"];
-                        _context.t2 = pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"];
-                        _context.next = 5;
+                        _context2.t0 = pdf;
+                        _context2.t1 = pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"];
+                        _context2.t2 = pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"];
+                        _context2.next = 5;
                         return new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Img"]('../../assets/poli_cintillo.png').width(85).margin([20, 5]).build();
 
                       case 5:
-                        _context.t3 = _context.sent;
-                        _context.t4 = new _context.t2(_context.t3).rowSpan(4).end;
-                        _context.t5 = new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("\n            ORDEN DE PRODUCCI\xD3N").bold().end).alignment('center').fontSize(13).rowSpan(4).end;
-                        _context.t6 = new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Código: FPR-008').end).fillColor('#dedede').fontSize(7).alignment('center').end;
-                        _context.t7 = [_context.t4, _context.t5, _context.t6];
-                        _context.t8 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('N° de Revisión: 0').end).fillColor('#dedede').fontSize(7).alignment('center').end];
-                        _context.t9 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Fecha de Revision: 05/10/2021').end).fillColor('#dedede').fontSize(7).alignment('center').end];
-                        _context.t10 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Página: 1 de 5').end).fillColor('#dedede').fontSize(7).alignment('center').end];
-                        _context.t11 = [_context.t7, _context.t8, _context.t9, _context.t10];
-                        _context.t12 = new _context.t1(_context.t11).widths(['25%', '50%', '25%']).end;
+                        _context2.t3 = _context2.sent;
+                        _context2.t4 = new _context2.t2(_context2.t3).rowSpan(4).end;
+                        _context2.t5 = new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("\n            ORDEN DE PRODUCCI\xD3N").bold().end).alignment('center').fontSize(13).rowSpan(4).end;
+                        _context2.t6 = new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Código: FPR-008').end).fillColor('#dedede').fontSize(7).alignment('center').end;
+                        _context2.t7 = [_context2.t4, _context2.t5, _context2.t6];
+                        _context2.t8 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('N° de Revisión: 0').end).fillColor('#dedede').fontSize(7).alignment('center').end];
+                        _context2.t9 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Fecha de Revision: 05/10/2021').end).fillColor('#dedede').fontSize(7).alignment('center').end];
+                        _context2.t10 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Página: 1 de 5').end).fillColor('#dedede').fontSize(7).alignment('center').end];
+                        _context2.t11 = [_context2.t7, _context2.t8, _context2.t9, _context2.t10];
+                        _context2.t12 = new _context2.t1(_context2.t11).widths(['25%', '50%', '25%']).end;
 
-                        _context.t0.add.call(_context.t0, _context.t12);
+                        _context2.t0.add.call(_context2.t0, _context2.t12);
 
                         pdf.add(pdf.ln(1));
                         pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('ORDEN DE COMPRA').bold().end).colSpan(2).alignment('center').fillColor('#000000').color('#ffffff').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('N°').end).fillColor('#dedede').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(PRODUCTO.orden)).end).fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Fecha de OC:').end).fillColor('#dedede').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(PRODUCTO.fecha_o)).margin([0, 6]).end).fontSize(9).end]]).widths(['40%', '60%']).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('PRODUCTO').bold().end).colSpan(2).alignment('center').fillColor('#000000').color('#ffffff').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('NOMBRE:').end).fillColor('#dedede').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(PRODUCTO.producto.producto)).end).fontSize(12).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('CÓDIGO:').end).fillColor('#dedede').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(PRODUCTO.cliente.codigo, "-").concat(PRODUCTO.producto.codigo, "-").concat(PRODUCTO.producto.version)).end).fontSize(12).end]]).widths(['25%', '75%']).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('ORDEN DE PRODUCCIÓN').bold().end).colSpan(2).alignment('center').fillColor('#000000').color('#ffffff').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('N°:').end).fillColor('#dedede').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(PRODUCTO.sort)).bold().end).fontSize(15).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('FECHA DE EMISIÓN:').end).fillColor('#dedede').fontSize(8).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(PRODUCTO.fecha)).margin([0, 6]).end).fontSize(9).end]]).widths(['40%', '60%']).end).end]]).layout('noBorders').widths(['30%', '40%', '30%']).end);
@@ -9305,7 +9583,7 @@
                         //   ]
                         // ]).widths(['80%','20%']).end
                         // ).fontSize(9).end,
-                        new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('% DEMASIA').end).fillColor('#dedede').alignment('center').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('HOJAS DE DEMASIA:').end).fillColor('#dedede').alignment('center').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](PRODUCTO.demasia).end).fontSize(10).alignment('center').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](hojas_demasia).end).fontSize(10).alignment('center').end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('HOJAS A IMPRIMIR:').end).fillColor('#dedede').alignment('center').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('TOTAL HOJAS A ASIGNAR:').end).fillColor('#dedede').alignment('center').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](hojas_imprimir).bold().end).fontSize(12).alignment('center').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](PRODUCTO.paginas).bold().end).fontSize(12).alignment('center').end]]).widths(['50%', '50%']).end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('BARNIZ').end).alignment('center').fillColor('#dedede').alignment('center').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('ESTANDAR DE COLOR:').alignment('center').end).fillColor('#dedede').alignment('center').fontSize(7).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(barniz[0].producto.nombre, " (").concat(barniz[0].producto.marca, " - ").concat(cantidad_barniz).concat(barniz[0].producto.unidad, ")")).end).fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](Estandar_de_color).end).alignment('center').fontSize(9).end]]).widths(['70%', '30%']).end).fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('TINTA').end).alignment('center').fillColor('#dedede').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Stack"](tintas_marca).end).fontSize(9).end]]).widths(['100%']).end).fontSize(9).end]]).layout('noBorders').widths(['50%', '50%']).end // ]).layout('noBorders').widths(['33%', '27%', '40%']).end
+                        new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('% DEMASÍA').end).fillColor('#dedede').alignment('center').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('HOJAS DE DEMASÍA:').end).fillColor('#dedede').alignment('center').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](PRODUCTO.demasia).end).fontSize(10).alignment('center').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](hojas_demasia).end).fontSize(10).alignment('center').end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('HOJAS A IMPRIMIR:').end).fillColor('#dedede').alignment('center').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('TOTAL HOJAS A ASIGNAR:').end).fillColor('#dedede').alignment('center').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](hojas_imprimir).bold().end).fontSize(12).alignment('center').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](PRODUCTO.paginas).bold().end).fontSize(12).alignment('center').end]]).widths(['50%', '50%']).end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('BARNIZ').end).alignment('center').fillColor('#dedede').alignment('center').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('ESTÁNDAR DE COLOR:').alignment('center').end).fillColor('#dedede').alignment('center').fontSize(7).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(barniz[0].producto.nombre, " (").concat(barniz[0].producto.marca, " - ").concat(cantidad_barniz).concat(barniz[0].producto.unidad, ")")).end).fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](Estandar_de_color).end).alignment('center').fontSize(9).end]]).widths(['70%', '30%']).end).fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('TINTA').end).alignment('center').fillColor('#dedede').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Stack"](tintas_marca).end).fontSize(9).end]]).widths(['100%']).end).fontSize(9).end]]).layout('noBorders').widths(['50%', '50%']).end // ]).layout('noBorders').widths(['33%', '27%', '40%']).end
                         ).end]]).layout('noBorders').widths(['100%']).end).border([false]).fillColor('#ffffff').end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('POST-IMPRESIÓN').end).fillColor('#dedede').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Stack"](PRODUCTO.producto.post).end).fontSize(9).border([false]).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('TIPO DE PEGA').alignment('center').end).fillColor('#dedede').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(pega_nombre, " (").concat(pega_marca, " - ").concat(cantidad_pega).concat(pega_unidad, ")")).end).fontSize(9).end]]).widths(['100%']).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('CÓDIGO DE CAJA').end).alignment('center').fillColor('#dedede').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(caja[0].producto.nombre, "(").concat(caja[0].producto.marca, " - ").concat(cantidad_cajas).concat(caja[0].producto.unidad, ")")).end).fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('CINTA DE EMBALAJE').end).alignment('center').fillColor('#dedede').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("CINTA DE EMBALAJE CORRUGADO RECICLADO 3430(RELA - ".concat(cinta_, "Und)")).end).fontSize(9).end]]).widths(['100%']).end).end]]).layout('noBorders').widths(['50%', '50%']).end).end]]).layout('noBorders').widths(['100%']).end).border([false]).fillColor('#ffffff').end]]).widths(['100%']).end).end]]).layout('noBorders').widths(['100%']).end).end]]).layout('noBorders').widths(['100%']).end);
                         pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('EQUIPOS').end).alignment('center').fillColor('#000000').color('#ffffff').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('OBSERVACIONES').end).alignment('center').fillColor('#000000').color('#ffffff').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('ELABORADO POR:').end).alignment('center').fillColor('#000000').color('#ffffff').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Stack"](maquina).end).fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](PRODUCTO.observacion).end).fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("Firma:\n          \n            Fecha:").end).fontSize(9).end]]).widths(['34%', '33%', '33%']).end); // pdf.add(
                         //   new Table([
@@ -9406,10 +9684,10 @@
 
                       case 24:
                       case "end":
-                        return _context.stop();
+                        return _context2.stop();
                     }
                   }
-                }, _callee);
+                }, _callee2);
               }));
             }
 
@@ -9964,7 +10242,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](165, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](166, "% DEMASIA");
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](166, "% DEMAS\xCDA");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -9980,7 +10258,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](170, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](171, "HOJAS DE DEMASIA");
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](171, "HOJAS DE DEMAS\xCDA");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -10074,7 +10352,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](198, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](199, "ESTANDAR DE COLORES:");
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](199, "EST\xC1NDAR DE COLORES:");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -11921,16 +12199,16 @@
         }, {
           key: "obtenerClientes",
           value: function obtenerClientes() {
-            var _this38 = this;
+            var _this39 = this;
 
             this.api.GetClientes().subscribe(function (resp) {
-              _this38.CLIENTES = resp.clientes;
+              _this39.CLIENTES = resp.clientes;
             });
           }
         }, {
           key: "cliente_selected",
           value: function cliente_selected(e) {
-            var _this39 = this;
+            var _this40 = this;
 
             if (e.target.value === '0') {
               this.cs = false;
@@ -11945,19 +12223,19 @@
             }
 
             this.api.getById(e.target.value).subscribe(function (resp) {
-              _this39.PRODUCTOS = resp.productos;
-              console.log(_this39.PRODUCTOS);
+              _this40.PRODUCTOS = resp.productos;
+              console.log(_this40.PRODUCTOS);
             });
           }
         }, {
           key: "Almacenado",
           value: function Almacenado() {
-            var _this40 = this;
+            var _this41 = this;
 
             this.api.getAlmacenado().subscribe(function (resp) {
-              _this40._CANTIDAD = resp;
+              _this41._CANTIDAD = resp;
 
-              _this40.totalizar_materiales();
+              _this41.totalizar_materiales();
             });
           }
         }, {
@@ -11969,7 +12247,7 @@
         }, {
           key: "producto_selected",
           value: function producto_selected(e) {
-            var _this41 = this;
+            var _this42 = this;
 
             if (e.target.value === '0') {
               this.ps = false;
@@ -11978,35 +12256,35 @@
             }
 
             this.api.getOneById(e.target.value).subscribe(function (resp) {
-              _this41.PRODUCTO = resp.producto;
-              console.log(_this41.PRODUCTO, 'PRODUCTO');
-              _this41.montajes = _this41.PRODUCTO.montajes;
-              _this41.Ejemplares_montados = _this41.PRODUCTO.ejemplares[_this41.i_montajes];
+              _this42.PRODUCTO = resp.producto;
+              console.log(_this42.PRODUCTO, 'PRODUCTO');
+              _this42.montajes = _this42.PRODUCTO.montajes;
+              _this42.Ejemplares_montados = _this42.PRODUCTO.ejemplares[_this42.i_montajes];
 
-              _this41.Ejemplares(_this41.Ejemplares_montados);
+              _this42.Ejemplares(_this42.Ejemplares_montados);
 
-              _this41.MAQUINAS = resp.maquinas; //   this.modal_nueva_orden()
+              _this42.MAQUINAS = resp.maquinas; //   this.modal_nueva_orden()
 
-              var x = _this41.PRODUCTO.materiales.length;
-              _this41.CANTIDAD = [];
+              var x = _this42.PRODUCTO.materiales.length;
+              _this42.CANTIDAD = [];
 
               var _loop = function _loop(i) {
-                var respuesta = _this41._CANTIDAD.find(function (x) {
-                  return x.material.nombre == _this41.PRODUCTO[_this41.i_montajes].materiales[i].producto.nombre && x.material.marca == _this41.PRODUCTO.materiales[i].producto.marca && x.material.grupo.nombre;
+                var respuesta = _this42._CANTIDAD.find(function (x) {
+                  return x.material.nombre == _this42.PRODUCTO[_this42.i_montajes].materiales[i].producto.nombre && x.material.marca == _this42.PRODUCTO.materiales[i].producto.marca && x.material.grupo.nombre;
                 });
 
-                console.log(_this41.PRODUCTO);
+                console.log(_this42.PRODUCTO);
 
                 if (!respuesta) {
-                  _this41.SinMaterial = true;
+                  _this42.SinMaterial = true;
                   return {
                     v: void 0
                   };
                 } else {
-                  _this41.SinMaterial = false;
+                  _this42.SinMaterial = false;
                 }
 
-                _this41.CANTIDAD.push(respuesta);
+                _this42.CANTIDAD.push(respuesta);
               };
 
               for (var i = 0; i < x; i++) {
@@ -12029,12 +12307,12 @@
         }, {
           key: "BuscarAlmacen",
           value: function BuscarAlmacen() {
-            var _this42 = this;
+            var _this43 = this;
 
             this.api.getAlmacen().subscribe(function (resp) {
-              _this42.ALMACEN = resp.materiales;
+              _this43.ALMACEN = resp.materiales;
 
-              _this42.totalizar_materiales();
+              _this43.totalizar_materiales();
             });
           }
         }, {
@@ -12116,34 +12394,34 @@
         }, {
           key: "totalizar_materiales",
           value: function totalizar_materiales() {
-            var _this43 = this;
+            var _this44 = this;
 
             var _loop2 = function _loop2(i) {
-              var existe = _this43.TOTALES.find(function (x) {
-                return x.material == _this43._CANTIDAD[i].material.nombre && x.marca == _this43._CANTIDAD[i].material.marca;
+              var existe = _this44.TOTALES.find(function (x) {
+                return x.material == _this44._CANTIDAD[i].material.nombre && x.marca == _this44._CANTIDAD[i].material.marca;
               });
 
               if (existe) {
-                var x = _this43.TOTALES.findIndex(function (x) {
-                  return x.material == _this43._CANTIDAD[i].material.nombre && x.marca == _this43._CANTIDAD[i].material.marca;
+                var x = _this44.TOTALES.findIndex(function (x) {
+                  return x.material == _this44._CANTIDAD[i].material.nombre && x.marca == _this44._CANTIDAD[i].material.marca;
                 });
 
-                _this43.TOTALES[x].total = Number(_this43.TOTALES[x].total);
-                _this43._CANTIDAD[i].cantidad = Number(_this43._CANTIDAD[i].cantidad);
-                _this43._CANTIDAD[i].neto = Number(_this43._CANTIDAD[i].material.neto);
-                var def = _this43._CANTIDAD[i].neto * _this43._CANTIDAD[i].cantidad / _this43.TOTALES[x].neto;
-                _this43.TOTALES[x].total = _this43.TOTALES[x].total + def;
+                _this44.TOTALES[x].total = Number(_this44.TOTALES[x].total);
+                _this44._CANTIDAD[i].cantidad = Number(_this44._CANTIDAD[i].cantidad);
+                _this44._CANTIDAD[i].neto = Number(_this44._CANTIDAD[i].material.neto);
+                var def = _this44._CANTIDAD[i].neto * _this44._CANTIDAD[i].cantidad / _this44.TOTALES[x].neto;
+                _this44.TOTALES[x].total = _this44.TOTALES[x].total + def;
               } else {
-                _this43.TOTALES.push({
-                  material: _this43._CANTIDAD[i].material.nombre,
-                  marca: _this43._CANTIDAD[i].material.marca,
-                  grupo: _this43._CANTIDAD[i].material.grupo.nombre,
-                  presentacion: _this43._CANTIDAD[i].material.presentacion,
-                  neto: _this43._CANTIDAD[i].material.neto,
-                  unidad: _this43._CANTIDAD[i].material.unidad,
-                  ancho: _this43._CANTIDAD[i].material.ancho,
-                  largo: _this43._CANTIDAD[i].material.largo,
-                  total: _this43._CANTIDAD[i].cantidad
+                _this44.TOTALES.push({
+                  material: _this44._CANTIDAD[i].material.nombre,
+                  marca: _this44._CANTIDAD[i].material.marca,
+                  grupo: _this44._CANTIDAD[i].material.grupo.nombre,
+                  presentacion: _this44._CANTIDAD[i].material.presentacion,
+                  neto: _this44._CANTIDAD[i].material.neto,
+                  unidad: _this44._CANTIDAD[i].material.unidad,
+                  ancho: _this44._CANTIDAD[i].material.ancho,
+                  largo: _this44._CANTIDAD[i].material.largo,
+                  total: _this44._CANTIDAD[i].cantidad
                 });
               }
             };
@@ -12205,7 +12483,7 @@
         }, {
           key: "colocarFecha",
           value: function colocarFecha(e, fase) {
-            var _this44 = this;
+            var _this45 = this;
 
             // CPH = CANTIDAD POR HOJAS
             this.api.getFechas(e.target.value).subscribe(function (resp) {
@@ -12227,14 +12505,14 @@
               document.getElementById(fase).value = fecha;
 
               if (cph > 0) {
-                HorasAgregadas = _this44.paginas / cph;
+                HorasAgregadas = _this45.paginas / cph;
               } else {
-                var MaquinaSelected2 = _this44.MAQUINAS.find(function (x) {
+                var MaquinaSelected2 = _this45.MAQUINAS.find(function (x) {
                   return x._id == e.target.value;
                 });
 
                 cph = MaquinaSelected2.cph;
-                HorasAgregadas = _this44.paginas / cph;
+                HorasAgregadas = _this45.paginas / cph;
               }
 
               var dias = HorasAgregadas / 7;
@@ -12263,7 +12541,7 @@
         }, {
           key: "finalizar",
           value: function finalizar(cantidad) {
-            var _this45 = this;
+            var _this46 = this;
 
             var data = {
               fecha_o: this.fo_,
@@ -12282,10 +12560,10 @@
               observacion: this.observacion_
             };
             this.api.postOrden(data).subscribe(function (resp) {
-              var fases = _this45.PRODUCTO.grupo.tipos.length;
+              var fases = _this46.PRODUCTO.grupo.tipos.length;
 
               for (var x = 0; x < fases; x++) {
-                var fase = _this45.PRODUCTO.grupo.tipos[x];
+                var fase = _this46.PRODUCTO.grupo.tipos[x];
                 var maquina = document.getElementById("".concat(fase, "-maquina")).value;
                 var fechaI = document.getElementById("".concat(fase)).value;
                 var fecha = document.getElementById("".concat(fase, "-C")).value;
@@ -12296,12 +12574,12 @@
                   orden: resp
                 };
 
-                _this45.api.postOrden2(Data).subscribe(function (respuesta) {
+                _this46.api.postOrden2(Data).subscribe(function (respuesta) {
                   console.log(respuesta);
                 });
               }
 
-              _this45.router.navigate(["/orden-produccion/".concat(resp)]);
+              _this46.router.navigate(["/orden-produccion/".concat(resp)]);
             });
           }
         }]);
@@ -12447,7 +12725,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](37, "label", 5);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](38, "Demasia (%)");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](38, "Demas\xEDa (%)");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -12529,7 +12807,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](57, "input", 26);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](58, " Estandar de Colores ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](58, " Est\xE1ndar de Colores ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](59, "hr");
 
@@ -12639,7 +12917,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](94, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](95, "Cant. Almacen");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](95, "Cant. Almac\xE9n");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -12687,7 +12965,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](109, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](110, "Cant. Almacen");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](110, "Cant. Almac\xE9n");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -12735,7 +13013,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](124, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](125, "Cant. Almacen");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](125, "Cant. Almac\xE9n");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -12783,7 +13061,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](139, "th");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](140, "Cant. Almacen");
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](140, "Cant. Almac\xE9n");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -13288,14 +13566,14 @@
         }, {
           key: "ObtenerMaquinas",
           value: function ObtenerMaquinas() {
-            var _this46 = this;
+            var _this47 = this;
 
             this.api.GetMaquinas().subscribe(function (maquinas) {
-              _this46.MAQUINAS = maquinas;
+              _this47.MAQUINAS = maquinas;
 
-              _this46.obtenerTipos();
+              _this47.obtenerTipos();
 
-              _this46.cargado = true;
+              _this47.cargado = true;
             });
           }
         }, {
@@ -13395,13 +13673,13 @@
         }, {
           key: "obtenerTrabajos",
           value: function obtenerTrabajos() {
-            var _this47 = this;
+            var _this48 = this;
 
             this.api.getTrabajos().subscribe(function (resp) {
-              _this47.cargado = false;
-              _this47.TRABAJOS = resp;
-              console.log(_this47.TRABAJOS);
-              _this47.cargado = true;
+              _this48.cargado = false;
+              _this48.TRABAJOS = resp;
+              console.log(_this48.TRABAJOS);
+              _this48.cargado = true;
             });
           }
         }]);
@@ -15282,7 +15560,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](10, "th");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](11, "Codigo");
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](11, "C\xF3digo");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -18226,19 +18504,19 @@
         }, {
           key: "buscarSustratos",
           value: function buscarSustratos() {
-            var _this48 = this;
+            var _this49 = this;
 
             var sustratos = this.ALMACEN.filter(function (x) {
               return x.grupo.nombre == 'Sustrato';
             });
 
             var _loop3 = function _loop3(i) {
-              var sustrato = _this48._sustratos_.find(function (x) {
+              var sustrato = _this49._sustratos_.find(function (x) {
                 return x == sustratos[i].nombre;
               });
 
               if (!sustrato) {
-                _this48._sustratos_.push(sustratos[i].nombre);
+                _this49._sustratos_.push(sustratos[i].nombre);
               }
             };
 
@@ -18249,7 +18527,7 @@
         }, {
           key: "buscarGramaje",
           value: function buscarGramaje(e) {
-            var _this49 = this;
+            var _this50 = this;
 
             this._gramajes_ = [];
             var sustratos = this.ALMACEN.filter(function (x) {
@@ -18257,12 +18535,12 @@
             }); // console.log(sustratos,'15515151515151515151515151515151')
 
             var _loop4 = function _loop4(i) {
-              var gramaje = _this49._gramajes_.find(function (x) {
+              var gramaje = _this50._gramajes_.find(function (x) {
                 return x.gramaje == sustratos[i].gramaje;
               });
 
               if (!gramaje) {
-                _this49._gramajes_.push(sustratos[i]);
+                _this50._gramajes_.push(sustratos[i]);
               }
             };
 
@@ -18275,7 +18553,7 @@
         }, {
           key: "buscarAncho",
           value: function buscarAncho(e) {
-            var _this50 = this;
+            var _this51 = this;
 
             this._ancho_ = [];
             var sustratos = this.ALMACEN.filter(function (x) {
@@ -18283,12 +18561,12 @@
             });
 
             var _loop5 = function _loop5(i) {
-              var ancho = _this50._ancho_.find(function (x) {
+              var ancho = _this51._ancho_.find(function (x) {
                 return x.ancho == sustratos[i].ancho;
               });
 
               if (!ancho) {
-                _this50._ancho_.push(sustratos[i]);
+                _this51._ancho_.push(sustratos[i]);
               }
             };
 
@@ -18309,39 +18587,39 @@
         }, {
           key: "Editar_2",
           value: function Editar_2(id) {
-            var _this51 = this;
+            var _this52 = this;
 
             this.Modal_Almacen_ep();
             this.api.getMaterialesID(id).subscribe(function (resp) {
-              _this51.MaterialID = resp;
+              _this52.MaterialID = resp;
 
               if (resp.grupo.nombre === 'Tinta') {
-                _this51.New_color = true;
+                _this52.New_color = true;
               }
 
               if (resp.grupo.nombre === 'Cajas Corrugadas') {
-                _this51.caja_ = true;
+                _this52.caja_ = true;
               }
 
-              console.log(_this51.MaterialID, 'ok');
+              console.log(_this52.MaterialID, 'ok');
             });
           }
         }, {
           key: "Editar_Material_F",
           value: function Editar_Material_F() {
-            var _this52 = this;
+            var _this53 = this;
 
             var grupo = this.MaterialID.grupo._id;
             this.MaterialID.grupo = grupo;
             console.log(this.MaterialID);
             this.api.putMaterialID(this.MaterialID._id, this.MaterialID).subscribe(function (resp) {
-              _this52.Modal_Almacen_ep();
+              _this53.Modal_Almacen_ep();
 
-              _this52.getAalmacenado();
+              _this53.getAalmacenado();
 
-              _this52.BuscarAlmacen();
+              _this53.BuscarAlmacen();
 
-              _this52.totalizar_materiales();
+              _this53.totalizar_materiales();
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
                 position: 'center',
@@ -18355,23 +18633,23 @@
         }, {
           key: "Editar",
           value: function Editar(id) {
-            var _this53 = this;
+            var _this54 = this;
 
             this.edit_almacen();
             this.api.getAlmacenadoID(id).subscribe(function (resp) {
-              _this53.AlmacenadoId = resp;
+              _this54.AlmacenadoId = resp;
 
-              _this53.selecciona_producto(_this53.AlmacenadoId.material.grupo.nombre);
+              _this54.selecciona_producto(_this54.AlmacenadoId.material.grupo.nombre);
 
-              _this53.codigoID = _this53.AlmacenadoId.codigo;
-              _this53.loteID = _this53.AlmacenadoId.lote;
-              _this53.cantidadID = _this53.AlmacenadoId.cantidad;
+              _this54.codigoID = _this54.AlmacenadoId.codigo;
+              _this54.loteID = _this54.AlmacenadoId.lote;
+              _this54.cantidadID = _this54.AlmacenadoId.cantidad;
             });
           }
         }, {
           key: "_Editar",
           value: function _Editar(producto) {
-            var _this54 = this;
+            var _this55 = this;
 
             var body = {
               material: this.AlmacenadoId.material._id,
@@ -18380,7 +18658,7 @@
               cantidad: this.cantidadID
             };
             this.api.putAlmacenadoID(this.AlmacenadoId._id, body).subscribe(function (resp) {
-              _this54.edit_almacen();
+              _this55.edit_almacen();
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
                 position: 'center',
@@ -18390,16 +18668,16 @@
                 timer: 1500
               });
 
-              _this54.getAalmacenado();
+              _this55.getAalmacenado();
 
-              _this54.BuscarAlmacen();
+              _this55.BuscarAlmacen();
 
-              _this54.totalizar_materiales();
+              _this55.totalizar_materiales();
 
-              _this54.codigoID = '';
-              _this54.loteID = '';
-              _this54.cantidadID = '';
-              _this54.AlmacenadoId = '';
+              _this55.codigoID = '';
+              _this55.loteID = '';
+              _this55.cantidadID = '';
+              _this55.AlmacenadoId = '';
             });
           }
         }, {
@@ -18428,12 +18706,12 @@
         }, {
           key: "getAalmacenado",
           value: function getAalmacenado() {
-            var _this55 = this;
+            var _this56 = this;
 
             this.api.getAlmacenado().subscribe(function (resp) {
-              _this55.Almacenado = resp;
+              _this56.Almacenado = resp;
 
-              _this55.totalizar_materiales();
+              _this56.totalizar_materiales();
             });
           }
         }, {
@@ -18542,7 +18820,7 @@
         }, {
           key: "descontar_bobina_",
           value: function descontar_bobina_(numero) {
-            var _this56 = this;
+            var _this57 = this;
 
             var data = {
               bobina: this.bobina__,
@@ -18555,36 +18833,36 @@
                 showConfirmButton: false
               });
 
-              _this56.getbobinas();
+              _this57.getbobinas();
 
-              _this56.descontar_bobina();
+              _this57.descontar_bobina();
 
-              _this56.Buscar_conversiones();
+              _this57.Buscar_conversiones();
             });
           }
         }, {
           key: "BuscarGruposEnAlmacen",
           value: function BuscarGruposEnAlmacen() {
-            var _this57 = this;
+            var _this58 = this;
 
             this.loading = true;
             this.api.GetGrupoMp().subscribe(function (resp) {
-              _this57.SECCIONES = resp;
-              _this57.loading = false;
+              _this58.SECCIONES = resp;
+              _this58.loading = false;
             });
           }
         }, {
           key: "BuscarAlmacen",
           value: function BuscarAlmacen() {
-            var _this58 = this;
+            var _this59 = this;
 
             this.loading = true;
             this.api.getAlmacen().subscribe(function (resp) {
-              _this58.ALMACEN = resp.materiales;
+              _this59.ALMACEN = resp.materiales;
 
-              _this58.totalizar_materiales();
+              _this59.totalizar_materiales();
 
-              _this58.loading = false;
+              _this59.loading = false;
             });
           }
         }, {
@@ -18600,7 +18878,7 @@
         }, {
           key: "almacenar",
           value: function almacenar(producto) {
-            var _this59 = this;
+            var _this60 = this;
 
             var data = {
               material: producto.value,
@@ -18617,15 +18895,15 @@
                 timer: 1500
               });
 
-              _this59.Nuevo_producto();
+              _this60.Nuevo_producto();
 
-              _this59.BuscarAlmacen();
+              _this60.BuscarAlmacen();
 
-              _this59.getAalmacenado();
+              _this60.getAalmacenado();
 
-              _this59.codigo = '';
-              _this59.lote = '';
-              _this59.cantidad = '';
+              _this60.codigo = '';
+              _this60.lote = '';
+              _this60.cantidad = '';
               document.getElementById('Nuevoproducto').value = "0";
             });
           }
@@ -18644,7 +18922,7 @@
         }, {
           key: "Almacenar",
           value: function Almacenar() {
-            var _this60 = this;
+            var _this61 = this;
 
             var grupo;
 
@@ -18679,13 +18957,13 @@
             }
 
             this.api.PostAlmacen(data).subscribe(function (resp) {
-              _this60.InventarioForm.reset();
+              _this61.InventarioForm.reset();
 
-              _this60.BuscarAlmacen();
+              _this61.BuscarAlmacen();
 
-              _this60.BuscarGruposEnAlmacen();
+              _this61.BuscarGruposEnAlmacen();
 
-              _this60.Modal_Almacen(); // this.getSustratos();
+              _this61.Modal_Almacen(); // this.getSustratos();
 
             });
           }
@@ -18758,14 +19036,14 @@
         }, {
           key: "nuevaBobina",
           value: function nuevaBobina() {
-            var _this61 = this;
+            var _this62 = this;
 
             this.api.postNuevaBobina(this.BobinaForm.value).subscribe(function (resp) {
-              _this61.BobinaForm.reset();
+              _this62.BobinaForm.reset();
 
-              _this61.Modal_bobinas();
+              _this62.Modal_bobinas();
 
-              _this61.getbobinas();
+              _this62.getbobinas();
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
                 title: 'Nueva Bobina Agregada!',
@@ -18778,13 +19056,13 @@
         }, {
           key: "getbobinas",
           value: function getbobinas() {
-            var _this62 = this;
+            var _this63 = this;
 
             this.api.getBobina().subscribe(function (resp) {
-              _this62.BOBINAS_ = resp;
+              _this63.BOBINAS_ = resp;
 
               var _loop6 = function _loop6(i) {
-                var bobina = _this62.BOBINAS_[i]; // bobinas
+                var bobina = _this63.BOBINAS_[i]; // bobinas
                 // material
                 // ancho
                 // largo
@@ -18793,16 +19071,16 @@
                 // ancho
                 // largo 
 
-                var sustrato = _this62.ALMACEN.filter(function (x) {
+                var sustrato = _this63.ALMACEN.filter(function (x) {
                   return x.nombre == bobina.material && x.gramaje == bobina.gramaje && x.ancho == bobina.ancho;
                 });
 
                 if (sustrato) {
-                  _this62.SUSTRATO_CONVERSION.push(sustrato);
+                  _this63.SUSTRATO_CONVERSION.push(sustrato);
                 }
               };
 
-              for (var i = 0; i < _this62.BOBINAS_.length; i++) {
+              for (var i = 0; i < _this63.BOBINAS_.length; i++) {
                 _loop6(i);
               }
             });
@@ -18810,10 +19088,10 @@
         }, {
           key: "Buscar_conversiones",
           value: function Buscar_conversiones() {
-            var _this63 = this;
+            var _this64 = this;
 
             this.api.getConversiones().subscribe(function (resp) {
-              _this63.conversiones = resp;
+              _this64.conversiones = resp;
             });
           }
         }, {
@@ -18842,7 +19120,7 @@
         }, {
           key: "Generar_Conversion",
           value: function Generar_Conversion() {
-            var _this64 = this;
+            var _this65 = this;
 
             var sustrato = document.getElementById('bobina_selected').value;
             var peso = document.getElementById('_peso').value;
@@ -18865,7 +19143,7 @@
             var hojas = data.hojas.toString();
             var hoy = moment__WEBPACK_IMPORTED_MODULE_5__().format('DD/MM/YYYY');
             this.api.postNuevoSustrato(data).subscribe(function (resp) {
-              _this64.modal_Conversion();
+              _this65.modal_Conversion();
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
                 title: 'Nueva Solicitud de Conversion Creada',
@@ -18875,34 +19153,34 @@
               });
 
               function recibo() {
-                return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+                return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
                   var pdf;
-                  return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                  return regeneratorRuntime.wrap(function _callee3$(_context3) {
                     while (1) {
-                      switch (_context2.prev = _context2.next) {
+                      switch (_context3.prev = _context3.next) {
                         case 0:
                           pdf = new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["PdfMakeWrapper"]();
                           pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["PdfMakeWrapper"].setFonts(pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_4__);
                           pdf.pageOrientation('landscape');
-                          _context2.t0 = pdf;
-                          _context2.t1 = pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Table"];
-                          _context2.t2 = pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"];
-                          _context2.next = 8;
+                          _context3.t0 = pdf;
+                          _context3.t1 = pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Table"];
+                          _context3.t2 = pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"];
+                          _context3.next = 8;
                           return new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Img"]('../../assets/poli_cintillo.png').width(85).margin([35, 5]).build();
 
                         case 8:
-                          _context2.t3 = _context2.sent;
-                          _context2.t4 = new _context2.t2(_context2.t3).rowSpan(4).end;
-                          _context2.t5 = new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("\n                SOLICITUD DE CONVERSI\xD3N").bold().end).alignment('center').fontSize(13).rowSpan(4).end;
-                          _context2.t6 = new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('Código: FAL-002').end).fillColor('#dedede').fontSize(9).alignment('center').end;
-                          _context2.t7 = [_context2.t4, _context2.t5, _context2.t6];
-                          _context2.t8 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('N° de Revisión: 0').end).fillColor('#dedede').fontSize(9).alignment('center').end];
-                          _context2.t9 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('Fecha de Revision: 18/03/2022').end).fillColor('#dedede').fontSize(9).alignment('center').end];
-                          _context2.t10 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('Página: 1 de 1').end).fillColor('#dedede').fontSize(9).alignment('center').end];
-                          _context2.t11 = [_context2.t7, _context2.t8, _context2.t9, _context2.t10];
-                          _context2.t12 = new _context2.t1(_context2.t11).widths(['25%', '50%', '25%']).end;
+                          _context3.t3 = _context3.sent;
+                          _context3.t4 = new _context3.t2(_context3.t3).rowSpan(4).end;
+                          _context3.t5 = new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("\n                SOLICITUD DE CONVERSI\xD3N").bold().end).alignment('center').fontSize(13).rowSpan(4).end;
+                          _context3.t6 = new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('Código: FAL-002').end).fillColor('#dedede').fontSize(9).alignment('center').end;
+                          _context3.t7 = [_context3.t4, _context3.t5, _context3.t6];
+                          _context3.t8 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('N° de Revisión: 0').end).fillColor('#dedede').fontSize(9).alignment('center').end];
+                          _context3.t9 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('Fecha de Revision: 18/03/2022').end).fillColor('#dedede').fontSize(9).alignment('center').end];
+                          _context3.t10 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('Página: 1 de 1').end).fillColor('#dedede').fontSize(9).alignment('center').end];
+                          _context3.t11 = [_context3.t7, _context3.t8, _context3.t9, _context3.t10];
+                          _context3.t12 = new _context3.t1(_context3.t11).widths(['25%', '50%', '25%']).end;
 
-                          _context2.t0.add.call(_context2.t0, _context2.t12);
+                          _context3.t0.add.call(_context3.t0, _context3.t12);
 
                           pdf.add(pdf.ln(2));
                           pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('CONVERTIDORA').end).fillColor('#dedede').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"](convertidora).end).end]]).widths(['30%', '70%']).end).alignment('center').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('CONVERSIÓN').end).alignment('center').colSpan(2).color('#ffffff').fillColor('#000000').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('N°').margin([0, 6]).end).alignment('center').fillColor('#dedede').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"](resp).bold().end).fontSize(20).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]('FECHA DE SOLICITUD').end).alignment('center').fillColor('#dedede').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(hoy)).margin([0, 6]).bold().end).end]]).widths(['30%', '70%']).end).alignment('center').end]]).widths(['45%', '15%', '40%']).layout('noBorders').end);
@@ -18914,10 +19192,10 @@
 
                         case 26:
                         case "end":
-                          return _context2.stop();
+                          return _context3.stop();
                       }
                     }
-                  }, _callee2);
+                  }, _callee3);
                 }));
               }
 
@@ -18942,11 +19220,11 @@
         }, {
           key: "porConfirmar",
           value: function porConfirmar() {
-            var _this65 = this;
+            var _this66 = this;
 
             this.api.getMaterialesPorConfirmar().subscribe(function (resp) {
-              _this65.MAT_NECESARIO = resp;
-              console.log(_this65.MAT_NECESARIO, 'this ------------------');
+              _this66.MAT_NECESARIO = resp;
+              console.log(_this66.MAT_NECESARIO, 'this ------------------');
             });
           }
         }, {
@@ -18983,7 +19261,7 @@
         }, {
           key: "Restar",
           value: function Restar(orden) {
-            var _this66 = this;
+            var _this67 = this;
 
             // let data = {descuento:this.DESCUENTOS, 
             //             orden:orden}
@@ -18997,7 +19275,7 @@
             var Cargados = this.LOTES.length;
 
             var _loop7 = function _loop7(i) {
-              var existe = _this66.LOTES.find(function (x) {
+              var existe = _this67.LOTES.find(function (x) {
                 return x.i === i;
               });
 
@@ -19033,13 +19311,13 @@
                 showConfirmButton: false,
                 timer: 1500
               });
-              _this66.MATERIALES_NECESARIOS = false;
+              _this67.MATERIALES_NECESARIOS = false;
 
-              _this66.BuscarAlmacen();
+              _this67.BuscarAlmacen();
 
-              _this66.porConfirmar();
+              _this67.porConfirmar();
 
-              _this66.getAalmacenado();
+              _this67.getAalmacenado();
             });
           }
         }, {
@@ -19082,26 +19360,26 @@
         }, {
           key: "confirmar_eliminacion",
           value: function confirmar_eliminacion(motivo) {
-            var _this67 = this;
+            var _this68 = this;
 
             motivo = motivo.value;
 
             if (this.eliminar_sustrato) {
               this.api.eliminarSustrato(this.id_p_e, motivo).subscribe(function (resp) {
-                _this67.BuscarAlmacen();
+                _this68.BuscarAlmacen();
 
-                _this67.porConfirmar();
+                _this68.porConfirmar();
 
-                _this67.modal_eliminacion();
+                _this68.modal_eliminacion();
 
-                _this67.BuscarAlmacen();
+                _this68.BuscarAlmacen();
 
-                _this67.BuscarGruposEnAlmacen();
+                _this68.BuscarGruposEnAlmacen();
 
-                _this67.getbobinas(); // this.getSustratos();
+                _this68.getbobinas(); // this.getSustratos();
 
 
-                _this67.porConfirmar();
+                _this68.porConfirmar();
 
                 console.log(resp);
               });
@@ -19109,18 +19387,18 @@
               this.api.eliminarMaterial(this.id_p_e, motivo).subscribe(function (resp) {
                 console.log(resp);
 
-                _this67.BuscarAlmacen();
+                _this68.BuscarAlmacen();
 
-                _this67.porConfirmar();
+                _this68.porConfirmar();
 
-                _this67.modal_eliminacion();
+                _this68.modal_eliminacion();
               });
             }
           }
         }, {
           key: "descargarInventario",
           value: function descargarInventario(desde, hasta) {
-            var _this68 = this;
+            var _this69 = this;
 
             var data = {
               desde: desde.value,
@@ -19132,12 +19410,12 @@
               pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["PdfMakeWrapper"].setFonts(pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_4__);
 
               function generarPDF() {
-                return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+                return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
                   var i, _i4, _i5;
 
-                  return regeneratorRuntime.wrap(function _callee3$(_context3) {
+                  return regeneratorRuntime.wrap(function _callee4$(_context4) {
                     while (1) {
-                      switch (_context3.prev = _context3.next) {
+                      switch (_context4.prev = _context4.next) {
                         case 0:
                           pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"](" Movimientos Realizados en el Almacen").end).alignment('center').end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"](" Desde: ".concat(desde.value, " Hasta: ").concat(hasta.value)).end).alignment('center').end]]).widths(['100%']).layout('noBorders').end);
                           pdf.add(pdf.ln(2));
@@ -19171,54 +19449,54 @@
 
                         case 17:
                         case "end":
-                          return _context3.stop();
+                          return _context4.stop();
                       }
                     }
-                  }, _callee3);
+                  }, _callee4);
                 }));
               }
 
               generarPDF();
 
-              _this68.modal_reporte();
+              _this69.modal_reporte();
             });
           }
         }, {
           key: "totalizar_materiales",
           value: function totalizar_materiales() {
-            var _this69 = this;
+            var _this70 = this;
 
             var _loop8 = function _loop8(i) {
-              var existe = _this69.TOTALES.find(function (x) {
-                return x.material == _this69.Almacenado[i].material.nombre && x.marca == _this69.Almacenado[i].material.marca;
+              var existe = _this70.TOTALES.find(function (x) {
+                return x.material == _this70.Almacenado[i].material.nombre && x.marca == _this70.Almacenado[i].material.marca;
               });
 
               if (existe) {
-                var x = _this69.TOTALES.findIndex(function (x) {
-                  return x.material == _this69.Almacenado[i].material.nombre && x.marca == _this69.Almacenado[i].material.marca;
+                var x = _this70.TOTALES.findIndex(function (x) {
+                  return x.material == _this70.Almacenado[i].material.nombre && x.marca == _this70.Almacenado[i].material.marca;
                 });
 
-                _this69.TOTALES[x].total = Number(_this69.TOTALES[x].total);
-                _this69.Almacenado[i].cantidad = Number(_this69.Almacenado[i].cantidad);
-                _this69.Almacenado[i].neto = Number(_this69.Almacenado[i].material.neto);
-                var def = _this69.Almacenado[i].neto * _this69.Almacenado[i].cantidad / _this69.TOTALES[x].neto;
-                _this69.TOTALES[x].total = _this69.TOTALES[x].total + def;
+                _this70.TOTALES[x].total = Number(_this70.TOTALES[x].total);
+                _this70.Almacenado[i].cantidad = Number(_this70.Almacenado[i].cantidad);
+                _this70.Almacenado[i].neto = Number(_this70.Almacenado[i].material.neto);
+                var def = _this70.Almacenado[i].neto * _this70.Almacenado[i].cantidad / _this70.TOTALES[x].neto;
+                _this70.TOTALES[x].total = _this70.TOTALES[x].total + def;
               } else {
-                _this69.TOTALES.push({
-                  material: _this69.Almacenado[i].material.nombre,
-                  marca: _this69.Almacenado[i].material.marca,
-                  calibre: _this69.Almacenado[i].material.calibre,
-                  gramaje: _this69.Almacenado[i].material.gramaje,
-                  grupo: _this69.Almacenado[i].material.grupo.nombre,
-                  presentacion: _this69.Almacenado[i].material.presentacion,
-                  neto: _this69.Almacenado[i].material.neto,
-                  unidad: _this69.Almacenado[i].material.unidad,
-                  ancho: _this69.Almacenado[i].material.ancho,
-                  largo: _this69.Almacenado[i].material.largo,
-                  total: _this69.Almacenado[i].cantidad
+                _this70.TOTALES.push({
+                  material: _this70.Almacenado[i].material.nombre,
+                  marca: _this70.Almacenado[i].material.marca,
+                  calibre: _this70.Almacenado[i].material.calibre,
+                  gramaje: _this70.Almacenado[i].material.gramaje,
+                  grupo: _this70.Almacenado[i].material.grupo.nombre,
+                  presentacion: _this70.Almacenado[i].material.presentacion,
+                  neto: _this70.Almacenado[i].material.neto,
+                  unidad: _this70.Almacenado[i].material.unidad,
+                  ancho: _this70.Almacenado[i].material.ancho,
+                  largo: _this70.Almacenado[i].material.largo,
+                  total: _this70.Almacenado[i].cantidad
                 });
 
-                console.log(_this69.TOTALES, 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+                console.log(_this70.TOTALES, 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
               }
             };
 
@@ -19338,7 +19616,7 @@
         }, {
           key: "Lote",
           value: function Lote(e, material, i, hojas, grupo, cantidad, m_cantidad, cinta) {
-            var _this70 = this;
+            var _this71 = this;
 
             var splited = e.split('-');
             e = splited[1];
@@ -19398,7 +19676,7 @@
               cantidad_solicitada = EnAlmacen.cantidad;
 
               check.onclick = function () {
-                return _this70.fijalote(e, codigo, 0, i, EnAlmacen.cantidad * EnAlmacen.material.neto, restante, cantidad_solicitada);
+                return _this71.fijalote(e, codigo, 0, i, EnAlmacen.cantidad * EnAlmacen.material.neto, restante, cantidad_solicitada);
               }; // <input type="checkbox" (click)='fijalote(${e},${EnAlmacen.cantidad})'> Fijar lote
 
             } else {
@@ -21192,7 +21470,7 @@
         }, {
           key: "validarToken",
           value: function validarToken() {
-            var _this71 = this;
+            var _this72 = this;
 
             return this.http.get("".concat(this.api_url, "/renew"), {
               headers: this.headers
@@ -21211,7 +21489,7 @@
                   Maquinaria = _resp$usuario.Maquinaria,
                   Planificacion = _resp$usuario.Planificacion,
                   Gestiones = _resp$usuario.Gestiones;
-              _this71.usuario = new _models_usuario_model__WEBPACK_IMPORTED_MODULE_4__["Usuario"](estado, _id, Nombre, Apellido, Correo, Departamento, Role, Nueva_orden, Consulta, Almacen, Maquinaria, Planificacion, Gestiones);
+              _this72.usuario = new _models_usuario_model__WEBPACK_IMPORTED_MODULE_4__["Usuario"](estado, _id, Nombre, Apellido, Correo, Departamento, Role, Nueva_orden, Consulta, Almacen, Maquinaria, Planificacion, Gestiones);
               localStorage.setItem('token', resp.token);
               localStorage.setItem('menu', JSON.stringify(resp.menu));
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (resp) {
@@ -21636,7 +21914,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 5);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 6);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -21646,7 +21924,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 6);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 7);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -21656,7 +21934,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 8);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -21666,7 +21944,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 9);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -21676,7 +21954,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 10);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -21686,7 +21964,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 10);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 11);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -21696,7 +21974,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 11);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 12);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -21706,7 +21984,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 12);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 13);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -21716,7 +21994,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 13);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 14);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -21726,7 +22004,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 14);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 15);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -21736,7 +22014,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 15);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 16);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -21746,7 +22024,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 16);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 17);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -21780,9 +22058,9 @@
       MainComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
         type: MainComponent,
         selectors: [["app-main"]],
-        decls: 15,
+        decls: 17,
         vars: 12,
-        consts: [[1, "hero", "is-small", "is-primary"], [1, "container", "mt-5", "animate__animated", "animate__fadeIn"], [1, "columns", "menu"], ["class", "column", 4, "ngIf"], [1, "column"], ["src", "../../../assets/BANNER-NUEVA-ORDEN.png", "alt", "", "routerLink", "/orden"], ["src", "../../../assets/BANNER-NUEVA-ORDEN-BN.png", "alt", ""], ["src", "../../../assets/BANNER-ALMACEN.png", "routerLink", "/almacen"], ["src", "../../../assets/BANNER-ALMACEN-BN.png", "alt", ""], ["src", "../../../assets/BANNER-PRODUCTOS-Y-MAQUINARIA.png", "routerLink", "/gestiones"], ["src", "../../../assets/BANNER-PRODUCTOS-Y-MAQUINARIA-BN.png", "alt", ""], ["src", "../../../assets/BANNER-CONSULTA.png", "routerLink", "/ordenes"], ["src", "../../../assets/BANNER-CONSULTA-BN.png", "alt", ""], ["src", "../../../assets/BANNER-GESTIONES.png", "routerLink", "/ordenes/gestion"], ["src", "../../../assets/BANNER-GESTIONES-BN.png", "alt", ""], ["src", "../../../assets/BANNER-PLANIFICACION.png", "routerLink", "/planificacion"], ["src", "../../../assets/BANNER-PLANIFICACION-BN.png", "alt", ""]],
+        consts: [[1, "hero", "is-small", "is-primary"], [1, "container", "mt-5", "animate__animated", "animate__fadeIn"], [1, "columns", "menu"], ["class", "column", 4, "ngIf"], [1, "column"], ["src", "../../../assets/BANNER-ESTADISTICAS-BN.png", "alt", ""], ["src", "../../../assets/BANNER-NUEVA-ORDEN.png", "alt", "", "routerLink", "/orden"], ["src", "../../../assets/BANNER-NUEVA-ORDEN-BN.png", "alt", ""], ["src", "../../../assets/BANNER-ALMACEN.png", "routerLink", "/almacen"], ["src", "../../../assets/BANNER-ALMACEN-BN.png", "alt", ""], ["src", "../../../assets/BANNER-PRODUCTOS-Y-MAQUINARIA.png", "routerLink", "/gestiones"], ["src", "../../../assets/BANNER-PRODUCTOS-Y-MAQUINARIA-BN.png", "alt", ""], ["src", "../../../assets/BANNER-CONSULTA.png", "routerLink", "/ordenes"], ["src", "../../../assets/BANNER-CONSULTA-BN.png", "alt", ""], ["src", "../../../assets/BANNER-GESTIONES.png", "routerLink", "/ordenes/gestion"], ["src", "../../../assets/BANNER-GESTIONES-BN.png", "alt", ""], ["src", "../../../assets/BANNER-PLANIFICACION.png", "routerLink", "/planificacion"], ["src", "../../../assets/BANNER-PLANIFICACION-BN.png", "alt", ""]],
         template: function MainComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "section", 0);
@@ -21814,6 +22092,12 @@
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](13, MainComponent_div_13_Template, 2, 0, "div", 3);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](14, MainComponent_div_14_Template, 2, 0, "div", 3);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](15, "div", 4);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](16, "img", 5);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -22226,7 +22510,7 @@
         }, {
           key: "login",
           value: function login() {
-            var _this72 = this;
+            var _this73 = this;
 
             var _a, _b; //Agregar clase de cargar a boton
 
@@ -22243,9 +22527,9 @@
             this.api.Login(this.loginForm.value).subscribe(function (resp) {
               localStorage.setItem('token', resp.token);
 
-              _this72.router.navigateByUrl('/');
+              _this73.router.navigateByUrl('/');
             }, function (err) {
-              _this72.cargando = false;
+              _this73.cargando = false;
               console.log(err);
               sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('Error', err.error.err.message, 'error');
             }); // console.log(this.loginForm.value)
