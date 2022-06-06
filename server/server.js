@@ -5,13 +5,10 @@ const bodyParser = require('body-parser');
 const cors = require('cors')
 const Counter = require('../server/database/models/orden.model');
 const convCount = require('../server/database/models/conversiones.model');
-const { SolicitudMateria } = require('../server/middlewares/emails/nuevo.email');
-const {NuevaOrden, NuevaOrden2} = require('../server/middlewares/emails/nuevo.email');
-
 
 
 const Usuario = require('../server/database/models/usuarios.model')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcrypt');
 
 //server
 const app = express();
@@ -49,7 +46,6 @@ require('./database/connection');
 //       _id:'test',
 //      seq:21000
 //   }).save();
-
 
 
 //correr app

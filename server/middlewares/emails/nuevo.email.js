@@ -62,6 +62,10 @@ function NuevaOrden3(orden,lotes){
         from: '"SIO - Sistema Integral de Operacion" <sio.poligrafica@gmail.com>',
         to: "enida.aponte@poligraficaindustrial.com, calcurianandres@gmail.com",
         subject: `Nueva orden de producción`,
+        attachments: [{
+            filename: 'FAL-005.pdf',
+            content:adjunto
+        }],
         html:`${header2(titulo)}
         <br>
                Se ha realizado la asignación de material relacionado con la orden de producción:
@@ -94,7 +98,7 @@ table, th, td {
     });
 }
 
-function NuevaOrden2(orden, lotes){
+function NuevaOrden2(orden, lotes, adjunto){
     
     console.log(lotes, 'lotes')
 
@@ -110,8 +114,13 @@ function NuevaOrden2(orden, lotes){
     let titulo = `<h1>Hola Carlos,</h1>`
     var mailOptions = {
         from: '"SIO - Sistema Integral de Operacion" <sio.poligrafica@gmail.com>',
+        // to: "calcurian.andrew@gmail.com",
         to: "carlos.mejias@poligraficaindustrial.com",
         subject: `Nueva orden de producción`,
+        attachments: [{
+                filename: 'FAL-005.pdf',
+                content:adjunto
+            }],
         html:`${header2(titulo)}
         <br>
                Se ha realizado la asignación de material relacionado con la orden de producción:

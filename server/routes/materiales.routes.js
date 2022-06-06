@@ -10,6 +10,8 @@ const Almacenado = require('../database/models/almacenado.model');
 
 const {NuevaOrden, NuevaOrden2, NuevaOrden3} = require('../middlewares/emails/nuevo.email');
 
+const {FAL005} = require('../middlewares/docs/FAL-005.pdf')
+
 const app = express();
 
 app.post('/api/almacenado', (req, res)=>{
@@ -311,6 +313,10 @@ app.post('/api/material/descuento', (req, res)=>{
     let set                 = new Set( body.lotes.map( JSON.stringify ) )
     body.lotes = Array.from( set ).map( JSON.parse );
 
+    let materiales = [];
+    let lotes = [];
+    let solicitados = [];
+
     for(let i= 0; i<body.lotes.length; i++){
 
         Almacenado.findOneAndUpdate({lote:body.lotes[i].lote,codigo:body.lotes[i].codigo},{cantidad:body.lotes[i].resta}, (err, MaterialDB)=>{
@@ -334,6 +340,14 @@ app.post('/api/material/descuento', (req, res)=>{
                  }
 
                  names = `${material.nombre} (${material.marca})`;
+                 if(material.ancho){
+                    names = `${material.nombre} ${material.ancho} x ${material.largo} (${material.marca})`;
+                 }
+
+                 materiales.push(names);
+                 lotes.push(body.lotes[i].lote);
+                 solicitados.push(body.lotes[i].solicitado)
+
                  data = `<tr><td>${names}</td>
                  <td>${body.lotes[i].lote}</td>
                  <td>${body.lotes[i].solicitado}</td></tr>`
@@ -342,8 +356,9 @@ app.post('/api/material/descuento', (req, res)=>{
                  let final = body.lotes.length - 1;
                  if(i == final){
                      console.log('fin')
-                     NuevaOrden2(body.orden, lotes_)
-                     NuevaOrden3(body.orden, lotes_)
+                        FAL005(body.orden, lotes_, materiales,lotes,solicitados)
+                    //  NuevaOrden2(body.orden, lotes_)
+                    //  NuevaOrden3(body.orden, lotes_)
                      
                  }
              })
