@@ -47,7 +47,7 @@ function emailNuevo(titulo, correo, nombre, apellido, any,sede,departamento){
 
 
 }
-function NuevaOrden3(orden,lotes){
+function NuevaOrden3(orden,lotes,adjunto){
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         port:465,
