@@ -149,9 +149,9 @@ const pdf = printer.createPdfKitDocument(doc.getDefinition());
 pdf.end();
 
     asignacion(orden, Lote, pdf,'Andres', 'calcurian.andrew@gmail.com')
-    // asignacion(orden, Lote, pdf,'Enida', 'enida.aponte@poligraficaindustrial.com')
-    // asignacion(orden, Lote, pdf,'Carlos', 'carlos.mejias@poligraficaindustrial.com')
-    // asignacion(orden, Lote, pdf,'Freddy', 'freddy.burgos@poligraficaindustrial.com')
+     asignacion(orden, Lote, pdf,'Enida', 'enida.aponte@poligraficaindustrial.com')
+     asignacion(orden, Lote, pdf,'Carlos', 'carlos.mejias@poligraficaindustrial.com')
+     asignacion(orden, Lote, pdf,'Freddy', 'freddy.burgos@poligraficaindustrial.com')
 
 }
 

@@ -49,10 +49,10 @@ require('./database/connection');
 //      seq:21000
 //   }).save();
 
-const materiales = ['test','test','test']
-const lotes = ['test','test','test'];
-const cantidades = ['test','test','test']
-FAL005(001,001, materiales, lotes, cantidades);
+// const materiales = ['test','test','test']
+// const lotes = ['test','test','test'];
+// const cantidades = ['test','test','test']
+// FAL005(001,001, materiales, lotes, cantidades);
 
 //correr app
 app.listen(process.env.PORT, ()=>{
