@@ -10,6 +10,8 @@ const convCount = require('../server/database/models/conversiones.model');
 const Usuario = require('../server/database/models/usuarios.model')
 const bcrypt = require('bcrypt');
 
+const {FAL005} = require('./middlewares/docs/FAL-005.pdf')
+
 //server
 const app = express();
 
@@ -47,6 +49,10 @@ require('./database/connection');
 //      seq:21000
 //   }).save();
 
+const materiales = ['test','test','test']
+const lotes = ['test','test','test'];
+const cantidades = ['test','test','test']
+FAL005(001,001, materiales, lotes, cantidades);
 
 //correr app
 app.listen(process.env.PORT, ()=>{

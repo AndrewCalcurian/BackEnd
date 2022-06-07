@@ -4,6 +4,9 @@ const Pdfmake = require('pdfmake');
 const { NuevaOrden2, NuevaOrden3 } = require('../emails/nuevo.email')
 const moment = require('moment')
 
+const nodemailer = require('nodemailer');
+
+
 const printer = new Pdfmake({
     Roboto: {
         normal: __dirname + '/fonts/Roboto/Roboto-Regular.ttf',
@@ -29,7 +32,7 @@ const hoy = moment().format('DD/MM/yyyy');
 
 
 doc.pageOrientation('landscape');
-doc.footer('Si usted esta consultando una versión de este documento, Asegúrese que sea la vigente');
+// doc.footer('Si usted esta consultando una versión de este documento, Asegúrese que sea la vigente');
 
 
 doc.add(
@@ -42,7 +45,7 @@ doc.add(
                 await new Img(__dirname + '/images/poli_cintillo.png', true).width(85).margin([20, 5]).build()
             ).rowSpan(4).end,
             new Cell(new Txt(`
-            ASIGNACIÓN DE MATERIAL`).bold().end).alignment('center').fontSize(13).rowSpan(4).end,
+            FORMATO DE ASIGNACIÓN DE MATERIAL`).bold().end).alignment('center').fontSize(13).rowSpan(4).end,
             new Cell(new Txt('Código: FAL-005').end).fillColor('#dedede').fontSize(7).alignment('center').end,
         ],
         [
@@ -79,7 +82,7 @@ doc.add(
         new Cell(new Txt('UNIDAD ADMINISTRATIVA').end).fillColor('#dedede').fontSize(10).alignment('center').end,
         new Cell(new Txt('GERENCIA DE OPERACIONES').end).end,
         new Cell(new Txt('ORDEN DE PRODUCCIÓN').end).fillColor('#dedede').fontSize(10).alignment('center').end,
-        new Cell(new Txt(`${orden}`).end).end,
+        new Cell(new Txt(`${orden}`).end).alignment('center').end,
       ]
     ]).widths(['25%','25%','25%','25%']).end
   )
@@ -110,16 +113,12 @@ doc.add(
 doc.add(
     new Table([
         [
-            new Cell(new Txt('OBSERVACIÓN').end).fillColor('#dedede').fontSize(9).alignment('center').end,
+            new Cell(new Txt('OBSERVACIÓN').end).border([false,false]).end,
             new Cell(new Txt('ASIGNADO POR:').end).fillColor('#dedede').fontSize(9).alignment('center').end,
             new Cell(new Txt('RECIBIDO POR:').end).fillColor('#dedede').fontSize(9).alignment('center').end,
         ],
         [
-            new Cell(new Txt(`
-
-            N/A
-            
-            `).end).fontSize(9).alignment('center').end,
+            new Cell(new Txt().end).border([false,false]).end,
             new Cell(new Txt(`
             FIRMA: YRAIDA BAPTISTA
 
@@ -133,7 +132,11 @@ doc.add(
 
         ]
 
-    ]).widths(['33%','34%','33%']).end
+    ]).widths(['50%','25%','25%']).end
+)
+
+doc.add(
+    new Txt('Si usted esta consultando una versión de este documento, Asegúrese que sea la vigente').fontSize(5).end
 )
 
 
@@ -144,36 +147,36 @@ const pdf = printer.createPdfKitDocument(doc.getDefinition());
 // pdf.pipe(fs.createWriteStream('document.pdf'));
 pdf.end();
     
-    NuevaOrden2(orden, Lote, pdf);
-    NuevaOrden3(orden, Lote, pdf);
+    // NuevaOrden2(orden, Lote, pdf);
+    // NuevaOrden3(orden, Lote, pdf);
 
-    // var transporter = nodemailer.createTransport({
-    //     service: 'gmail',
-    //     auth: {
-    //         user: process.env.CORREO,
-    //         pass: process.env.PASS_CORREO
-    //     }
-    // });
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: process.env.CORREO,
+            pass: process.env.PASS_CORREO
+        }
+    });
     
-    // var mailOptions = {
-    //     from: '"Soporte Técnico" <thermo.soporte.group@gmail.com>',
-    //     // to: 'calcurian.andrew@gmail.com, zuleima.vela@poligraficaindustrial.com, jaime.sanjuan@poligraficaindustrial.com',
-    //     to: 'calcurian.andrew@gmail.com,',
-    //     subject: 'test',
-    //     html:'Este es un mensaje automatico enviado por el Sistema SIO',
-    //     attachments: [{
-    //         filename: 'test.pdf',
-    //         content:pdf
-    //     }]
-    // };
+     var mailOptions = {
+         from: '"Soporte Técnico" <thermo.soporte.group@gmail.com>',
+         // to: 'calcurian.andrew@gmail.com, zuleima.vela@poligraficaindustrial.com, jaime.sanjuan@poligraficaindustrial.com',
+         to: 'calcurian.andrew@gmail.com,',
+         subject: 'test',
+         html:'Este es un mensaje automatico enviado por el Sistema SIO',
+         attachments: [{
+             filename: 'test.pdf',
+             content:pdf
+         }]
+     };
     
-    // transporter.sendMail(mailOptions, (err, info)=>{
-    //     if(err){
-    //         console.log(err);
-    //     }else{
-    //         console.log(info);
-    //     }
-    // });
+     transporter.sendMail(mailOptions, (err, info)=>{
+         if(err){
+             console.log(err);
+         }else{
+             console.log(info);
+         }
+     });
 
 }
 
