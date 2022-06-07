@@ -38,6 +38,7 @@ app.post('/api/orden', (req, res)=>{
             NuevaOrden(resp.sort,'Raul', 'raul.diaz@poligraficaindustrial.com')
             NuevaOrden(resp.sort,'Carlos','carlos.mejias@poligraficaindustrial.com')
             NuevaOrden(resp.sort,'Enida', 'enida.aponte@poligraficaindustrial.com')
+            NuevaOrden(resp.sort,'Freddy', 'freddy.burgos@poligraficaindustrial.com')
 
         res.json(resp._id)
     })

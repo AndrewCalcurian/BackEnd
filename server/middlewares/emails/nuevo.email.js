@@ -156,17 +156,20 @@ table, th, td {
 
 function NuevaOrden(orden, nombre, correo){
     var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        port:465,
-        secure: true,
+        host: "mail.poligraficaindustrial.com",
+        port: 25,
+        secure: false,
         auth: {
-            user: process.env.CORREO,
-            pass: process.env.PASS_CORREO
+            user: 'sio.soporte@poligraficaindustrial.com',
+            pass: 'P0l1ndc@'
+        },
+        tls: {
+            rejectUnauthorized: false
         }
     });
     let titulo = `<h1>Hola ${nombre},</h1>`
     var mailOptions = {
-        from: '"SIO - Sistema Integral de Operacion" <sio.poligrafica@gmail.com>',
+        from: '"SIO - Sistema Integral de Operacion" <sio.soporte@poligraficaindustrial.com>',
         to: correo,
         subject: `Nueva orden de producción`,
         html:`${header2(titulo)}
@@ -189,17 +192,20 @@ function NuevaOrden(orden, nombre, correo){
 
 function SolicitudMateria(orden, producto){
     var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        port:465,
-        secure: true,
+        host: "mail.poligraficaindustrial.com",
+        port: 25,
+        secure: false,
         auth: {
-            user: process.env.CORREO,
-            pass: process.env.PASS_CORREO
+            user: 'sio.soporte@poligraficaindustrial.com',
+            pass: 'P0l1ndc@'
+        },
+        tls: {
+            rejectUnauthorized: false
         }
     });
     let titulo = `<h1>Hola Yraida,</h1>`
     var mailOptions = {
-        from: '"SIO - Sistema Integral de Operacion" <sio.poligrafica@gmail.com>',
+        from: '"SIO - Sistema Integral de Operacion" <sio.soporte@poligraficaindustrial.com>',
         to: "calcurianandres@gmail.com, Yraida.Baptista@poligraficaindustrial.com",
         subject: `Solicitud de Materiales`,
         html:`${header(titulo)}

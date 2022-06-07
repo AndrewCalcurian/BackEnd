@@ -2,6 +2,7 @@ const {DocumentDefinition, Table, Cell, Txt, Img, Stack} = require('pdfmake-wrap
 const Pdfmake = require('pdfmake');
 
 const { NuevaOrden2, NuevaOrden3 } = require('../emails/nuevo.email')
+const {asignacion} = require('../emails/asignacion.email')
 const moment = require('moment')
 
 const nodemailer = require('nodemailer');
@@ -113,7 +114,7 @@ doc.add(
 doc.add(
     new Table([
         [
-            new Cell(new Txt('OBSERVACIÓN').end).border([false,false]).end,
+            new Cell(new Txt('').end).border([false,false]).end,
             new Cell(new Txt('ASIGNADO POR:').end).fillColor('#dedede').fontSize(9).alignment('center').end,
             new Cell(new Txt('RECIBIDO POR:').end).fillColor('#dedede').fontSize(9).alignment('center').end,
         ],
@@ -136,7 +137,7 @@ doc.add(
 )
 
 doc.add(
-    new Txt('Si usted esta consultando una versión de este documento, Asegúrese que sea la vigente').fontSize(5).end
+    new Txt('Si usted esta consultando una versión de este documento, Asegúrese que sea la vigente').alignment('right').fontSize(8).end
 )
 
 
@@ -146,37 +147,11 @@ const pdf = printer.createPdfKitDocument(doc.getDefinition());
 
 // pdf.pipe(fs.createWriteStream('document.pdf'));
 pdf.end();
-    
-    // NuevaOrden2(orden, Lote, pdf);
-    // NuevaOrden3(orden, Lote, pdf);
 
-    var transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-            user: process.env.CORREO,
-            pass: process.env.PASS_CORREO
-        }
-    });
-    
-     var mailOptions = {
-         from: '"Soporte Técnico" <thermo.soporte.group@gmail.com>',
-         // to: 'calcurian.andrew@gmail.com, zuleima.vela@poligraficaindustrial.com, jaime.sanjuan@poligraficaindustrial.com',
-         to: 'calcurian.andrew@gmail.com,',
-         subject: 'test',
-         html:'Este es un mensaje automatico enviado por el Sistema SIO',
-         attachments: [{
-             filename: 'test.pdf',
-             content:pdf
-         }]
-     };
-    
-     transporter.sendMail(mailOptions, (err, info)=>{
-         if(err){
-             console.log(err);
-         }else{
-             console.log(info);
-         }
-     });
+    asignacion(orden, Lote, pdf,'Andres', 'calcurian.andrew@gmail.com')
+    // asignacion(orden, Lote, pdf,'Enida', 'enida.aponte@poligraficaindustrial.com')
+    // asignacion(orden, Lote, pdf,'Carlos', 'carlos.mejias@poligraficaindustrial.com')
+    // asignacion(orden, Lote, pdf,'Freddy', 'freddy.burgos@poligraficaindustrial.com')
 
 }
 
