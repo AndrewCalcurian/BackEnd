@@ -2891,7 +2891,7 @@ MaquinariaComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\administrador.POLINDUSTRIAL\Desktop\SIO_UPDATED\SIO_FRONTEND\src\main.ts */"zUnb");
+module.exports = __webpack_require__(/*! C:\Users\administrador\Desktop\SIO\FRONTEND\src\main.ts */"zUnb");
 
 
 /***/ }),
@@ -3130,7 +3130,7 @@ __webpack_require__.r(__webpack_exports__);
 // The list of file replacements can be found in `angular.json`.
 const environment = {
     production: false,
-    //  api: 'http://127.0.0.1:8080/api'
+    // api: 'http://127.0.0.1:8080/api'
     api: 'http://192.168.0.23:8080/api'
 };
 /*
@@ -9767,7 +9767,7 @@ function MainComponent_div_278_tr_11_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](12, "div", 36);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "div", 5);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](14, "select", 129);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("change", function MainComponent_div_278_tr_11_Template_select_change_14_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r234); const materiales_r204 = ctx.$implicit; const i_r205 = ctx.index; const orden_r202 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit; const ctx_r233 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r233.Lote($event.target.value, materiales_r204.producto.nombre, i_r205, orden_r202.paginas, materiales_r204.producto.grupo.nombre, orden_r202.cantidad, materiales_r204.cantidad, materiales_r204.cinta); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("change", function MainComponent_div_278_tr_11_Template_select_change_14_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r234); const materiales_r204 = ctx.$implicit; const i_r205 = ctx.index; const orden_r202 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]().$implicit; const ctx_r233 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r233.Lote($event.target.value, materiales_r204.producto.nombre, i_r205, orden_r202.paginas, materiales_r204.producto.grupo.nombre, orden_r202.cantidad, materiales_r204.cantidad, materiales_r204.producto.unidad, materiales_r204.cinta); });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](15, "option", 130);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](16, "Seleccionar LOTE");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -9856,7 +9856,7 @@ function MainComponent_div_278_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](12, "br");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "button", 65);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function MainComponent_div_278_Template_button_click_13_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r237); const orden_r202 = ctx.$implicit; const ctx_r236 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r236.Restar(orden_r202.sort); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function MainComponent_div_278_Template_button_click_13_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r237); const orden_r202 = ctx.$implicit; const ctx_r236 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"](); return ctx_r236.Restar(orden_r202.sort, orden_r202.solicitud); });
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](14, "Confirmar");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -10641,7 +10641,17 @@ class MainComponent {
                 presentacion: El_Material.presentacion };
         }
     }
-    Restar(orden) {
+    Restar(orden, solicitud) {
+        let largo = solicitud.length;
+        if (largo == 1) {
+            solicitud = `000${solicitud}`;
+        }
+        if (largo > 1) {
+            solicitud = `00${solicitud}`;
+        }
+        if (largo > 2) {
+            solicitud = `0${solicitud}`;
+        }
         // let data = {descuento:this.DESCUENTOS, 
         //             orden:orden}
         // this.api.modificarMaterialTal(data)
@@ -10667,7 +10677,8 @@ class MainComponent {
         }
         let data = {
             lotes: this.LOTES,
-            orden
+            orden,
+            solicitud
         };
         this.api.realizarDescuentoAlmacen(data)
             .subscribe(resp => {
@@ -10974,7 +10985,7 @@ class MainComponent {
     caja(cajas) {
         this.caja_ = cajas;
     }
-    Lote(e, material, i, hojas, grupo, cantidad, m_cantidad, cinta) {
+    Lote(e, material, i, hojas, grupo, cantidad, m_cantidad, unidad, cinta) {
         let splited = e.split('-');
         e = splited[1];
         let codigo = splited[0];
@@ -11026,7 +11037,7 @@ class MainComponent {
             document.getElementById(`fijar_lote-${i}`).style.display = "block";
             let check = document.getElementById(`fijar_lote-${i}`);
             cantidad_solicitada = EnAlmacen.cantidad;
-            check.onclick = () => this.fijalote(e, codigo, 0, i, (EnAlmacen.cantidad * EnAlmacen.material.neto), restante, cantidad_solicitada);
+            check.onclick = () => this.fijalote(e, codigo, 0, i, (EnAlmacen.cantidad * EnAlmacen.material.neto), restante, cantidad_solicitada, unidad);
             // <input type="checkbox" (click)='fijalote(${e},${EnAlmacen.cantidad})'> Fijar lote
         }
         else {
@@ -11035,25 +11046,25 @@ class MainComponent {
             cantidad_solicitada = EnAlmacen.cantidad - restante;
             let existe = this.LOTES.find(x => x.lote === e);
             if (!existe) {
-                this.LOTES.push({ lote: e, codigo: codigo, resta: restante, i, almacenado: EnAlmacen.cantidad, solicitado: cantidad_solicitada });
+                this.LOTES.push({ lote: e, codigo: codigo, resta: restante, i, almacenado: EnAlmacen.cantidad, solicitado: cantidad_solicitada, unidad });
             }
             else {
-                this.LOTES.push({ lote: e, codigo, resta: restante, i, almacenado: EnAlmacen.cantidad, solicitado: cantidad_solicitada });
+                this.LOTES.push({ lote: e, codigo, resta: restante, i, almacenado: EnAlmacen.cantidad, solicitado: cantidad_solicitada, unidad });
                 //  let index = this.LOTES.findIndex(x => x.lote === e)
                 //  this.LOTES.splice(index , 1);
             }
             console.log(this.LOTES);
         }
     }
-    fijalote(lote, codigo, resto, i, almacenado, restante, solicitado) {
+    fijalote(lote, codigo, resto, i, almacenado, restante, solicitado, unidad) {
         let existe = this.LOTES.find(x => x.lote == lote);
         if (!existe) {
-            this.LOTES.push({ lote, codigo, resta: resto, i, almacenado, restante: restante, solicitado });
+            this.LOTES.push({ lote, codigo, resta: resto, i, almacenado, restante: restante, solicitado, unidad });
             console.log(this.LOTES);
         }
         else {
             let index = this.LOTES.findIndex(x => x.lote == lote);
-            this.LOTES.push({ lote, codigo, resta: resto, i, almacenado, restante: restante, solicitado });
+            this.LOTES.push({ lote, codigo, resta: resto, i, almacenado, restante: restante, solicitado, unidad });
         }
         console.log(this.LOTES);
     }

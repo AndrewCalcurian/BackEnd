@@ -10,7 +10,8 @@ const Almacenado = require('../database/models/almacenado.model');
 
 const {NuevaOrden, NuevaOrden2, NuevaOrden3} = require('../middlewares/emails/nuevo.email');
 
-const {FAL005} = require('../middlewares/docs/FAL-005.pdf')
+const {FAL005} = require('../middlewares/docs/FAL-005.pdf');
+const { cache } = require('../middlewares/emails/cache.email');
 
 const app = express();
 
@@ -267,7 +268,7 @@ app.put('/api/material/:id', (req, res)=>{
     const id = req.params.id;
     let body = req.body;
 
-    console.log(body)
+    // console.log(body)
 
     Material.findByIdAndUpdate(id, body, (err, materialDB) =>{
         if( err ){
@@ -328,7 +329,7 @@ app.post('/api/material/descuento', (req, res)=>{
                  });
              }
 
-             console.log(MaterialDB.material)
+            //  console.log(MaterialDB.material)
 
              Material.findById(MaterialDB.material, (err, material)=>{
                 if( err ){
@@ -346,50 +347,22 @@ app.post('/api/material/descuento', (req, res)=>{
 
                  materiales.push(names);
                  lotes.push(body.lotes[i].lote);
-                 solicitados.push(body.lotes[i].solicitado)
+                 solicitados.push(`${body.lotes[i].solicitado}${body.lotes[i].unidad}`)
 
                  data = `<tr><td>${names}</td>
                  <td>${body.lotes[i].lote}</td>
-                 <td>${body.lotes[i].solicitado}</td></tr>`
+                 <td>${body.lotes[i].solicitado}${body.lotes[i].unidad}</td></tr>`
                  lotes_ = lotes_ + data;
      
                  let final = body.lotes.length - 1;
                  if(i == final){
-                     console.log('fin')
-                        FAL005(body.orden, lotes_, materiales,lotes,solicitados)
-                    //  NuevaOrden2(body.orden, lotes_)
-                    //  NuevaOrden3(body.orden, lotes_)
+                    //  console.log('fin')
+                        // cache()
+                        FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)
                      
                  }
              })
-             
-             
-
-             
-
-            
         })
-        // Material.find({lote:body[i].lote}, (err, MaterialDB)=>{
-            //     if( err ){
-                //     return res.status(400).json({
-                    //             ok:false,
-                    //             err
-                    //         });
-                    //     }
-                    
-                    //     let almacenado = MaterialDB.cantidad
-                    //     let nuevo = almacenado - body[i].almacenado
-                    
-                    //     Material.findOneAndUpdate({lote:body[i].lote},{cantidad:nuevo}, (err, UpdateDB)=>{
-                        //         if( err ){
-                            //             return res.status(400).json({
-                                //                     ok:false,
-                                //                     err
-                                //                 });
-                                //             }
-                                
-                                //     })
-                                // })
         }
         Orden.findOneAndUpdate({sort:body.orden}, {estado:'activo'}, (err, modificado)=>{
             if( err ){
@@ -399,67 +372,14 @@ app.post('/api/material/descuento', (req, res)=>{
                 });
             }
 
+            res.json({ok:'ok'})
+            console.log('ok')
+            return
             
             
-        });
-            // NuevaOrden3(body.orden)
-    res.json({ok:'ok'})
-    // let orden = req.body.orden
-
-    
-
-    //  for(let i = 0; i< body.length; i++){
-
-    //     Material.find({nombre:body[i].material}, (err, MaterialDB)=>{
-    //         if( err ){
-    //             return res.status(400).json({
-    //                 ok:false,
-    //                 err
-    //             });
-    //         }
-    
-    //        let newCantidad = MaterialDB[0].cantidad - body[i].total;
-
-    //        console.log(newCantidad)
-    
-    //        Material.findByIdAndUpdate(MaterialDB[0]._id, {cantidad:newCantidad}, (err, modificacion) =>{
-    //            if( err ){
-    //                return res.status(400).json({
-    //                    ok:false,
-    //                    err
-    //                });
-    //            }
-
-    //         const NuevoDescuento = new Descuentos({
-    //             material:MaterialDB[0]._id,
-    //             descuento:body[i].total,
-    //             razon: `para la orden: ${orden}`
-    //         }).save((err, modificacion) =>{
-    //             if( err ){
-    //                 return res.status(400).json({
-    //                     ok:false,
-    //                     err
-    //                 });
-    //             }
-    //             Orden.findOneAndUpdate({sort:orden}, {estado:'activo'}, (err, modificado)=>{
-    //                 if( err ){
-    //                     return res.status(400).json({
-    //                         ok:false,
-    //                         err
-    //                     });
-    //                 }
-    //                 res.json({
-    //                     ok:true,
-    //                     modificado
-    //                 })
-    //             })
-    //         });
-
-    //         })
-    //     });
-    // }
-
-
+    });
+    console.log('ok_-_')   
+    return
 })
 
 app.post('/api/materiales/:id', (req, res)=>{
@@ -474,7 +394,7 @@ app.post('/api/materiales/:id', (req, res)=>{
             });
         }
 
-        console.log(body);
+        // console.log(body);
 
         const NuevoDescuento = new Descuentos({
             material:id,
@@ -506,7 +426,7 @@ app.post('/api/materialess/reporte', (req, res)=>{
     const fechaInicial = body.hasta;
     const fechaFinal = fechaInicial.substring(0,8).concat(Number(fechaInicial.substring(8)));
 
-    console.log('esta es la fecha Inicio: ', fechaInicio, 'y esta es la fecha final: ', fechaFinal)
+    // console.log('esta es la fecha Inicio: ', fechaInicio, 'y esta es la fecha final: ', fechaFinal)
 
     Descuentos.find({$and: [{fecha: {$gte: new Date(fechaInicio)}},{fecha: {$lt: new Date(fechaFinal)}}]})
                 .populate('material')

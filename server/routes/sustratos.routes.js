@@ -53,8 +53,8 @@ app.post('/api/bobina-delete', (req, res)=>{
                     err
                 });
             }
-            console.log(conversion.descuentos, 'peso');
-            console.log(deleted.peso, 'deleted');
+            // console.log(conversion.descuentos, 'peso');
+            // console.log(deleted.peso, 'deleted');
 
             let descuento;
             let peso;
@@ -63,7 +63,7 @@ app.post('/api/bobina-delete', (req, res)=>{
             descuento = Number(conversion.descuentos) 
             peso = Number(deleted.peso)
             total = descuento + peso;
-            console.log(total);
+            // console.log(total);
 
             Conversion.findOneAndUpdate({sort:body.numero},{descuentos:total},{new : true, passRawResult: true}, (err, listo)=>{
                 if( err ){

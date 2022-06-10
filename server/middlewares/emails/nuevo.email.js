@@ -100,7 +100,7 @@ table, th, td {
 
 function NuevaOrden2(orden, lotes, adjunto){
     
-    console.log(lotes, 'lotes')
+    // console.log(lotes, 'lotes')
 
     var transporter = nodemailer.createTransport({
         service: 'gmail',

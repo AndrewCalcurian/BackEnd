@@ -1,11 +1,16 @@
 const {DocumentDefinition, Table, Cell, Txt, Img, Stack} = require('pdfmake-wrapper/server');
 const Pdfmake = require('pdfmake');
 
-const { NuevaOrden2, NuevaOrden3 } = require('../emails/nuevo.email')
 const {asignacion} = require('../emails/asignacion.email')
 const moment = require('moment')
 
+const fs = require('fs')
+
 const nodemailer = require('nodemailer');
+
+async function FAL005(orden,solicitud, Lote, materiales, lotes, cantidades){
+
+
 
 
 const printer = new Pdfmake({
@@ -27,7 +32,6 @@ const printer = new Pdfmake({
 
 const doc = new DocumentDefinition();
 
-async function FAL005(orden, Lote, materiales, lotes, cantidades){
 
 const hoy = moment().format('DD/MM/yyyy');
 
@@ -77,7 +81,7 @@ doc.add(
         new Cell(new Txt('FECHA DE ASIGNACIÓN').end).fillColor('#dedede').fontSize(10).alignment('center').end,
         new Cell(new Txt(`${hoy}`).end).end,
         new Cell(new Txt('N° ASIGNACIÓN').end).fillColor('#dedede').fontSize(10).alignment('center').end,
-        new Cell(new Txt('AL-ASG-001').end).fontSize(15).alignment('center').end,
+        new Cell(new Txt(`AL-ASG-${solicitud}`).end).fontSize(15).alignment('center').end,
       ],
       [
         new Cell(new Txt('UNIDAD ADMINISTRATIVA').end).fillColor('#dedede').fontSize(10).alignment('center').end,
@@ -144,14 +148,15 @@ doc.add(
 
 
 const pdf = printer.createPdfKitDocument(doc.getDefinition());
-
-// pdf.pipe(fs.createWriteStream('document.pdf'));
 pdf.end();
 
-    asignacion(orden, Lote, pdf,'Andres', 'calcurian.andrew@gmail.com')
-     asignacion(orden, Lote, pdf,'Enida', 'enida.aponte@poligraficaindustrial.com')
-     asignacion(orden, Lote, pdf,'Carlos', 'carlos.mejias@poligraficaindustrial.com')
-     asignacion(orden, Lote, pdf,'Freddy', 'freddy.burgos@poligraficaindustrial.com')
+
+
+asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurian.andrew@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com')
+//   asignacion(orden, solicitud, Lote, pdf,'EQUIPO DE TRABAJO', 'calcurian.andrew@gmail.com')
+//  asignacion(orden, Lote, pdf,'Carlos', 'carlos.mejias@poligraficaindustrial.com')
+    //  asignacion(orden, Lote, pdf,'Freddy', 'freddy.burgos@poligraficaindustrial.com')
+    return
 
 }
 

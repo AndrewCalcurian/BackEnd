@@ -101,7 +101,7 @@ app.get('/api/trabajos', (req, res)=>{
 app.post('/api/trabajos/acelerar', (req, res)=>{
 
     const body = req.body;
-    console.log(body)
+    // console.log(body)
 
     let _fecha = moment(body.fecha).subtract(1, 'day')
     _fecha = moment(_fecha).format('yyyy-MM-DD')
@@ -126,7 +126,7 @@ app.post('/api/trabajos/acelerar', (req, res)=>{
 
         for(let i=0; i<ordens.length; i++){
             if(ordens[i].maquina == body.maquina._id){
-                console.log('_i_')
+                // console.log('_i_')
                 for(let x = i; x<ordens.length; x++){
                     Trabajo.find({maquina:ordens[x].maquina, fechaI:{ $gte: body.fecha }},(err, trabajoDB)=>{
                         if( err ){
@@ -138,7 +138,7 @@ app.post('/api/trabajos/acelerar', (req, res)=>{
                         for(let y = 0; y<trabajoDB.length; y++){
                             let fechaI = trabajoDB[y].fechaI
                             let fecha = trabajoDB[y].fecha
-                            console.log(trabajoDB[y]._id,'/',body.orden)
+                            // console.log(trabajoDB[y]._id,'/',body.orden)
                             if(trabajoDB[y]._id != body.trabajo){
                                 fechaI = moment(trabajoDB[y].fechaI).subtract(1, 'day')
                                 fechaI = moment(fechaI).format('yyyy-MM-DD')
@@ -152,7 +152,7 @@ app.post('/api/trabajos/acelerar', (req, res)=>{
                                         err
                                     });
                                 }
-                                console.log(updated)
+                                // console.log(updated)
                             })
                         }
 
@@ -169,7 +169,7 @@ app.post('/api/trabajos/acelerar', (req, res)=>{
 app.post('/api/trabajos/retrasar', (req, res)=>{
 
     const body = req.body;
-    console.log(body)
+    // console.log(body)
 
     let _fecha = moment(body.fecha).add(1, 'day')
     _fecha = moment(_fecha).format('yyyy-MM-DD')
@@ -194,7 +194,7 @@ app.post('/api/trabajos/retrasar', (req, res)=>{
 
         for(let i=0; i<ordens.length; i++){
             if(ordens[i].maquina == body.maquina._id){
-                console.log('_i_')
+                // console.log('_i_')
                 for(let x = i; x<ordens.length; x++){
                     Trabajo.find({maquina:ordens[x].maquina, fechaI:{ $gte: body.fecha }},(err, trabajoDB)=>{
                         if( err ){
@@ -206,7 +206,7 @@ app.post('/api/trabajos/retrasar', (req, res)=>{
                         for(let y = 0; y<trabajoDB.length; y++){
                             let fechaI = trabajoDB[y].fechaI
                             let fecha = trabajoDB[y].fecha
-                            console.log(trabajoDB[y]._id,'/',body.orden)
+                            // console.log(trabajoDB[y]._id,'/',body.orden)
                             if(trabajoDB[y]._id != body.trabajo){
                                 fechaI = moment(trabajoDB[y].fechaI).add(1, 'day')
                                 fechaI = moment(fechaI).format('yyyy-MM-DD')
@@ -220,7 +220,7 @@ app.post('/api/trabajos/retrasar', (req, res)=>{
                                         err
                                     });
                                 }
-                                console.log(updated)
+                                // console.log(updated)
                             })
                         }
 
@@ -322,7 +322,7 @@ app.put('/api/finalizar-trabajo', (req, res)=>{
             // console.log(i,'<->',trabajosDB[i++],'<>',body.id)
 
             if(trabajosDB[i++]){
-                console.log(trabajosDB[i++]._id,'trabajo id')
+                // console.log(trabajosDB[i++]._id,'trabajo id')
                 let _id_ = trabajosDB[i++]._id
                 Trabajo.findByIdAndUpdate(_id_, {fechaI:HOY}, (err, final)=>{
                     if( err ){
@@ -335,7 +335,7 @@ app.put('/api/finalizar-trabajo', (req, res)=>{
                     res.json('done')
                 })
             }else{
-                console.log('no')
+                // console.log('no')
                 res.json('done')
             }
         })
@@ -353,8 +353,8 @@ app.post('/api/grupos', (req, res)=>{
         tipos:body.tipos
     })
 
-    console.log('Esto llega:',body)
-    console.log('Esto se va:',NewGrupo)
+    // console.log('Esto llega:',body)
+    // console.log('Esto se va:',NewGrupo)
 
 // ----SE GUARDA LA INFORMACION EN LA BASE DE DATOS---
     NewGrupo.save((err, grupoDB)=>{

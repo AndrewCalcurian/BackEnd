@@ -9,6 +9,13 @@ var CounterSchema = new mongoose.Schema({
 
 var counter = mongoose.model('counter', CounterSchema);
 
+var SolicitudSchema = new mongoose.Schema({
+    _id: {type: String, required:true},
+    seq: {type: Number, default: 2021000}
+});
+
+var solicitud = mongoose.model('solicitud', SolicitudSchema);
+
 
 let OrdenSchema = new Schema([{
             estado:{
@@ -70,6 +77,9 @@ let OrdenSchema = new Schema([{
             observacion:{
                 type:String,
                 default:''
+            },
+            solicitud:{
+                type:String
             }
 }]);
 
@@ -77,6 +87,18 @@ OrdenSchema.pre('save', function(next){
     var doc = this;
     counter.findByIdAndUpdate({_id: 'test'}, {$inc: {seq: 1}}, {new: true, upset:true}).then(function(count) {
         doc.sort = count.seq;
+        next();
+    })
+    .catch(function(error) {
+        throw error;
+    });
+});
+
+
+OrdenSchema.pre('save', function(next){
+    var doc = this;
+    solicitud.findByIdAndUpdate({_id: 'test'}, {$inc: {seq: 1}}, {new: true, upset:true}).then(function(count) {
+        doc.solicitud = count.seq;
         next();
     })
     .catch(function(error) {

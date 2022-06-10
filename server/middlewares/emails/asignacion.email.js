@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const {header, header2, footer} = require('../templates/template.email')
 
-function asignacion(orden,lotes,adjunto,nombre,correo){
+function asignacion(orden, solicitud, lotes,adjunto,nombre,correo){
 
     var transporter = nodemailer.createTransport({
         host: "mail.poligraficaindustrial.com",
@@ -23,7 +23,7 @@ function asignacion(orden,lotes,adjunto,nombre,correo){
         to: correo,
         subject: `Nueva orden de producción`,
         attachments: [{
-            filename: 'FAL-005.pdf',
+            filename: `AL-ASG-${solicitud}_${orden}.pdf`,
             content:adjunto
         }],
         html:`${header2(titulo)}
@@ -53,7 +53,7 @@ table, th, td {
         if(err){
             console.log(err);
         }else{
-            console.log(info);
+            return
         }
     });
 }
