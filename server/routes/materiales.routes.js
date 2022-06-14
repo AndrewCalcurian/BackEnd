@@ -358,7 +358,7 @@ app.post('/api/material/descuento', (req, res)=>{
                  if(i == final){
                     //  console.log('fin')
                         // cache()
-                        FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)
+                        // FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)
                      
                  }
              })

@@ -33,12 +33,12 @@ app.post('/api/orden', (req, res)=>{
                 err
             });
         }
-              SolicitudMateria(resp.sort,'test')
-             NuevaOrden(resp.sort,'Luis','luis.malave@poligraficaindustrial.com')
-             NuevaOrden(resp.sort,'Raul', 'raul.diaz@poligraficaindustrial.com')
-             NuevaOrden(resp.sort,'Carlos','carlos.mejias@poligraficaindustrial.com')
-             NuevaOrden(resp.sort,'Enida', 'enida.aponte@poligraficaindustrial.com')
-             NuevaOrden(resp.sort,'Freddy', 'freddy.burgos@poligraficaindustrial.com')
+            //   SolicitudMateria(resp.sort,'test')
+            //  NuevaOrden(resp.sort,'Luis','luis.malave@poligraficaindustrial.com')
+            //  NuevaOrden(resp.sort,'Raul', 'raul.diaz@poligraficaindustrial.com')
+            //  NuevaOrden(resp.sort,'Carlos','carlos.mejias@poligraficaindustrial.com')
+            //  NuevaOrden(resp.sort,'Enida', 'enida.aponte@poligraficaindustrial.com')
+            //  NuevaOrden(resp.sort,'Freddy', 'freddy.burgos@poligraficaindustrial.com')
 
         res.json(resp._id)
     })
@@ -49,7 +49,7 @@ app.get('/api/orden', (req, res)=>{
 
     const id = req.params.id;
 
-    Orden.find()
+    Orden.find({estado:{$ne: 'Espera'}})
         .populate('cliente producto producto.grupo')
         .exec((err, orden)=>{
         if( err ){
