@@ -51,6 +51,7 @@ app.get('/api/orden', (req, res)=>{
 
     Orden.find({estado:{$ne: 'Espera'}})
         .populate('cliente producto producto.grupo')
+        .populate({path: 'producto', populate:{path:'materiales.producto', populate:{path:'grupo'}}})
         .exec((err, orden)=>{
         if( err ){
             return res.status(400).json({

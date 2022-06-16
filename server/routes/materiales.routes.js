@@ -11,8 +11,6 @@ const Almacenado = require('../database/models/almacenado.model');
 const {NuevaOrden, NuevaOrden2, NuevaOrden3} = require('../middlewares/emails/nuevo.email');
 
 const {FAL005} = require('../middlewares/docs/FAL-005.pdf');
-const { cache } = require('../middlewares/emails/cache.email');
-
 const app = express();
 
 app.post('/api/almacenado', (req, res)=>{
@@ -311,7 +309,7 @@ app.post('/api/material/descuento', (req, res)=>{
     let lotes_ = '';
     let names;
 
-    let set                 = new Set( body.lotes.map( JSON.stringify ) )
+    let set = new Set( body.lotes.map( JSON.stringify ) )
     body.lotes = Array.from( set ).map( JSON.parse );
 
     let materiales = [];
@@ -353,6 +351,8 @@ app.post('/api/material/descuento', (req, res)=>{
                  <td>${body.lotes[i].lote}</td>
                  <td>${body.lotes[i].solicitado}${body.lotes[i].unidad}</td></tr>`
                  lotes_ = lotes_ + data;
+
+                
      
                  let final = body.lotes.length - 1;
                  if(i == final){
@@ -373,12 +373,10 @@ app.post('/api/material/descuento', (req, res)=>{
             }
 
             res.json({ok:'ok'})
-            console.log('ok')
             return
             
             
     });
-    console.log('ok_-_')   
     return
 })
 
