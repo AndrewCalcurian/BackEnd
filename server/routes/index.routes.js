@@ -17,6 +17,7 @@ app.use ( require('./sustratos.routes'));
 app.use ( require('./usuarios.routes'));
 app.use ( require('./login.routes'));
 app.use ( require('./imagenes.routes'));
+app.use ( require('./requisicion.routes'));
 
 
 

@@ -8,8 +8,6 @@ const Descuentos = require('../database/models/descuentos.model');
 const Ingresos = require('../database/models/ingresos.model');
 const Almacenado = require('../database/models/almacenado.model');
 
-const {NuevaOrden, NuevaOrden2, NuevaOrden3} = require('../middlewares/emails/nuevo.email');
-
 const {FAL005} = require('../middlewares/docs/FAL-005.pdf');
 const app = express();
 
@@ -224,8 +222,6 @@ app.post('/api/nuevo-material', async (req, res)=>{
         color:body.color,
         neto:body.neto,
         cinta:body.cinta,
-        // codigo:body.codigo,
-        // lote:body.lote
 
     });
 
@@ -266,8 +262,6 @@ app.put('/api/material/:id', (req, res)=>{
     const id = req.params.id;
     let body = req.body;
 
-    // console.log(body)
-
     Material.findByIdAndUpdate(id, body, (err, materialDB) =>{
         if( err ){
             return res.status(400).json({
@@ -304,8 +298,6 @@ app.post('/api/material/descuento', (req, res)=>{
 
     let body = req.body;
 
-    // console.log('body', body.lotes)
-
     let lotes_ = '';
     let names;
 
@@ -320,18 +312,15 @@ app.post('/api/material/descuento', (req, res)=>{
 
         Almacenado.findOneAndUpdate({lote:body.lotes[i].lote,codigo:body.lotes[i].codigo},{cantidad:body.lotes[i].resta}, (err, MaterialDB)=>{
             if( err ){
-                // console.log('ERRORRRR',err)
              return res.status(400).json({
                      ok:false,
                      err
                  });
              }
 
-            //  console.log(MaterialDB.material)
 
              Material.findById(MaterialDB.material, (err, material)=>{
                 if( err ){
-                    // console.log('ERRORRRR',err)
                  return res.status(400).json({
                          ok:false,
                          err
@@ -356,10 +345,7 @@ app.post('/api/material/descuento', (req, res)=>{
      
                  let final = body.lotes.length - 1;
                  if(i == final){
-                    //  console.log('fin')
-                        // cache()
-                        // FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)
-                     
+                    // FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)      
                  }
              })
         })
@@ -392,8 +378,6 @@ app.post('/api/materiales/:id', (req, res)=>{
             });
         }
 
-        // console.log(body);
-
         const NuevoDescuento = new Descuentos({
             material:id,
             descuento:eliminado.cantidad,
@@ -423,8 +407,6 @@ app.post('/api/materialess/reporte', (req, res)=>{
 
     const fechaInicial = body.hasta;
     const fechaFinal = fechaInicial.substring(0,8).concat(Number(fechaInicial.substring(8)));
-
-    // console.log('esta es la fecha Inicio: ', fechaInicio, 'y esta es la fecha final: ', fechaFinal)
 
     Descuentos.find({$and: [{fecha: {$gte: new Date(fechaInicio)}},{fecha: {$lt: new Date(fechaFinal)}}]})
                 .populate('material')
