@@ -7,6 +7,7 @@ const Orden = require('../database/models/orden.model');
 const Descuentos = require('../database/models/descuentos.model');
 const Ingresos = require('../database/models/ingresos.model');
 const Almacenado = require('../database/models/almacenado.model');
+const Requisicion = require('../database/models/requisicion.model');
 
 const {FAL005} = require('../middlewares/docs/FAL-005.pdf');
 const app = express();
@@ -357,6 +358,15 @@ app.post('/api/material/descuento', (req, res)=>{
                     err
                 });
             }
+
+            Requisicion.findByIdAndDelete(body._id, (err, requi)=>{
+                if( err ){
+                    return res.status(400).json({
+                            ok:false,
+                            err
+                        });
+                    }
+            })
 
             res.json({ok:'ok'})
             return
