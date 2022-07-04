@@ -9,6 +9,8 @@ var RequisicionSchema = new mongoose.Schema({
     paginas: {type: Number, default: 1000},
     cantidad: {type: Number, default: 1},
     solicitud:{type: Number, default: 0},
+    motivo:{type:String},
+    usuario:{type:String},
     producto:{
         materiales:[
             [

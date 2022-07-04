@@ -12,6 +12,9 @@ const bcrypt = require('bcrypt');
 
 const {FAL005} = require('./middlewares/docs/FAL-005.pdf')
 
+const isolicitud = require('./database/models/isolicitud.modal')
+const iasignacion = require('./database/models/iasignacion.modal')
+
 //server
 const app = express();
 

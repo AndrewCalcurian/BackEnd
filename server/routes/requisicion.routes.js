@@ -1,6 +1,10 @@
 const express = require('express');
 
 const Requisicion = require('../database/models/requisicion.model');
+const isolicitud = require('../database/models/isolicitud.modal');
+const iasignacion = require('../database/models/iasignacion.modal');
+const {NuevaRequisicion } = require('../middlewares/emails/requisicion.email')
+const {FAL004} = require('../middlewares/docs/FAL-004.pdf');
 
 const app = express();
 
@@ -10,7 +14,9 @@ app.post('/api/requi',(req, res)=>{
 
     let requi = new Requisicion({
         sort:body.sort,
-        producto:body.producto
+        motivo:body.motivo,
+        producto:body.producto,
+        usuario:body.usuario
     })
     
     requi.save((err, resp)=>{
@@ -21,6 +27,7 @@ app.post('/api/requi',(req, res)=>{
             });
         }
 
+        NuevaRequisicion(body.sort,'calcurianandres@gmail.com',body.motivo)
         console.log(resp)
         res.json('ok')
     });
@@ -78,16 +85,72 @@ app.delete('/api/requi/:id', (req, res)=>{
 app.put('/api/requi/:id', (req,res)=>{
     let id = req.params.id;
 
-    Requisicion.findByIdAndUpdate(id, {estado:'lista'}, (err, requi)=>{
-        if( err ){
-            return res.status(400).json({
-                ok:false,
-                err
-            });
-        }
+    let num_solicitud;
 
-        res.json(requi)
-    })
+    isolicitud.findByIdAndUpdate({_id: 'iterator'}, {$inc: {seq: 1}}, {new: true, upset:true})
+                .exec((err, solicitud)=>{
+                    if( err ){
+                        return res.status(400).json({
+                            ok:false,
+                            err
+                        });
+                    }
+
+                    num_solicitud = solicitud.seq;
+                })
+
+    iasignacion.findByIdAndUpdate({_id: 'iterator'}, {$inc: {seq: 1}}, {new: true, upset:true})
+                .exec((err, asignacion)=>{
+                    if( err ){
+                        return res.status(400).json({
+                            ok:false,
+                            err
+                        });
+                    }
+
+                    Requisicion.findByIdAndUpdate(id, {estado:'lista', solicitud:asignacion.seq})
+                    .populate('producto.materiales.producto')
+                    .populate({path: 'producto', populate:{path:'materiales.producto', populate:{path:'grupo'}}})
+                    .exec((err, requi)=>{
+                        if( err ){
+                            return res.status(400).json({
+                                ok:false,
+                                err
+                            });
+                        }
+
+                    
+                    let material = []
+                    let cantidad = []
+                    let producto_ = requi.producto.materiales[0];
+
+                    // console.log(producto_, 'aja')
+
+                    for(let i=0; i< producto_.length ; i++){
+                        let nombre = `${producto_[i].producto.nombre} (${producto_[i].producto.marca})`;
+                        let cant = `${producto_[i].cantidad}${producto_[i].producto.unidad}`;
+                        if(producto_[i].producto.ancho){
+                            nombre = `${producto_[i].producto.nombre} ${producto_[i].producto.ancho}x${producto_[i].producto.largo} (${producto_[i].producto.marca})`;
+                        }
+                        material.push(nombre);
+                        cantidad.push(cant)
+
+
+                        let final = producto_.length -1;
+                        if(i == final){   
+                            FAL004(requi.sort, num_solicitud,material,cantidad,requi.usuario,requi.motivo)
+                        }
+                    }
+                    
+                    // console.log(requi.producto.materiales[0][0].producto)
+
+                
+                        res.json(requi)
+                    })
+
+                })
+
+    
 })
 
 module.exports = app;

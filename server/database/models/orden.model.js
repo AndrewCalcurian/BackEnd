@@ -84,27 +84,27 @@ let OrdenSchema = new Schema([{
 }]);
 
 OrdenSchema.pre('save', function(next){
-    var doc = this;
+     var doc = this;
     counter.findByIdAndUpdate({_id: 'test'}, {$inc: {seq: 1}}, {new: true, upset:true}).then(function(count) {
-        doc.sort = count.seq;
-        next();
-    })
-    .catch(function(error) {
-        throw error;
-    });
-});
+         doc.sort = count.seq;
+         next();
+     })
+     .catch(function(error) {
+         throw error;
+     });
+ });
 
 
-OrdenSchema.pre('save', function(next){
-    var doc = this;
-    solicitud.findByIdAndUpdate({_id: 'test'}, {$inc: {seq: 1}}, {new: true, upset:true}).then(function(count) {
-        doc.solicitud = count.seq;
-        next();
-    })
-    .catch(function(error) {
-        throw error;
-    });
-});
+// OrdenSchema.pre('save', function(next){
+//     var doc = this;
+//     solicitud.findByIdAndUpdate({_id: 'test'}, {$inc: {seq: 1}}, {new: true, upset:true}).then(function(count) {
+//         doc.solicitud = count.seq;
+//         next();
+//     })
+//     .catch(function(error) {
+//         throw error;
+//     });
+// });
 
 module.exports = mongoose.model('orden', OrdenSchema)
 // module.exports = mongoose.model('counter', CounterSchema);
