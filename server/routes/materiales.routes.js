@@ -359,6 +359,8 @@ app.post('/api/material/descuento', (req, res)=>{
                 });
             }
 
+            console.log(body)
+
             Requisicion.findByIdAndDelete(body._id, (err, requi)=>{
                 if( err ){
                     return res.status(400).json({
