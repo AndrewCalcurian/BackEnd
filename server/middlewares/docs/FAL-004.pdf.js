@@ -12,6 +12,7 @@ const nodemailer = require('nodemailer');
 
 async function FAL004(orden, num_solicitud,producto,cantidad,usuario, motivo){
 
+    console.log(num_solicitud.length)
 
 
 
@@ -41,6 +42,15 @@ const hoy = moment().format('DD/MM/yyyy');
 doc.pageOrientation('landscape');
 // doc.footer('Si usted esta consultando una versión de este documento, Asegúrese que sea la vigente');
 
+if(num_solicitud >= 10){
+    num_solicitud = `00${num_solicitud}`
+}
+else if(num_solicitud >= 100){
+    num_solicitud = `0${num_solicitud}`
+}
+else if(num_solicitud < 10){
+  num_solicitud = `000${num_solicitud}`
+}
 
 doc.add(
 
@@ -157,7 +167,8 @@ const pdf = printer.createPdfKitDocument(doc.getDefinition());
 
 // pdf.pipe(fs.createWriteStream('document.pdf'));
 pdf.end();
-NuevaSolicitud(orden,'yraida.baptista@poligraficaindustrial.com',motivo,num_solicitud,pdf)
+NuevaSolicitud(orden,'calcurianandres@gmail.com',motivo,num_solicitud,pdf)
+// NuevaSolicitud(orden,'yraida.baptista@poligraficaindustrial.com',motivo,num_solicitud,pdf)
 
 
 // asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurian.andrew@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com')

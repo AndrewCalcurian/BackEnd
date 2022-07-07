@@ -39,6 +39,15 @@ const hoy = moment().format('DD/MM/yyyy');
 doc.pageOrientation('landscape');
 // doc.footer('Si usted esta consultando una versión de este documento, Asegúrese que sea la vigente');
 
+if(solicitud >= 10){
+    solicitud = `00${solicitud}`
+}
+else if(solicitud >= 100){
+    solicitud = `0${solicitud}`
+}
+else if(solicitud < 10){
+  solicitud = `000${solicitud}`
+}
 
 doc.add(
 
@@ -152,8 +161,8 @@ pdf.end();
 
 
 
-asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurian.andrew@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com')
-//    asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurian.andrew@gmail.com')
+// asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurian.andrew@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com')
+   asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurianandres@gmail.com')
 //  asignacion(orden, Lote, pdf,'Carlos', 'carlos.mejias@poligraficaindustrial.com')
     //  asignacion(orden, Lote, pdf,'Freddy', 'freddy.burgos@poligraficaindustrial.com')
     return
