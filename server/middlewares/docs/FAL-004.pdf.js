@@ -80,9 +80,9 @@ doc.add(
 doc.add(
     new Table([
       [
-        new Cell(new Txt('FECHA DE ASIGNACIÓN').end).fillColor('#dedede').fontSize(10).alignment('center').end,
+        new Cell(new Txt('FECHA DE SOLICITUD').end).fillColor('#dedede').fontSize(10).alignment('center').end,
         new Cell(new Txt(`${hoy}`).end).end,
-        new Cell(new Txt('N° ASIGNACIÓN').end).fillColor('#dedede').fontSize(10).alignment('center').end,
+        new Cell(new Txt('N° SOLICITUD').end).fillColor('#dedede').fontSize(10).alignment('center').end,
         new Cell(new Txt(`AL-SOL-${num_solicitud}`).end).fontSize(15).alignment('center').end,
       ],
       [
@@ -103,7 +103,7 @@ doc.add(
         [
             new Cell(new Txt('DESCRIPCIÓN DEL MATERIAL').end).fillColor('#dedede').fontSize(9).alignment('center').end,
             // new Cell(new Txt('N° DE LOTE').end).fillColor('#dedede').fontSize(9).alignment('center').end,
-            new Cell(new Txt('CANTIDAD ASIGNADA').end).fillColor('#dedede').fontSize(9).alignment('center').end,
+            new Cell(new Txt('CANTIDAD SOLICITADA').end).fillColor('#dedede').fontSize(9).alignment('center').end,
         ],
         [
             // new Cell(new Txt('').end).border([false,false]).end,
@@ -157,7 +157,7 @@ const pdf = printer.createPdfKitDocument(doc.getDefinition());
 
 // pdf.pipe(fs.createWriteStream('document.pdf'));
 pdf.end();
-NuevaSolicitud(orden,'yraida.baptista@poligraficaindustrial.com',motivo,num_solicitud,pdf)
+NuevaSolicitud(orden,'calcurianandres@gmail.com',motivo,num_solicitud,pdf)
 
 
 // asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurian.andrew@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com')

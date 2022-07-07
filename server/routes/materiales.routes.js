@@ -330,7 +330,7 @@ app.post('/api/material/descuento', (req, res)=>{
 
                  names = `${material.nombre} (${material.marca})`;
                  if(material.ancho){
-                    names = `${material.nombre} ${material.ancho} x ${material.largo} (${material.marca})`;
+                    names = `${material.nombre} ${material.ancho} x ${material.largo} (${material.marca}) - Paleta: ${body.lotes[i].codigo}`;
                  }
 
                  materiales.push(names);

@@ -27,7 +27,7 @@ app.post('/api/requi',(req, res)=>{
             });
         }
 
-        NuevaRequisicion(body.sort,'calcurianandres@gmail.com',body.motivo)
+        NuevaRequisicion(body.sort,'jaime.sanjuan@poligraficaindustrial.com',body.motivo)
         console.log(resp)
         res.json('ok')
     });
