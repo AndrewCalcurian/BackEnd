@@ -167,8 +167,8 @@ const pdf = printer.createPdfKitDocument(doc.getDefinition());
 
 // pdf.pipe(fs.createWriteStream('document.pdf'));
 pdf.end();
-NuevaSolicitud(orden,'calcurianandres@gmail.com',motivo,num_solicitud,pdf)
-// NuevaSolicitud(orden,'yraida.baptista@poligraficaindustrial.com',motivo,num_solicitud,pdf)
+// NuevaSolicitud(orden,'calcurianandres@gmail.com',motivo,num_solicitud,pdf)
+NuevaSolicitud(orden,'yraida.baptista@poligraficaindustrial.com',motivo,num_solicitud,pdf)
 
 
 // asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurian.andrew@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com')
