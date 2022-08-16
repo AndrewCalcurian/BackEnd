@@ -309,6 +309,10 @@ app.post('/api/material/descuento', (req, res)=>{
     let lotes = [];
     let solicitados = [];
 
+    let orden = []
+    let material__ = []
+
+
     for(let i= 0; i<body.lotes.length; i++){
 
         Almacenado.findOneAndUpdate({lote:body.lotes[i].lote,codigo:body.lotes[i].codigo},{cantidad:body.lotes[i].resta}, (err, MaterialDB)=>{
@@ -342,11 +346,31 @@ app.post('/api/material/descuento', (req, res)=>{
                  <td>${body.lotes[i].solicitado}${body.lotes[i].unidad}</td></tr>`
                  lotes_ = lotes_ + data;
 
-                
+                // console.log({
+                //     material:material._id,
+                //     lote: body.lotes[i].lote,
+                //     codigo: body.lote[i].codigo,
+                //     cantidad: body.lotes[i].solicitado
+                // })
+
+                material__.push({
+                    material:material._id,
+                    lote: body.lotes[i].lote,
+                    codigo: body.lotes[i].codigo,
+                    cantidad: body.lotes[i].solicitado
+                })
+
+                // console.log(material__)
      
                  let final = body.lotes.length - 1;
                  if(i == final){
-                     FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)      
+                    let data = {
+                        orden:body.orden,
+                        material:material__
+                    }
+                    orden.push(data)
+                    console.log(orden)
+                    //  FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)      
                  }
              })
         })
@@ -359,7 +383,9 @@ app.post('/api/material/descuento', (req, res)=>{
                 });
             }
 
-            console.log(body)
+            // console.log(body)
+            
+
 
             Requisicion.findOneAndDelete({sort:body.orden}, (err, requi)=>{
                 if( err ){

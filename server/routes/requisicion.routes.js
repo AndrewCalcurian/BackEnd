@@ -27,7 +27,7 @@ app.post('/api/requi',(req, res)=>{
             });
         }
 
-        NuevaRequisicion(body.sort,'jaime.sanjuan@poligraficaindustrial.com',body.motivo)
+        // NuevaRequisicion(body.sort,'jaime.sanjuan@poligraficaindustrial.com',body.motivo)
         console.log(resp)
         res.json('ok')
     });
@@ -138,7 +138,7 @@ app.put('/api/requi/:id', (req,res)=>{
 
                         let final = producto_.length -1;
                         if(i == final){   
-                            FAL004(requi.sort, num_solicitud,material,cantidad,requi.usuario,requi.motivo)
+                            // FAL004(requi.sort, num_solicitud,material,cantidad,requi.usuario,requi.motivo)
                         }
                     }
                     
