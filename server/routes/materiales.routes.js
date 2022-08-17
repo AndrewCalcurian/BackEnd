@@ -370,7 +370,7 @@ app.post('/api/material/descuento', (req, res)=>{
                     }
                     orden.push(data)
                     console.log(orden)
-                    //  FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)      
+                      FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)      
                  }
              })
         })
