@@ -18,6 +18,7 @@ app.use ( require('./usuarios.routes'));
 app.use ( require('./login.routes'));
 app.use ( require('./imagenes.routes'));
 app.use ( require('./requisicion.routes'));
+app.use ( require('./devolucion.routes'));
 
 
 

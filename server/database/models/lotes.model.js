@@ -2,9 +2,19 @@ const mongoose = require('mongoose');
 
 let Schema = mongoose.Schema;
 
-var ISolicitudSchema = new mongoose.Schema({
-    _id: {type: String, required:true},
-    seq: {type: Number, default: 2021000}
+var LoteSchema = new mongoose.Schema({
+    orden: {type: String, required:true},
+    material: [
+        {
+            material:{
+                type:Schema.Types.ObjectId,
+                ref: 'material'
+            },
+            lote: {type:String},
+            codigo:{type:String},
+            cantidad:{type:String}
+        }
+    ]
 });
 
-// module.exports = mongoose.model('isolicitud', ISolicitudSchema)
+module.exports = mongoose.model('lote', LoteSchema)

@@ -8,8 +8,12 @@ const Descuentos = require('../database/models/descuentos.model');
 const Ingresos = require('../database/models/ingresos.model');
 const Almacenado = require('../database/models/almacenado.model');
 const Requisicion = require('../database/models/requisicion.model');
+const Lote = require('../database/models/lotes.model');
+const idevolucion = require('../database/models/idevolucion.model');
+const Devolucion = require('../database/models/devolucion.model');
 
 const {FAL005} = require('../middlewares/docs/FAL-005.pdf');
+const {FAL006} = require('../middlewares/docs/FAL-006.pdf');
 const app = express();
 
 app.post('/api/almacenado', (req, res)=>{
@@ -295,6 +299,66 @@ app.delete('/api/material/:id', (req, res)=>{
     })
 })
 
+app.post('/api/material/devolucion', (req, res)=>{
+    
+    let body = req.body;
+
+
+
+    let lotes = []
+    let materiales = []
+    let cantidades = []
+    let final = body.filtrado.length -1;
+    for(let i = 0; i<body.filtrado.length; i++){
+        lotes.push(body.filtrado[i].lote)
+        Material.findById(body.filtrado[i].material, (err, material)=>{
+            if( err ){
+                return res.status(400).json({
+                    ok:false,
+                    err
+                });
+            }
+            
+            // console.log(material.nombre)
+            
+        cantidades.push(`${body.filtrado[i].cantidad} ${material.unidad}`)
+
+        if(!material.ancho){
+            materiales.push(`${material.nombre} (${material.marca})`)
+        }else{
+            materiales.push(`${material.nombre} ${material.ancho}x${material.largo} (${material.marca}) - Paleta:${body.filtrado[i].codigo}`)
+        }
+
+            
+        if(i === final){
+
+            idevolucion.findByIdAndUpdate({_id: 'test'}, {$inc: {seq: 1}}, {new: true, upset:true})
+                .exec((err, devolucion)=>{
+                    if( err ){
+                        return res.status(400).json({
+                            ok:false,
+                            err
+                        });
+                    }
+
+                    num_solicitud = devolucion.seq;
+                    FAL006(body.orden,num_solicitud,materiales,lotes, cantidades, body.motivo, body.usuario)
+                    let newDEvolucion = new Devolucion({
+                        orden:body.orden,
+                        filtrado:body.filtrado,
+                        motivo:body.motivo
+                    }).save();
+                    res.json('done');
+                })
+        }
+        
+        })
+
+    }
+
+
+})
+
 app.post('/api/material/descuento', (req, res)=>{
 
     let body = req.body;
@@ -364,13 +428,13 @@ app.post('/api/material/descuento', (req, res)=>{
      
                  let final = body.lotes.length - 1;
                  if(i == final){
-                    let data = {
+                    const data = new Lote({
                         orden:body.orden,
                         material:material__
-                    }
+                    }).save();
                     orden.push(data)
                     console.log(orden)
-                      FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)      
+                    //   FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)      
                  }
              })
         })
@@ -435,6 +499,21 @@ app.post('/api/materiales/:id', (req, res)=>{
         });
 
     })
+})
+
+app.get('/api/devoluciones', (req, res)=>{
+    Lote .find({})
+         .populate('material.material')
+         .exec((err, lotes)=>{
+            if( err ){
+                return res.status(400).json({
+                    ok:false,
+                    err
+                });
+            }
+
+            res.json(lotes)
+         })
 })
 
 app.post('/api/materialess/reporte', (req, res)=>{

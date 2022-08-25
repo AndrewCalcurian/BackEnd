@@ -14,6 +14,7 @@ const {FAL005} = require('./middlewares/docs/FAL-005.pdf')
 
 const isolicitud = require('./database/models/isolicitud.modal')
 const iasignacion = require('./database/models/iasignacion.modal')
+const idevolucion = require('./database/models/idevolucion.model')
 
 //server
 const app = express();
@@ -47,10 +48,10 @@ require('./database/connection');
 //         Departamento:'Desarrollo'
 //    }).save();
 
-//   let contador = new convCount({
-//       _id:'test',
-//      seq:21000
-//   }).save();
+//    let contador = new idevolucion({
+//        _id:'test',
+//       seq:21000
+//    }).save();
 
 //  const materiales = ['test','test','test']
 //  const lotes = ['test','test','test'];

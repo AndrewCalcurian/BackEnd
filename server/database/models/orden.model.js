@@ -80,19 +80,7 @@ let OrdenSchema = new Schema([{
             },
             solicitud:{
                 type:String
-            },
-            lotes:
-                [
-                    {
-                    material:{
-                        type:Schema.Types.ObjectId,
-                        ref: 'material'
-                    },
-                    lote: {type:String},
-                    codigo:{type:String},
-                    cantidad:{type:String}
-                    }
-                ]
+            }
 }]);
 
 OrdenSchema.pre('save', function(next){

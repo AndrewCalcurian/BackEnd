@@ -12,7 +12,7 @@ const nodemailer = require('nodemailer');
 
 async function FAL004(orden, num_solicitud,producto,cantidad,usuario, motivo){
 
-    console.log(num_solicitud.length)
+    // console.log(num_solicitud.length)
 
 
 
