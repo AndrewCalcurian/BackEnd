@@ -1,6 +1,7 @@
 const express = require('express');
 const Trabajo = require('../database/models/trabajos.model');
 var moment = require('moment'); // require
+const { find } = require('underscore');
 
 
 const app = express();
@@ -140,9 +141,9 @@ app.post('/api/trabajos/acelerar', (req, res)=>{
                             let fecha = trabajoDB[y].fecha
                             // console.log(trabajoDB[y]._id,'/',body.orden)
                             if(trabajoDB[y]._id != body.trabajo){
-                                fechaI = moment(trabajoDB[y].fechaI).subtract(1, 'day')
+                                fechaI = moment(trabajoDB[y].fechaI).subtract(body.dias, 'day')
                                 fechaI = moment(fechaI).format('yyyy-MM-DD')
-                                fecha = moment(trabajoDB[y].fecha).subtract(1, 'day')
+                                fecha = moment(trabajoDB[y].fecha).subtract(body.dias, 'day')
                                 fecha = moment(fecha).format('yyyy-MM-DD')
                             }
                             Trabajo.findByIdAndUpdate(trabajoDB[y]._id,{fechaI,fecha},(err, updated)=>{
@@ -208,9 +209,9 @@ app.post('/api/trabajos/retrasar', (req, res)=>{
                             let fecha = trabajoDB[y].fecha
                             // console.log(trabajoDB[y]._id,'/',body.orden)
                             if(trabajoDB[y]._id != body.trabajo){
-                                fechaI = moment(trabajoDB[y].fechaI).add(1, 'day')
+                                fechaI = moment(trabajoDB[y].fechaI).add(body.dias, 'day')
                                 fechaI = moment(fechaI).format('yyyy-MM-DD')
-                                fecha = moment(trabajoDB[y].fecha).add(1, 'day')
+                                fecha = moment(trabajoDB[y].fecha).add(body.dias, 'day')
                                 fecha = moment(fecha).format('yyyy-MM-DD')
                             }
                             Trabajo.findByIdAndUpdate(trabajoDB[y]._id,{fechaI,fecha},(err, updated)=>{
@@ -309,7 +310,9 @@ app.put('/api/finalizar-trabajo', (req, res)=>{
             });
         }
 
-        Trabajo.find({orden:trabajoDB.orden}, (err, trabajosDB)=>{
+        Trabajo.find({orden:trabajoDB.orden})
+                .sort('fechaI')
+                .exec((err, trabajosDB)=>{
             if( err ){
                 return res.status(400).json({
                     ok:false,
@@ -317,28 +320,149 @@ app.put('/api/finalizar-trabajo', (req, res)=>{
                 });
             }
 
-            let i  = trabajosDB.findIndex(x => x._id == body.id)
+            let index  = trabajosDB.findIndex(x => x._id == body.id)
+
+            let i_ = index +1;
+
+            console.log(index,'/', i_)
+            console.log(trabajosDB[i_],'trabajos +1');
+
+            let difference = 0;
+
+            if(trabajosDB[i_]){
+                fechaMoment = moment(trabajosDB[i_].fechaI);
+                let _id_ = trabajosDB[i_]._id;
+                let diferencias = fechaMoment.diff(moment(), 'days')
+                diferencias = diferencias +1;
+                difference = diferencias
+                console.log(trabajosDB[i_].fechaI,'fechaI')
+                console.log(diferencias,'<== DIFERENCIAS')
+                let fechaF = moment(trabajosDB[i_].fecha).subtract(diferencias, 'day')
+                fechaF = moment(fechaF).format('yyyy-MM-DD')
+                console.log(trabajosDB[i_].fecha,'fecha',fechaF)
+
+
+
+
+                 Trabajo.findByIdAndUpdate(_id_, {fechaI:HOY,fecha:fechaF}, (err, final)=>{
+                                 if( err ){
+                                     return res.status(400).json({
+                                         ok:false,
+                                          err
+                                     });
+                                 }
+                })
+            }
+
+        for(let i = index; i<trabajosDB.length; i++ ){
+             Trabajo.find({status:true, maquina:trabajosDB[i].maquina})
+                     .sort('fechaI')
+                     .exec((err, works)=>{
+                 if( err ){
+                     return res.status(400).json({
+                         ok:false,
+                          err
+                     });
+                 }
+
+                 console.log(i,')',works)
+
+                for(let y = 0; y<works.length; y++){
+
+                     let Inicio = moment(works[y].fechaI).subtract(difference, 'day')
+                     Inicio = moment(Inicio).format('yyyy-MM-DD')
+
+                     console.log(i,'-',y,')',works[y].fechaI,'-',Inicio)
+
+                    let Final = moment(works[y].fecha).subtract(difference, 'day')
+                    Final = moment(Final).format('yyyy-MM-DD')
+                    
+                    console.log(i,'-',y,')',works[y].fecha,'-',Final)
+
+
+                     if(works[y].fechaI != HOY){
+                         Trabajo.findByIdAndUpdate(works[y]._id, {fechaI:Inicio, fecha:Final}, (err, updated)=>{
+                             if( err ){
+                                 return res.status(400).json({
+                                     ok:false,
+                                     err
+                                 });
+                             }
+    
+                         })
+                     }
+
+                }
+             })
+        }
+
+        res.json('done')
+
+        
+
+        // let i_ = i + 1;
+        // let _i = i + 1;
+
+        // console.log(trabajosDB)
+
 
             // console.log(i,'<->',trabajosDB[i++],'<>',body.id)
+            
+        //     for(let i = _i; i<trabajosDB.length; i++){
+        //         for(let x = 0; x<1; x++){
+        //         fechaMoment = moment(trabajosDB[i_].fechaI);
+        //         let _id_ = trabajosDB[i_]._id;
+        //         let diferencias = fechaMoment.diff(moment(), 'days')
+        //         // diferencias = diferencias +1;
+        //         console.log(diferencias)
+        //         let fechaF = moment(trabajosDB[i_].fecha).subtract(diferencias, 'day')
+        //         fechaF = moment(fechaF).format('yyyy-MM-DD')
 
-            if(trabajosDB[i++]){
-                // console.log(trabajosDB[i++]._id,'trabajo id')
-                let _id_ = trabajosDB[i++]._id
-                Trabajo.findByIdAndUpdate(_id_, {fechaI:HOY}, (err, final)=>{
-                    if( err ){
-                        return res.status(400).json({
-                            ok:false,
-                            err
-                        });
-                    }
+        //         console.log(trabajosDB[i_].fecha,'/',fechaF)
 
-                    res.json('done')
-                })
-            }else{
-                // console.log('no')
-                res.json('done')
-            }
-        })
+        //         Trabajo.findByIdAndUpdate(_id_, {fechaI:HOY,fecha:fechaF}, (err, final)=>{
+        //             if( err ){
+        //                 return res.status(400).json({
+        //                     ok:false,
+        //                     err
+        //                 });
+        //             }
+        //         })
+        //     }
+
+        // }
+
+        // res.json('done')
+
+            //  if(trabajosDB[i_]){
+            //     console.log(i_);
+            //      // console.log(trabajosDB[i++]._id,'trabajo id')
+            //      fechaMoment = moment(trabajosDB[i_].fechaI);
+            //      let _id_ = trabajosDB[i_]._id;
+
+            //      let diferencias = fechaMoment.diff(moment(), 'days')
+            //      diferencias = diferencias  +1;
+            //      let fechaF = moment(trabajosDB[i_].fecha).subtract(diferencias, 'day')
+
+            //      fechaF = moment(fechaF).format('yyyy-MM-DD')
+
+            //      console.log(fechaF,'/',diferencias)
+
+            //      Trabajo.findByIdAndUpdate(_id_, {fechaI:HOY,fecha:fechaF}, (err, final)=>{
+            //          if( err ){
+            //              return res.status(400).json({
+            //                  ok:false,
+            //                  err
+            //              });
+            //          }
+
+            //          res.json('done')
+            //      })
+            //  }else{
+            //      // console.log('no')
+            //      res.json('done')
+            // }
+         })
     })
 })
 

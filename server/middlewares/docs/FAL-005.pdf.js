@@ -1,7 +1,7 @@
 const {DocumentDefinition, Table, Cell, Txt, Img, Stack} = require('pdfmake-wrapper/server');
 const Pdfmake = require('pdfmake');
 
-const {asignacion} = require('../emails/asignacion.email')
+const {asignacion, asignacion_} = require('../emails/asignacion.email')
 const moment = require('moment')
 
 const fs = require('fs')
@@ -32,7 +32,9 @@ const printer = new Pdfmake({
 
 const doc = new DocumentDefinition();
 
-
+if(orden === "#"){
+    orden = 'N/A'
+}
 const hoy = moment().format('DD/MM/yyyy');
 
 
@@ -160,8 +162,11 @@ const pdf = printer.createPdfKitDocument(doc.getDefinition());
 pdf.end();
 
 
-
-     asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurian.andrew@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com')
+     if(orden === 'N/A'){
+        asignacion_(orden, solicitud, Lote, pdf,'Equipo', 'calcurianandres@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com')
+     }else{
+         asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurianandres@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com')
+     }
 //    asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurianandres@gmail.com')
 //  asignacion(orden, Lote, pdf,'Carlos', 'carlos.mejias@poligraficaindustrial.com')
     //  asignacion(orden, Lote, pdf,'Freddy', 'freddy.burgos@poligraficaindustrial.com')

@@ -1,7 +1,7 @@
 const {DocumentDefinition, Table, Cell, Txt, Img, Stack} = require('pdfmake-wrapper/server');
 const Pdfmake = require('pdfmake');
 
-const {NuevaSolicitud} = require('../emails/solicitud.email')
+const {NuevaSolicitud, NuevaSolicitud_} = require('../emails/solicitud.email')
 const moment = require('moment')
 
 const fs = require('fs')
@@ -14,7 +14,9 @@ async function FAL004(orden, num_solicitud,producto,cantidad,usuario, motivo){
 
     // console.log(num_solicitud.length)
 
-
+if(orden === "#"){
+    orden = "N/A"
+}
 
 const printer = new Pdfmake({
     Roboto: {
@@ -50,6 +52,10 @@ else if(num_solicitud >= 100){
 }
 else if(num_solicitud < 10){
   num_solicitud = `000${num_solicitud}`
+}
+
+if(orden === '#'){
+    orden = "N/A"
 }
 
 doc.add(
@@ -168,7 +174,11 @@ const pdf = printer.createPdfKitDocument(doc.getDefinition());
 // pdf.pipe(fs.createWriteStream('document.pdf'));
 pdf.end();
 // NuevaSolicitud(orden,'calcurianandres@gmail.com',motivo,num_solicitud,pdf)
-NuevaSolicitud(orden,'yraida.baptista@poligraficaindustrial.com',motivo,num_solicitud,pdf)
+if(orden === 'N/A'){
+    NuevaSolicitud_(orden,'yraida.baptista@poligraficaindustrial.com,calcurianandres@gmail.com',motivo,num_solicitud,pdf)
+}else{
+    NuevaSolicitud(orden,'yraida.baptista@poligraficaindustrial.com',motivo,num_solicitud,pdf)
+}
 
 
 // asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurian.andrew@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com')

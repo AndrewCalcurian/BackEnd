@@ -3,7 +3,7 @@ const express = require('express');
 const Requisicion = require('../database/models/requisicion.model');
 const isolicitud = require('../database/models/isolicitud.modal');
 const iasignacion = require('../database/models/iasignacion.modal');
-const {NuevaRequisicion } = require('../middlewares/emails/requisicion.email')
+const {NuevaRequisicion, NuevaRequisicion_ } = require('../middlewares/emails/requisicion.email')
 const {FAL004} = require('../middlewares/docs/FAL-004.pdf');
 
 const app = express();
@@ -27,7 +27,11 @@ app.post('/api/requi',(req, res)=>{
             });
         }
 
-        NuevaRequisicion(body.sort,'jaime.sanjuan@poligraficaindustrial.com',body.motivo)
+        if(body.sort === "#"){
+            NuevaRequisicion_(body.sort,'jaime.sanjuan@poligraficaindustrial.com',body.motivo)
+        }else{
+            NuevaRequisicion(body.sort,'jaime.sanjuan@poligraficaindustrial.com',body.motivo)
+        }
         console.log(resp)
         res.json('ok')
     });

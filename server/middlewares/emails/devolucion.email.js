@@ -23,7 +23,7 @@ function devolucion(orden, solicitud,adjunto,nombre,correo){
         to: correo,
         subject: `Devolución de Material`,
         attachments: [{
-            filename: `AL-ASG-${solicitud}_${orden}.pdf`,
+            filename: `AL-DEV-${solicitud}_${orden}.pdf`,
             content:adjunto
         }],
         html:`${header3(titulo)}

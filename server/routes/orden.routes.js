@@ -2,7 +2,8 @@ const express = require('express');
 
 const Orden = require('../database/models/orden.model');
 const iasignacion = require('../database/models/iasignacion.modal')
-const { SolicitudMateria, NuevaOrden } = require('../middlewares/emails/nuevo.email');
+const {NuevaOrden } = require('../middlewares/emails/nuevo.email');
+const {SolicitudMateria} = require('../middlewares/emails/solicitudMaterial.email')
 
 const app = express();
 
@@ -42,13 +43,15 @@ app.post('/api/orden', (req, res)=>{
                                                 ok:false,
                                                 err
                                             });
-                                        }
-                                                SolicitudMateria(resp.sort,'test')
-                                                NuevaOrden(resp.sort,'Luis','luis.malave@poligraficaindustrial.com')
-                                                NuevaOrden(resp.sort,'Raul', 'raul.diaz@poligraficaindustrial.com')
-                                                NuevaOrden(resp.sort,'Carlos','carlos.mejias@poligraficaindustrial.com')
-                                                NuevaOrden(resp.sort,'Enida', 'enida.aponte@poligraficaindustrial.com')
-                                                NuevaOrden(resp.sort,'Freddy', 'freddy.burgos@poligraficaindustrial.com')
+                                        }          
+                                                    
+                                                    NuevaOrden(resp.sort,'Andres','calcurianandres@gmail.com')
+                                                    SolicitudMateria(resp.sort,'test')
+                                                 NuevaOrden(resp.sort,'Luis','luis.malave@poligraficaindustrial.com')
+                                                 NuevaOrden(resp.sort,'Raul', 'raul.diaz@poligraficaindustrial.com')
+                                                 NuevaOrden(resp.sort,'Carlos','carlos.mejias@poligraficaindustrial.com')
+                                                 NuevaOrden(resp.sort,'Enida', 'enida.aponte@poligraficaindustrial.com')
+                                                 NuevaOrden(resp.sort,'Freddy', 'freddy.burgos@poligraficaindustrial.com')
                                 
                                         res.json(resp._id)
                                     })

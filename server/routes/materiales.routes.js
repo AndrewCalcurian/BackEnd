@@ -362,6 +362,7 @@ app.post('/api/material/devolucion', (req, res)=>{
 app.post('/api/material/descuento', (req, res)=>{
 
     let body = req.body;
+    console.log(body)
 
     let lotes_ = '';
     let names;
@@ -403,7 +404,12 @@ app.post('/api/material/descuento', (req, res)=>{
 
                  materiales.push(names);
                  lotes.push(body.lotes[i].lote);
-                 solicitados.push(`${body.lotes[i].solicitado}${body.lotes[i].unidad}`)
+                 if(body.lotes[i].unidad === "PALETA"){
+                    solicitados.push(`${body.lotes[i].solicitado}Und`)
+                    body.lotes[i].unidad = 'Und'
+                 }else{
+                    solicitados.push(`${body.lotes[i].solicitado}${body.lotes[i].unidad}`)
+                }
 
                  data = `<tr><td>${names}</td>
                  <td>${body.lotes[i].lote}</td>
@@ -434,7 +440,7 @@ app.post('/api/material/descuento', (req, res)=>{
                     }).save();
                     orden.push(data)
                     console.log(orden)
-                    //   FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)      
+                    FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)      
                  }
              })
         })

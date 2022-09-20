@@ -26,6 +26,21 @@ app.get('/api/devolucion', (req, res)=>{
 
 });
 
+app.delete('/api/devoluciones/:id', (req,res)=>{
+     const id = req.params.id
+
+     Devolucion.findByIdAndUpdate(id, {status:'Cancelado'}, (err, devolucion)=>{
+        if( err ){
+            return res.status(400).json({
+                ok:false,
+                err
+            });
+        }
+
+        res.json(devolucion)
+     })
+})
+
 app.put('/api/devoluciones/:id', (req, res)=>{
 
     const body = req.body;
