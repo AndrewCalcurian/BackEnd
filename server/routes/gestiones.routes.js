@@ -1,7 +1,11 @@
 const express = require('express');
 const app = express();
 
-const Gestion = require('../database/models/gestiones.model')
+var moment = require('moment'); // require
+
+const Gestion = require('../database/models/gestiones.model');
+const Trabajo = require('../database/models/trabajos.model');
+
 
 app.post('/api/gestiones', (req,res)=>{
     const body = req.body;
@@ -25,7 +29,33 @@ app.post('/api/gestiones', (req,res)=>{
             });
         }
 
-        res.json(gestionDB);
+        Trabajo.findOne({_id:body.orden}, (err, trabajo)=>{
+            if( err ){
+                return res.status(400).json({
+                    ok:false,
+                    err
+                });
+            }
+
+            let hoy = moment().format('yyyy-MM-DD')
+            if(trabajo.fechaI != hoy){
+                var time = moment(trabajo.fechaI).diff(moment(),'days')+1
+
+                if(time > 0){
+                    Trabajo.findByIdAndUpdate(body.orden, {fechaI:hoy}, (err, trabajoEdited)=>{
+                        if( err ){
+                            return res.status(400).json({
+                                ok:false,
+                                err
+                            });
+                        }
+                    })
+                }
+            }
+            res.json(gestionDB);
+        })
+
+
     })
 });
 

@@ -405,15 +405,15 @@ app.post('/api/material/descuento', (req, res)=>{
                  materiales.push(names);
                  lotes.push(body.lotes[i].lote);
                  if(body.lotes[i].unidad === "PALETA"){
-                    solicitados.push(`${body.lotes[i].solicitado}Und`)
+                    solicitados.push(`${body.lotes[i].solicitado} Und`)
                     body.lotes[i].unidad = 'Und'
                  }else{
-                    solicitados.push(`${body.lotes[i].solicitado}${body.lotes[i].unidad}`)
+                    solicitados.push(`${body.lotes[i].solicitado} ${body.lotes[i].unidad}`)
                 }
 
                  data = `<tr><td>${names}</td>
                  <td>${body.lotes[i].lote}</td>
-                 <td>${body.lotes[i].solicitado}${body.lotes[i].unidad}</td></tr>`
+                 <td>${body.lotes[i].solicitado} ${body.lotes[i].unidad}</td></tr>`
                  lotes_ = lotes_ + data;
 
                 // console.log({

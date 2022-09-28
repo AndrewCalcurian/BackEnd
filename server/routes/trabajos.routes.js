@@ -1,5 +1,7 @@
 const express = require('express');
 const Trabajo = require('../database/models/trabajos.model');
+const Gestion = require('../database/models/gestiones.model');
+const Orden = require('../database/models/orden.model');
 var moment = require('moment'); // require
 const { find } = require('underscore');
 
@@ -302,6 +304,47 @@ app.put('/api/finalizar-trabajo', (req, res)=>{
     let body = req.body;
     HOY = moment().format('yyyy-MM-DD');
 
+
+    Gestion.find({orden:body.id})
+            .exec((err, gestion)=>{
+        if( err ){
+            return res.status(400).json({
+                ok:false,
+                err
+            });
+        }
+
+        let Hojas   = 0
+        let productos = 0
+        let ultimo = gestion.length-1
+        for(let i = 0; i<gestion.length; i++){
+            Hojas = Number(Hojas) + Number(gestion[i].hojas);
+            productos = Number(productos) + Number(gestion[i].productos)
+
+            console.log(Hojas, '- ',productos)
+
+            
+            if(i === ultimo){
+                console.log(Hojas,'/',productos)
+                Orden.findByIdAndUpdate(gestion[0].op, {paginas_o:Hojas, cantidad_o:productos}, (err, orden_modefied)=>{
+                    if( err ){
+                        return res.status(400).json({
+                            ok:false,
+                            err
+                        });
+                    }
+                
+                    // console.log('orden m', orden_modefied)
+                })
+            }
+        }
+
+
+
+
+
+    })
+
     Trabajo.findByIdAndUpdate(body.id, {status:false}, (err, trabajoDB)=>{
         if( err ){
             return res.status(400).json({
@@ -324,8 +367,8 @@ app.put('/api/finalizar-trabajo', (req, res)=>{
 
             let i_ = index +1;
 
-            console.log(index,'/', i_)
-            console.log(trabajosDB[i_],'trabajos +1');
+            // console.log(index,'/', i_)
+            // console.log(trabajosDB[i_],'trabajos +1');
 
             let difference = 0;
 
@@ -335,11 +378,11 @@ app.put('/api/finalizar-trabajo', (req, res)=>{
                 let diferencias = fechaMoment.diff(moment(), 'days')
                 diferencias = diferencias +1;
                 difference = diferencias
-                console.log(trabajosDB[i_].fechaI,'fechaI')
-                console.log(diferencias,'<== DIFERENCIAS')
+                // console.log(trabajosDB[i_].fechaI,'fechaI')
+                // console.log(diferencias,'<== DIFERENCIAS')
                 let fechaF = moment(trabajosDB[i_].fecha).subtract(diferencias, 'day')
                 fechaF = moment(fechaF).format('yyyy-MM-DD')
-                console.log(trabajosDB[i_].fecha,'fecha',fechaF)
+                // console.log(trabajosDB[i_].fecha,'fecha',fechaF)
 
 
 
@@ -365,19 +408,19 @@ app.put('/api/finalizar-trabajo', (req, res)=>{
                      });
                  }
 
-                 console.log(i,')',works)
+                //  console.log(i,')',works)
 
                 for(let y = 0; y<works.length; y++){
 
                      let Inicio = moment(works[y].fechaI).subtract(difference, 'day')
                      Inicio = moment(Inicio).format('yyyy-MM-DD')
 
-                     console.log(i,'-',y,')',works[y].fechaI,'-',Inicio)
+                    //  console.log(i,'-',y,')',works[y].fechaI,'-',Inicio)
 
                     let Final = moment(works[y].fecha).subtract(difference, 'day')
                     Final = moment(Final).format('yyyy-MM-DD')
                     
-                    console.log(i,'-',y,')',works[y].fecha,'-',Final)
+                    // console.log(i,'-',y,')',works[y].fecha,'-',Final)
 
 
                      if(works[y].fechaI != HOY){

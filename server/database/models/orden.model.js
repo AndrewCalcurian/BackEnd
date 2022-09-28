@@ -80,6 +80,15 @@ let OrdenSchema = new Schema([{
             },
             solicitud:{
                 type:String
+            },
+            almacen:{
+                type:String
+            },
+            paginas_o:{
+                type:String
+            }, 
+            cantidad_o:{
+                type:String
             }
 }]);
 

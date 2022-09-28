@@ -34,7 +34,10 @@ app.post('/api/orden', (req, res)=>{
                                         i_ancho:body.i_ancho,
                                         i_largo:body.i_largo,
                                         observacion:body.observacion,
-                                        solicitud:asignacion.seq
+                                        solicitud:asignacion.seq,
+                                        almacen:body.almacen,
+                                        paginas_o:body.paginas,
+                                        cantidad_o:body.cantidad
                                     })
 
                                     NewOrden.save((err, resp)=>{

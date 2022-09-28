@@ -33,7 +33,8 @@ let GestionSchema = new Schema([{
         required:true
     },
     op:{
-        type:String
+        type:Schema.Types.ObjectId,
+        ref: 'orden'
     }
 
 }]);
