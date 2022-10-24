@@ -1003,7 +1003,7 @@ class ProductosComponent {
             let i = this.POST.indexOf(e);
             this.POST.splice(i, 1);
         }
-        console.log(this.POST);
+        //console.log(this.POST);
     }
     troquel(e) {
         this.TROQUEL = e.target.value;
@@ -1136,14 +1136,14 @@ class ProductosComponent {
         this.api.getAlmacen()
             .subscribe((resp) => {
             this.MATERIALES = resp.materiales;
-            console.log(this.MATERIALES);
+            //console.log(this.MATERIALES);
         });
     }
     obtenerGrupos() {
         this.api.getGrupos()
             .subscribe((resp) => {
             this.GRUPOS = resp.grupos;
-            console.log(this.GRUPOS, 'GRUPOOOOS');
+            //console.log(this.GRUPOS, 'GRUPOOOOS');
         });
     }
     Ordenar_Producto() {
@@ -1158,7 +1158,7 @@ class ProductosComponent {
             .subscribe((resp) => {
             this.SECCIONES = resp;
             alert('THIS IS WORKING');
-            console.log(this.SECCIONES, 'SECCIONEEEES');
+            //console.log(this.SECCIONES, 'SECCIONEEEES');
         });
     }
     finalizar() {
@@ -1233,7 +1233,7 @@ class ProductosComponent {
         this.api.getById(e)
             .subscribe((resp) => {
             this.PRODUCTOS = resp.productos;
-            console.log(this.PRODUCTOS);
+            //console.log(this.PRODUCTOS);
         });
         if (e == "") {
             document.getElementById('NP_button').disabled = true;
@@ -1256,7 +1256,7 @@ class ProductosComponent {
         producto = document.getElementById(i).value;
         cantidad = document.getElementById(`cantidad${this.i_montajes}`).value;
         let Material = this.MATERIALES.find(x => x._id === producto);
-        console.log(Material, '--');
+        //console.log(Material, '--');
         let size = cantidad;
         let name = Material.nombre;
         if (this.product_selected == "Sustrato") {
@@ -1271,9 +1271,9 @@ class ProductosComponent {
             producto: producto,
             cantidad: size
         };
-        console.log(productos);
+        //console.log(productos);
         this.OneProduct.materiales[this.i_montajes].push(productos);
-        console.log(this.MATERIALES_NECESARIOS, 'this');
+        //console.log(this.MATERIALES_NECESARIOS, 'this');
         // this.MATERIALES_NECESARIOS.push(productos);
         // let field_material = (<HTMLInputElement>document.getElementById('field_material'))
         // let field_marca = (<HTMLInputElement>document.getElementById('field_marca'))
@@ -1293,7 +1293,7 @@ class ProductosComponent {
         producto = document.getElementById(`x-${i}`).value;
         cantidad = document.getElementById(`xcantidad${this.i_montajes}`).value;
         let Material = this.MATERIALES.find(x => x._id == producto);
-        console.log(Material, '--');
+        //console.log(Material, '--');
         let size = cantidad;
         let name = Material.nombre;
         if (this.product_selected == "Sustrato") {
@@ -1311,11 +1311,11 @@ class ProductosComponent {
         this.OneProduct.materiales[this.i_montajes].push(productos);
         this.api.updateProducto(this.OneProduct, this.OneProduct._id)
             .subscribe((resp) => {
-            console.log(resp, 'respuesta');
+            //console.log(resp, 'respuesta');
             this.editar(this.OneProduct);
             this.api.getOneById(this.OneProduct._id)
                 .subscribe((resp) => {
-                console.log('ok');
+                //console.log('ok');
             });
             this.Modal_Producto_E();
             this.Modal_Producto_E();
@@ -1327,7 +1327,7 @@ class ProductosComponent {
         producto = document.getElementById(i).value;
         cantidad = document.getElementById(`cantidad${this.i_montajes}`).value;
         let Material = this.MATERIALES.find(x => x._id === producto);
-        console.log(Material, '--');
+        //console.log(Material, '--');
         let size = cantidad;
         let name = Material.nombre;
         if (this.product_selected == "Sustrato") {
@@ -1342,12 +1342,12 @@ class ProductosComponent {
             producto: producto,
             cantidad: size
         };
-        console.log(productos);
+        //console.log(productos);
         if (!this.MATERIALES_NECESARIOS[this.i_montajes]) {
             this.MATERIALES_NECESARIOS[this.i_montajes] = [];
         }
         this.MATERIALES_NECESARIOS[this.i_montajes].push(productos);
-        console.log(this.MATERIALES_NECESARIOS, 'this');
+        //console.log(this.MATERIALES_NECESARIOS, 'this');
         // this.MATERIALES_NECESARIOS.push(productos);
         // let field_material = (<HTMLInputElement>document.getElementById('field_material'))
         // let field_marca = (<HTMLInputElement>document.getElementById('field_marca'))
@@ -1364,16 +1364,16 @@ class ProductosComponent {
     }
     Delete_Material(material2) {
         let deleted = this.MATERIALES_NECESARIOS[this.i_montajes].findIndex(x => x.material == material2);
-        console.log(deleted);
+        //console.log(deleted);
         this.MATERIALES_NECESARIOS.splice(deleted, 1);
     }
     Delete_Material2(material2) {
-        console.log(this.OneProduct.materiales[this.i_montajes]);
+        //console.log(this.OneProduct.materiales[this.i_montajes]);
         let deleted = this.OneProduct.materiales[this.i_montajes].findIndex(x => x.producto.nombre == material2);
-        console.log(deleted);
+        //console.log(deleted);
         this.OneProduct.materiales[this.i_montajes].splice(deleted, 1);
         // let deleted = this.OneProduct.materiales[this.i_montajes].producto.findIndex(x => x.nombre == material2)
-        // console.log(deleted)
+        // //console.log(deleted)
         // this.MATERIALES_NECESARIOS.splice(deleted, 1);
     }
     borrarPost(post) {
@@ -1382,7 +1382,7 @@ class ProductosComponent {
     }
     borrarPost2(post) {
         let i = this.OneProduct.post.indexOf(post);
-        console.log(i);
+        //console.log(i);
         this.POST.splice(i, 1);
     }
     editar_producto() {
@@ -1402,7 +1402,7 @@ class ProductosComponent {
         this.api.getOneById(producto)
             .subscribe((resp) => {
             this.OneProduct = resp.producto;
-            console.log('AQUIIIIIIIIIIIIII', this.OneProduct);
+            //console.log('AQUIIIIIIIIIIIIII', this.OneProduct);
             this.ver_Modal_Producto();
         });
     }
@@ -1422,7 +1422,7 @@ class ProductosComponent {
         this.api.getOneById(producto)
             .subscribe((resp) => {
             this.OneProduct = resp.producto;
-            console.log('AQUIIIIIIIIIIIIII', this.OneProduct);
+            //console.log('AQUIIIIIIIIIIIIII', this.OneProduct);
         });
         if (this.OneProduct) {
             this.Modal_Producto_E();
@@ -3594,8 +3594,8 @@ class GestionComponent {
         let orden = document.getElementById('orden_selected').value;
         let Ejemplares = this.TRABAJOS.find(x => x._id == orden);
         const productos = value_hojas * Ejemplares.orden.producto.ejemplares[Ejemplares.orden.montaje];
-        console.log(value_hojas, 'value');
-        console.log(Ejemplares, 'Ejemplares');
+        //console.log(value_hojas, 'value');
+        //console.log(Ejemplares, 'Ejemplares');
         document.getElementById('productos_input').value = productos;
     }
     calcular_Hojas(e) {
@@ -3614,7 +3614,7 @@ class GestionComponent {
         };
         this.api.postRestrasar(data)
             .subscribe((resp) => {
-            console.log(resp);
+            //console.log(resp);
             sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
                 icon: 'info',
                 title: 'Se realizó un retraso en la planificación',
@@ -3670,9 +3670,9 @@ class GestionComponent {
         let _productos = 0;
         let _hojas = 0;
         if (long <= 0) {
-            console.log(orden);
+            //console.log(orden);
             let Actual = this.TRABAJOS.find(x => x._id == orden);
-            console.log(Actual);
+            //console.log(Actual);
             _productos = Actual.orden.cantidad - Number(productos);
             _hojas = Actual.orden.paginas - Number(hojas);
         }
@@ -3933,7 +3933,7 @@ class MainComponent {
     getEstados(id) {
         let estado = this.TRABAJOS.find(x => x.orden._id == id && x.maquina.tipo === 'IMPRIMIR');
         let hoy = moment__WEBPACK_IMPORTED_MODULE_1__().format('yyyy-MM-DD');
-        console.log(estado);
+        //console.log(estado);
         if (hoy < estado.fechaI) {
             return `Impresión Comienza el: ${estado.fechaI}`;
         }
@@ -4512,7 +4512,7 @@ class OrdenComponent {
             let paginas_sin_demasia = this.PRODUCTO.cantidad / ejemplares_montados;
             this.PRODUCTO.demasia = Math.ceil(this.demasia * paginas_sin_demasia / 100);
             // this.PRODUCTO.demasia = this.PRODUCTO.producto.ejemplares[this.PRODUCTO.montaje]
-            console.log(this.PRODUCTO, 'este es el Producto');
+            //console.log(this.PRODUCTO, 'este es el Producto');
             this.getMaquinas(this.PRODUCTO._id);
         });
     }
@@ -4520,7 +4520,7 @@ class OrdenComponent {
         this.api.getMaquinasByOrdens(orden)
             .subscribe((resp) => {
             this.Maquinas = resp;
-            console.log(this.Maquinas, 'Estas son las maquinas');
+            //console.log(this.Maquinas, 'Estas son las maquinas');
         });
     }
     NumToLet(n) {
@@ -4548,7 +4548,7 @@ class OrdenComponent {
     }
     descargarPDF() {
         let PRODUCTO = this.PRODUCTO;
-        console.log(this.PRODUCTO);
+        //console.log(this.PRODUCTO);
         PRODUCTO.fecha_o = moment__WEBPACK_IMPORTED_MODULE_4__(PRODUCTO.fecha_o).format('DD/MM/yyyy');
         PRODUCTO.fecha_s = moment__WEBPACK_IMPORTED_MODULE_4__(PRODUCTO.fecha_s).format('DD/MM/yyyy');
         PRODUCTO.fecha = moment__WEBPACK_IMPORTED_MODULE_4__(PRODUCTO.fecha).format('DD/MM/yyyy');
@@ -4565,7 +4565,7 @@ class OrdenComponent {
         let cant_barniz = (barniz[0].cantidad * PRODUCTO.paginas) / 1000;
         let cantidad_barniz = cant_barniz.toFixed(2);
         let pega = materiales.filter(x => x.producto.grupo.nombre === 'Pega');
-        console.log(pega, 'pegaa');
+        //console.log(pega, 'pegaa');
         let cantidad_pega;
         let pega_nombre = '';
         let pega_marca = '';
@@ -6415,7 +6415,7 @@ class MainComponent {
             this.restantes = [];
             this.restantes.push(aja);
         }
-        console.log(this.restantes);
+        //console.log(this.restantes);
     }
     modal_nueva_orden() {
         if (!this.NUEVA_ORDEN) {
@@ -6440,12 +6440,12 @@ class MainComponent {
             this.CLIENTE = e.target.value;
             let index = this.CLIENTES.find(x => x._id === e.target.value);
             this.ALMACEN = index.almacenes;
-            console.log(this.ALMACEN);
+            //console.log(this.ALMACEN);
         }
         this.api.getById(e.target.value)
             .subscribe((resp) => {
             this.PRODUCTOS = resp.productos;
-            console.log(this.PRODUCTOS);
+            //console.log(this.PRODUCTOS);
         });
     }
     Almacenado() {
@@ -6469,7 +6469,7 @@ class MainComponent {
         this.api.getOneById(e.target.value)
             .subscribe((resp) => {
             this.PRODUCTO = resp.producto;
-            console.log(this.PRODUCTO, 'PRODUCTO');
+            //console.log(this.PRODUCTO, 'PRODUCTO');
             this.montajes = this.PRODUCTO.montajes;
             this.Ejemplares_montados = this.PRODUCTO.ejemplares[this.i_montajes];
             this.Ejemplares(this.Ejemplares_montados);
@@ -6479,7 +6479,7 @@ class MainComponent {
             this.CANTIDAD = [];
             for (let i = 0; i < x; i++) {
                 let respuesta = this._CANTIDAD.find(x => x.material.nombre == this.PRODUCTO[this.i_montajes].materiales[i].producto.nombre && x.material.marca == this.PRODUCTO.materiales[i].producto.marca && x.material.grupo.nombre);
-                console.log(this.PRODUCTO);
+                //console.log(this.PRODUCTO);
                 if (!respuesta) {
                     this.SinMaterial = true;
                     return;
@@ -6536,7 +6536,7 @@ class MainComponent {
             let cantidades = 0;
             for (let i = 0; i < almacenado.length; i++) {
                 cantidades = cantidades + Number(almacenado[i].cantidad);
-                // console.log(almacenado[i].material.nombre, ' <> ', cantidades)
+                // //console.log(almacenado[i].material.nombre, ' <> ', cantidades)
             }
             cantidades = cantidades * almacenado[0].material.neto;
             return cantidades.toFixed(2);
@@ -6607,7 +6607,7 @@ class MainComponent {
                 }
                 resto = Number(resto);
                 if (resto < 0) {
-                    console.log(this.PRODUCTO.materiales[this.i_montajes][i].producto.nombre, '<>', resto);
+                    //console.log(this.PRODUCTO.materiales[this.i_montajes][i].producto.nombre, '<>', resto);
                     sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
                         icon: 'error',
                         title: 'Oops!',
@@ -6637,7 +6637,7 @@ class MainComponent {
         // CPH = CANTIDAD POR HOJAS
         this.api.getFechas(e.target.value)
             .subscribe((resp) => {
-            console.log(resp, '__________________________');
+            //console.log(resp, '__________________________');
             let cph = 0;
             let HorasAgregadas = 0;
             let fecha;
@@ -6675,7 +6675,7 @@ class MainComponent {
         document.getElementById(`${fase}-C`).value = hoymas3;
     }
     test() {
-        console.log();
+        //console.log();
     }
     finalizar(cantidad) {
         let data = {
@@ -6710,7 +6710,7 @@ class MainComponent {
                 };
                 this.api.postOrden2(Data)
                     .subscribe((respuesta) => {
-                    console.log(respuesta);
+                    //console.log(respuesta);
                 });
             }
             this.router.navigate([`/orden-produccion/${resp}`]);
@@ -7255,15 +7255,15 @@ class PlanificacionComponent {
                 if (fecha >= nuevo[i].fechaI) {
                     if (fecha <= nuevo[i].fecha) {
                         final.push(nuevo[i]);
-                        console.log(final);
+                        //console.log(final);
                     }
                 }
             }
             return final;
         }
-        // console.log(nuevo)
+        // //console.log(nuevo)
     }
-    // console.log(this.TRABAJOS.length )
+    // //console.log(this.TRABAJOS.length )
     // fecha = '2021-08-20'
     // funcion = "IMPRESION"
     // let nuevo = this.TRABAJOS.find(x => x.maquina.tipo === funcion);
@@ -7271,11 +7271,11 @@ class PlanificacionComponent {
     //   let fecha_final = moment(nuevo.fecha).format('yyyy-MM-DD')
     //   let fecha_Inicial = moment(nuevo.fechaI).format('yyyy-MM-DD')
     //   let fecha_actual = moment(fecha).format('yyyy-MM-DD')
-    //   console.log(nuevo)
+    //   //console.log(nuevo)
     // let MI:boolean = fecha_actual >= fecha_Inicial;
     // if(MI){
     //   let MF:boolean = fecha_actual <= fecha_final;
-    //   console.log(MF)
+    //   //console.log(MF)
     // }
     // if(nuevo){
     //   let fecha_final = moment(nuevo.fecha).format('yyyy-MM-DD')
@@ -7285,7 +7285,7 @@ class PlanificacionComponent {
     //   if(MI){
     //     let MF:boolean = fecha_actual <= fecha_final;
     //     if(MF){
-    //       console.log(nuevo,'_',funcion)
+    //       //console.log(nuevo,'_',funcion)
     //       return `${nuevo._id.slice(3,6)}`
     //     }
     //   }
@@ -7298,7 +7298,7 @@ class PlanificacionComponent {
     //   if(MI){
     //     let MF:boolean = fecha_actual <= fecha_final;
     //     if(MF){
-    //       console.log('aqui',nuevo)
+    //       //console.log('aqui',nuevo)
     //        return `${nuevo._id.slice(3,6)}`
     //     }
     //   }
@@ -7306,7 +7306,7 @@ class PlanificacionComponent {
     // if(nuevo.fecha < fecha)
     // if(nuevo){
     //   let nuevo2 = nuevo.find(x => x.fecha <= fecha)
-    //   console.log(nuevo2)
+    //   //console.log(nuevo2)
     // }
     // return nuevo
     obtenerTrabajos() {
@@ -7314,7 +7314,7 @@ class PlanificacionComponent {
             .subscribe((resp) => {
             this.cargado = false;
             this.TRABAJOS = resp;
-            console.log(this.TRABAJOS);
+            //console.log(this.TRABAJOS);
             this.cargado = true;
         });
     }
@@ -9614,7 +9614,7 @@ class MainComponent {
                 this._gramajes_.push(sustratos[i]);
             }
         }
-        console.log(this._gramajes_);
+        //console.log(this._gramajes_);
     }
     buscarAncho(e) {
         this._ancho_ = [];
@@ -9646,13 +9646,13 @@ class MainComponent {
             if (resp.grupo.nombre === 'Cajas Corrugadas') {
                 this.caja_ = true;
             }
-            console.log(this.MaterialID, 'ok');
+            //console.log(this.MaterialID, 'ok');
         });
     }
     Editar_Material_F() {
         let grupo = this.MaterialID.grupo._id;
         this.MaterialID.grupo = grupo;
-        console.log(this.MaterialID);
+        //console.log(this.MaterialID);
         this.api.putMaterialID(this.MaterialID._id, this.MaterialID)
             .subscribe((resp) => {
             this.Modal_Almacen_ep();
@@ -9932,7 +9932,7 @@ class MainComponent {
             grupo,
             nuevo: this.OTRO
         };
-        console.log(this.InventarioForm.get('color').value);
+        //console.log(this.InventarioForm.get('color').value);
         if (this.InventarioForm.invalid) {
             return;
         }
@@ -10057,7 +10057,7 @@ class MainComponent {
             // (<HTMLInputElement>document.getElementById('_ancho')).value = TheBobina.ancho
             // }
             // if(TheBobina){
-            //   console.log(TheBobina)
+            //   //console.log(TheBobina)
             //   this.Mat_Selected = TheBobina.material;
             //   this.Num_Bobina = TheBobina.Nbobina;
             // }
@@ -10195,7 +10195,7 @@ class MainComponent {
     // getSustratos(){
     //   this.api.getSustratos()
     //     .subscribe((resp:any)=>{
-    //       console.log(resp)
+    //       //console.log(resp)
     //       if(resp.length>0){
     //         this.boolean_sustrato = true;
     //         this.Sustratos = resp;
@@ -10209,7 +10209,7 @@ class MainComponent {
         this.api.getMaterialesPorConfirmar()
             .subscribe((resp) => {
             this.MAT_NECESARIO = resp;
-            console.log(this.MAT_NECESARIO, 'this');
+            //console.log(this.MAT_NECESARIO, 'this');
         });
     }
     BuscarTotal(Material, cantidad_Mat, cantidad_orden) {
@@ -10315,13 +10315,13 @@ class MainComponent {
                 this.getbobinas();
                 // this.getSustratos();
                 this.porConfirmar();
-                console.log(resp);
+                //console.log(resp);
             });
         }
         else {
             this.api.eliminarMaterial(this.id_p_e, motivo)
                 .subscribe((resp) => {
-                console.log(resp);
+                //console.log(resp);
                 this.BuscarAlmacen();
                 this.porConfirmar();
                 this.modal_eliminacion();
@@ -10335,7 +10335,7 @@ class MainComponent {
         };
         this.api.reporteInventario(data)
             .subscribe((resp) => {
-            console.log('aqui es la broma:', resp);
+            //console.log('aqui es la broma:', resp);
             const pdf = new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["PdfMakeWrapper"]();
             pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["PdfMakeWrapper"].setFonts(pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_4__);
             function generarPDF() {
@@ -10470,7 +10470,7 @@ class MainComponent {
                     largo: this.Almacenado[i].material.largo,
                     total: this.Almacenado[i].cantidad
                 });
-                console.log(this.TOTALES, 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+                //console.log(this.TOTALES, 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
             }
         }
     }
@@ -10486,7 +10486,7 @@ class MainComponent {
     //           let Almacen = cantidad * this.ALMACEN[i].neto;
     //           this.TOTALES[findIndex].neto = this.TOTALES[findIndex].neto + Almacen
     //           // this.TOTALES[findIndex].total = 1;
-    //           // console.log('HEREEEE ',this.TOTALES[findIndex], 'Almacen: ',this.ALMACEN[i])
+    //           // //console.log('HEREEEE ',this.TOTALES[findIndex], 'Almacen: ',this.ALMACEN[i])
     //         }else{
     //           this.TOTALES.push({
     //             material:this.ALMACEN[i].nombre,
@@ -10569,10 +10569,10 @@ class MainComponent {
         let splited = e.split('-');
         e = splited[1];
         let codigo = splited[0];
-        console.log(splited);
+        //console.log(splited);
         let EnAlmacen = this.Almacenado.find(x => x.material.nombre === material && x.lote === e && x.codigo === codigo);
-        // console.log('******/*/*/*/*/*/*/*/*/*/*/', cantidad)
-        console.log(this.MAT_NECESARIO);
+        // //console.log('******/*/*/*/*/*/*/*/*/*/*/', cantidad)
+        //console.log(this.MAT_NECESARIO);
         let _cantidad;
         if (grupo === 'Tinta') {
             _cantidad = (m_cantidad * hojas) / 1000;
@@ -10633,20 +10633,20 @@ class MainComponent {
                 //  let index = this.LOTES.findIndex(x => x.lote === e)
                 //  this.LOTES.splice(index , 1);
             }
-            console.log(this.LOTES);
+            //console.log(this.LOTES);
         }
     }
     fijalote(lote, codigo, resto, i, almacenado, restante, solicitado) {
         let existe = this.LOTES.find(x => x.lote == lote);
         if (!existe) {
             this.LOTES.push({ lote, codigo, resta: resto, i, almacenado, restante: restante, solicitado });
-            console.log(this.LOTES);
+            //console.log(this.LOTES);
         }
         else {
             let index = this.LOTES.findIndex(x => x.lote == lote);
             this.LOTES.push({ lote, codigo, resta: resto, i, almacenado, restante: restante, solicitado });
         }
-        console.log(this.LOTES);
+        //console.log(this.LOTES);
     }
     Unidad(material) {
         let unidad = this.ALMACEN.find(x => x.nombre === material);
@@ -11771,7 +11771,7 @@ class MainComponent {
         this.usuario = api.usuario;
     }
     ngOnInit() {
-        console.log(this.usuario);
+        //console.log(this.usuario);
     }
     getOrdenes() {
     }
@@ -12012,10 +12012,10 @@ class LoginComponent {
             this.router.navigateByUrl('/');
         }, (err) => {
             this.cargando = false;
-            console.log(err);
+            //console.log(err);
             sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('Error', err.error.err.message, 'error');
         });
-        // console.log(this.loginForm.value)
+        // //console.log(this.loginForm.value)
     }
 }
 LoginComponent.ɵfac = function LoginComponent_Factory(t) { return new (t || LoginComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_2__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_rest_api_service__WEBPACK_IMPORTED_MODULE_4__["RestApiService"])); };

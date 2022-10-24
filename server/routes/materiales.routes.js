@@ -16,6 +16,17 @@ const {FAL005} = require('../middlewares/docs/FAL-005.pdf');
 const {FAL006} = require('../middlewares/docs/FAL-006.pdf');
 const app = express();
 
+app.get('/api/lotes/:orden', (req, res)=>{
+    let orden = req.params.orden;
+
+    Lote.find({orden:orden})
+        .populate('material.material')
+        .exec((err, lotes)=>{
+            //console.log(lotes)
+            res.json(lotes)
+        })
+})
+
 app.post('/api/almacenado', (req, res)=>{
 
     let body = req.body;
@@ -80,13 +91,16 @@ app.put('/api/almacenado/:id', (req, res)=>{
                             err
                         });
                     }
-            
+
                     res.json(AlmacenadoDB)
                 })
 
 })
 
 app.get('/api/almacenado', (req, res)=>{
+
+    const options = { sort: ['material.nombre'] };
+
     Almacenado.find({cantidad:{ $gt:0}})
                 .populate({
                     path: 'material',
@@ -122,13 +136,13 @@ app.get('/api/tipo-materia-prima', (req, res)=>{
 
 
 app.get('/api/materiales', (req, res)=>{
-    
+
     Material.find({eliminado:false})
             .populate('grupo')
             .sort('grupo.nombre')
             .sort('nombre')
             .exec((err, materialesDB)=>{
-                
+
                 if( err ){
                     return res.status(400).json({
                         ok:false,
@@ -147,11 +161,11 @@ app.get('/api/materiales', (req, res)=>{
 app.get('/api/materiales/:id', (req, res)=>{
 
     let id = req.params.id
-    
+
     Material.findById(id)
             .populate('grupo')
             .exec((err, materialesDB)=>{
-                
+
                 if( err ){
                     return res.status(400).json({
                         ok:false,
@@ -166,7 +180,7 @@ app.get('/api/materiales/:id', (req, res)=>{
 
 //AGREGAR NUEVO MATERIAL
 app.post('/api/nuevo-material', async (req, res)=>{
-    
+
     let body = req.body;
     let ready = false;
 
@@ -176,16 +190,16 @@ app.post('/api/nuevo-material', async (req, res)=>{
                 let NuevoGrupo = new Materia({
                     nombre:body.grupo
                 })
-            
+
                 NuevoGrupo.save((err, grupoDB)=>{
-        
+
                     if( err ){
                         return res.status(400).json({
                             ok:false,
                             err
                         });
                     }
-        
+
                     body.grupo = grupoDB._id;
                     resolve(body.grupo)
                 })
@@ -300,7 +314,7 @@ app.delete('/api/material/:id', (req, res)=>{
 })
 
 app.post('/api/material/devolucion', (req, res)=>{
-    
+
     let body = req.body;
 
 
@@ -318,9 +332,9 @@ app.post('/api/material/devolucion', (req, res)=>{
                     err
                 });
             }
-            
-            // console.log(material.nombre)
-            
+
+            // //console.log(material.nombre)
+
         cantidades.push(`${body.filtrado[i].cantidad} ${material.unidad}`)
 
         if(!material.ancho){
@@ -329,7 +343,7 @@ app.post('/api/material/devolucion', (req, res)=>{
             materiales.push(`${material.nombre} ${material.ancho}x${material.largo} (${material.marca}) - Paleta:${body.filtrado[i].codigo}`)
         }
 
-            
+
         if(i === final){
 
             idevolucion.findByIdAndUpdate({_id: 'test'}, {$inc: {seq: 1}}, {new: true, upset:true})
@@ -351,7 +365,7 @@ app.post('/api/material/devolucion', (req, res)=>{
                     res.json('done');
                 })
         }
-        
+
         })
 
     }
@@ -362,7 +376,7 @@ app.post('/api/material/devolucion', (req, res)=>{
 app.post('/api/material/descuento', (req, res)=>{
 
     let body = req.body;
-    console.log(body)
+    //console.log(body)
 
     let lotes_ = '';
     let names;
@@ -377,6 +391,30 @@ app.post('/api/material/descuento', (req, res)=>{
     let orden = []
     let material__ = []
 
+    console.log(body)
+    
+    if(body.requi){
+        console.log('si')
+        Requisicion.findOneAndUpdate({_id:body.requi},{estado:'Finalizado'}, (err, requi)=>{
+            if( err ){
+                return res.status(400).json({
+                    ok:false,
+                    err
+                });
+            }
+        })
+    }
+    
+    
+    
+    Orden.findOneAndUpdate({sort:body.orden}, {estado:'activo'}, (err, modificado)=>{
+        if( err ){
+            return res.status(400).json({
+                    ok:false,
+                    err
+                });
+    }
+    })
 
     for(let i= 0; i<body.lotes.length; i++){
 
@@ -404,34 +442,34 @@ app.post('/api/material/descuento', (req, res)=>{
 
                  materiales.push(names);
                  lotes.push(body.lotes[i].lote);
-                 if(body.lotes[i].unidad === "PALETA"){
-                    solicitados.push(`${body.lotes[i].solicitado} Und`)
+                 if(body.lotes[i].unidad === "PALETA" || body.lotes[i].unidad === "Paleta"){
+                    solicitados.push(`${body.lotes[i].solicitado} Und - ${material.neto}${material.unidad}`)
                     body.lotes[i].unidad = 'Und'
                  }else{
-                    solicitados.push(`${body.lotes[i].solicitado} ${body.lotes[i].unidad}`)
+                    solicitados.push(`${body.lotes[i].solicitado} ${body.lotes[i].unidad} - ${material.neto}${material.unidad}`)
                 }
 
-                 data = `<tr><td>${names}</td>
-                 <td>${body.lotes[i].lote}</td>
-                 <td>${body.lotes[i].solicitado} ${body.lotes[i].unidad}</td></tr>`
-                 lotes_ = lotes_ + data;
+                data = `<tr><td>${names}</td>
+                <td>${body.lotes[i].lote}</td>
+                <td>${body.lotes[i].solicitado} ${body.lotes[i].unidad} - ${material.neto}${material.unidad}</td></tr>`
+                lotes_ = lotes_ + data;
 
-                // console.log({
-                //     material:material._id,
-                //     lote: body.lotes[i].lote,
-                //     codigo: body.lote[i].codigo,
-                //     cantidad: body.lotes[i].solicitado
-                // })
+        //         // //console.log({
+        //         //     material:material._id,
+        //         //     lote: body.lotes[i].lote,
+        //         //     codigo: body.lote[i].codigo,
+        //         //     cantidad: body.lotes[i].solicitado
+        //         // })
 
                 material__.push({
-                    material:material._id,
-                    lote: body.lotes[i].lote,
-                    codigo: body.lotes[i].codigo,
-                    cantidad: body.lotes[i].solicitado
+                   material:material._id,
+                   lote: body.lotes[i].lote,
+                   codigo: body.lotes[i].codigo,
+                   cantidad: body.lotes[i].solicitado
                 })
 
-                // console.log(material__)
-     
+        //         // //console.log(material__)
+
                  let final = body.lotes.length - 1;
                  if(i == final){
                     const data = new Lote({
@@ -439,39 +477,14 @@ app.post('/api/material/descuento', (req, res)=>{
                         material:material__
                     }).save();
                     orden.push(data)
-                    console.log(orden)
-                    FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)      
-                 }
+                    //console.log(orden)
+                    FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)
+                    res.json('ok')
+                }
              })
         })
-        }
-        Orden.findOneAndUpdate({sort:body.orden}, {estado:'activo'}, (err, modificado)=>{
-            if( err ){
-            return res.status(400).json({
-                    ok:false,
-                    err
-                });
-            }
-
-            // console.log(body)
-            
-
-
-            Requisicion.findOneAndDelete({sort:body.orden}, (err, requi)=>{
-                if( err ){
-                    return res.status(400).json({
-                            ok:false,
-                            err
-                        });
-                    }
-            })
-
-            res.json({ok:'ok'})
-            return
-            
-            
-    });
-    return
+        // //console.log(i)
+    }
 })
 
 app.post('/api/materiales/:id', (req, res)=>{
@@ -555,7 +568,7 @@ app.post('/api/materialess/reporte', (req, res)=>{
                                                 .populate('grupo')
                                                 .sort('grupo.nombre')
                                                 .exec((err, materialesDB)=>{
-                                                    
+
                                                     if( err ){
                                                         return res.status(400).json({
                                                             ok:false,
@@ -568,7 +581,7 @@ app.post('/api/materialess/reporte', (req, res)=>{
                                                         ingresos:ingresosDB,
                                                         almacen:materialesDB
                                                     }
-                
+
                                                     res.json(total)
                                                 })
 

@@ -53,8 +53,8 @@ app.post('/api/bobina-delete', (req, res)=>{
                     err
                 });
             }
-            // console.log(conversion.descuentos, 'peso');
-            // console.log(deleted.peso, 'deleted');
+            // //console.log(conversion.descuentos, 'peso');
+            // //console.log(deleted.peso, 'deleted');
 
             let descuento;
             let peso;
@@ -63,7 +63,7 @@ app.post('/api/bobina-delete', (req, res)=>{
             descuento = Number(conversion.descuentos) 
             peso = Number(deleted.peso)
             total = descuento + peso;
-            // console.log(total);
+            // //console.log(total);
 
             Conversion.findOneAndUpdate({sort:body.numero},{descuentos:total},{new : true, passRawResult: true}, (err, listo)=>{
                 if( err ){
@@ -72,7 +72,7 @@ app.post('/api/bobina-delete', (req, res)=>{
                         err
                     });
                 }
-                console.log(listo.descuentos)
+                //console.log(listo.descuentos)
 
                 if(listo.descuentos >= listo.peso){
                     Conversion.findOneAndUpdate({sort:body.numero}, {status:false}, (err, terminado)=>{
@@ -143,14 +143,14 @@ app.post('/api/sustrato', (req, res)=>{
     const body = req.body;
     let num_Conv;
 
-    console.log(body)
+    //console.log(body)
 
     let NewConv = new Conversion({
         bobina:'xxx',
         peso:body.peso
     })
 
-    console.log('new', NewConv)
+    //console.log('new', NewConv)
     
     NewConv.save((err, conv)=>{
         // if( err ){
@@ -171,7 +171,7 @@ app.post('/api/sustratos/:id', (req, res)=>{
     const id = req.params.id;
     const body = req.body
 
-    console.log(id)
+    //console.log(id)
 
     Sustrato.findByIdAndRemove(id, (err, eliminado)=>{
         if( err ){

@@ -2052,7 +2052,7 @@
               this.POST.splice(i, 1);
             }
 
-            console.log(this.POST);
+            //console.log(this.POST);
           }
         }, {
           key: "troquel",
@@ -2227,7 +2227,7 @@
 
             this.api.getAlmacen().subscribe(function (resp) {
               _this4.MATERIALES = resp.materiales;
-              console.log(_this4.MATERIALES);
+              //console.log(_this4.MATERIALES);
             });
           }
         }, {
@@ -2237,7 +2237,7 @@
 
             this.api.getGrupos().subscribe(function (resp) {
               _this5.GRUPOS = resp.grupos;
-              console.log(_this5.GRUPOS, 'GRUPOOOOS');
+              //console.log(_this5.GRUPOS, 'GRUPOOOOS');
             });
           }
         }, {
@@ -2258,7 +2258,7 @@
             this.api.GetGrupoMp().subscribe(function (resp) {
               _this6.SECCIONES = resp;
               alert('THIS IS WORKING');
-              console.log(_this6.SECCIONES, 'SECCIONEEEES');
+              //console.log(_this6.SECCIONES, 'SECCIONEEEES');
             });
           }
         }, {
@@ -2350,7 +2350,7 @@
 
             this.api.getById(e).subscribe(function (resp) {
               _this8.PRODUCTOS = resp.productos;
-              console.log(_this8.PRODUCTOS);
+              //console.log(_this8.PRODUCTOS);
             });
 
             if (e == "") {
@@ -2379,7 +2379,7 @@
             var Material = this.MATERIALES.find(function (x) {
               return x._id === producto;
             });
-            console.log(Material, '--');
+            //console.log(Material, '--');
             var size = cantidad;
             var name = Material.nombre;
 
@@ -2397,9 +2397,9 @@
               producto: producto,
               cantidad: size
             };
-            console.log(productos);
+            //console.log(productos);
             this.OneProduct.materiales[this.i_montajes].push(productos);
-            console.log(this.MATERIALES_NECESARIOS, 'this'); // this.MATERIALES_NECESARIOS.push(productos);
+            //console.log(this.MATERIALES_NECESARIOS, 'this'); // this.MATERIALES_NECESARIOS.push(productos);
             // let field_material = (<HTMLInputElement>document.getElementById('field_material'))
             // let field_marca = (<HTMLInputElement>document.getElementById('field_marca'))
             // let field_cantidad = (<HTMLInputElement>document.getElementById('field_cantidad'))
@@ -2424,7 +2424,7 @@
             var Material = this.MATERIALES.find(function (x) {
               return x._id == producto;
             });
-            console.log(Material, '--');
+            //console.log(Material, '--');
             var size = cantidad;
             var name = Material.nombre;
 
@@ -2444,12 +2444,12 @@
             };
             this.OneProduct.materiales[this.i_montajes].push(productos);
             this.api.updateProducto(this.OneProduct, this.OneProduct._id).subscribe(function (resp) {
-              console.log(resp, 'respuesta');
+              //console.log(resp, 'respuesta');
 
               _this9.editar(_this9.OneProduct);
 
               _this9.api.getOneById(_this9.OneProduct._id).subscribe(function (resp) {
-                console.log('ok');
+                //console.log('ok');
               });
 
               _this9.Modal_Producto_E();
@@ -2466,7 +2466,7 @@
             var Material = this.MATERIALES.find(function (x) {
               return x._id === producto;
             });
-            console.log(Material, '--');
+            //console.log(Material, '--');
             var size = cantidad;
             var name = Material.nombre;
 
@@ -2484,14 +2484,14 @@
               producto: producto,
               cantidad: size
             };
-            console.log(productos);
+            //console.log(productos);
 
             if (!this.MATERIALES_NECESARIOS[this.i_montajes]) {
               this.MATERIALES_NECESARIOS[this.i_montajes] = [];
             }
 
             this.MATERIALES_NECESARIOS[this.i_montajes].push(productos);
-            console.log(this.MATERIALES_NECESARIOS, 'this'); // this.MATERIALES_NECESARIOS.push(productos);
+            //console.log(this.MATERIALES_NECESARIOS, 'this'); // this.MATERIALES_NECESARIOS.push(productos);
             // let field_material = (<HTMLInputElement>document.getElementById('field_material'))
             // let field_marca = (<HTMLInputElement>document.getElementById('field_marca'))
             // let field_cantidad = (<HTMLInputElement>document.getElementById('field_cantidad'))
@@ -2511,19 +2511,19 @@
             var deleted = this.MATERIALES_NECESARIOS[this.i_montajes].findIndex(function (x) {
               return x.material == material2;
             });
-            console.log(deleted);
+            //console.log(deleted);
             this.MATERIALES_NECESARIOS.splice(deleted, 1);
           }
         }, {
           key: "Delete_Material2",
           value: function Delete_Material2(material2) {
-            console.log(this.OneProduct.materiales[this.i_montajes]);
+            //console.log(this.OneProduct.materiales[this.i_montajes]);
             var deleted = this.OneProduct.materiales[this.i_montajes].findIndex(function (x) {
               return x.producto.nombre == material2;
             });
-            console.log(deleted);
+            //console.log(deleted);
             this.OneProduct.materiales[this.i_montajes].splice(deleted, 1); // let deleted = this.OneProduct.materiales[this.i_montajes].producto.findIndex(x => x.nombre == material2)
-            // console.log(deleted)
+            // //console.log(deleted)
             // this.MATERIALES_NECESARIOS.splice(deleted, 1);
           }
         }, {
@@ -2536,7 +2536,7 @@
           key: "borrarPost2",
           value: function borrarPost2(post) {
             var i = this.OneProduct.post.indexOf(post);
-            console.log(i);
+            //console.log(i);
             this.POST.splice(i, 1);
           }
         }, {
@@ -2565,7 +2565,7 @@
 
             this.api.getOneById(producto).subscribe(function (resp) {
               _this11.OneProduct = resp.producto;
-              console.log('AQUIIIIIIIIIIIIII', _this11.OneProduct);
+              //console.log('AQUIIIIIIIIIIIIII', _this11.OneProduct);
 
               _this11.ver_Modal_Producto();
             });
@@ -2591,7 +2591,7 @@
 
             this.api.getOneById(producto).subscribe(function (resp) {
               _this12.OneProduct = resp.producto;
-              console.log('AQUIIIIIIIIIIIIII', _this12.OneProduct);
+              //console.log('AQUIIIIIIIIIIIIII', _this12.OneProduct);
             });
 
             if (this.OneProduct) {
@@ -6873,8 +6873,8 @@
               return x._id == orden;
             });
             var productos = value_hojas * Ejemplares.orden.producto.ejemplares[Ejemplares.orden.montaje];
-            console.log(value_hojas, 'value');
-            console.log(Ejemplares, 'Ejemplares');
+            //console.log(value_hojas, 'value');
+            //console.log(Ejemplares, 'Ejemplares');
             document.getElementById('productos_input').value = productos;
           }
         }, {
@@ -6900,7 +6900,7 @@
               trabajo: trabajo
             };
             this.api.postRestrasar(data).subscribe(function (resp) {
-              console.log(resp);
+              //console.log(resp);
               sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
                 icon: 'info',
                 title: 'Se realizó un retraso en la planificación',
@@ -6976,11 +6976,11 @@
             var _hojas = 0;
 
             if (_long <= 0) {
-              console.log(orden);
+              //console.log(orden);
               var Actual = this.TRABAJOS.find(function (x) {
                 return x._id == orden;
               });
-              console.log(Actual);
+              //console.log(Actual);
               _productos = Actual.orden.cantidad - Number(productos);
               _hojas = Actual.orden.paginas - Number(hojas);
             } else {
@@ -7497,7 +7497,7 @@
               return x.orden._id == id && x.maquina.tipo === 'IMPRIMIR';
             });
             var hoy = moment__WEBPACK_IMPORTED_MODULE_1__().format('yyyy-MM-DD');
-            console.log(estado);
+            //console.log(estado);
 
             if (hoy < estado.fechaI) {
               return "Impresi\xF3n Comienza el: ".concat(estado.fechaI);
@@ -8673,7 +8673,7 @@
               var paginas_sin_demasia = _this32.PRODUCTO.cantidad / ejemplares_montados;
               _this32.PRODUCTO.demasia = Math.ceil(_this32.demasia * paginas_sin_demasia / 100); // this.PRODUCTO.demasia = this.PRODUCTO.producto.ejemplares[this.PRODUCTO.montaje]
 
-              console.log(_this32.PRODUCTO, 'este es el Producto');
+              //console.log(_this32.PRODUCTO, 'este es el Producto');
 
               _this32.getMaquinas(_this32.PRODUCTO._id);
             });
@@ -8685,7 +8685,7 @@
 
             this.api.getMaquinasByOrdens(orden).subscribe(function (resp) {
               _this33.Maquinas = resp;
-              console.log(_this33.Maquinas, 'Estas son las maquinas');
+              //console.log(_this33.Maquinas, 'Estas son las maquinas');
             });
           }
         }, {
@@ -8735,7 +8735,7 @@
           key: "descargarPDF",
           value: function descargarPDF() {
             var PRODUCTO = this.PRODUCTO;
-            console.log(this.PRODUCTO);
+            //console.log(this.PRODUCTO);
             PRODUCTO.fecha_o = moment__WEBPACK_IMPORTED_MODULE_4__(PRODUCTO.fecha_o).format('DD/MM/yyyy');
             PRODUCTO.fecha_s = moment__WEBPACK_IMPORTED_MODULE_4__(PRODUCTO.fecha_s).format('DD/MM/yyyy');
             PRODUCTO.fecha = moment__WEBPACK_IMPORTED_MODULE_4__(PRODUCTO.fecha).format('DD/MM/yyyy');
@@ -8760,7 +8760,7 @@
             var pega = materiales.filter(function (x) {
               return x.producto.grupo.nombre === 'Pega';
             });
-            console.log(pega, 'pegaa');
+            //console.log(pega, 'pegaa');
             var cantidad_pega;
             var pega_nombre = '';
             var pega_marca = '';
@@ -11484,7 +11484,7 @@
               this.restantes.push(aja);
             }
 
-            console.log(this.restantes);
+            //console.log(this.restantes);
           }
         }, {
           key: "modal_nueva_orden",
@@ -11518,12 +11518,12 @@
                 return x._id === e.target.value;
               });
               this.ALMACEN = index.almacenes;
-              console.log(this.ALMACEN);
+              //console.log(this.ALMACEN);
             }
 
             this.api.getById(e.target.value).subscribe(function (resp) {
               _this35.PRODUCTOS = resp.productos;
-              console.log(_this35.PRODUCTOS);
+              //console.log(_this35.PRODUCTOS);
             });
           }
         }, {
@@ -11556,7 +11556,7 @@
 
             this.api.getOneById(e.target.value).subscribe(function (resp) {
               _this37.PRODUCTO = resp.producto;
-              console.log(_this37.PRODUCTO, 'PRODUCTO');
+              //console.log(_this37.PRODUCTO, 'PRODUCTO');
               _this37.montajes = _this37.PRODUCTO.montajes;
               _this37.Ejemplares_montados = _this37.PRODUCTO.ejemplares[_this37.i_montajes];
 
@@ -11572,7 +11572,7 @@
                   return x.material.nombre == _this37.PRODUCTO[_this37.i_montajes].materiales[i].producto.nombre && x.material.marca == _this37.PRODUCTO.materiales[i].producto.marca && x.material.grupo.nombre;
                 });
 
-                console.log(_this37.PRODUCTO);
+                //console.log(_this37.PRODUCTO);
 
                 if (!respuesta) {
                   _this37.SinMaterial = true;
@@ -11652,7 +11652,7 @@
               var cantidades = 0;
 
               for (var i = 0; i < almacenado.length; i++) {
-                cantidades = cantidades + Number(almacenado[i].cantidad); // console.log(almacenado[i].material.nombre, ' <> ', cantidades)
+                cantidades = cantidades + Number(almacenado[i].cantidad); // //console.log(almacenado[i].material.nombre, ' <> ', cantidades)
               }
 
               cantidades = cantidades * almacenado[0].material.neto;
@@ -11751,7 +11751,7 @@
                 resto = Number(resto);
 
                 if (resto < 0) {
-                  console.log(this.PRODUCTO.materiales[this.i_montajes][i].producto.nombre, '<>', resto);
+                  //console.log(this.PRODUCTO.materiales[this.i_montajes][i].producto.nombre, '<>', resto);
                   sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
                     icon: 'error',
                     title: 'Oops!',
@@ -11785,7 +11785,7 @@
 
             // CPH = CANTIDAD POR HOJAS
             this.api.getFechas(e.target.value).subscribe(function (resp) {
-              console.log(resp, '__________________________');
+              //console.log(resp, '__________________________');
               var cph = 0;
               var HorasAgregadas = 0;
               var fecha;
@@ -11834,7 +11834,7 @@
         }, {
           key: "test",
           value: function test() {
-            console.log();
+            //console.log();
           }
         }, {
           key: "finalizar",
@@ -11873,7 +11873,7 @@
                 };
 
                 _this41.api.postOrden2(Data).subscribe(function (respuesta) {
-                  console.log(respuesta);
+                  //console.log(respuesta);
                 });
               }
 
@@ -12913,15 +12913,15 @@
                   if (fecha <= nuevo[i].fecha) {
                     _final.push(nuevo[i]);
 
-                    console.log(_final);
+                    //console.log(_final);
                   }
                 }
               }
 
               return _final;
-            } // console.log(nuevo)
+            } // //console.log(nuevo)
 
-          } // console.log(this.TRABAJOS.length )
+          } // //console.log(this.TRABAJOS.length )
           // fecha = '2021-08-20'
           // funcion = "IMPRESION"
           // let nuevo = this.TRABAJOS.find(x => x.maquina.tipo === funcion);
@@ -12929,11 +12929,11 @@
           //   let fecha_final = moment(nuevo.fecha).format('yyyy-MM-DD')
           //   let fecha_Inicial = moment(nuevo.fechaI).format('yyyy-MM-DD')
           //   let fecha_actual = moment(fecha).format('yyyy-MM-DD')
-          //   console.log(nuevo)
+          //   //console.log(nuevo)
           // let MI:boolean = fecha_actual >= fecha_Inicial;
           // if(MI){
           //   let MF:boolean = fecha_actual <= fecha_final;
-          //   console.log(MF)
+          //   //console.log(MF)
           // }
           // if(nuevo){
           //   let fecha_final = moment(nuevo.fecha).format('yyyy-MM-DD')
@@ -12943,7 +12943,7 @@
           //   if(MI){
           //     let MF:boolean = fecha_actual <= fecha_final;
           //     if(MF){
-          //       console.log(nuevo,'_',funcion)
+          //       //console.log(nuevo,'_',funcion)
           //       return `${nuevo._id.slice(3,6)}`
           //     }
           //   }
@@ -12956,7 +12956,7 @@
           //   if(MI){
           //     let MF:boolean = fecha_actual <= fecha_final;
           //     if(MF){
-          //       console.log('aqui',nuevo)
+          //       //console.log('aqui',nuevo)
           //        return `${nuevo._id.slice(3,6)}`
           //     }
           //   }
@@ -12964,7 +12964,7 @@
           // if(nuevo.fecha < fecha)
           // if(nuevo){
           //   let nuevo2 = nuevo.find(x => x.fecha <= fecha)
-          //   console.log(nuevo2)
+          //   //console.log(nuevo2)
           // }
           // return nuevo
 
@@ -12976,7 +12976,7 @@
             this.api.getTrabajos().subscribe(function (resp) {
               _this43.cargado = false;
               _this43.TRABAJOS = resp;
-              console.log(_this43.TRABAJOS);
+              //console.log(_this43.TRABAJOS);
               _this43.cargado = true;
             });
           }
@@ -17766,7 +17766,7 @@
               _loop4(i);
             }
 
-            console.log(this._gramajes_);
+            //console.log(this._gramajes_);
           }
         }, {
           key: "buscarAncho",
@@ -17820,7 +17820,7 @@
                 _this47.caja_ = true;
               }
 
-              console.log(_this47.MaterialID, 'ok');
+              //console.log(_this47.MaterialID, 'ok');
             });
           }
         }, {
@@ -17830,7 +17830,7 @@
 
             var grupo = this.MaterialID.grupo._id;
             this.MaterialID.grupo = grupo;
-            console.log(this.MaterialID);
+            //console.log(this.MaterialID);
             this.api.putMaterialID(this.MaterialID._id, this.MaterialID).subscribe(function (resp) {
               _this48.Modal_Almacen_ep();
 
@@ -18168,7 +18168,7 @@
               grupo: grupo,
               nuevo: this.OTRO
             };
-            console.log(this.InventarioForm.get('color').value);
+            //console.log(this.InventarioForm.get('color').value);
 
             if (this.InventarioForm.invalid) {
               return;
@@ -18329,7 +18329,7 @@
               // (<HTMLInputElement>document.getElementById('_ancho')).value = TheBobina.ancho
               // }
               // if(TheBobina){
-              //   console.log(TheBobina)
+              //   //console.log(TheBobina)
               //   this.Mat_Selected = TheBobina.material;
               //   this.Num_Bobina = TheBobina.Nbobina;
               // }
@@ -18422,7 +18422,7 @@
           } // getSustratos(){
           //   this.api.getSustratos()
           //     .subscribe((resp:any)=>{
-          //       console.log(resp)
+          //       //console.log(resp)
           //       if(resp.length>0){
           //         this.boolean_sustrato = true;
           //         this.Sustratos = resp;
@@ -18442,7 +18442,7 @@
 
             this.api.getMaterialesPorConfirmar().subscribe(function (resp) {
               _this61.MAT_NECESARIO = resp;
-              console.log(_this61.MAT_NECESARIO, 'this');
+              //console.log(_this61.MAT_NECESARIO, 'this');
             });
           }
         }, {
@@ -18599,11 +18599,11 @@
 
                 _this63.porConfirmar();
 
-                console.log(resp);
+                //console.log(resp);
               });
             } else {
               this.api.eliminarMaterial(this.id_p_e, motivo).subscribe(function (resp) {
-                console.log(resp);
+                //console.log(resp);
 
                 _this63.BuscarAlmacen();
 
@@ -18623,7 +18623,7 @@
               hasta: hasta.value
             };
             this.api.reporteInventario(data).subscribe(function (resp) {
-              console.log('aqui es la broma:', resp);
+              //console.log('aqui es la broma:', resp);
               var pdf = new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["PdfMakeWrapper"]();
               pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["PdfMakeWrapper"].setFonts(pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_4__);
 
@@ -18714,7 +18714,7 @@
                   total: _this65.Almacenado[i].cantidad
                 });
 
-                console.log(_this65.TOTALES, 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+                //console.log(_this65.TOTALES, 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
               }
             };
 
@@ -18742,7 +18742,7 @@
           //           let Almacen = cantidad * this.ALMACEN[i].neto;
           //           this.TOTALES[findIndex].neto = this.TOTALES[findIndex].neto + Almacen
           //           // this.TOTALES[findIndex].total = 1;
-          //           // console.log('HEREEEE ',this.TOTALES[findIndex], 'Almacen: ',this.ALMACEN[i])
+          //           // //console.log('HEREEEE ',this.TOTALES[findIndex], 'Almacen: ',this.ALMACEN[i])
           //         }else{
           //           this.TOTALES.push({
           //             material:this.ALMACEN[i].nombre,
@@ -18839,12 +18839,12 @@
             var splited = e.split('-');
             e = splited[1];
             var codigo = splited[0];
-            console.log(splited);
+            //console.log(splited);
             var EnAlmacen = this.Almacenado.find(function (x) {
               return x.material.nombre === material && x.lote === e && x.codigo === codigo;
-            }); // console.log('******/*/*/*/*/*/*/*/*/*/*/', cantidad)
+            }); // //console.log('******/*/*/*/*/*/*/*/*/*/*/', cantidad)
 
-            console.log(this.MAT_NECESARIO);
+            //console.log(this.MAT_NECESARIO);
 
             var _cantidad;
 
@@ -18926,7 +18926,7 @@
                 //  this.LOTES.splice(index , 1);
               }
 
-              console.log(this.LOTES);
+              //console.log(this.LOTES);
             }
           }
         }, {
@@ -18946,7 +18946,7 @@
                 restante: restante,
                 solicitado: solicitado
               });
-              console.log(this.LOTES);
+              //console.log(this.LOTES);
             } else {
               var index = this.LOTES.findIndex(function (x) {
                 return x.lote == lote;
@@ -18962,7 +18962,7 @@
               });
             }
 
-            console.log(this.LOTES);
+            //console.log(this.LOTES);
           }
         }, {
           key: "Unidad",
@@ -21183,7 +21183,7 @@
         _createClass(MainComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            console.log(this.usuario);
+            //console.log(this.usuario);
           }
         }, {
           key: "getOrdenes",
@@ -21630,9 +21630,9 @@
               _this68.router.navigateByUrl('/');
             }, function (err) {
               _this68.cargando = false;
-              console.log(err);
+              //console.log(err);
               sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('Error', err.error.err.message, 'error');
-            }); // console.log(this.loginForm.value)
+            }); // //console.log(this.loginForm.value)
           }
         }]);
 

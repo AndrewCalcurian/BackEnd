@@ -11,7 +11,7 @@ const nodemailer = require('nodemailer');
 async function FAL006(orden,solicitud, materiales, lotes, cantidades, motivo, usuario){
 
 
-console.log(materiales,'materiales')
+//console.log(materiales,'materiales')
 
 const printer = new Pdfmake({
     Roboto: {
@@ -70,7 +70,7 @@ doc.add(
         [
             new Cell(new Txt('').end).end,
             new Cell(new Txt('').end).end,
-            new Cell(new Txt('Fecha de Revisión: 03/05/2022').end).fillColor('#dedede').fontSize(7).alignment('center').end,
+            new Cell(new Txt('Fecha de Revisión: 11/10/2022').end).fillColor('#dedede').fontSize(7).alignment('center').end,
         ],
         [
             new Cell(new Txt('').end).end,
@@ -162,8 +162,8 @@ pdf.end();
 
 
 // asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurian.andrew@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com')
-   devolucion(orden, solicitud, pdf,'Yraida', 'yraida.baptista@poligraficaindustrial.com')
-    devolucion2(orden, 'Jaime', 'jaime.sanjuan@poligraficaindustrial.com')
+   devolucion(orden, solicitud, pdf,'Equipo', 'enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com,yraida.baptista@poligraficaindustrial.com')
+    // devolucion2(orden, 'Jaime', 'jaime.sanjuan@poligraficaindustrial.com')
 //  asignacion(orden, Lote, pdf,'Carlos', 'carlos.mejias@poligraficaindustrial.com')
     //  asignacion(orden, Lote, pdf,'Freddy', 'freddy.burgos@poligraficaindustrial.com')
     return

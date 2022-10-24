@@ -23,29 +23,34 @@ function SolicitudMateria(orden_){
             let cantidad = []
 
             for(let i = 0; i<orden.producto.materiales[orden.montaje].length; i++){
-                Producto.push(`${orden.producto.materiales[orden.montaje][i].producto.nombre} (${orden.producto.materiales[orden.montaje][i].producto.marca})`)
+                if(orden.producto.materiales[orden.montaje][i].producto.ancho)
+                {
+                    Producto.push(`${orden.producto.materiales[orden.montaje][i].producto.nombre} ${orden.producto.materiales[orden.montaje][i].producto.marca}, ${orden.producto.materiales[orden.montaje][i].producto.ancho} x ${orden.producto.materiales[orden.montaje][i].producto.largo} - (Cal: ${orden.producto.materiales[orden.montaje][i].producto.calibre}, Gramaje: ${orden.producto.materiales[orden.montaje][i].producto.gramaje}`)
+                }else{
+                    Producto.push(`${orden.producto.materiales[orden.montaje][i].producto.nombre} (${orden.producto.materiales[orden.montaje][i].producto.marca})`)
+                }
                 
                 if(orden.producto.materiales[orden.montaje][i].producto.grupo.nombre == 'Tinta'){
                     
                     let cantidad_ = ((orden.producto.materiales[orden.montaje][i].cantidad * orden.paginas)/1000).toFixed(2)
                     
-                    cantidad.push(`${cantidad_}${orden.producto.materiales[orden.montaje][i].producto.unidad}`)
+                    cantidad.push(`${cantidad_} ${orden.producto.materiales[orden.montaje][i].producto.unidad}`)
                 }else if(orden.producto.materiales[orden.montaje][i].producto.grupo.nombre == 'Barniz'){
                     let cantidad_ = ((orden.producto.materiales[orden.montaje][i].cantidad * orden.paginas)/1000).toFixed(2)
                     
-                    cantidad.push(`${cantidad_}${orden.producto.materiales[orden.montaje][i].producto.unidad}`)
+                    cantidad.push(`${cantidad_} ${orden.producto.materiales[orden.montaje][i].producto.unidad}`)
                 }else if(orden.producto.materiales[orden.montaje][i].producto.grupo.nombre == 'Pega'){
                     let cantidad_ = ((orden.producto.materiales[orden.montaje][i].cantidad * orden.paginas)/1000).toFixed(2)
                     
-                    cantidad.push(`${cantidad_}${orden.producto.materiales[orden.montaje][i].producto.unidad}`)
+                    cantidad.push(`${cantidad_} ${orden.producto.materiales[orden.montaje][i].producto.unidad}`)
                 }else if(orden.producto.materiales[orden.montaje][i].producto.grupo.nombre == 'Cajas Corrugadas'){
                     let cantidad_ = Caja_((orden.cantidad / orden.producto.materiales[orden.montaje][i].cantidad), orden.producto.materiales[orden.montaje][i].producto.cinta)
-                    cantidad.push(`${cantidad_}${orden.producto.materiales[orden.montaje][i].producto.unidad}`)
+                    cantidad.push(`${cantidad_} ${orden.producto.materiales[orden.montaje][i].producto.unidad}`)
                 }else if(orden.producto.materiales[orden.montaje][i].producto.grupo.nombre == 'Cinta de Embalaje'){
                     let cantidad_ = orden.producto.materiales[orden.montaje][i].producto.cinta * (orden.cantidad / orden.producto.materiales[orden.montaje][i].cantidad)
-                    cantidad.push(`${cantidad_}${orden.producto.materiales[orden.montaje][i].producto.unidad}`)
+                    cantidad.push(`${cantidad_} ${orden.producto.materiales[orden.montaje][i].producto.unidad}`)
                 }else {
-                    cantidad.push(`${orden.paginas}${orden.producto.materiales[orden.montaje][i].producto.unidad}`)
+                    cantidad.push(`${orden.paginas} ${orden.producto.materiales[orden.montaje][i].producto.unidad}`)
                 }
                 
                 // <ng-container *ngIf="materiales.producto.grupo.nombre == 'Tinta'">
@@ -77,7 +82,7 @@ function SolicitudMateria(orden_){
                     }
 
                     
-                    FAL004(orden_,solicitud.seq,Producto,cantidad,'SIO','Nueva orde de produccion')
+                    FAL004(orden_,solicitud.seq,Producto,cantidad,'SIO','Nueva orden de produccion')
                 })
                 } 
             }
@@ -112,9 +117,9 @@ function SolicitudMateria(orden_){
     // };
     // transporter.sendMail(mailOptions, (err, info)=>{
     //     if(err){
-    //         console.log(err);
+    //         //console.log(err);
     //     }else{
-    //         console.log(info);
+    //         //console.log(info);
     //     }
     // });
 }

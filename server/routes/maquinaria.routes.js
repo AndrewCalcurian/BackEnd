@@ -8,7 +8,9 @@ app.get('/api/maquinas', (req, res)=>{
 
 
     // --CONSULTA A LA COLECCION DE MAQUINAS--
-    Maquina.find((err, maquinasDB)=>{
+    Maquina.find()
+        .sort('order')
+        .exec((err, maquinasDB)=>{
 
         // --EN CASO DE ERROR--
         if( err ){
@@ -91,7 +93,7 @@ app.put('/api/maquinas/:id', (req, res)=>{
     const id = req.params.id;
     const body = req.body;
 
-    // console.log(body)
+    // //console.log(body)
 
     Maquina.findByIdAndUpdate(id, body, (err, maquinaDB)=>{
         if( err ){

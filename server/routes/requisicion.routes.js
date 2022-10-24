@@ -32,7 +32,7 @@ app.post('/api/requi',(req, res)=>{
         }else{
             NuevaRequisicion(body.sort,'jaime.sanjuan@poligraficaindustrial.com',body.motivo)
         }
-        console.log(resp)
+        //console.log(resp)
         res.json('ok')
     });
         
@@ -40,7 +40,7 @@ app.post('/api/requi',(req, res)=>{
 });
 
 app.get('/api/requi', (req, res)=>{
-    Requisicion.find({estado:{$ne: 'Espera'}})
+    Requisicion.find({estado:'lista'})
                 .populate('producto.materiales.producto')
                 .populate({path: 'producto', populate:{path:'materiales.producto', populate:{path:'grupo'}}})
                 .exec((err, requi)=>{
@@ -128,13 +128,13 @@ app.put('/api/requi/:id', (req,res)=>{
                     let cantidad = []
                     let producto_ = requi.producto.materiales[0];
 
-                    // console.log(producto_, 'aja')
+                    // //console.log(producto_, 'aja')
 
                     for(let i=0; i< producto_.length ; i++){
                         let nombre = `${producto_[i].producto.nombre} (${producto_[i].producto.marca})`;
-                        let cant = `${producto_[i].cantidad}${producto_[i].producto.unidad}`;
+                        let cant = `${producto_[i].cantidad} ${producto_[i].producto.unidad}`;
                         if(producto_[i].producto.ancho){
-                            nombre = `${producto_[i].producto.nombre} ${producto_[i].producto.ancho}x${producto_[i].producto.largo} (${producto_[i].producto.marca})`;
+                            nombre = `${producto_[i].producto.nombre} ${producto_[i].producto.ancho}x${producto_[i].producto.largo} (${producto_[i].producto.marca}) Calibre: ${producto_[i].producto.calibre}, Gramaje: ${producto_[i].producto.gramaje}`;
                         }
                         material.push(nombre);
                         cantidad.push(cant)
@@ -146,7 +146,7 @@ app.put('/api/requi/:id', (req,res)=>{
                         }
                     }
                     
-                    // console.log(requi.producto.materiales[0][0].producto)
+                    // //console.log(requi.producto.materiales[0][0].producto)
 
                 
                         res.json(requi)

@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-const {header, header2, footer} = require('../templates/template.email')
+const {header, header2, header5, footer} = require('../templates/template.email')
 
 function asignacion_(orden, solicitud, lotes,adjunto,nombre,correo){
 
@@ -26,7 +26,7 @@ function asignacion_(orden, solicitud, lotes,adjunto,nombre,correo){
             filename: `AL-ASG-${solicitud}_${orden}.pdf`,
             content:adjunto
         }],
-        html:`${header2(titulo)}
+        html:`${header5(titulo)}
         <br>
                Se ha realizado la asignación de material solicitado
                <br>
@@ -49,7 +49,7 @@ table, th, td {
     };
     transporter.sendMail(mailOptions, (err, info)=>{
         if(err){
-            console.log(err);
+            //console.log(err);
         }else{
             return
         }
@@ -76,12 +76,12 @@ function asignacion(orden, solicitud, lotes,adjunto,nombre,correo){
     var mailOptions = {
         from: '"SIO - Sistema Integral de Operacion" <sio.soporte@poligraficaindustrial.com>',
         to: correo,
-        subject: `Nueva orden de producción`,
+        subject: `Nueva asignación de material`,
         attachments: [{
             filename: `AL-ASG-${solicitud}_${orden}.pdf`,
             content:adjunto
         }],
-        html:`${header2(titulo)}
+        html:`${header5(titulo)}
         <br>
                Se ha realizado la asignación de material relacionado con la orden de producción:
                <br>
@@ -108,7 +108,7 @@ table, th, td {
         if(err){
             console.log(err);
         }else{
-            return
+            console.log(info);
         }
     });
 }

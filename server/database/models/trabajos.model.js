@@ -20,6 +20,9 @@ let TrabajoSchema = new Schema([{
             status:{
                 type:Boolean,
                 default:true
+            },
+            pos:{
+                type:Number
             }
 }]);
 

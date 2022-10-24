@@ -12,7 +12,7 @@ const nodemailer = require('nodemailer');
 
 async function FAL004(orden, num_solicitud,producto,cantidad,usuario, motivo){
 
-    // console.log(num_solicitud.length)
+    // //console.log(num_solicitud.length)
 
 if(orden === "#"){
     orden = "N/A"
@@ -79,7 +79,7 @@ doc.add(
         [
             new Cell(new Txt('').end).end,
             new Cell(new Txt('').end).end,
-            new Cell(new Txt('Fecha de Revisión: 03/05/2022').end).fillColor('#dedede').fontSize(7).alignment('center').end,
+            new Cell(new Txt('Fecha de Revisión: 11/10/2022').end).fillColor('#dedede').fontSize(7).alignment('center').end,
         ],
         [
             new Cell(new Txt('').end).end,
@@ -175,9 +175,9 @@ const pdf = printer.createPdfKitDocument(doc.getDefinition());
 pdf.end();
 // NuevaSolicitud(orden,'calcurianandres@gmail.com',motivo,num_solicitud,pdf)
 if(orden === 'N/A'){
-    NuevaSolicitud_(orden,'yraida.baptista@poligraficaindustrial.com,calcurianandres@gmail.com',motivo,num_solicitud,pdf)
+    NuevaSolicitud_(orden,'enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com,yraida.baptista@poligraficaindustrial.com',motivo,num_solicitud,pdf)
 }else{
-    NuevaSolicitud(orden,'yraida.baptista@poligraficaindustrial.com',motivo,num_solicitud,pdf)
+    NuevaSolicitud(orden,'enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com,yraida.baptista@poligraficaindustrial.com',motivo,num_solicitud,pdf)
 }
 
 

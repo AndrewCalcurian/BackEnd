@@ -39,14 +39,22 @@ require('./database/connection');
 
 // SolicitudMateria('002022','test')
 
-// let usuario = new Usuario({
-//          Nombre: 'administrado',
-//          Apellido: ' ',
-//          Correo: 'admin',
-//          Password: bcrypt.hashSync('1234567', 10),
-//          Role: 'Desarrollador',
-//         Departamento:'Desarrollo'
-//    }).save();
+//  let usuario = new Usuario({
+//     Role: "Desarrollador",
+//     estado: true,
+//     Departamento: "Desarrollo",
+//     Nueva_orden: 0,
+//     Consulta: 1,
+//     Almacen: 0,
+//     Maquinaria: 0,
+//     Planificacion: 1,
+//     Gestiones: 0,
+//     Nombre: "Preprensa",
+//     Apellido: "Preprensa",
+//     Correo: "preprensa@poligraficaindustrial.com",
+//     Password: bcrypt.hashSync('1234567', 10),
+
+//   }).save();
 
 //    let contador = new idevolucion({
 //        _id:'test',

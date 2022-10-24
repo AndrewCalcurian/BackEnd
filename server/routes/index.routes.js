@@ -19,6 +19,7 @@ app.use ( require('./login.routes'));
 app.use ( require('./imagenes.routes'));
 app.use ( require('./requisicion.routes'));
 app.use ( require('./devolucion.routes'));
+app.use ( require('./despacho.routes'));
 
 
 

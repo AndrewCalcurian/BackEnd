@@ -24,7 +24,7 @@ app.get('/api/renew', verificarToken, (req,res)=>{
 app.post('/api/login', (req,res)=>{
 
     let body = req.body;
-    // console.log(body)
+    // //console.log(body)
 
     Usuario.findOne({Correo:body.Correo}, (err, usuarioDB)=>{
         if ( err ){
@@ -34,7 +34,7 @@ app.post('/api/login', (req,res)=>{
             });
         }
 
-        // console.log(usuarioDB)
+        // //console.log(usuarioDB)
 
         if(!usuarioDB){
             return res.status(400).json({

@@ -72,7 +72,7 @@ doc.add(
         [
             new Cell(new Txt('').end).end,
             new Cell(new Txt('').end).end,
-            new Cell(new Txt('Fecha de Revisión: 03/05/2022').end).fillColor('#dedede').fontSize(7).alignment('center').end,
+            new Cell(new Txt('Fecha de Revisión: 11/10/2022').end).fillColor('#dedede').fontSize(7).alignment('center').end,
         ],
         [
             new Cell(new Txt('').end).end,
@@ -163,9 +163,9 @@ pdf.end();
 
 
      if(orden === 'N/A'){
-        asignacion_(orden, solicitud, Lote, pdf,'Equipo', 'calcurianandres@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com')
+        asignacion_(orden, solicitud, Lote, pdf,'Equipo', 'luis.malave@poligraficaindustrial.com,raul.diaz@poligraficaindustrial.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com,yraida.baptista@poligraficaindustrial.com')
      }else{
-         asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurianandres@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com')
+         asignacion(orden, solicitud, Lote, pdf,'Equipo', 'luis.malave@poligraficaindustrial.com,raul.diaz@poligraficaindustrial.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com,yraida.baptista@poligraficaindustrial.com')
      }
 //    asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurianandres@gmail.com')
 //  asignacion(orden, Lote, pdf,'Carlos', 'carlos.mejias@poligraficaindustrial.com')

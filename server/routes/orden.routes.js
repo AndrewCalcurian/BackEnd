@@ -7,6 +7,21 @@ const {SolicitudMateria} = require('../middlewares/emails/solicitudMaterial.emai
 
 const app = express();
 
+app.get('/api/orden-cerrar/:id', (req, res)=>{
+    let id = req.params.id;
+
+    Orden.findByIdAndUpdate(id,{estado:'cerrada'}, (err, cerrada)=>{
+        if( err ){
+            return res.status(400).json({
+                ok:false,
+                err
+            });
+        }
+
+        res.json(cerrada)
+    })
+})
+
 app.post('/api/orden', (req, res)=>{
 
     const body = req.body;
@@ -55,6 +70,7 @@ app.post('/api/orden', (req, res)=>{
                                                  NuevaOrden(resp.sort,'Carlos','carlos.mejias@poligraficaindustrial.com')
                                                  NuevaOrden(resp.sort,'Enida', 'enida.aponte@poligraficaindustrial.com')
                                                  NuevaOrden(resp.sort,'Freddy', 'freddy.burgos@poligraficaindustrial.com')
+
                                 
                                         res.json(resp._id)
                                     })
@@ -69,7 +85,7 @@ app.get('/api/orden', (req, res)=>{
 
     const id = req.params.id;
 
-    Orden.find({estado:{$ne: 'Espera'}})
+    Orden.find({estado:'activo'})
         .populate('cliente producto producto.grupo')
         .populate({path: 'producto', populate:{path:'materiales.producto', populate:{path:'grupo'}}})
         .exec((err, orden)=>{

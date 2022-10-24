@@ -66,7 +66,7 @@ app.put('/api/devoluciones/:id', (req, res)=>{
                                             //     });
                                             // }
 
-                                            // console.log(almacenado[0].cantidad)
+                                            // //console.log(almacenado[0].cantidad)
                                             let new_cantidad = Number(almacenado[0].cantidad) + (body[i].cantidad/body[i].material.neto)
                                             Almacenado.findByIdAndUpdate(almacenado[0]._id, {cantidad:new_cantidad}, (err, almacenado_)=>{
                                              if( error ){
