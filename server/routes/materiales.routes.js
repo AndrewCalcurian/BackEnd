@@ -376,13 +376,16 @@ app.post('/api/material/devolucion', (req, res)=>{
 app.post('/api/material/descuento', (req, res)=>{
 
     let body = req.body;
-    //console.log(body)
+
 
     let lotes_ = '';
     let names;
+    // console.log(body.lotes);
 
     let set = new Set( body.lotes.map( JSON.stringify ) )
     body.lotes = Array.from( set ).map( JSON.parse );
+
+    let x = 0;
 
     let materiales = [];
     let lotes = [];
@@ -391,10 +394,12 @@ app.post('/api/material/descuento', (req, res)=>{
     let orden = []
     let material__ = []
 
-    console.log(body)
-    
+    // let EA_Cantidad = body.EA_Cantidad
+
+    // console.log(body)
+
     if(body.requi){
-        console.log('si')
+        // console.log('si')
         Requisicion.findOneAndUpdate({_id:body.requi},{estado:'Finalizado'}, (err, requi)=>{
             if( err ){
                 return res.status(400).json({
@@ -404,87 +409,150 @@ app.post('/api/material/descuento', (req, res)=>{
             }
         })
     }
-    
-    
-    
+
+
+
     Orden.findOneAndUpdate({sort:body.orden}, {estado:'activo'}, (err, modificado)=>{
         if( err ){
             return res.status(400).json({
-                    ok:false,
-                    err
-                });
+                ok:false,
+                err
+            });
     }
     })
 
     for(let i= 0; i<body.lotes.length; i++){
 
-        Almacenado.findOneAndUpdate({lote:body.lotes[i].lote,codigo:body.lotes[i].codigo},{cantidad:body.lotes[i].resta}, (err, MaterialDB)=>{
-            if( err ){
-             return res.status(400).json({
-                     ok:false,
-                     err
-                 });
-             }
+        body.lotes[i].solicitado = (Number(body.lotes[i].solicitado)).toFixed(2)
 
-
-             Material.findById(MaterialDB.material, (err, material)=>{
-                if( err ){
-                 return res.status(400).json({
-                         ok:false,
-                         err
-                     });
-                 }
-
-                 names = `${material.nombre} (${material.marca})`;
-                 if(material.ancho){
-                    names = `${material.nombre} ${material.ancho} x ${material.largo} (${material.marca}) - Paleta: ${body.lotes[i].codigo}`;
-                 }
-
-                 materiales.push(names);
-                 lotes.push(body.lotes[i].lote);
-                 if(body.lotes[i].unidad === "PALETA" || body.lotes[i].unidad === "Paleta"){
-                    solicitados.push(`${body.lotes[i].solicitado} Und - ${material.neto}${material.unidad}`)
-                    body.lotes[i].unidad = 'Und'
-                 }else{
-                    solicitados.push(`${body.lotes[i].solicitado} ${body.lotes[i].unidad} - ${material.neto}${material.unidad}`)
-                }
-
-                data = `<tr><td>${names}</td>
-                <td>${body.lotes[i].lote}</td>
-                <td>${body.lotes[i].solicitado} ${body.lotes[i].unidad} - ${material.neto}${material.unidad}</td></tr>`
-                lotes_ = lotes_ + data;
-
-        //         // //console.log({
-        //         //     material:material._id,
-        //         //     lote: body.lotes[i].lote,
-        //         //     codigo: body.lote[i].codigo,
-        //         //     cantidad: body.lotes[i].solicitado
-        //         // })
-
-                material__.push({
-                   material:material._id,
-                   lote: body.lotes[i].lote,
-                   codigo: body.lotes[i].codigo,
-                   cantidad: body.lotes[i].solicitado
+        Almacenado.findOne({material:body.lotes[i].Mname,lote:body.lotes[i].lote,codigo:body.lotes[i].codigo,cantidad:{$gt:0}})
+                .populate({
+                    path: 'material',
+                    populate: {
+                        path: 'grupo'
+                    }
                 })
+                .exec((err, resp)=>{
+                    console.log
+                        if(resp.material.grupo.nombre === "Tinta" || resp.material.grupo.nombre === "Barniz"){
+                            body.lotes[i].resta = 0;
+                        }
 
-        //         // //console.log(material__)
+                             Almacenado.findOneAndUpdate({material:body.lotes[i].Mname,lote:body.lotes[i].lote,codigo:body.lotes[i].codigo,cantidad:{$gt:0}},{cantidad:body.lotes[i].resta}, (err, MaterialDB)=>{
+                            // Almacenado.findOneAndUpdate({material:body.lotes[i].Mname,lote:body.lotes[i].lote,codigo:body.lotes[i].codigo,cantidad:{$gt:0}},{codigo:body.lotes[i].codigo}, (err, MaterialDB)=>{
+                            if( err ){
+                             return res.status(400).json({
+                                     ok:false,
+                                     err
+                                 });
+                             }
 
-                 let final = body.lotes.length - 1;
-                 if(i == final){
-                    const data = new Lote({
-                        orden:body.orden,
-                        material:material__
-                    }).save();
-                    orden.push(data)
-                    //console.log(orden)
-                    FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)
-                    res.json('ok')
-                }
-             })
+
+                             Material.findById(MaterialDB.material, (err, material)=>{
+                                if( err ){
+                                 return res.status(400).json({
+                                         ok:false,
+                                         err
+                                     });
+                                 }
+
+                                 names = `${material.nombre} (${material.marca})`;
+                                 if(material.ancho){
+                                    names = `${material.nombre} ${material.ancho} x ${material.largo} (${material.marca}) - Paleta: ${body.lotes[i].codigo}`;
+                                 }
+                                 if(material.grupo == "61fd54e2d9115415a4416f17" || material.grupo == "61fd6300d9115415a4416f60"){
+                                 names = `${material.nombre} (${material.marca}) - Lata: ${body.lotes[i].codigo}`;
+                                 }
+
+                                
+
+                                //  materiales.push(names);
+                                 materiales[i] = names;
+                                //  console.log(materiales)
+                                 lotes[i] = body.lotes[i].lote;
+                                // lotes.push(body.lotes[i].lote)
+                                //  console.log(lotes)
+                                if(material.unidad == 'Und'){
+                                    body.lotes[i].solicitado = Math.ceil(body.lotes[i].solicitado);
+                                }
+                                if(body.lotes[i].unidad === "PALETA" || body.lotes[i].unidad === "Paleta"){
+                                    solicitados[i] = `${body.lotes[i].solicitado} Und`
+                                    // solicitados.push(`${body.lotes[i].solicitado} Und - ${material.neto}${material.unidad}`)
+                                    body.lotes[i].unidad = 'Und'
+                                }else{
+                                    if(material.grupo == "61fd54e2d9115415a4416f17" || material.grupo == "61fd6300d9115415a4416f60"){
+                                        solicitados[i]= `${body.lotes[i].unidad} - ${body.lotes[i].EA_Cantidad} ${material.unidad}`
+                                        body.lotes[i].solicitado = body.lotes[i].EA_Cantidad
+                                        // console.log(body.lotes[i].EA_Cantidad)
+                                    }else{
+                                        solicitados[i] = `${body.lotes[i].unidad} - ${body.lotes[i].solicitado} ${material.unidad}`
+                                    }
+                                }
+                                x++
+                                
+                               
+
+                                data = `<tr><td>${names}</td>
+                                <td>${body.lotes[i].lote}</td>
+                                <td>${body.lotes[i].unidad} - ${body.lotes[i].solicitado} ${material.unidad}</td></tr>`
+                                lotes_ = lotes_ + data;
+
+                                // data = `<tr><td>${names}</td>
+                                // <td>${body.lotes[i].lote}</td>
+                                // <td>${body.lotes[i].solicitado} ${body.lotes[i].unidad} - ${material.neto}${material.unidad}</td></tr>`
+                                // lotes_ = lotes_ + data;
+
+                                
+
+                        //         // //console.log({
+                        //         //     material:material._id,
+                        //         //     lote: body.lotes[i].lote,
+                        //         //     codigo: body.lote[i].codigo,
+                        //         //     cantidad: body.lotes[i].solicitado
+                        //         // })
+
+                                material__.push({
+                                   material:material._id,
+                                   lote: body.lotes[i].lote,
+                                   codigo: body.lotes[i].codigo,
+                                   cantidad: body.lotes[i].solicitado,
+                                   EA_Cantidad:body.lotes[i].EA_Cantidad
+                                })
+
+                        //         // //console.log(material__)
+
+                                 let final = body.lotes.length;
+                                 if(materiales.length == body.lotes.length && lotes.length == body.lotes.length && solicitados.length == body.lotes.length){
+
+                                    // console.log(lotes_)
+                                    // console.log(lotes_)
+
+                                    // let nulos = materiales.find(null)
+                                    if(x == final){
+                                        // console.log(solicitados)
+                                        const data = new Lote({
+                                            orden:body.orden,
+                                            material:material__
+                                        }).save();
+                                        orden.push(data)
+                                        //console.log(orden)
+                                        FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)
+                                        res.json('ok')
+                                    }
+                                    
+                                    // console.log(materiales,'_' ,lotes)
+
+                                }
+                             })
+                        })
+
+
         })
+
+
         // //console.log(i)
     }
+
 })
 
 app.post('/api/materiales/:id', (req, res)=>{

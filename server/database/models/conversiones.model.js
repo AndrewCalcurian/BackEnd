@@ -27,6 +27,10 @@ let ConversionSchema = new Schema([{
     },
     sort:{
         type:String
+    },
+    fecha:{
+        type:Date,
+        default:Date.now
     }
 
 }]);

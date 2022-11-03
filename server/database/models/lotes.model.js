@@ -12,9 +12,14 @@ var LoteSchema = new mongoose.Schema({
             },
             lote: {type:String},
             codigo:{type:String},
-            cantidad:{type:String}
+            cantidad:{type:String},
+            EA_Cantidad:{type:Number},
         }
-    ]
+    ],
+    fecha:{
+        type:Date,
+        default:Date.now
+    }
 });
 
 module.exports = mongoose.model('lote', LoteSchema)

@@ -10,7 +10,7 @@ const nodemailer = require('nodemailer');
 
 async function FAL005(orden,solicitud, Lote, materiales, lotes, cantidades){
 
-
+console.log(cantidades, 'ok')
 
 
 const printer = new Pdfmake({
@@ -163,9 +163,12 @@ pdf.end();
 
 
      if(orden === 'N/A'){
-        asignacion_(orden, solicitud, Lote, pdf,'Equipo', 'luis.malave@poligraficaindustrial.com,raul.diaz@poligraficaindustrial.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com,yraida.baptista@poligraficaindustrial.com')
+        // asignacion_(orden, solicitud, Lote, pdf,'Equipo', 'calcurianandres@gmail.com')
+        asignacion_(orden, solicitud, Lote, pdf,'Equipo', 'calcurianandres@gmail.com,luis.malave@poligraficaindustrial.com,raul.diaz@poligraficaindustrial.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com,yraida.baptista@poligraficaindustrial.com')
      }else{
-         asignacion(orden, solicitud, Lote, pdf,'Equipo', 'luis.malave@poligraficaindustrial.com,raul.diaz@poligraficaindustrial.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com,yraida.baptista@poligraficaindustrial.com')
+        asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurianandres@gmail.com,luis.malave@poligraficaindustrial.com,raul.diaz@poligraficaindustrial.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com,yraida.baptista@poligraficaindustrial.com')
+      
+        // asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurianandres@gmail.com')
      }
 //    asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurianandres@gmail.com')
 //  asignacion(orden, Lote, pdf,'Carlos', 'carlos.mejias@poligraficaindustrial.com')

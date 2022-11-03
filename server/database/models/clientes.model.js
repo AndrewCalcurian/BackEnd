@@ -14,6 +14,10 @@ let ClienteSchema = new Schema([{
     },
     almacenes:{
         type:Array,
+    },
+    fecha:{
+        type:Date,
+        default:Date.now
     }
 
 }]);

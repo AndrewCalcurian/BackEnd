@@ -38,8 +38,29 @@ let OrdenSchema = new Schema([{
                 ref: 'cliente'
             },
             producto:{
-                type:Schema.Types.ObjectId,
-                ref: 'producto'
+                materiales:[
+                    [
+                        {
+                        producto:{
+                            type:Schema.Types.ObjectId,
+                            ref: 'material'
+                        },
+                        cantidad:{type:String}
+                        }
+                    ]
+                ],
+                ejemplares:{type:Array},
+                grupo:{type:Schema.Types.ObjectId,
+                    ref: 'grupo'},
+                post:{type:Array},
+                cliente:{type:String},
+                producto:{type:String},
+                cod_cliente:{type:String},
+                codigo:{type:String},
+                version:{type:String},
+                edicion:{type:String},
+                montaje:{type:String},
+                imagen:{type:String},
             },
             paginas: {
                 type:Number,

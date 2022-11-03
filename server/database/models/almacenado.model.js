@@ -19,6 +19,10 @@ let AlmacenadoSchema = new Schema([{
     cantidad:{
         type:String,
         required:true
+    },
+    fecha:{
+        type:Date,
+        default:Date.now
     }
 
 }]);

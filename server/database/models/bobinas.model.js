@@ -32,6 +32,10 @@ let BobinaSchema = new Schema([{
     convertidora:{
         type:String,
         required:true
+    },
+    fecha:{
+        type:Date,
+        default:Date.now
     }
 
 }]);
