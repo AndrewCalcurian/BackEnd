@@ -14,6 +14,8 @@ app.post('/api/bobina', (req, res)=>{
     const NewBobina = new Bobina({
         Nbobina:body.Nbobina,
         material:body.material,
+        marca:body.marca,
+        calibre:body.calibre,
         gramaje:body.gramaje,
         ancho:body.ancho,
         peso:body.peso,

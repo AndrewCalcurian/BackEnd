@@ -34,7 +34,7 @@ function header4(tituloCorreo){
                     <tr>
                         <td align="center" bgcolor="#2E3646" style="padding: 5px 0 5px 0;">
                         <a href="https://imgbb.com/"><img src="https://i.ibb.co/ZxScX13/Icon.png" alt="Icon" border="0" width="80px"></a>    
-                        <h2 style="color: #ffffff" font-family: Arial, sans-serif;>Nuevo Despcho</h2>
+                        <h2 style="color: #ffffff" font-family: Arial, sans-serif;>Nuevo Despacho</h2>
                         </td>
                     </tr>
                     <tr>

@@ -12,11 +12,19 @@ let BobinaSchema = new Schema([{
         type:String,
         required:true
     },
+    marca:{
+        type:String,
+        required:true
+    },
     gramaje:{
         type:String,
         required:true
     },
     ancho:{
+        type:String,
+        required:true
+    },
+    calibre:{
         type:String,
         required:true
     }
