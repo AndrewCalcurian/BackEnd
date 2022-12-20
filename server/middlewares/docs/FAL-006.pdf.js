@@ -8,7 +8,7 @@ const fs = require('fs')
 
 const nodemailer = require('nodemailer');
 
-async function FAL006(orden,solicitud, materiales, lotes, cantidades, motivo, usuario){
+async function FAL006(orden,solicitud, materiales, lotes, cantidades, motivo, usuario,tabla){
 
 
 //console.log(materiales,'materiales')
@@ -162,7 +162,7 @@ pdf.end();
 
 
 // asignacion(orden, solicitud, Lote, pdf,'Equipo', 'calcurian.andrew@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com')
-   devolucion(orden, solicitud, pdf,'Equipo', 'enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com,yraida.baptista@poligraficaindustrial.com')
+   devolucion(orden, solicitud, pdf,'Equipo', 'enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,zuleima.vela@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com,yraida.baptista@poligraficaindustrial.com',tabla)
     // devolucion2(orden, 'Jaime', 'jaime.sanjuan@poligraficaindustrial.com')
 //  asignacion(orden, Lote, pdf,'Carlos', 'carlos.mejias@poligraficaindustrial.com')
     //  asignacion(orden, Lote, pdf,'Freddy', 'freddy.burgos@poligraficaindustrial.com')

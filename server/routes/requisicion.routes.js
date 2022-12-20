@@ -90,6 +90,7 @@ app.put('/api/requi/:id', (req,res)=>{
     let id = req.params.id;
 
     let num_solicitud;
+    let tabla = '';
 
     isolicitud.findByIdAndUpdate({_id: 'iterator'}, {$inc: {seq: 1}}, {new: true, upset:true})
                 .exec((err, solicitud)=>{
@@ -139,10 +140,15 @@ app.put('/api/requi/:id', (req,res)=>{
                         material.push(nombre);
                         cantidad.push(cant)
 
+                        if(nombre != undefined){
+                            let data = `<tr><td>${nombre}</td><td>${cant}</td></tr>`;
+                            tabla = tabla + data;
+                        }
 
                         let final = producto_.length -1;
-                        if(i == final){   
-                            FAL004(requi.sort, num_solicitud,material,cantidad,requi.usuario,requi.motivo)
+                        if(i == final){ 
+                            console.log(tabla)
+                            FAL004(requi.sort, num_solicitud,material,cantidad,requi.usuario,requi.motivo,tabla)
                         }
                     }
                     

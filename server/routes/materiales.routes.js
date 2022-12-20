@@ -316,7 +316,7 @@ app.delete('/api/material/:id', (req, res)=>{
 app.post('/api/material/devolucion', (req, res)=>{
 
     let body = req.body;
-
+    let tabla = '';
 
 
     let lotes = []
@@ -334,16 +334,20 @@ app.post('/api/material/devolucion', (req, res)=>{
             }
 
             // //console.log(material.nombre)
-
+        let data = '';
         cantidades.push(`${body.filtrado[i].cantidad} ${material.unidad}`)
 
         if(!material.ancho){
             materiales.push(`${material.nombre} (${material.marca})`)
+            data = `<tr><td>${material.nombre} (${material.marca})</td>
+            <td>${body.filtrado[i].cantidad} ${material.unidad}</td></tr>`;
         }else{
             materiales.push(`${material.nombre} ${material.ancho}x${material.largo} (${material.marca}) - Paleta:${body.filtrado[i].codigo}`)
+            data = `<tr><td>${material.nombre} ${material.ancho}x${material.largo} (${material.marca}) - Paleta:${body.filtrado[i].codigo}</td>
+            <td>${body.filtrado[i].cantidad} ${material.unidad}</td></tr>`;
         }
 
-
+        tabla = tabla + data;
         if(i === final){
 
             idevolucion.findByIdAndUpdate({_id: 'test'}, {$inc: {seq: 1}}, {new: true, upset:true})
@@ -356,7 +360,7 @@ app.post('/api/material/devolucion', (req, res)=>{
                     }
 
                     num_solicitud = devolucion.seq;
-                    FAL006(body.orden,num_solicitud,materiales,lotes, cantidades, body.motivo, body.usuario)
+                    FAL006(body.orden,num_solicitud,materiales,lotes, cantidades, body.motivo, body.usuario,tabla)
                     let newDEvolucion = new Devolucion({
                         orden:body.orden,
                         filtrado:body.filtrado,
@@ -425,6 +429,7 @@ app.post('/api/material/descuento', (req, res)=>{
 
         body.lotes[i].solicitado = (Number(body.lotes[i].solicitado)).toFixed(2)
 
+        console.log(body.lotes[i].Mname,'-',body.lotes[i].lote,'-',body.lotes[i].codigo)
         Almacenado.findOne({material:body.lotes[i].Mname,lote:body.lotes[i].lote,codigo:body.lotes[i].codigo,cantidad:{$gt:0}})
                 .populate({
                     path: 'material',
@@ -433,7 +438,6 @@ app.post('/api/material/descuento', (req, res)=>{
                     }
                 })
                 .exec((err, resp)=>{
-                    console.log
                         if(resp.material.grupo.nombre === "Tinta" || resp.material.grupo.nombre === "Barniz"){
                             body.lotes[i].resta = 0;
                         }

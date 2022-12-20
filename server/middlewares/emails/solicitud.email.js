@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const {header2, footer} = require('../templates/template.email');
 let {tituloCorreo} = require('../templates/template.email')
 
-function NuevaSolicitud_(orden,correo,motivo,num_solicitud,adjunto){
+function NuevaSolicitud_(orden,correo,motivo,num_solicitud,adjunto,tabla){
     var transporter = nodemailer.createTransport({
         host: "mail.poligraficaindustrial.com",
         port: 25,
@@ -31,11 +31,18 @@ function NuevaSolicitud_(orden,correo,motivo,num_solicitud,adjunto){
                Se ha realizado una nueva solicitud de material 
                <br>
                <style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-</style>
+               table, th, td {
+               border: 1px solid black;
+               border-collapse: collapse;
+               }
+               </style>
+              <table align="center" border=".5" cellpading="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+                   <tr>
+                       <th>Material</th>
+                       <th>Cantidad</th>
+                   </tr>
+                   ${tabla}
+               </table><br>
     <b>Motivo:</b>${motivo}<br>
     Dirigete al sistema SIO para asignar lo lotes.
 
@@ -51,7 +58,7 @@ table, th, td {
     });
 }
 
-function NuevaSolicitud(orden,correo,motivo,num_solicitud,adjunto){
+function NuevaSolicitud(orden,correo,motivo,num_solicitud,adjunto,tabla){
     var transporter = nodemailer.createTransport({
         host: "mail.poligraficaindustrial.com",
         port: 25,
@@ -82,11 +89,18 @@ function NuevaSolicitud(orden,correo,motivo,num_solicitud,adjunto){
                <h1 align="center">Nº ${orden}</h1>
                <br>
                <style>
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-</style>
+                table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                }
+                </style>
+               <table align="center" border=".5" cellpading="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+                    <tr>
+                        <th>Material</th>
+                        <th>Cantidad</th>
+                    </tr>
+                    ${tabla}
+                </table> <br>
     <b>Motivo:</b>${motivo}<br>
     Dirigete al sistema SIO para asignar lo lotes.
 

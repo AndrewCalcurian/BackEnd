@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const {header, header3, footer} = require('../templates/template.email')
 
-function devolucion(orden, solicitud,adjunto,nombre,correo){
+function devolucion(orden, solicitud,adjunto,nombre,correo,tabla){
 
     var transporter = nodemailer.createTransport({
         host: "mail.poligraficaindustrial.com",
@@ -38,6 +38,13 @@ table, th, td {
   border-collapse: collapse;
 }
 </style>
+            <table align="center" border=".5" cellpading="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+            <tr>
+                <th>Material</th>
+                <th>Cantidad</th>
+            </tr>
+            ${tabla}
+            </table><br>
                 Es necesario verificar el material y aceptar en el sistema SIO
             ${footer}`
     };
@@ -50,7 +57,7 @@ table, th, td {
     });
 }
 
-function devolucion2(orden, solicitud,nombre,correo){
+function devolucion2(orden, solicitud,nombre,correo,tabla){
 
     var transporter = nodemailer.createTransport({
         host: "mail.poligraficaindustrial.com",
@@ -83,6 +90,13 @@ table, th, td {
   border-collapse: collapse;
 }
 </style>
+<table align="center" border=".5" cellpading="0" cellspacing="0" width="600" style="border-collapse: collapse;">
+                   <tr>
+                       <th>Material</th>
+                       <th>Cantidad</th>
+                   </tr>
+                   ${tabla}
+               </table><br>
                 El mismo deberia estar siendo gestionado por Yraida
             ${footer}`
     };
