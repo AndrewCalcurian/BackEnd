@@ -12339,8 +12339,9 @@
               this.Data_devolucion.push(data);
             } else {
               this.Data_devolucion[index] = data;
-            } // console.log(this.Data_devolucion)
+            }
 
+            console.log(data); // console.log(this.Data_devolucion)
           }
         }]);
 
@@ -14849,7 +14850,7 @@
                         _context2.t6 = new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Código: FPR-008').end).fillColor('#dedede').fontSize(7).alignment('center').end;
                         _context2.t7 = [_context2.t4, _context2.t5, _context2.t6];
                         _context2.t8 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('N° de Revisión: 0').end).fillColor('#dedede').fontSize(7).alignment('center').end];
-                        _context2.t9 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Fecha de Revision: 24/05/2021').end).fillColor('#dedede').fontSize(7).alignment('center').end];
+                        _context2.t9 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Fecha de Revision: 24/05/2022').end).fillColor('#dedede').fontSize(7).alignment('center').end];
                         _context2.t10 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Página: 1 de 5').end).fillColor('#dedede').fontSize(7).alignment('center').end];
                         _context2.t11 = [_context2.t7, _context2.t8, _context2.t9, _context2.t10];
                         _context2.t12 = new _context2.t1(_context2.t11).widths(['25%', '50%', '25%']).end;
@@ -14882,7 +14883,7 @@
                         // ).fontSize(9).end,
                         new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('% DEMASÍA').end).fillColor('#dedede').alignment('center').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('HOJAS DE DEMASÍA:').end).fillColor('#dedede').alignment('center').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](PRODUCTO.demasia).end).fontSize(10).alignment('center').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](hojas_demasia).end).fontSize(10).alignment('center').end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('HOJAS A IMPRIMIR:').end).fillColor('#dedede').alignment('center').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('TOTAL HOJAS A ASIGNAR:').end).fillColor('#dedede').alignment('center').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](hojas_imprimir).bold().end).fontSize(12).alignment('center').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](PRODUCTO.paginas).bold().end).fontSize(12).alignment('center').end]]).widths(['50%', '50%']).end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('BARNIZ').end).alignment('center').fillColor('#dedede').alignment('center').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('ESTÁNDAR DE COLOR:').alignment('center').end).fillColor('#dedede').alignment('center').fontSize(7).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(b_name, " (").concat(b_marc, " - ").concat(cantidad_barniz).concat(b_und, ")")).end).fontSize(9).end, // new Cell(new Txt(`N/A`).end).fontSize(9).end,
                         new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](Estandar_de_color).end).alignment('center').fontSize(9).end]]).widths(['70%', '30%']).end).fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('TINTA').end).alignment('center').fillColor('#dedede').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Stack"](tintas_marca).end).fontSize(9).end]]).widths(['100%']).end).fontSize(9).end]]).layout('noBorders').widths(['50%', '50%']).end // ]).layout('noBorders').widths(['33%', '27%', '40%']).end
-                        ).end]]).layout('noBorders').widths(['100%']).end).border([false]).fillColor('#ffffff').end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('POST-IMPRESIÓN').end).fillColor('#dedede').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Stack"](PRODUCTO.producto.post).end).fontSize(9).border([false]).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('TIPO DE PEGA').alignment('center').end).fillColor('#dedede').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(pega_nombre, " (").concat(pega_marca, " - ").concat(cantidad_pega).concat(pega_unidad, ")")).end).fontSize(9).end]]).widths(['100%']).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('CÓDIGO DE CAJA').end).alignment('center').fillColor('#dedede').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(caja[0].producto.nombre, " (").concat(cantidad_cajas).concat(caja[0].producto.unidad, ")")).end).fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('CINTA DE EMBALAJE').end).alignment('center').fillColor('#dedede').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(cinta_.toFixed(2), "m")).end).fontSize(9).end]]).widths(['100%']).end).end]]).layout('noBorders').widths(['50%', '50%']).end).end]]).layout('noBorders').widths(['100%']).end).border([false]).fillColor('#ffffff').end]]).widths(['100%']).end).end]]).layout('noBorders').widths(['100%']).end).end]]).layout('noBorders').widths(['100%']).end);
+                        ).end]]).layout('noBorders').widths(['100%']).end).border([false]).fillColor('#ffffff').end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('POST-IMPRESIÓN').end).fillColor('#dedede').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Stack"](PRODUCTO.producto.post).end).fontSize(9).border([false]).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('TIPO DE PEGA').alignment('center').end).fillColor('#dedede').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(pega_nombre, " (").concat(pega_marca, " - ").concat(cantidad_pega).concat(pega_unidad, ")")).end).fontSize(9).end]]).widths(['100%']).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('CÓDIGO DE CAJA').end).alignment('center').fillColor('#dedede').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(caja[0].producto.nombre, " (").concat(caja[0].cantidad, " Unidades por Caja / ").concat(cantidad_cajas, " Cajas necesarias)")).end).fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('CINTA DE EMBALAJE').end).alignment('center').fillColor('#dedede').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(cinta_.toFixed(2), "m")).end).fontSize(9).end]]).widths(['100%']).end).end]]).layout('noBorders').widths(['50%', '50%']).end).end]]).layout('noBorders').widths(['100%']).end).border([false]).fillColor('#ffffff').end]]).widths(['100%']).end).end]]).layout('noBorders').widths(['100%']).end).end]]).layout('noBorders').widths(['100%']).end);
                         pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('EQUIPOS').end).alignment('center').fillColor('#000000').color('#ffffff').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('OBSERVACIONES').end).alignment('center').fillColor('#000000').color('#ffffff').fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('ELABORADO POR:').end).alignment('center').fillColor('#000000').color('#ffffff').fontSize(9).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Stack"](maquina).end).fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](PRODUCTO.observacion).end).fontSize(9).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("Firma:\n          \n            Fecha:").end).fontSize(9).end]]).widths(['34%', '33%', '33%']).end); // pdf.add(
                         //   new Table([
                         //     [
@@ -29859,7 +29860,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.cantidad_do - ctx_r0.despacho < 1);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.cantidad_do - ctx_r0.despacho < 1 && ctx_r0.usuario.Role === "ADMIN");
         }
       }
 
@@ -31935,16 +31936,26 @@
             var EnAlmacen = this.Almacenado.find(function (x) {
               return x.material.nombre === material && x.lote === e && x.codigo === codigo;
             });
+            console.log(EnAlmacen, 'aqui');
             var Mname = EnAlmacen.material._id;
 
             var _cantidad; // alert(grupo)
 
 
             if (grupo === 'Tinta') {
-              _cantidad = m_cantidad * hojas / 1000; // // console.log(m_cantidad,'m_cantidad')
+              _cantidad = m_cantidad * hojas / 1000; // if(m_cantidad < 1){
+              //   _cantidad = 0;
+              // }
+              // // console.log(m_cantidad,'m_cantidad')
             } else if (grupo === 'Barniz' || grupo === 'Barniz Acuoso') {
               _cantidad = m_cantidad * hojas / 1000;
-            } else if (grupo === 'Pega') {
+            } else if (grupo === 'Pega' || grupo === 'Quimicos') {
+              _cantidad = m_cantidad * hojas / 1000;
+
+              if (m_cantidad < 1) {
+                _cantidad = 0;
+              }
+            } else if (grupo === 'Otros materiales') {
               _cantidad = m_cantidad * hojas / 1000;
             } else if (grupo === 'Cajas Corrugadas') {
               _cantidad = cantidad / m_cantidad; // alert(m_cantidad)
@@ -31964,7 +31975,7 @@
               _cantidad = 5;
             }
 
-            _cantidad = _cantidad.toFixed(2); // alert(_cantidad)
+            _cantidad = Number(_cantidad).toFixed(2); // alert(_cantidad)
 
             var unidad_necesaria = _cantidad / (EnAlmacen.material.neto + this.Descuentos(material)); // // console.log(_cantidad,'-',EnAlmacen.material.neto)
             // // console.log( unidad_necesaria )
@@ -31973,6 +31984,15 @@
             unidad_necesaria = Number(unidad_necesaria).toFixed(2);
             EnAlmacen.cantidad = EnAlmacen.cantidad;
             var EA_Cantidad = EnAlmacen.cantidad;
+
+            if (grupo === 'Pega') {
+              EA_Cantidad = EnAlmacen.material.neto;
+
+              if (m_cantidad < 1) {
+                EA_Cantidad = 0;
+              }
+            }
+
             var previo = this.LOTES.filter(function (x) {
               return x.i === i;
             });
@@ -31985,9 +32005,17 @@
               unidad_necesaria = m_cantidad - this.Descuentos(material); // // console.log('aqui')
             }
 
-            if (EnAlmacen.material.grupo.nombre === 'Tinta') {
+            if (EnAlmacen.material.grupo.nombre === 'Tinta' || EnAlmacen.material.grupo.nombre === 'Quimicos') {
               unidad_necesaria = _cantidad - this.Descuentos(material);
               unidad_necesaria = unidad_necesaria.toFixed(2); // alert(this.Descuentos(material))
+            }
+
+            if (EnAlmacen.material.grupo.nombre === 'Pega') {
+              if (m_cantidad < 1) {
+                unidad_necesaria = 0;
+              } else {
+                unidad_necesaria = Math.ceil(unidad_necesaria);
+              }
             }
 
             if (EnAlmacen.material.unidad == 'Und') {

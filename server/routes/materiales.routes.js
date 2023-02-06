@@ -150,6 +150,8 @@ app.get('/api/materiales', (req, res)=>{
                     });
                 }
 
+                // let Sin_Grupo = materialesDB.filter(m => m.grupo.nombre == undefined)
+
                 res.json({
                     ok:true,
                     materiales:materialesDB
@@ -403,7 +405,7 @@ app.post('/api/material/descuento', (req, res)=>{
     // console.log(body)
 
     if(body.requi){
-        // console.log('si')
+        console.log('si')
         Requisicion.findOneAndUpdate({_id:body.requi},{estado:'Finalizado'}, (err, requi)=>{
             if( err ){
                 return res.status(400).json({
@@ -438,8 +440,11 @@ app.post('/api/material/descuento', (req, res)=>{
                     }
                 })
                 .exec((err, resp)=>{
-                        if(resp.material.grupo.nombre === "Tinta" || resp.material.grupo.nombre === "Barniz"){
-                            body.lotes[i].resta = 0;
+                        if(resp.material.grupo.nombre === "Tinta" || resp.material.grupo.nombre === "Barniz" || resp.material.grupo.nombre === "Pega"){
+                            if(body.lotes[i].EA_Cantidad > 1)
+                            {
+                                body.lotes[i].resta = 0;
+                            }
                         }
 
                              Almacenado.findOneAndUpdate({material:body.lotes[i].Mname,lote:body.lotes[i].lote,codigo:body.lotes[i].codigo,cantidad:{$gt:0}},{cantidad:body.lotes[i].resta}, (err, MaterialDB)=>{
@@ -467,6 +472,9 @@ app.post('/api/material/descuento', (req, res)=>{
                                  if(material.grupo == "61fd54e2d9115415a4416f17" || material.grupo == "61fd6300d9115415a4416f60"){
                                  names = `${material.nombre} (${material.marca}) - Lata: ${body.lotes[i].codigo}`;
                                  }
+                                 if(material.grupo == "61fd72ecd9115415a4416f68"){
+                                    names = `${material.nombre} (${material.marca}) - Cuñete: ${body.lotes[i].codigo}`;
+                                 }
 
                                 
 
@@ -484,10 +492,10 @@ app.post('/api/material/descuento', (req, res)=>{
                                     // solicitados.push(`${body.lotes[i].solicitado} Und - ${material.neto}${material.unidad}`)
                                     body.lotes[i].unidad = 'Und'
                                 }else{
-                                    if(material.grupo == "61fd54e2d9115415a4416f17" || material.grupo == "61fd6300d9115415a4416f60"){
+                                    if(material.grupo == "61fd54e2d9115415a4416f17" || material.grupo == "61fd6300d9115415a4416f60"  || material.grupo == "61fd72ecd9115415a4416f68"){
                                         solicitados[i]= `${body.lotes[i].unidad} - ${body.lotes[i].EA_Cantidad} ${material.unidad}`
                                         body.lotes[i].solicitado = body.lotes[i].EA_Cantidad
-                                        // console.log(body.lotes[i].EA_Cantidad)
+                                        console.log(body.lotes[i].EA_Cantidad)
                                     }else{
                                         solicitados[i] = `${body.lotes[i].unidad} - ${body.lotes[i].solicitado} ${material.unidad}`
                                     }
@@ -538,9 +546,10 @@ app.post('/api/material/descuento', (req, res)=>{
                                             orden:body.orden,
                                             material:material__
                                         }).save();
-                                        orden.push(data)
+                                        // orden.push(data)
                                         //console.log(orden)
                                         FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)
+                                    
                                         res.json('ok')
                                     }
                                     

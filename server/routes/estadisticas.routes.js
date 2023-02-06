@@ -27,7 +27,25 @@ app.post('/api/estadisticas/ordens', (req, res)=>{
     let trabajos = [];
     let gestiones = [];
     let lotes = [];
+    let Adicionales = [];
     let x = 0;
+
+    Lotes.find({fecha:{$gte: desde,$lt: hasta},orden:'#'})
+    .populate('material.material')
+    .exec((err, adcionalesDB)=>{
+
+        if( err ){
+            return res.status(400).json({
+                ok:false,
+                err
+            });
+        }
+        
+        x++
+        for(let n = 0; n<adcionalesDB.length; n++){
+            Adicionales.push(adcionalesDB[n])
+        }
+    })
 
     Orden.find({fecha:{
         $gte: desde,
@@ -118,9 +136,12 @@ app.post('/api/estadisticas/ordens', (req, res)=>{
                                         lotes.push(LotesDB[n])
                                     }
 
-                                    if(x == orden.length){
-                                        res.json({orden,despachos,trabajos,gestiones,requisiciones,devoluciones,lotes})
-                                    }
+                                    
+
+                                        if(x == orden.length){
+                                            res.json({orden,despachos,trabajos,gestiones,requisiciones,devoluciones,lotes,Adicionales})
+                                        }
+
                                     
                                 })
 

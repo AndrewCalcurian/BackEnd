@@ -6375,6 +6375,7 @@ class DevolucionComponent {
         else {
             this.Data_devolucion[index] = data;
         }
+        console.log(data);
         // console.log(this.Data_devolucion)
     }
 }
@@ -7668,7 +7669,7 @@ class OrdenComponent {
                     [
                         new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end,
                         new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end,
-                        new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Fecha de Revision: 24/05/2021').end).fillColor('#dedede').fontSize(7).alignment('center').end,
+                        new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Fecha de Revision: 24/05/2022').end).fillColor('#dedede').fontSize(7).alignment('center').end,
                     ],
                     [
                         new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end,
@@ -7934,7 +7935,7 @@ class OrdenComponent {
                                                                 new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('CÓDIGO DE CAJA').end).alignment('center').fillColor('#dedede').fontSize(9).end,
                                                             ],
                                                             [
-                                                                new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](`${caja[0].producto.nombre} (${cantidad_cajas}${caja[0].producto.unidad})`).end).fontSize(9).end
+                                                                new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](`${caja[0].producto.nombre} (${caja[0].cantidad} Unidades por Caja / ${cantidad_cajas} Cajas necesarias)`).end).fontSize(9).end
                                                             ],
                                                             [
                                                                 new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('CINTA DE EMBALAJE').end).alignment('center').fillColor('#dedede').fontSize(9).end,
@@ -16182,7 +16183,7 @@ function DetallesComponent_div_19_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](14);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r0.despachos);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.cantidad_do - ctx_r0.despacho < 1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.cantidad_do - ctx_r0.despacho < 1 && ctx_r0.usuario.Role === "ADMIN");
 } }
 const _c0 = function (a0) { return { "is-active": a0 }; };
 class DetallesComponent {
@@ -17246,17 +17247,27 @@ class AsignacionComponent {
         e = splited[1];
         let codigo = splited[0];
         let EnAlmacen = this.Almacenado.find(x => x.material.nombre === material && x.lote === e && x.codigo === codigo);
+        console.log(EnAlmacen, 'aqui');
         let Mname = EnAlmacen.material._id;
         let _cantidad;
         // alert(grupo)
         if (grupo === 'Tinta') {
             _cantidad = (m_cantidad * hojas) / 1000;
+            // if(m_cantidad < 1){
+            //   _cantidad = 0;
+            // }
             // // console.log(m_cantidad,'m_cantidad')
         }
         else if (grupo === 'Barniz' || grupo === 'Barniz Acuoso') {
             _cantidad = (m_cantidad * hojas) / 1000;
         }
-        else if (grupo === 'Pega') {
+        else if (grupo === 'Pega' || grupo === 'Quimicos') {
+            _cantidad = (m_cantidad * hojas) / 1000;
+            if (m_cantidad < 1) {
+                _cantidad = 0;
+            }
+        }
+        else if (grupo === 'Otros materiales') {
             _cantidad = (m_cantidad * hojas) / 1000;
         }
         else if (grupo === 'Cajas Corrugadas') {
@@ -17279,7 +17290,7 @@ class AsignacionComponent {
         else if (grupo === 'Sustrato') {
             _cantidad = 5;
         }
-        _cantidad = (_cantidad).toFixed(2);
+        _cantidad = Number(_cantidad).toFixed(2);
         // alert(_cantidad)
         let unidad_necesaria = _cantidad / (EnAlmacen.material.neto + this.Descuentos(material));
         // // console.log(_cantidad,'-',EnAlmacen.material.neto)
@@ -17287,6 +17298,12 @@ class AsignacionComponent {
         unidad_necesaria = (Number(unidad_necesaria)).toFixed(2);
         EnAlmacen.cantidad = EnAlmacen.cantidad;
         let EA_Cantidad = EnAlmacen.cantidad;
+        if (grupo === 'Pega') {
+            EA_Cantidad = EnAlmacen.material.neto;
+            if (m_cantidad < 1) {
+                EA_Cantidad = 0;
+            }
+        }
         let previo = this.LOTES.filter(x => x.i === i);
         if (EnAlmacen.material.grupo.nombre === 'Cajas Corrugadas' && orden.cliente) {
             unidad_necesaria = _cantidad - this.Descuentos(material);
@@ -17299,10 +17316,18 @@ class AsignacionComponent {
             unidad_necesaria = m_cantidad - this.Descuentos(material);
             // // console.log('aqui')
         }
-        if (EnAlmacen.material.grupo.nombre === 'Tinta') {
+        if (EnAlmacen.material.grupo.nombre === 'Tinta' || EnAlmacen.material.grupo.nombre === 'Quimicos') {
             unidad_necesaria = _cantidad - this.Descuentos(material);
             unidad_necesaria = (unidad_necesaria).toFixed(2);
             // alert(this.Descuentos(material))
+        }
+        if (EnAlmacen.material.grupo.nombre === 'Pega') {
+            if (m_cantidad < 1) {
+                unidad_necesaria = 0;
+            }
+            else {
+                unidad_necesaria = Math.ceil(unidad_necesaria);
+            }
         }
         if (EnAlmacen.material.unidad == 'Und') {
             unidad_necesaria = Math.ceil(unidad_necesaria);

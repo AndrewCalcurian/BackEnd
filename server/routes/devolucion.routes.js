@@ -44,9 +44,10 @@ app.delete('/api/devoluciones/:id', (req,res)=>{
 app.put('/api/devoluciones/:id', (req, res)=>{
 
     const body = req.body;
-    const id = req.params.id
+    const id = req.params.id;
 
     Devolucion.findByIdAndUpdate(id, {status:'Culminado'},(err, devolucion)=>{
+    // Devolucion.findByIdAndUpdate(id, {_id:id},(err, devolucion)=>{
         if( err ){
             return res.status(400).json({
                 ok:false,
@@ -67,14 +68,22 @@ app.put('/api/devoluciones/:id', (req, res)=>{
                                             // }
 
                                             // //console.log(almacenado[0].cantidad)
-                                            let new_cantidad = Number(almacenado[0].cantidad) + (body[i].cantidad/body[i].material.neto)
-                                            Almacenado.findByIdAndUpdate(almacenado[0]._id, {cantidad:new_cantidad}, (err, almacenado_)=>{
-                                             if( error ){
-                                                 return res.status(400).json({
-                                                     ok:false,
-                                                     error
-                                                 });
-                                             }  
+                                            let new_cantidad = 0;
+                                            if(body[i].material.grupo === '61fd721fd9115415a4416f65'){
+                                                new_cantidad = Number(almacenado[0].cantidad) + body[i].cantidad
+                                            }else{
+                                                new_cantidad = Number(almacenado[0].cantidad) + (body[i].cantidad/body[i].material.neto)
+                                            }
+
+                                            console.log(new_cantidad)
+
+                                             Almacenado.findByIdAndUpdate(almacenado[0]._id, {cantidad:new_cantidad}, (err, almacenado_)=>{
+                                              if( error ){
+                                                  return res.status(400).json({
+                                                      ok:false,
+                                                      error
+                                                  });
+                                            }  
                                             })
 
                                         })
