@@ -119,7 +119,7 @@ doc.add(
             new Cell(new Stack(lotes).end).end,
             new Cell(new Stack(cantidades).end).end
         ]
-    ]).widths(['50%','25%','25%']).end
+    ]).widths(['50%','15%','35%']).end
 )
 
 doc.add(
