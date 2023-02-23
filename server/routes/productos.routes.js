@@ -47,6 +47,9 @@ app.get('/api/productos/:id', (req, res)=>{
     Producto.find({cliente:cliente})
         .populate('cliente')
         .populate('materiales.producto')
+        .sort('codigo')
+        .sort('version')
+        .sort('edicion')
         .exec((err, productosDB)=>{
         if( err ){
             return res.status(400).json({

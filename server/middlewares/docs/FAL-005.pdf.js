@@ -8,7 +8,7 @@ const fs = require('fs')
 
 const nodemailer = require('nodemailer');
 
-async function FAL005(orden,solicitud, Lote, materiales, lotes, cantidades){
+async function FAL005(orden,solicitud, Lote, materiales, lotes, cantidades,Requi){
 
 console.log(cantidades, 'ok')
 
@@ -162,7 +162,7 @@ const pdf = printer.createPdfKitDocument(doc.getDefinition());
 pdf.end();
 
 
-     if(orden === 'N/A'){
+     if(Requi){
         // asignacion_(orden, solicitud, Lote, pdf,'Equipo', 'calcurianandres@gmail.com')
         asignacion_(orden, solicitud, Lote, pdf,'Equipo', 'calcurianandres@gmail.com,luis.malave@poligraficaindustrial.com,raul.diaz@poligraficaindustrial.com,enida.aponte@poligraficaindustrial.com,zuleima.vela@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com,yraida.baptista@poligraficaindustrial.com')
      }else{

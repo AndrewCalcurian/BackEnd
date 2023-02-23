@@ -22,6 +22,9 @@ let OrdenSchema = new Schema([{
                 type:String,
                 default:'Espera'
             },
+            usuario:{
+                type:String
+            },
             fecha_o:{
                 type:Date,
                 default:Date.now

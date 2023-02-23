@@ -82,7 +82,7 @@ function SolicitudMateria(orden_){
                     }
 
                     
-                    FAL004(orden_,solicitud.seq,Producto,cantidad,'SIO','Nueva orden de produccion')
+                    FAL004(orden.producto.producto,orden_,solicitud.seq,Producto,cantidad,'SIO','Nueva orden de produccion')
                 })
                 } 
             }

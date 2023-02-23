@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 const {header, header4, footer} = require('../templates/template.email')
 
-function _despacho_(lotes,fecha, correo){
+function _despacho_(lotes,fecha, correo,observacion){
 
     var transporter = nodemailer.createTransport({
         host: "mail.poligraficaindustrial.com",
@@ -45,6 +45,8 @@ table, th, td {
                     ${lotes}
                 </table>
             <br>
+                ${observacion}
+            <br><br>
             ¡Garanticemos la entrega oportuna!
             ${footer}`
     };

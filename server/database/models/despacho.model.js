@@ -11,8 +11,13 @@ let DespachoSchema = new Schema(
         fecha:{
             type:String
         },
+        observacion:{
+            type:String
+        },
         despacho:[{
-
+            parcial:{
+                type:String,
+            },
             op:{
                 type:String
             },
@@ -27,6 +32,14 @@ let DespachoSchema = new Schema(
             },
             destino:{
                 type:String
+            },
+            certificado:{
+                type:String,
+                default:''
+            },
+            documento:{
+                type:String,
+                default:''
             }
         }]
     }

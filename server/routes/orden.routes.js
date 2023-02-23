@@ -38,6 +38,7 @@ app.post('/api/orden', (req, res)=>{
                                     }
 
                                     let NewOrden = new Orden({
+                                        usuario:body.usuario,
                                         fecha_o:body.fecha_o,
                                         montaje:body.montaje,
                                         cantidad:body.cantidad,
@@ -71,6 +72,8 @@ app.post('/api/orden', (req, res)=>{
                                                 NewOrden.producto = resp;
 
                                                 // console.log(resp)
+
+                                                res.json(NewOrden)
 
                                                 NewOrden.save((err, resp)=>{
                                                     if( err ){

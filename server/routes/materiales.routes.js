@@ -318,6 +318,7 @@ app.delete('/api/material/:id', (req, res)=>{
 app.post('/api/material/devolucion', (req, res)=>{
 
     let body = req.body;
+    // console.log(body)
     let tabla = '';
 
 
@@ -338,11 +339,16 @@ app.post('/api/material/devolucion', (req, res)=>{
             // //console.log(material.nombre)
         let data = '';
         cantidades.push(`${body.filtrado[i].cantidad} ${material.unidad}`)
-
         if(!material.ancho){
-            materiales.push(`${material.nombre} (${material.marca})`)
-            data = `<tr><td>${material.nombre} (${material.marca})</td>
-            <td>${body.filtrado[i].cantidad} ${material.unidad}</td></tr>`;
+            if(material.grupo == '61fd54e2d9115415a4416f17' || material.grupo == '61fd6300d9115415a4416f60'){
+                materiales.push(`${material.nombre} (${material.marca}) - Lata:${body.filtrado[i].codigo}`)
+                data = `<tr><td>${material.nombre} (${material.marca}) - Lata:${body.filtrado[i].codigo}</td>
+                <td>${body.filtrado[i].cantidad} ${material.unidad}</td></tr>`;
+            }else{
+                materiales.push(`${material.nombre} (${material.marca})`)
+                data = `<tr><td>${material.nombre} (${material.marca})</td>
+                <td>${body.filtrado[i].cantidad} ${material.unidad}</td></tr>`;
+            }
         }else{
             materiales.push(`${material.nombre} ${material.ancho}x${material.largo} (${material.marca}) - Paleta:${body.filtrado[i].codigo}`)
             data = `<tr><td>${material.nombre} ${material.ancho}x${material.largo} (${material.marca}) - Paleta:${body.filtrado[i].codigo}</td>
@@ -383,7 +389,6 @@ app.post('/api/material/descuento', (req, res)=>{
 
     let body = req.body;
 
-
     let lotes_ = '';
     let names;
     // console.log(body.lotes);
@@ -400,12 +405,15 @@ app.post('/api/material/descuento', (req, res)=>{
     let orden = []
     let material__ = []
 
+    let Requi = false;
+    let Producto_name;
+
     // let EA_Cantidad = body.EA_Cantidad
 
     // console.log(body)
 
     if(body.requi){
-        console.log('si')
+        Requi = true
         Requisicion.findOneAndUpdate({_id:body.requi},{estado:'Finalizado'}, (err, requi)=>{
             if( err ){
                 return res.status(400).json({
@@ -414,6 +422,7 @@ app.post('/api/material/descuento', (req, res)=>{
                 });
             }
         })
+
     }
 
 
@@ -548,7 +557,7 @@ app.post('/api/material/descuento', (req, res)=>{
                                         }).save();
                                         // orden.push(data)
                                         //console.log(orden)
-                                        FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados)
+                                        FAL005(body.orden,body.solicitud, lotes_, materiales,lotes,solicitados,Requi)
                                     
                                         res.json('ok')
                                     }

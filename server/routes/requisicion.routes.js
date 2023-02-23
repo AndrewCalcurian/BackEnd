@@ -148,7 +148,7 @@ app.put('/api/requi/:id', (req,res)=>{
                         let final = producto_.length -1;
                         if(i == final){ 
                             console.log(tabla)
-                            FAL004(requi.sort, num_solicitud,material,cantidad,requi.usuario,requi.motivo,tabla)
+                            FAL004(requi.producto.producto,requi.sort, num_solicitud,material,cantidad,requi.usuario,requi.motivo,tabla)
                         }
                     }
                     

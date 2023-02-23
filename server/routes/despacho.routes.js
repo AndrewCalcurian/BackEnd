@@ -5,6 +5,7 @@ var moment = require('moment'); // require
 
 const Despacho = require('../database/models/despacho.model')
 const Orden = require('../database/models/orden.model');
+const Producto = require('../database/models/producto.model')
 
 const { _despacho_ } = require('../middlewares/emails/despacho.email')
 
@@ -227,6 +228,26 @@ app.put('/api/despacho/:id', (req, res)=>{
     // })
 })
 
+app.post('/api/despacho/almacen', (req, res)=>{
+
+    let producto = req.body.producto
+    console.log(producto)
+
+     Producto.findOne({producto})
+                 .populate('cliente')
+                 .exec((err, cliente)=>{
+                     if( err ){
+                         return res.status(400).json({
+                             ok:false,
+                             err
+                         });
+                     }
+
+                     res.json({almacenes:cliente.cliente.almacenes})
+                 });
+
+});
+
 app.post('/api/despacho', (req, res)=>{
     let body = req.body;
 
@@ -234,7 +255,8 @@ app.post('/api/despacho', (req, res)=>{
 
     const NuevoDespacho = new Despacho({
         fecha:body.fecha,
-        despacho:body.despacho
+        despacho:body.despacho,
+        observacion:body.observacion
     })
     let data = '';
     let despacho_ = '';
@@ -250,7 +272,7 @@ app.post('/api/despacho', (req, res)=>{
         despacho_ = despacho_ + data;
     }
 
-    _despacho_(despacho_, body.fecha, 'logistica@poligraficaindustrial.com,luis.malave@poligraficaindustrial.com,raul.diaz@poligraficaindustrial.com,calcurianandres@gmail.com, jaime.sanjuan@poligraficaindustrial.com, zuleima.vela@poligraficaindustrial.com,calcurian.andrew@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,zuleima.vela@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com,yraida.baptista@poligraficaindustrial.com,attilio.granone@poligraficaindustrial.com')
+    _despacho_(despacho_, body.fecha, 'logistica@poligraficaindustrial.com,luis.malave@poligraficaindustrial.com,raul.diaz@poligraficaindustrial.com,calcurianandres@gmail.com, jaime.sanjuan@poligraficaindustrial.com, zuleima.vela@poligraficaindustrial.com,calcurian.andrew@gmail.com,enida.aponte@poligraficaindustrial.com,carlos.mejias@poligraficaindustrial.com,zuleima.vela@poligraficaindustrial.com,freddy.burgos@poligraficaindustrial.com,yraida.baptista@poligraficaindustrial.com,attilio.granone@poligraficaindustrial.com,recepcion@poligraficaindustrial.com',body.observacion)
 
     NuevoDespacho.save((err, DespachoDB)=>{
         if( err ){

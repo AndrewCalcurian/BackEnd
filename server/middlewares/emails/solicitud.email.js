@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-const {header2, footer} = require('../templates/template.email');
+const {header6,header2, footer} = require('../templates/template.email');
 let {tituloCorreo} = require('../templates/template.email')
 
 function NuevaSolicitud_(orden,correo,motivo,num_solicitud,adjunto,tabla){
@@ -26,7 +26,7 @@ function NuevaSolicitud_(orden,correo,motivo,num_solicitud,adjunto,tabla){
             filename: `AL-SOL-${num_solicitud}_${orden}.pdf`,
             content:adjunto
         }],
-        html:`${header2(titulo)}
+        html:`${header6(titulo)}
         <br>
                Se ha realizado una nueva solicitud de material 
                <br>
@@ -82,7 +82,7 @@ function NuevaSolicitud(orden,correo,motivo,num_solicitud,adjunto,tabla){
             filename: `AL-SOL-${num_solicitud}_${orden}.pdf`,
             content:adjunto
         }],
-        html:`${header2(titulo)}
+        html:`${header6(titulo)}
         <br>
                Se ha realizado una nueva solicitud de material asociada a la Orden de Producción:
                <br>
