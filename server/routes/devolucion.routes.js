@@ -75,14 +75,16 @@ app.put('/api/devoluciones/:id', (req, res)=>{
                                                 new_cantidad = Number(almacenado[0].cantidad) + (body[i].cantidad/body[i].material.neto)
                                             }
 
+                                            new_cantidad = Number(new_cantidad).toFixed(2)
                                             console.log(new_cantidad)
 
-                                             Almacenado.findByIdAndUpdate(almacenado[0]._id, {cantidad:new_cantidad}, (err, almacenado_)=>{
-                                              if( error ){
-                                                  return res.status(400).json({
-                                                      ok:false,
-                                                      error
-                                                  });
+
+                                              Almacenado.findByIdAndUpdate(almacenado[0]._id, {cantidad:new_cantidad}, (err, almacenado_)=>{
+                                               if( error ){
+                                                   return res.status(400).json({
+                                                       ok:false,
+                                                       error
+                                                   });
                                             }  
                                             })
 

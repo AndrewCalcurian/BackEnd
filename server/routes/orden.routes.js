@@ -73,8 +73,6 @@ app.post('/api/orden', (req, res)=>{
 
                                                 // console.log(resp)
 
-                                                res.json(NewOrden)
-
                                                 NewOrden.save((err, resp)=>{
                                                     if( err ){
                                                         return res.status(400).json({
