@@ -8053,7 +8053,7 @@
         return Usuario;
       });
 
-      var Usuario = function Usuario(estado, _id, Nombre, Apellido, Correo, Departamento, Role, Nueva_orden, Consulta, Almacen, Maquinaria, Planificacion, Gestiones, Despacho, Estadisticas) {
+      var Usuario = function Usuario(estado, _id, Nombre, Apellido, Correo, Departamento, Role, Nueva_orden, Consulta, Almacen, Maquinaria, Planificacion, Gestiones, Despacho, Estadisticas, Precios, pin) {
         _classCallCheck(this, Usuario);
 
         this.estado = estado;
@@ -8071,6 +8071,8 @@
         this.Gestiones = Gestiones;
         this.Despacho = Despacho;
         this.Estadisticas = Estadisticas;
+        this.Precios = Precios;
+        this.pin = pin;
       };
       /***/
 
@@ -9231,6 +9233,104 @@
             imports: [_angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"], _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"], _producto_ymaquinaria_routing_module__WEBPACK_IMPORTED_MODULE_3__["ProductoYMaquinariaRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_7__["ReactiveFormsModule"]]
           }]
         }], null, null);
+      })();
+      /***/
+
+    },
+
+    /***/
+    "5fqA":
+    /*!***************************************!*\
+      !*** ./src/app/Auth/twoStep.guard.ts ***!
+      \***************************************/
+
+    /*! exports provided: TwoStep */
+
+    /***/
+    function fqA(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "TwoStep", function () {
+        return TwoStep;
+      });
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
+
+
+      var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! rxjs/operators */
+      "kU1M");
+      /* harmony import */
+
+
+      var _services_rest_api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ../services/rest-api.service */
+      "n6ga");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/router */
+      "tyNb");
+
+      var TwoStep = /*#__PURE__*/function () {
+        function TwoStep(api, router) {
+          _classCallCheck(this, TwoStep);
+
+          this.api = api;
+          this.router = router;
+          console.log('work');
+        }
+
+        _createClass(TwoStep, [{
+          key: "canActivate",
+          value: function canActivate(route, state) {
+            var _this31 = this;
+
+            return this.api.ValidarVerificacion().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(function (isAuth) {
+              if (!isAuth) {
+                _this31.router.navigateByUrl('/ventas/verificacion');
+              }
+            }));
+          }
+        }]);
+
+        return TwoStep;
+      }();
+
+      TwoStep.ɵfac = function TwoStep_Factory(t) {
+        return new (t || TwoStep)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_services_rest_api_service__WEBPACK_IMPORTED_MODULE_2__["RestApiService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]));
+      };
+
+      TwoStep.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineInjectable"]({
+        token: TwoStep,
+        factory: TwoStep.ɵfac,
+        providedIn: 'root'
+      });
+      /*@__PURE__*/
+
+      (function () {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TwoStep, [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"],
+          args: [{
+            providedIn: 'root'
+          }]
+        }], function () {
+          return [{
+            type: _services_rest_api_service__WEBPACK_IMPORTED_MODULE_2__["RestApiService"]
+          }, {
+            type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+          }];
+        }, null);
       })();
       /***/
 
@@ -10691,12 +10791,12 @@
         _createClass(GestionComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this31 = this;
+            var _this32 = this;
 
             this.api.GetClientes().subscribe(function (resp) {
-              _this31.clientes = resp.clientes;
-              console.log(_this31.clientes);
-              _this31.carga_clientes = false;
+              _this32.clientes = resp.clientes;
+              console.log(_this32.clientes);
+              _this32.carga_clientes = false;
             });
           }
         }, {
@@ -10716,7 +10816,7 @@
         }, {
           key: "Delete",
           value: function Delete(i, n) {
-            var _this32 = this;
+            var _this33 = this;
 
             sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
               title: '¿Quieres eliminar este intervalo?',
@@ -10728,9 +10828,9 @@
             }).then(function (result) {
               /* Read more about isConfirmed, isDenied below */
               if (result.isConfirmed) {
-                _this32.intervalos[n].escalas.splice(i, 1);
+                _this33.intervalos[n].escalas.splice(i, 1);
 
-                _this32.api.putIntervalo(_this32.intervalos[n]).subscribe(function (resp) {
+                _this33.api.putIntervalo(_this33.intervalos[n]).subscribe(function (resp) {
                   sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
                     title: 'Eliminado',
                     icon: 'success',
@@ -10754,10 +10854,10 @@
         }, {
           key: "FindDescripcion",
           value: function FindDescripcion(e) {
-            var _this33 = this;
+            var _this34 = this;
 
             var El_producto = this.productos.find(function (x) {
-              return x._id == _this33.producto;
+              return x._id == _this34.producto;
             });
             this.Descripcion = false;
 
@@ -10837,13 +10937,13 @@
         }, {
           key: "select_producto",
           value: function select_producto(e) {
-            var _this34 = this;
+            var _this35 = this;
 
             if (e != '#') {
               if (e === 'all') {
                 this.producto_seleccionado = false;
                 this.api.GetEscalaByCliente(this.Cliente_selected).subscribe(function (resp) {
-                  _this34.intervalos = resp;
+                  _this35.intervalos = resp;
                 });
               } else {
                 this.producto = e;
@@ -10858,7 +10958,7 @@
                 }
 
                 this.api.getEscala(e).subscribe(function (resp) {
-                  _this34.intervalos = resp;
+                  _this35.intervalos = resp;
                 });
               }
             } else {
@@ -10888,7 +10988,7 @@
         }, {
           key: "new_escala_vesion",
           value: function new_escala_vesion() {
-            var _this35 = this;
+            var _this36 = this;
 
             var data = {
               descripcion: this.desc,
@@ -10899,12 +10999,12 @@
             };
             this.intervalos.push(data);
             this.api.postEscala(data).subscribe(function (resp) {
-              _this35.desc = 'Debes seleccionar un montaje';
-              _this35.montaj = [], _this35.escala = [], _this35.producto = '';
+              _this36.desc = 'Debes seleccionar un montaje';
+              _this36.montaj = [], _this36.escala = [], _this36.producto = '';
               document.getElementById('count').value = '';
               document.getElementById('price').value = '';
-              _this35.newTable = false;
-              _this35.Descripcion = false;
+              _this36.newTable = false;
+              _this36.Descripcion = false;
               sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
                 title: 'Hecho',
                 text: 'Se creó nueva tabla en este producto',
@@ -10956,21 +11056,21 @@
         }, {
           key: "select_cliente",
           value: function select_cliente(e) {
-            var _this36 = this;
+            var _this37 = this;
 
             if (e != '#') {
               this.Cliente_selected = e;
               console.log(this.Cliente_selected);
               this.api.getById(e).subscribe(function (resp) {
-                _this36.productos = resp.productos;
-                _this36.carga_ordenes = false;
+                _this37.productos = resp.productos;
+                _this37.carga_ordenes = false;
               });
             }
           }
         }, {
           key: "select_orden",
           value: function select_orden(e) {
-            var _this37 = this;
+            var _this38 = this;
 
             this.Despachos = [];
 
@@ -10979,7 +11079,7 @@
                 for (var i = 0; i < resp.length; i++) {
                   for (var x = 0; x < resp[i].despacho.length; x++) {
                     if (resp[i].despacho[x].op === e) {
-                      _this37.Despachos.push({
+                      _this38.Despachos.push({
                         producto: resp[i].despacho[x].producto,
                         cantidad: resp[i].despacho[x].cantidad
                       });
@@ -10987,15 +11087,15 @@
                   }
                 }
 
-                console.log(_this37.Despachos);
-                _this37.cargar_despachos = false;
+                console.log(_this38.Despachos);
+                _this38.cargar_despachos = false;
               });
             }
           }
         }, {
           key: "Select_Despacho",
           value: function Select_Despacho(e) {
-            var _this38 = this;
+            var _this39 = this;
 
             if (e != '#') {
               var separado = e.split('*');
@@ -11007,11 +11107,11 @@
               this.api.GetOneEscala(producto, {
                 cantidad: cantidad
               }).subscribe(function (resp) {
-                _this38.Escala = resp.Escala[resp.Escala.length - 1].cantidad;
-                _this38.PrecioXunidad = resp.Escala[resp.Escala.length - 1].precio;
+                _this39.Escala = resp.Escala[resp.Escala.length - 1].cantidad;
+                _this39.PrecioXunidad = resp.Escala[resp.Escala.length - 1].precio;
                 resp.MonitorBCV;
                 var split_dolar = resp.MonitorBCV.split(' ');
-                _this38.tasa = Number(split_dolar[1]);
+                _this39.tasa = Number(split_dolar[1]);
               });
             } else {
               this.cargar_previo = true;
@@ -11020,19 +11120,19 @@
         }, {
           key: "escalas_modal",
           value: function escalas_modal() {
-            var _this39 = this;
+            var _this40 = this;
 
             if (!this.escalas) {
               this.productos = [];
               this.Escalas = [];
               this.escalas = true;
               this.api.getById(this.Cliente_selected).subscribe(function (resp) {
-                _this39.productos = resp.productos;
-                console.log(_this39.productos);
-                _this39.cargo_productos = false;
+                _this40.productos = resp.productos;
+                console.log(_this40.productos);
+                _this40.cargo_productos = false;
 
-                _this39.api.getEscala(_this39.Cliente_selected).subscribe(function (resp) {
-                  _this39.Escalas = resp;
+                _this40.api.getEscala(_this40.Cliente_selected).subscribe(function (resp) {
+                  _this40.Escalas = resp;
                 });
               });
             } else {
@@ -11056,7 +11156,7 @@
         }, {
           key: "NuevoIntervalo",
           value: function NuevoIntervalo(cantidad, precio, producto, i) {
-            var _this40 = this;
+            var _this41 = this;
 
             var data = {
               producto: producto,
@@ -11065,17 +11165,17 @@
               cliente: this.Cliente_selected
             };
             this.api.postEscala(data).subscribe(function (resp) {
-              _this40.escalas_modal();
+              _this41.escalas_modal();
 
-              _this40.escalas_modal();
+              _this41.escalas_modal();
 
-              _this40.cancelar_intervalo(i);
+              _this41.cancelar_intervalo(i);
             });
           }
         }, {
           key: "delete_escala",
           value: function delete_escala(escala) {
-            var _this41 = this;
+            var _this42 = this;
 
             sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
               title: '¿Quieres eliminar este intervalo de la escala?',
@@ -11088,10 +11188,10 @@
             }).then(function (result) {
               /* Read more about isConfirmed, isDenied below */
               if (result.isConfirmed) {
-                _this41.api.DeleteEscala(escala).subscribe(function (resp) {
-                  _this41.escalas_modal();
+                _this42.api.DeleteEscala(escala).subscribe(function (resp) {
+                  _this42.escalas_modal();
 
-                  _this41.escalas_modal();
+                  _this42.escalas_modal();
 
                   sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
                     title: 'Eliminado',
@@ -11297,7 +11397,7 @@
         selectors: [["app-main"]],
         decls: 11,
         vars: 0,
-        consts: [[1, "hero", "is-small", "is-primary"], [1, "container", "mt-5", "animate__animated", "animate__fadeIn"], [1, "columns", "menu"], [1, "column"], ["src", "../../../assets/BANNER-GESTION-DE-PRECIOS.png", "alt", "", "routerLink", "/precios/gestion"], ["src", "../../../assets/BANNER-PREFACTURACION.png", "routerLink", "/precios/pre-facturacion"]],
+        consts: [[1, "hero", "is-small", "is-primary"], [1, "container", "mt-5", "animate__animated", "animate__fadeIn"], [1, "columns", "menu"], [1, "column"], ["src", "../../../assets/BANNER-GESTION-DE-PRECIOS.png", "alt", "", "routerLink", "/ventas/gestion"], ["src", "../../../assets/BANNER-PREFACTURACION.png", "routerLink", "/ventas/pre-facturacion"]],
         template: function MainComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "section", 0);
@@ -11709,6 +11809,12 @@
       var _main_main_component__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
       /*! ./main/main.component */
       "Aqpx");
+      /* harmony import */
+
+
+      var _token_validation_token_validation_component__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+      /*! ../token-validation/token-validation.component */
+      "ixT5");
 
       var CotizacionModule = function CotizacionModule() {
         _classCallCheck(this, CotizacionModule);
@@ -11726,7 +11832,7 @@
 
       (function () {
         (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵsetNgModuleScope"](CotizacionModule, {
-          declarations: [_cotizacion_component__WEBPACK_IMPORTED_MODULE_2__["CotizacionComponent"], _gestion_gestion_component__WEBPACK_IMPORTED_MODULE_7__["GestionComponent"], _pre_facturacion_pre_facturacion_component__WEBPACK_IMPORTED_MODULE_8__["PreFacturacionComponent"], _main_main_component__WEBPACK_IMPORTED_MODULE_9__["MainComponent"]],
+          declarations: [_cotizacion_component__WEBPACK_IMPORTED_MODULE_2__["CotizacionComponent"], _gestion_gestion_component__WEBPACK_IMPORTED_MODULE_7__["GestionComponent"], _pre_facturacion_pre_facturacion_component__WEBPACK_IMPORTED_MODULE_8__["PreFacturacionComponent"], _main_main_component__WEBPACK_IMPORTED_MODULE_9__["MainComponent"], _token_validation_token_validation_component__WEBPACK_IMPORTED_MODULE_10__["TokenValidationComponent"]],
           imports: [_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _cotizacion_routing_module__WEBPACK_IMPORTED_MODULE_6__["CotizacionRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"]]
         });
       })();
@@ -11737,7 +11843,7 @@
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](CotizacionModule, [{
           type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["NgModule"],
           args: [{
-            declarations: [_cotizacion_component__WEBPACK_IMPORTED_MODULE_2__["CotizacionComponent"], _gestion_gestion_component__WEBPACK_IMPORTED_MODULE_7__["GestionComponent"], _pre_facturacion_pre_facturacion_component__WEBPACK_IMPORTED_MODULE_8__["PreFacturacionComponent"], _main_main_component__WEBPACK_IMPORTED_MODULE_9__["MainComponent"]],
+            declarations: [_cotizacion_component__WEBPACK_IMPORTED_MODULE_2__["CotizacionComponent"], _gestion_gestion_component__WEBPACK_IMPORTED_MODULE_7__["GestionComponent"], _pre_facturacion_pre_facturacion_component__WEBPACK_IMPORTED_MODULE_8__["PreFacturacionComponent"], _main_main_component__WEBPACK_IMPORTED_MODULE_9__["MainComponent"], _token_validation_token_validation_component__WEBPACK_IMPORTED_MODULE_10__["TokenValidationComponent"]],
             imports: [_shared_shared_module__WEBPACK_IMPORTED_MODULE_3__["SharedModule"], _angular_common__WEBPACK_IMPORTED_MODULE_1__["CommonModule"], _cotizacion_routing_module__WEBPACK_IMPORTED_MODULE_6__["CotizacionRoutingModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["ReactiveFormsModule"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"]]
           }]
         }], null, null);
@@ -11873,7 +11979,7 @@
         }, {
           key: "cambiarPass",
           value: function cambiarPass() {
-            var _this42 = this;
+            var _this43 = this;
 
             var data = {
               correo: this.usuario.Correo,
@@ -11886,10 +11992,10 @@
                 icon: 'success',
                 showConfirmButton: false
               });
-              _this42.pass1 = '';
-              _this42.pass2 = '';
+              _this43.pass1 = '';
+              _this43.pass2 = '';
 
-              _this42.cambiar();
+              _this43.cambiar();
             });
           }
         }]);
@@ -12462,11 +12568,11 @@
         _createClass(AuthGuard, [{
           key: "canActivate",
           value: function canActivate(route, state) {
-            var _this43 = this;
+            var _this44 = this;
 
             return this.api.validarToken().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_1__["tap"])(function (isAuth) {
               if (!isAuth) {
-                _this43.router.navigateByUrl('login');
+                _this44.router.navigateByUrl('login');
               }
             }));
           }
@@ -14393,7 +14499,7 @@
         _createClass(GestionComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this44 = this;
+            var _this45 = this;
 
             this.Tarea();
             this.getMaquinas();
@@ -14401,7 +14507,7 @@
             this.getOrdenes();
             this.getDespachos();
             this.api.getGrupos().subscribe(function (resp) {
-              _this44.GRUPOS = resp.grupos; // console.log(this.GRUPOS,'___________________________________________*')
+              _this45.GRUPOS = resp.grupos; // console.log(this.GRUPOS,'___________________________________________*')
             });
           }
         }, {
@@ -14418,14 +14524,14 @@
         }, {
           key: "BuscarAlmacen",
           value: function BuscarAlmacen(producto) {
-            var _this45 = this;
+            var _this46 = this;
 
             console.log(producto);
             this.api.BuscarAlmacenes(producto).subscribe(function (resp) {
               // console.log(resp)
-              _this45.Almacenes_edicion.push(resp);
+              _this46.Almacenes_edicion.push(resp);
 
-              _this45.almacen__ = true;
+              _this46.almacen__ = true;
               return resp;
             });
           }
@@ -14453,7 +14559,7 @@
         }, {
           key: "despachar",
           value: function despachar(x, y, op) {
-            var _this46 = this;
+            var _this47 = this;
 
             sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
               title: 'Cuidado',
@@ -14466,7 +14572,7 @@
               confirmButtonText: 'Si, despachar'
             }).then(function (result) {
               if (result.isConfirmed) {
-                if (_this46.Despachos[x].despacho[y].documento == "" || _this46.Despachos[x].despacho[y].certificado == "") {
+                if (_this47.Despachos[x].despacho[y].documento == "" || _this47.Despachos[x].despacho[y].certificado == "") {
                   sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
                     icon: 'error',
                     title: 'Debes llenar todos los campos',
@@ -14477,27 +14583,27 @@
                 }
 
                 var hoy = moment__WEBPACK_IMPORTED_MODULE_1__().format('DD-MM-yyyy');
-                _this46.Despachos[x].despacho[y].parcial = hoy;
+                _this47.Despachos[x].despacho[y].parcial = hoy;
 
-                _this46.api.PutDespachos(_this46.Despachos[x]._id, _this46.Despachos[x]).subscribe(function (resp) {
+                _this47.api.PutDespachos(_this47.Despachos[x]._id, _this47.Despachos[x]).subscribe(function (resp) {
                   // console.log('done')
                   var iterator = 0;
 
-                  for (var i = 0; i < _this46.Despachos[x].despacho.length; i++) {
+                  for (var i = 0; i < _this47.Despachos[x].despacho.length; i++) {
                     // console.log(i,'iterator', this.Despachos[x].despacho.length)
-                    console.log(_this46.Despachos[x].despacho[i].parcial);
+                    console.log(_this47.Despachos[x].despacho[i].parcial);
 
-                    if (!_this46.Despachos[x].despacho[i].parcial) {
+                    if (!_this47.Despachos[x].despacho[i].parcial) {
                       iterator++;
                     }
 
-                    if (i == _this46.Despachos[x].despacho.length - 1) {
+                    if (i == _this47.Despachos[x].despacho.length - 1) {
                       if (iterator < 1) {
-                        _this46.Despachos[x].fecha = hoy;
-                        _this46.Despachos[x].estado = 'despachado';
+                        _this47.Despachos[x].fecha = hoy;
+                        _this47.Despachos[x].estado = 'despachado';
 
-                        _this46.api.PutDespachos(_this46.Despachos[x]._id, _this46.Despachos[x]).subscribe(function (resp) {
-                          _this46.getDespachos();
+                        _this47.api.PutDespachos(_this47.Despachos[x]._id, _this47.Despachos[x]).subscribe(function (resp) {
+                          _this47.getDespachos();
                         });
                       }
                     }
@@ -14553,7 +14659,7 @@
         }, {
           key: "Despachado_",
           value: function Despachado_(id, x) {
-            var _this47 = this;
+            var _this48 = this;
 
             for (var i = 0; i < this.Despachos[x].despacho.length; i++) {
               if (this.Despachos[x].despacho[i].certificado == "" || this.Despachos[x].despacho[i].documento == "") {
@@ -14585,16 +14691,16 @@
                 });
               }
 
-              _this47.getDespachos();
+              _this48.getDespachos();
             });
           }
         }, {
           key: "getDespachos",
           value: function getDespachos() {
-            var _this48 = this;
+            var _this49 = this;
 
             this.api.GetDespacho().subscribe(function (resp) {
-              _this48.Despachos = resp; // console.log(this.Despachos)
+              _this49.Despachos = resp; // console.log(this.Despachos)
             });
           }
         }, {
@@ -14609,10 +14715,10 @@
         }, {
           key: "getOrdenes",
           value: function getOrdenes() {
-            var _this49 = this;
+            var _this50 = this;
 
             this.api.getOrden().subscribe(function (resp) {
-              _this49.orden = resp;
+              _this50.orden = resp;
             });
           }
         }, {
@@ -14656,12 +14762,12 @@
         }, {
           key: "getMaquinas",
           value: function getMaquinas() {
-            var _this50 = this;
+            var _this51 = this;
 
             this.api.GetMaquinas().subscribe(function (resp) {
-              _this50.MAQUINAS = resp;
+              _this51.MAQUINAS = resp;
 
-              _this50.obtenerTipos();
+              _this51.obtenerTipos();
             });
           }
         }, {
@@ -14708,7 +14814,7 @@
         }, {
           key: "retrasar",
           value: function retrasar(orden, maquina, fecha, trabajo, dias) {
-            var _this51 = this;
+            var _this52 = this;
 
             var data = {
               orden: orden,
@@ -14725,13 +14831,13 @@
                 text: 'se agregó 1 dia mas a esta gestión y a todas las ordenes que utilicen estos mismos equipos',
                 showConfirmButton: false
               });
-              _this51.TRABAJOS = [];
+              _this52.TRABAJOS = [];
 
-              _this51.Tarea();
+              _this52.Tarea();
 
-              _this51.getMaquinas();
+              _this52.getMaquinas();
 
-              _this51.getGestiones();
+              _this52.getGestiones();
             });
           }
         }, {
@@ -14742,7 +14848,7 @@
         }, {
           key: "acelerar",
           value: function acelerar(orden, maquina, fecha, trabajo, fechaI, dias) {
-            var _this52 = this;
+            var _this53 = this;
 
             var fecha_lapsos = moment__WEBPACK_IMPORTED_MODULE_1__(fecha);
             var fechaI_lapso = moment__WEBPACK_IMPORTED_MODULE_1__(fechaI);
@@ -14771,13 +14877,13 @@
                 text: 'se adelantó 1 dia mas a esta gestión y a todas las ordenes que utilizen estos mismos equipos',
                 showConfirmButton: false
               });
-              _this52.TRABAJOS = [];
+              _this53.TRABAJOS = [];
 
-              _this52.Tarea();
+              _this53.Tarea();
 
-              _this52.getMaquinas();
+              _this53.getMaquinas();
 
-              _this52.getGestiones();
+              _this53.getGestiones();
             });
           }
         }, {
@@ -14819,7 +14925,7 @@
         }, {
           key: "finalizar",
           value: function finalizar() {
-            var _this53 = this;
+            var _this54 = this;
 
             var hoy = moment__WEBPACK_IMPORTED_MODULE_1__().format('yyyy-MM-DD');
             var orden = '';
@@ -14876,30 +14982,30 @@
               document.getElementById('productos_input').value = '';
               document.getElementById('hojas_input').value = '';
 
-              _this53.modal_nueva_gestion();
+              _this54.modal_nueva_gestion();
 
-              _this53.getGestiones();
+              _this54.getGestiones();
             });
           }
         }, {
           key: "getGestiones",
           value: function getGestiones() {
-            var _this54 = this;
+            var _this55 = this;
 
             this.api.getGestiones().subscribe(function (resp) {
-              _this54.GESTIONES = resp; // console.log('all gestions', resp)
+              _this55.GESTIONES = resp; // console.log('all gestions', resp)
             });
           }
         }, {
           key: "Tarea",
           value: function Tarea() {
-            var _this55 = this;
+            var _this56 = this;
 
             var hoy = moment__WEBPACK_IMPORTED_MODULE_1__().format('yyyy-MM-DD');
             this.TRABAJOS = [];
             this.api.getTrabajos().subscribe(function (resp) {
               var nuevo = resp.filter(function (x) {
-                return x.maquina.tipo === _this55.FASE;
+                return x.maquina.tipo === _this56.FASE;
               });
 
               if (nuevo) {
@@ -14908,7 +15014,7 @@
                 for (var i = 0; i < Long; i++) {
                   if (hoy >= nuevo[i].fechaI) {
                     if (hoy <= nuevo[i].fecha) {
-                      _this55.TRABAJOS.push(nuevo[i]);
+                      _this56.TRABAJOS.push(nuevo[i]);
                     }
                   }
                 }
@@ -14918,7 +15024,7 @@
         }, {
           key: "finalizar_gestion",
           value: function finalizar_gestion(id) {
-            var _this56 = this;
+            var _this57 = this;
 
             var data = {
               id: id
@@ -14930,11 +15036,11 @@
                 showConfirmButton: false
               });
 
-              _this56.getGestiones();
+              _this57.getGestiones();
 
-              _this56.getMaquinas();
+              _this57.getMaquinas();
 
-              _this56.Tarea();
+              _this57.Tarea();
             });
           }
         }, {
@@ -14945,13 +15051,13 @@
         }, {
           key: "TraerTareasFueraDeFecha",
           value: function TraerTareasFueraDeFecha() {
-            var _this57 = this;
+            var _this58 = this;
 
             var hoy = moment__WEBPACK_IMPORTED_MODULE_1__().format('yyyy-MM-DD');
             this.TRABAJOS = [];
             this.api.getTrabajos().subscribe(function (resp) {
               var nuevo = resp.filter(function (x) {
-                return x.maquina.tipo === _this57.FASE;
+                return x.maquina.tipo === _this58.FASE;
               });
 
               if (nuevo) {
@@ -14962,7 +15068,7 @@
                   //   if(hoy <= nuevo[i].fecha){
                   //   }
                   // }
-                  _this57.TRABAJOS.push(nuevo[i]); // // console.log(this.GRUPOS)
+                  _this58.TRABAJOS.push(nuevo[i]); // // console.log(this.GRUPOS)
 
                 }
               }
@@ -15751,11 +15857,11 @@
         }, {
           key: "getOrdenes",
           value: function getOrdenes() {
-            var _this58 = this;
+            var _this59 = this;
 
             this.api.getOrden().subscribe(function (resp) {
-              _this58.ORDENES = resp;
-              _this58.ORDENES = _this58.ORDENES.reverse();
+              _this59.ORDENES = resp;
+              _this59.ORDENES = _this59.ORDENES.reverse();
             });
           }
         }, {
@@ -15807,12 +15913,12 @@
         }, {
           key: "obtenerTrabajos",
           value: function obtenerTrabajos() {
-            var _this59 = this;
+            var _this60 = this;
 
             this.api.getTrabajos().subscribe(function (resp) {
-              _this59.TRABAJOS = resp; // console.log(this.TRABAJOS)
+              _this60.TRABAJOS = resp; // console.log(this.TRABAJOS)
 
-              _this59.loading = false;
+              _this60.loading = false;
             });
           }
         }]);
@@ -16309,22 +16415,22 @@
         _createClass(DevolucionComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this60 = this;
+            var _this61 = this;
 
             this.api.getLotes().subscribe(function (resp) {
-              _this60.devoluciones = resp;
+              _this61.devoluciones = resp;
 
               for (var i = 0; i < resp.length; i++) {
-                _this60.repeticion.push(resp[i].orden);
+                _this61.repeticion.push(resp[i].orden);
 
                 var _final = resp.length - 1;
 
                 if (i == _final) {
-                  var dataArr = new Set(_this60.repeticion);
+                  var dataArr = new Set(_this61.repeticion);
 
                   var result = _toConsumableArray(dataArr);
 
-                  _this60.repeticion = result.reverse();
+                  _this61.repeticion = result.reverse();
                 }
               }
             });
@@ -16367,7 +16473,7 @@
         }, {
           key: "finalizarDevolucion",
           value: function finalizarDevolucion(id, motivo) {
-            var _this61 = this;
+            var _this62 = this;
 
             if (motivo.value.length < 1) {
               var id_ = String(id);
@@ -16428,7 +16534,7 @@
                 showConfirmButton: false
               }), document.getElementById('ordens').value = "·";
 
-              _this61.onClose();
+              _this62.onClose();
             });
           }
         }, {
@@ -16732,19 +16838,37 @@
       var _pre_facturacion_pre_facturacion_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
       /*! ./pre-facturacion/pre-facturacion.component */
       "cMmh");
+      /* harmony import */
+
+
+      var _token_validation_token_validation_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+      /*! ../token-validation/token-validation.component */
+      "ixT5");
+      /* harmony import */
+
+
+      var _Auth_twoStep_guard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! ../Auth/twoStep.guard */
+      "5fqA");
 
       var routes = [{
         path: '',
         component: _cotizacion_component__WEBPACK_IMPORTED_MODULE_3__["CotizacionComponent"],
         children: [{
           path: '',
+          canActivate: [_Auth_twoStep_guard__WEBPACK_IMPORTED_MODULE_8__["TwoStep"]],
           component: _main_main_component__WEBPACK_IMPORTED_MODULE_4__["MainComponent"]
         }, {
           path: 'gestion',
+          canActivate: [_Auth_twoStep_guard__WEBPACK_IMPORTED_MODULE_8__["TwoStep"]],
           component: _gestion_gestion_component__WEBPACK_IMPORTED_MODULE_5__["GestionComponent"]
         }, {
           path: 'pre-facturacion',
+          canActivate: [_Auth_twoStep_guard__WEBPACK_IMPORTED_MODULE_8__["TwoStep"]],
           component: _pre_facturacion_pre_facturacion_component__WEBPACK_IMPORTED_MODULE_6__["PreFacturacionComponent"]
+        }, {
+          path: 'verificacion',
+          component: _token_validation_token_validation_component__WEBPACK_IMPORTED_MODULE_7__["TokenValidationComponent"]
         }]
       }];
 
@@ -19405,31 +19529,31 @@
         _createClass(OrdenComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this62 = this;
+            var _this63 = this;
 
             this.api.getOrdenById(this.id).subscribe(function (resp) {
-              _this62.loading = true;
-              _this62.PRODUCTO = resp;
+              _this63.loading = true;
+              _this63.PRODUCTO = resp;
 
-              _this62.getMaquinas(_this62.PRODUCTO._id);
+              _this63.getMaquinas(_this63.PRODUCTO._id);
 
-              _this62.cantidad = new Intl.NumberFormat('de-DE').format(_this62.PRODUCTO.cantidad);
-              _this62.demasia = Math.ceil(_this62.PRODUCTO.demasia * 100 / _this62.PRODUCTO.paginas);
-              var ejemplares_montados = _this62.PRODUCTO.producto.ejemplares[_this62.PRODUCTO.montaje];
-              var paginas_sin_demasia = _this62.PRODUCTO.cantidad / ejemplares_montados;
-              _this62.hojas_imprimir = Math.ceil(_this62.PRODUCTO.cantidad / _this62.PRODUCTO.producto.ejemplares[_this62.PRODUCTO.montaje]);
-              _this62.hojas_demasia = Math.ceil(_this62.PRODUCTO.demasia * _this62.hojas_imprimir / 100); // this.PRODUCTO.demasia = Math.ceil(this.demasia * paginas_sin_demasia / 100);
+              _this63.cantidad = new Intl.NumberFormat('de-DE').format(_this63.PRODUCTO.cantidad);
+              _this63.demasia = Math.ceil(_this63.PRODUCTO.demasia * 100 / _this63.PRODUCTO.paginas);
+              var ejemplares_montados = _this63.PRODUCTO.producto.ejemplares[_this63.PRODUCTO.montaje];
+              var paginas_sin_demasia = _this63.PRODUCTO.cantidad / ejemplares_montados;
+              _this63.hojas_imprimir = Math.ceil(_this63.PRODUCTO.cantidad / _this63.PRODUCTO.producto.ejemplares[_this63.PRODUCTO.montaje]);
+              _this63.hojas_demasia = Math.ceil(_this63.PRODUCTO.demasia * _this63.hojas_imprimir / 100); // this.PRODUCTO.demasia = Math.ceil(this.demasia * paginas_sin_demasia / 100);
               // this.PRODUCTO.demasia = this.PRODUCTO.producto.ejemplares[this.PRODUCTO.montaje]
               // console.log(this.PRODUCTO, 'este es el Producto');
 
-              _this62.loading = false;
-              console.log(_this62.PRODUCTO);
+              _this63.loading = false;
+              console.log(_this63.PRODUCTO);
             });
           }
         }, {
           key: "cancelarOrden",
           value: function cancelarOrden() {
-            var _this63 = this;
+            var _this64 = this;
 
             sweetalert2__WEBPACK_IMPORTED_MODULE_5___default.a.fire({
               icon: 'info',
@@ -19446,7 +19570,7 @@
               cancelButtonColor: '#f14668',
               confirmButtonColor: '#48c78e',
               preConfirm: function preConfirm(login) {
-                return fetch("//localhost:8080/api/orden/cancelar/".concat(_this63.PRODUCTO._id, "/").concat(login)).then(function (response) {
+                return fetch("//localhost:8080/api/orden/cancelar/".concat(_this64.PRODUCTO._id, "/").concat(login)).then(function (response) {
                   if (!response.ok) {
                     console.log(response);
                     throw new Error('Debes indicar un motivo');
@@ -19464,7 +19588,7 @@
               if (result.isConfirmed) {
                 sweetalert2__WEBPACK_IMPORTED_MODULE_5___default.a.fire({
                   title: "".concat(result.value),
-                  text: "La orden ".concat(_this63.PRODUCTO.sort, " fu\xE9 cancelada"),
+                  text: "La orden ".concat(_this64.PRODUCTO.sort, " fu\xE9 cancelada"),
                   icon: 'success',
                   showConfirmButton: false
                 });
@@ -19474,19 +19598,19 @@
         }, {
           key: "getMaquinas",
           value: function getMaquinas(orden) {
-            var _this64 = this;
+            var _this65 = this;
 
             this.api.getMaquinasByOrdens(orden).subscribe(function (resp) {
-              _this64.Maquinas = resp;
+              _this65.Maquinas = resp;
             });
           }
         }, {
           key: "FinalizarEdicion",
           value: function FinalizarEdicion() {
-            var _this65 = this;
+            var _this66 = this;
 
             this.api.putOrden(this.PRODUCTO, this.PRODUCTO._id).subscribe(function (resp) {
-              _this65.EditarOrden();
+              _this66.EditarOrden();
             });
           }
         }, {
@@ -21388,16 +21512,16 @@
         }, {
           key: "obtenerClientes",
           value: function obtenerClientes() {
-            var _this66 = this;
+            var _this67 = this;
 
             this.api.GetClientes().subscribe(function (resp) {
-              _this66.CLIENTES = resp.clientes;
+              _this67.CLIENTES = resp.clientes;
             });
           }
         }, {
           key: "cliente_selected",
           value: function cliente_selected(e) {
-            var _this67 = this;
+            var _this68 = this;
 
             if (e.target.value === '0') {
               this.cs = false;
@@ -21411,18 +21535,18 @@
             }
 
             this.api.getById(e.target.value).subscribe(function (resp) {
-              _this67.PRODUCTOS = resp.productos; // // console.log(this.PRODUCTOS)
+              _this68.PRODUCTOS = resp.productos; // // console.log(this.PRODUCTOS)
             });
           }
         }, {
           key: "Almacenado",
           value: function Almacenado() {
-            var _this68 = this;
+            var _this69 = this;
 
             this.api.getAlmacenado().subscribe(function (resp) {
-              _this68._CANTIDAD = resp;
+              _this69._CANTIDAD = resp;
 
-              _this68.totalizar_materiales();
+              _this69.totalizar_materiales();
             });
           }
         }, {
@@ -21435,7 +21559,7 @@
         }, {
           key: "producto_selected",
           value: function producto_selected(e) {
-            var _this69 = this;
+            var _this70 = this;
 
             if (e.target.value === '0') {
               this.ps = false;
@@ -21444,34 +21568,34 @@
             }
 
             this.api.getOneById(e.target.value).subscribe(function (resp) {
-              _this69.PRODUCTO = resp.producto; // // console.log(this.PRODUCTO,'PRODUCTO')
+              _this70.PRODUCTO = resp.producto; // // console.log(this.PRODUCTO,'PRODUCTO')
 
-              _this69.montajes = _this69.PRODUCTO.montajes;
-              _this69.Ejemplares_montados = _this69.PRODUCTO.ejemplares[_this69.i_montajes];
+              _this70.montajes = _this70.PRODUCTO.montajes;
+              _this70.Ejemplares_montados = _this70.PRODUCTO.ejemplares[_this70.i_montajes];
 
-              _this69.Ejemplares(_this69.Ejemplares_montados);
+              _this70.Ejemplares(_this70.Ejemplares_montados);
 
-              _this69.MAQUINAS = resp.maquinas; //   this.modal_nueva_orden()
+              _this70.MAQUINAS = resp.maquinas; //   this.modal_nueva_orden()
 
-              var x = _this69.PRODUCTO.materiales.length;
-              _this69.CANTIDAD = [];
+              var x = _this70.PRODUCTO.materiales.length;
+              _this70.CANTIDAD = [];
 
               var _loop3 = function _loop3(i) {
-                var respuesta = _this69._CANTIDAD.find(function (x) {
-                  return x.material.nombre == _this69.PRODUCTO[_this69.i_montajes].materiales[i].producto.nombre && x.material.marca == _this69.PRODUCTO.materiales[i].producto.marca && x.material.grupo.nombre;
+                var respuesta = _this70._CANTIDAD.find(function (x) {
+                  return x.material.nombre == _this70.PRODUCTO[_this70.i_montajes].materiales[i].producto.nombre && x.material.marca == _this70.PRODUCTO.materiales[i].producto.marca && x.material.grupo.nombre;
                 }); // // console.log(this.PRODUCTO)
 
 
                 if (!respuesta) {
-                  _this69.SinMaterial = true;
+                  _this70.SinMaterial = true;
                   return {
                     v: void 0
                   };
                 } else {
-                  _this69.SinMaterial = false;
+                  _this70.SinMaterial = false;
                 }
 
-                _this69.CANTIDAD.push(respuesta);
+                _this70.CANTIDAD.push(respuesta);
               };
 
               for (var i = 0; i < x; i++) {
@@ -21494,12 +21618,12 @@
         }, {
           key: "BuscarAlmacen",
           value: function BuscarAlmacen() {
-            var _this70 = this;
+            var _this71 = this;
 
             this.api.getAlmacen().subscribe(function (resp) {
-              _this70.ALMACEN = resp.materiales;
+              _this71.ALMACEN = resp.materiales;
 
-              _this70.totalizar_materiales();
+              _this71.totalizar_materiales();
             });
           }
         }, {
@@ -21606,34 +21730,34 @@
         }, {
           key: "totalizar_materiales",
           value: function totalizar_materiales() {
-            var _this71 = this;
+            var _this72 = this;
 
             var _loop4 = function _loop4(i) {
-              var existe = _this71.TOTALES.find(function (x) {
-                return x.material == _this71._CANTIDAD[i].material.nombre && x.marca == _this71._CANTIDAD[i].material.marca;
+              var existe = _this72.TOTALES.find(function (x) {
+                return x.material == _this72._CANTIDAD[i].material.nombre && x.marca == _this72._CANTIDAD[i].material.marca;
               });
 
               if (existe) {
-                var x = _this71.TOTALES.findIndex(function (x) {
-                  return x.material == _this71._CANTIDAD[i].material.nombre && x.marca == _this71._CANTIDAD[i].material.marca;
+                var x = _this72.TOTALES.findIndex(function (x) {
+                  return x.material == _this72._CANTIDAD[i].material.nombre && x.marca == _this72._CANTIDAD[i].material.marca;
                 });
 
-                _this71.TOTALES[x].total = Number(_this71.TOTALES[x].total);
-                _this71._CANTIDAD[i].cantidad = Number(_this71._CANTIDAD[i].cantidad);
-                _this71._CANTIDAD[i].neto = Number(_this71._CANTIDAD[i].material.neto);
-                var def = _this71._CANTIDAD[i].neto * _this71._CANTIDAD[i].cantidad / _this71.TOTALES[x].neto;
-                _this71.TOTALES[x].total = _this71.TOTALES[x].total + def;
+                _this72.TOTALES[x].total = Number(_this72.TOTALES[x].total);
+                _this72._CANTIDAD[i].cantidad = Number(_this72._CANTIDAD[i].cantidad);
+                _this72._CANTIDAD[i].neto = Number(_this72._CANTIDAD[i].material.neto);
+                var def = _this72._CANTIDAD[i].neto * _this72._CANTIDAD[i].cantidad / _this72.TOTALES[x].neto;
+                _this72.TOTALES[x].total = _this72.TOTALES[x].total + def;
               } else {
-                _this71.TOTALES.push({
-                  material: _this71._CANTIDAD[i].material.nombre,
-                  marca: _this71._CANTIDAD[i].material.marca,
-                  grupo: _this71._CANTIDAD[i].material.grupo.nombre,
-                  presentacion: _this71._CANTIDAD[i].material.presentacion,
-                  neto: _this71._CANTIDAD[i].material.neto,
-                  unidad: _this71._CANTIDAD[i].material.unidad,
-                  ancho: _this71._CANTIDAD[i].material.ancho,
-                  largo: _this71._CANTIDAD[i].material.largo,
-                  total: _this71._CANTIDAD[i].cantidad
+                _this72.TOTALES.push({
+                  material: _this72._CANTIDAD[i].material.nombre,
+                  marca: _this72._CANTIDAD[i].material.marca,
+                  grupo: _this72._CANTIDAD[i].material.grupo.nombre,
+                  presentacion: _this72._CANTIDAD[i].material.presentacion,
+                  neto: _this72._CANTIDAD[i].material.neto,
+                  unidad: _this72._CANTIDAD[i].material.unidad,
+                  ancho: _this72._CANTIDAD[i].material.ancho,
+                  largo: _this72._CANTIDAD[i].material.largo,
+                  total: _this72._CANTIDAD[i].cantidad
                 });
               }
             };
@@ -21710,7 +21834,7 @@
         }, {
           key: "colocarFecha",
           value: function colocarFecha(e, fase, i) {
-            var _this72 = this;
+            var _this73 = this;
 
             // CPH = CANTIDAD POR HOJAS
             this.api.getFechas(e.target.value).subscribe(function (resp) {
@@ -21740,14 +21864,14 @@
               document.getElementById(fase).value = fecha;
 
               if (cph > 0) {
-                HorasAgregadas = _this72.paginas / cph;
+                HorasAgregadas = _this73.paginas / cph;
               } else {
-                var MaquinaSelected2 = _this72.MAQUINAS.find(function (x) {
+                var MaquinaSelected2 = _this73.MAQUINAS.find(function (x) {
                   return x._id == e.target.value;
                 });
 
                 cph = MaquinaSelected2.cph;
-                HorasAgregadas = _this72.paginas / cph;
+                HorasAgregadas = _this73.paginas / cph;
               }
 
               var dias = HorasAgregadas / 7;
@@ -21774,7 +21898,7 @@
         }, {
           key: "finalizar",
           value: function finalizar(cantidad) {
-            var _this73 = this;
+            var _this74 = this;
 
             var data = {
               usuario: "".concat(this.usuario.Nombre, " ").concat(this.usuario.Apellido),
@@ -21794,10 +21918,10 @@
               observacion: this.observacion_
             };
             this.api.postOrden(data).subscribe(function (resp) {
-              var fases = _this73.PRODUCTO.grupo.tipos.length;
+              var fases = _this74.PRODUCTO.grupo.tipos.length;
 
               for (var x = 0; x < fases; x++) {
-                var fase = _this73.PRODUCTO.grupo.tipos[x]; // // console.log(this.PRODUCTO.grupo.tipos[x])
+                var fase = _this74.PRODUCTO.grupo.tipos[x]; // // console.log(this.PRODUCTO.grupo.tipos[x])
 
                 var maquina = document.getElementById("".concat(fase, "-maquina")).value;
                 var fechaI = document.getElementById("".concat(fase)).value;
@@ -21810,11 +21934,11 @@
                   pos: x
                 };
 
-                _this73.api.postOrden2(Data).subscribe(function (respuesta) {// // console.log(respuesta)
+                _this74.api.postOrden2(Data).subscribe(function (respuesta) {// // console.log(respuesta)
                 });
               }
 
-              _this73.router.navigate(["/orden-produccion/".concat(resp)]);
+              _this74.router.navigate(["/orden-produccion/".concat(resp)]);
             });
           }
         }]);
@@ -22863,14 +22987,14 @@
         }, {
           key: "ObtenerMaquinas",
           value: function ObtenerMaquinas() {
-            var _this74 = this;
+            var _this75 = this;
 
             this.api.GetMaquinas().subscribe(function (maquinas) {
-              _this74.MAQUINAS = maquinas;
+              _this75.MAQUINAS = maquinas;
 
-              _this74.obtenerTipos();
+              _this75.obtenerTipos();
 
-              _this74.cargado = true;
+              _this75.cargado = true;
             });
           }
         }, {
@@ -22974,13 +23098,13 @@
         }, {
           key: "obtenerTrabajos",
           value: function obtenerTrabajos() {
-            var _this75 = this;
+            var _this76 = this;
 
             this.api.getTrabajos().subscribe(function (resp) {
-              _this75.cargado = false;
-              _this75.TRABAJOS = resp; // console.log(this.TRABAJOS)
+              _this76.cargado = false;
+              _this76.TRABAJOS = resp; // console.log(this.TRABAJOS)
 
-              _this75.cargado = true;
+              _this76.cargado = true;
             });
           }
         }]);
@@ -23662,13 +23786,13 @@
         if (rf & 1) {
           var _r6 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "table", 32);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "table", 35);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "thead");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "tr");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "td", 33);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](3, "td", 36);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "b");
 
@@ -23754,7 +23878,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](30, "td");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](31, "button", 34);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](31, "button", 37);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function PreFacturacionComponent_table_8_Template_button_click_31_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r6);
@@ -23768,7 +23892,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](32, "div", 26);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](33, "i", 35);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](33, "i", 38);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -23818,9 +23942,9 @@
         }
       }
 
-      function PreFacturacionComponent_div_113_option_10_Template(rf, ctx) {
+      function PreFacturacionComponent_div_119_option_10_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "option", 43);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "option", 46);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1);
 
@@ -23840,11 +23964,11 @@
         }
       }
 
-      function PreFacturacionComponent_div_113_Template(rf, ctx) {
+      function PreFacturacionComponent_div_119_Template(rf, ctx) {
         if (rf & 1) {
           var _r11 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 36);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 39);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "span");
 
@@ -23856,17 +23980,17 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](4, "br");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](5, "div", 37);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](5, "div", 40);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "select", 38, 39);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](6, "select", 41, 42);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](8, "option", 40);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](8, "option", 43);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](9, "Nueva escala");
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](10, PreFacturacionComponent_div_113_option_10_Template, 2, 2, "option", 41);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](10, PreFacturacionComponent_div_119_option_10_Template, 2, 2, "option", 44);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -23880,7 +24004,7 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](13, "button", 16);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function PreFacturacionComponent_div_113_Template_button_click_13_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function PreFacturacionComponent_div_119_Template_button_click_13_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r11);
 
             var _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵreference"](7);
@@ -23896,9 +24020,9 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](15, "\xA0 ");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "button", 42);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](16, "button", 45);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function PreFacturacionComponent_div_113_Template_button_click_16_listener() {
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function PreFacturacionComponent_div_119_Template_button_click_16_listener() {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r11);
 
             var ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
@@ -23922,11 +24046,11 @@
         }
       }
 
-      function PreFacturacionComponent_div_114_Template(rf, ctx) {
+      function PreFacturacionComponent_div_120_Template(rf, ctx) {
         if (rf & 1) {
           var _r14 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵgetCurrentView"]();
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 36);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 39);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "span", 10);
 
@@ -23936,9 +24060,9 @@
 
           _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](3, "br");
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "input", 44);
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](4, "input", 47);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ngModelChange", function PreFacturacionComponent_div_114_Template_input_ngModelChange_4_listener($event) {
+          _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ngModelChange", function PreFacturacionComponent_div_120_Template_input_ngModelChange_4_listener($event) {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵrestoreView"](_r14);
 
             var ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵnextContext"]();
@@ -23971,6 +24095,7 @@
           _classCallCheck(this, PreFacturacionComponent);
 
           this.api = api;
+          this.Observacion = '';
           this.Validacion = false;
           this.Modificacion = false;
           this.ModificaciondeEscala = false;
@@ -23980,19 +24105,20 @@
             precio: 0
           };
           this.INDEX = 0;
+          this.usuario = api.usuario;
         }
 
         _createClass(PreFacturacionComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this76 = this;
+            var _this77 = this;
 
             this.api.getDespachosYOrdenes().subscribe(function (resp) {
-              _this76.Despachos = resp.preFacuracion;
-              _this76.Tasa = resp.MonitorBCV;
+              _this77.Despachos = resp.preFacuracion;
+              _this77.Tasa = resp.MonitorBCV;
               var split_dolar = resp.MonitorBCV.split(' ');
-              _this76.Tasa = Number(split_dolar[1]);
-              console.log(_this76.Tasa);
+              _this77.Tasa = Number(split_dolar[1]);
+              console.log(_this77.Tasa);
             });
           }
         }, {
@@ -24081,7 +24207,65 @@
             var rif = this.Despachos[this.INDEX].orden.cliente.rif;
             var direccion = this.Despachos[this.INDEX].orden.cliente.direccion;
             var producto = this.Despachos[this.INDEX].orden.producto.producto;
-            console.log(this.Despachos[this.INDEX].orden.producto.materiales[this.Despachos[this.INDEX].orden.montaje]);
+            var codigo = this.Despachos[this.INDEX].orden.producto.cod_cliente;
+            var observacion = this.Observacion;
+            var sustrato = '';
+            var colores = '0';
+            var usuario = "".concat(this.usuario.Nombre, " ").concat(this.usuario.Apellido);
+            var cargo = this.usuario.Departamento;
+            var procesos = 'Barnizado';
+            var cantidad = this.Despachos[this.INDEX].despacho.cantidad;
+            cantidad = this.puntoYcoma(cantidad);
+            var fecha = new Date();
+            var hoy = fecha.getDate();
+            var dia = fecha.getDate();
+            var mes = fecha.getMonth() + 1;
+            var ano = fecha.getFullYear();
+            var firma = "../../assets/firmas/".concat(this.usuario._id, ".png");
+            var escale;
+            escale = this.puntoYcoma(this.Escala.cantidad);
+            var tasa;
+            tasa = this.puntoYcoma(this.Tasa);
+            var precioUSD;
+            precioUSD = this.puntoYcoma(this.Despachos[this.INDEX].despacho.cantidad / 1000 * this.Escala.precio);
+            var precioBS;
+            precioBS = this.puntoYcoma(this.Despachos[this.INDEX].despacho.cantidad / 1000 * this.Escala.precio * this.Tasa);
+            var contactos;
+            var cargos;
+            var margin = 0;
+
+            for (var i = 0; i < this.Despachos[this.INDEX].orden.cliente.contactos.length; i++) {
+              if (i === 0) {
+                console.log(this.Despachos[this.INDEX].orden.cliente.contactos[i].trato);
+                contactos = "".concat(this.Despachos[this.INDEX].orden.cliente.contactos[i].trato, " ").concat(this.Despachos[this.INDEX].orden.cliente.contactos[i].nombre);
+                cargos = "".concat(this.Despachos[this.INDEX].orden.cliente.contactos[i].cargo);
+              }
+
+              if (i === 1) {
+                margin = -35;
+                contactos = contactos + " \n\n ".concat(this.Despachos[this.INDEX].orden.cliente.contactos[i].trato, " ").concat(this.Despachos[this.INDEX].orden.cliente.contactos[i].nombre);
+                cargos = cargos + " \n\n\n ".concat(this.Despachos[this.INDEX].orden.cliente.contactos[i].cargo);
+              }
+            }
+
+            console.log(this.Despachos[this.INDEX].orden.cliente);
+
+            for (var _i4 = 0; _i4 < this.Despachos[this.INDEX].orden.producto.post.length; _i4++) {
+              procesos = procesos + ', ' + this.Despachos[this.INDEX].orden.producto.post[_i4];
+            }
+
+            for (var _i5 = 0; _i5 < this.Despachos[this.INDEX].orden.producto.materiales[this.Despachos[this.INDEX].orden.montaje].length; _i5++) {
+              var material = this.Despachos[this.INDEX].orden.producto.materiales[this.Despachos[this.INDEX].orden.montaje][_i5];
+              console.log(material.producto.grupo.nombre);
+
+              if (material.producto.grupo.nombre === 'Sustrato') {
+                sustrato = "".concat(material.producto.nombre, " ").concat(material.producto.gramaje, "g, calibre:").concat(material.producto.calibre);
+              } else if (material.producto.grupo.nombre === 'Tinta') {
+                var Numer = Number(colores) + 1;
+                colores = Numer.toString();
+              }
+            }
+
             var pdf = new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["PdfMakeWrapper"]();
             pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["PdfMakeWrapper"].setFonts(pdfmake_build_vfs_fonts__WEBPACK_IMPORTED_MODULE_3__);
 
@@ -24112,23 +24296,40 @@
                         _context3.t0.add.call(_context3.t0, _context3.t12);
 
                         pdf.add(pdf.ln(1));
-                        pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('COTIZACIÓN').bold().end).colSpan(2).alignment('center').fillColor('#000000').color('#ffffff').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('N°').alignment('center').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('C-23-0001').bold().color('#FF0000').alignment('center').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Fecha').alignment('center').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('17/04/2023').alignment('center').end).end]]).widths(['25%', '75%']).end).end]]).widths(['25%', '40%', '35%']).layout('noBorders').end);
-                        pdf.add(pdf.ln(3));
-                        pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Cliente:').bold().end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](cliente).end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Rif:').bold().end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](rif).end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Dirección Fiscal:').bold().end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](direccion).end).end]]).layout('noBorders').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Contactos:').bold().end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Sr. Andrés Calcurian').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Desarrollador').italics().fontSize(9).end).end]]).layout('noBorders').end).end]]).widths(['65%', '35%']).layout('noBorders').end);
+                        pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('COTIZACIÓN').bold().end).colSpan(2).alignment('center').fillColor('#000000').color('#ffffff').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('N°').alignment('center').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('C-23-0001').bold().color('#FF0000').alignment('center').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Fecha').alignment('center').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]("".concat(dia, "/").concat(mes, "/").concat(ano)).alignment('center').end).end]]).widths(['25%', '75%']).end).end]]).widths(['25%', '40%', '35%']).layout('noBorders').end);
                         pdf.add(pdf.ln(1));
-                        pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Producto:').bold().end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](producto).end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Código:').bold().end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('159753').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Sustrato:').bold().end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Cartón Rev. Gris 300g, calibre:90').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Colores:').bold().end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('5').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Procesos:').bold().end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Barnizado, Troquel,...').end).end]]).layout('noBorders').end);
+                        pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Cliente:').bold().end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](cliente).end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Rif:').bold().end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](rif).end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Dirección Fiscal:').bold().end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](direccion).end).end]]).layout('noBorders').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Contactos:').bold().end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](contactos).end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](cargos).margin([0, margin]).italics().fontSize(9).end).end]]).layout('noBorders').end).end]]).widths(['65%', '35%']).layout('noBorders').end);
                         pdf.add(pdf.ln(1));
-                        pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Cantidad:').bold().margin([5, 5]).alignment('center').end).fillColor('#dedede').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Escala:').bold().margin([5, 5]).alignment('center').end).fillColor('#dedede').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Precio/millar (USD):').bold().alignment('center').end).fillColor('#dedede').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Tasa de cambio (BCV):').bold().alignment('center').end).fillColor('#dedede').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Precio/millar (Bs):').bold().alignment('center').end).fillColor('#dedede').end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('2.620.000').alignment('center').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('2.500.000').alignment('center').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('0,95').alignment('center').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('24,754').alignment('center').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('61.164,69').alignment('center').end).end]]).widths(['20%', '20%', '20%', '20%', '20%']).end);
+                        pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Producto:').bold().end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](producto).end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Código:').bold().end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](codigo).end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Sustrato:').bold().end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](sustrato).end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Colores:').bold().end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](colores).end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Procesos:').bold().end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](procesos).end).end]]).layout('noBorders').end);
                         pdf.add(pdf.ln(1));
-                        pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Observaciones:').bold().end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ').end).end]]).layout('noBorders').end);
-                        pdf.add(pdf.ln(4));
-                        pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Emitido por:').bold().end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Attilio Granone').end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Director General').italics().fontSize(9).end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Firma').end).end]]).layout('noBorders').end);
-                        pdf.add(pdf.ln(3));
+                        pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Cantidad:').bold().margin([5, 5]).alignment('center').end).fillColor('#dedede').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Escala:').bold().margin([5, 5]).alignment('center').end).fillColor('#dedede').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Precio/millar (USD):').bold().alignment('center').end).fillColor('#dedede').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Tasa de cambio (BCV):').bold().alignment('center').end).fillColor('#dedede').end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Precio/millar (Bs):').bold().alignment('center').end).fillColor('#dedede').end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](cantidad).alignment('center').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](escale).alignment('center').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](precioUSD).alignment('center').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](tasa).alignment('center').end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](precioBS).alignment('center').end).end]]).widths(['20%', '20%', '20%', '20%', '20%']).end);
+                        pdf.add(pdf.ln(1));
+                        pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Observaciones:').bold().end).end], [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](observacion).end).end]]).layout('noBorders').end);
+                        pdf.add(pdf.ln(2));
+                        _context3.t13 = pdf;
+                        _context3.t14 = pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Table"];
+                        _context3.t15 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Emitido por:').bold().end).end];
+                        _context3.t16 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](usuario).end).end];
+                        _context3.t17 = [new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"](cargo).italics().fontSize(9).end).end];
+                        _context3.t18 = pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Cell"];
+                        _context3.next = 35;
+                        return new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Img"](firma).width(60).build();
+
+                      case 35:
+                        _context3.t19 = _context3.sent;
+                        _context3.t20 = new _context3.t18(_context3.t19).end;
+                        _context3.t21 = [_context3.t20];
+                        _context3.t22 = [_context3.t15, _context3.t16, _context3.t17, _context3.t21];
+                        _context3.t23 = new _context3.t14(_context3.t22).layout('noBorders').end;
+
+                        _context3.t13.add.call(_context3.t13, _context3.t23);
+
+                        pdf.add(pdf.ln(2));
                         pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('Calle Pantín,  Local Galpón Nro 29, Urb. Chacao-Caracas, Miranda, Venezuela. ZP: 1060,').italics().fontSize(9).alignment('center').end);
                         pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_2__["Txt"]('email: info@poligraficaindustrial.com').italics().fontSize(9).alignment('center').end);
                         pdf.create().download("test");
 
-                      case 32:
+                      case 45:
                       case "end":
                         return _context3.stop();
                     }
@@ -24151,9 +24352,9 @@
       PreFacturacionComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({
         type: PreFacturacionComponent,
         selectors: [["app-pre-facturacion"]],
-        decls: 115,
-        vars: 21,
-        consts: [[1, "containe"], [1, "titulo"], [1, "card"], [1, "card-content"], [1, "subtitulo"], ["class", "table is-fullwidth is-bordered", 4, "ngFor", "ngForOf"], [1, "modal", 3, "ngClass"], [1, "modal-background", 3, "click"], [1, "modal-card"], [1, "modal-card-body"], [1, "subtitulo_"], [1, "columns"], [1, "column", "is-three-quarters"], [1, "field", "has-addons"], [1, "control"], ["type", "text", "disabled", "", "id", "Cantidad_en_OC", 1, "input", "is-small", "corto", 3, "ngModel", "change", "ngModelChange"], [1, "button", "is-success", "is-small", 3, "click"], [1, "fas", "fa-edit"], ["type", "text", "disabled", "", "id", "Cantidad_Despachada", 1, "input", "is-small", "corto", 3, "ngModel", "ngModelChange"], [1, "column"], [1, "table", "is-fullwidth"], [3, "click"], [1, "fas", "fa-edit", 2, "color", "#48c78e"], ["href", "https://www.bcv.org.ve/", "target", "_blank"], [1, "fas", "fa-globe"], [1, "button", "is-small", "is-info"], [1, "icon"], [1, "fas", "fa-eye"], [1, "button", "is-success", 3, "click"], [1, "fas", "fa-download"], [1, "modal-card-body", "modificacion"], ["class", "escala", 4, "ngIf"], [1, "table", "is-fullwidth", "is-bordered"], ["colspan", "2", 1, "is-selected"], [1, "button", "is-info", "is-small", 3, "click"], [1, "far", "fa-calendar-check"], [1, "escala"], [1, "select", "is-small"], ["placeholder", "Seleccionar nueva escala"], ["escalanueva", ""], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], [1, "button", "is-danger", "is-small", 3, "click"], [3, "value"], ["type", "number", 1, "input", "is-small", 3, "ngModel", "ngModelChange"]],
+        decls: 121,
+        vars: 22,
+        consts: [[1, "containe"], [1, "titulo"], [1, "card"], [1, "card-content"], [1, "subtitulo"], ["class", "table is-fullwidth is-bordered", 4, "ngFor", "ngForOf"], [1, "modal", 3, "ngClass"], [1, "modal-background", 3, "click"], [1, "modal-card"], [1, "modal-card-body"], [1, "subtitulo_"], [1, "columns"], [1, "column", "is-three-quarters"], [1, "field", "has-addons"], [1, "control"], ["type", "text", "disabled", "", "id", "Cantidad_en_OC", 1, "input", "is-small", "corto", 3, "ngModel", "change", "ngModelChange"], [1, "button", "is-success", "is-small", 3, "click"], [1, "fas", "fa-edit"], ["type", "text", "disabled", "", "id", "Cantidad_Despachada", 1, "input", "is-small", "corto", 3, "ngModel", "ngModelChange"], [1, "column"], [1, "table", "is-fullwidth"], [3, "click"], [1, "fas", "fa-edit", 2, "color", "#48c78e"], ["href", "https://www.bcv.org.ve/", "target", "_blank"], [1, "fas", "fa-globe"], [1, "button", "is-small", "is-info"], [1, "icon"], [1, "fas", "fa-eye"], [1, "field"], ["for", "", 1, "label"], ["id", "", 1, "textarea", 3, "ngModel", "ngModelChange"], [1, "button", "is-success", 3, "click"], [1, "fas", "fa-download"], [1, "modal-card-body", "modificacion"], ["class", "escala", 4, "ngIf"], [1, "table", "is-fullwidth", "is-bordered"], ["colspan", "2", 1, "is-selected"], [1, "button", "is-info", "is-small", 3, "click"], [1, "far", "fa-calendar-check"], [1, "escala"], [1, "select", "is-small"], ["placeholder", "Seleccionar nueva escala"], ["escalanueva", ""], ["value", ""], [3, "value", 4, "ngFor", "ngForOf"], [1, "button", "is-danger", "is-small", 3, "click"], [3, "value"], ["type", "number", 1, "input", "is-small", 3, "ngModel", "ngModelChange"]],
         template: function PreFacturacionComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
@@ -24502,25 +24703,45 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](103, "br");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](104, "button", 28);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](104, "div", 28);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function PreFacturacionComponent_Template_button_click_104_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](105, "label", 29);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](106, "Observaci\xF3n");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](107, "div", 14);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](108, "textarea", 30);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("ngModelChange", function PreFacturacionComponent_Template_textarea_ngModelChange_108_listener($event) {
+              return ctx.Observacion = $event;
+            });
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](109, "br");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](110, "button", 31);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function PreFacturacionComponent_Template_button_click_110_listener() {
               return ctx.descargarPDF();
             });
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](105, "div", 26);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](111, "div", 26);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](106, "i", 29);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](107, "span");
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](108, " Descargar ");
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](112, "i", 32);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](113, "span");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](114, " Descargar ");
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -24528,23 +24749,27 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](109, "div", 6);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](110, "div", 7);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function PreFacturacionComponent_Template_div_click_110_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](115, "div", 6);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](116, "div", 7);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("click", function PreFacturacionComponent_Template_div_click_116_listener() {
               return ctx.Modificacion_close();
             });
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](111, "div", 8);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](117, "div", 8);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](112, "div", 30);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](118, "div", 33);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](113, PreFacturacionComponent_div_113_Template, 18, 1, "div", 31);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](119, PreFacturacionComponent_div_119_Template, 18, 1, "div", 34);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](114, PreFacturacionComponent_div_114_Template, 5, 1, "div", 31);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](120, PreFacturacionComponent_div_120_Template, 5, 1, "div", 34);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 
@@ -24560,7 +24785,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](17, _c0, ctx.Validacion));
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](18, _c0, ctx.Validacion));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](12);
 
@@ -24610,9 +24835,13 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtextInterpolate1"]("Precio por millar (Bs): ", ctx.puntoYcoma(ctx.Despachos[ctx.INDEX].despacho.cantidad / 1000 * ctx.Escala.precio * ctx.Tasa), "");
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](8);
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](7);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](19, _c0, ctx.Modificacion));
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngModel", ctx.Observacion);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](7);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵproperty"]("ngClass", _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵpureFunction1"](20, _c0, ctx.Modificacion));
 
             _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵadvance"](4);
 
@@ -27080,16 +27309,16 @@
         }, {
           key: "despachos_porcentaje",
           value: function despachos_porcentaje(op, montaje) {
-            var _this77 = this;
+            var _this78 = this;
 
             this.Ej_montados = montaje;
             this.consumos('0', op);
             this.modal_consumos = false;
             this.modal_despacho = true;
             this.api.GetDespachoByOrden(op).subscribe(function (resp) {
-              _this77.despachos_filtrado = resp;
-              _this77.despachos_orden = op;
-              console.log(_this77.despachos_filtrado);
+              _this78.despachos_filtrado = resp;
+              _this78.despachos_orden = op;
+              console.log(_this78.despachos_filtrado);
             });
           }
         }, {
@@ -27100,13 +27329,13 @@
         }, {
           key: "Producto_Selected",
           value: function Producto_Selected(e) {
-            var _this78 = this;
+            var _this79 = this;
 
             if (e === '#') {
               this.Producto_select = undefined;
             } else {
               this.api.getOneById(e).subscribe(function (resp) {
-                _this78.Producto_select = resp.producto.producto;
+                _this79.Producto_select = resp.producto.producto;
                 return;
               });
             }
@@ -27315,23 +27544,23 @@
         }, {
           key: "Cliente_Selected",
           value: function Cliente_Selected(e) {
-            var _this79 = this;
+            var _this80 = this;
 
             this.api.getById(e).subscribe(function (resp) {
               console.log(resp);
-              _this79.producto_form = true;
-              _this79.Productos_by_client = resp;
+              _this80.producto_form = true;
+              _this80.Productos_by_client = resp;
             });
           }
         }, {
           key: "busquedaInteligente",
           value: function busquedaInteligente(e) {
-            var _this80 = this;
+            var _this81 = this;
 
             if (e === 'cliente') {
               this.api.GetClientes().subscribe(function (resp) {
-                _this80.busqueda_clientes = resp;
-                _this80.clientes_form = true;
+                _this81.busqueda_clientes = resp;
+                _this81.clientes_form = true;
               });
             } else {
               this.clientes_form = false;
@@ -27439,7 +27668,7 @@
         }, {
           key: "sumaSustrato",
           value: function sumaSustrato() {
-            var _this81 = this;
+            var _this82 = this;
 
             this.peso_hojas = 0;
             this.peso_carton = 0;
@@ -27452,24 +27681,24 @@
                 if (this.Lotes[i].material[x].material.grupo === '61f92a1f2126d717f004cca6') {
                   (function () {
                     var data = {
-                      Nombre: _this81.Lotes[i].material[x].material.nombre,
-                      Marca: _this81.Lotes[i].material[x].material.marca,
-                      Ancho: _this81.Lotes[i].material[x].material.ancho,
-                      Largo: _this81.Lotes[i].material[x].material.largo,
-                      Calibre: _this81.Lotes[i].material[x].material.calibre,
-                      Gramaje: _this81.Lotes[i].material[x].material.gramaje,
-                      Cantidad: _this81.Lotes[i].material[x].cantidad
+                      Nombre: _this82.Lotes[i].material[x].material.nombre,
+                      Marca: _this82.Lotes[i].material[x].material.marca,
+                      Ancho: _this82.Lotes[i].material[x].material.ancho,
+                      Largo: _this82.Lotes[i].material[x].material.largo,
+                      Calibre: _this82.Lotes[i].material[x].material.calibre,
+                      Gramaje: _this82.Lotes[i].material[x].material.gramaje,
+                      Cantidad: _this82.Lotes[i].material[x].cantidad
                     };
 
-                    var existe = _this81.Sustratos_suma.findIndex(function (x) {
+                    var existe = _this82.Sustratos_suma.findIndex(function (x) {
                       return x.Nombre === data.Nombre && x.Marca === data.Marca && x.Ancho === data.Ancho && x.Largo === data.Largo && x.Calibre === data.Calibre && x.Gramaje === data.Gramaje;
                     });
 
                     if (existe < 0) {
-                      _this81.Sustratos_suma.push(data); // console.log(this.Sustratos_suma)
+                      _this82.Sustratos_suma.push(data); // console.log(this.Sustratos_suma)
 
                     } else {
-                      _this81.Sustratos_suma[existe].Cantidad = Number(_this81.Sustratos_suma[existe].Cantidad) + Number(data.Cantidad);
+                      _this82.Sustratos_suma[existe].Cantidad = Number(_this82.Sustratos_suma[existe].Cantidad) + Number(data.Cantidad);
                     }
                   })();
                 }
@@ -27535,7 +27764,7 @@
         }, {
           key: "sumaTinta",
           value: function sumaTinta() {
-            var _this82 = this;
+            var _this83 = this;
 
             this.Tinta = 0;
             this.Suma_Tintas = [];
@@ -27549,45 +27778,45 @@
               for (var x = 0; x < this.data.Lotes[i].material.length; x++) {
                 if (this.data.Lotes[i].material[x].material.grupo === '61fd54e2d9115415a4416f17') {
                   (function () {
-                    _this82.Tinta = _this82.Tinta + _this82.data.Lotes[i].material[x].EA_Cantidad;
+                    _this83.Tinta = _this83.Tinta + _this83.data.Lotes[i].material[x].EA_Cantidad;
 
-                    switch (_this82.Lotes[i].material[x].material.color) {
+                    switch (_this83.Lotes[i].material[x].material.color) {
                       case 'Amarillo':
-                        _this82.Amarillo = _this82.Amarillo + _this82.data.Lotes[i].material[x].EA_Cantidad;
+                        _this83.Amarillo = _this83.Amarillo + _this83.data.Lotes[i].material[x].EA_Cantidad;
                         break;
 
                       case 'Cyan':
-                        _this82.Cyan = _this82.Cyan + _this82.data.Lotes[i].material[x].EA_Cantidad;
+                        _this83.Cyan = _this83.Cyan + _this83.data.Lotes[i].material[x].EA_Cantidad;
                         break;
 
                       case 'Magenta':
-                        _this82.Magenta = _this82.Magenta + _this82.data.Lotes[i].material[x].EA_Cantidad;
+                        _this83.Magenta = _this83.Magenta + _this83.data.Lotes[i].material[x].EA_Cantidad;
                         break;
 
                       case 'Negro':
-                        _this82.Negro = _this82.Negro + _this82.data.Lotes[i].material[x].EA_Cantidad;
+                        _this83.Negro = _this83.Negro + _this83.data.Lotes[i].material[x].EA_Cantidad;
                         break;
 
                       default:
-                        _this82.Otros_c = _this82.Otros_c + _this82.data.Lotes[i].material[x].EA_Cantidad;
+                        _this83.Otros_c = _this83.Otros_c + _this83.data.Lotes[i].material[x].EA_Cantidad;
                         break;
                     } // console.log(this.Lotes[i].material[x].material.color)
 
 
                     var data = {
-                      Nombre: _this82.Lotes[i].material[x].material.nombre,
-                      Marca: _this82.Lotes[i].material[x].material.marca,
-                      Cantidad: _this82.Lotes[i].material[x].EA_Cantidad
+                      Nombre: _this83.Lotes[i].material[x].material.nombre,
+                      Marca: _this83.Lotes[i].material[x].material.marca,
+                      Cantidad: _this83.Lotes[i].material[x].EA_Cantidad
                     };
 
-                    var existe = _this82.Suma_Tintas.findIndex(function (x) {
+                    var existe = _this83.Suma_Tintas.findIndex(function (x) {
                       return x.Nombre === data.Nombre && x.Marca === data.Marca;
                     });
 
                     if (existe < 0) {
-                      _this82.Suma_Tintas.push(data);
+                      _this83.Suma_Tintas.push(data);
                     } else {
-                      _this82.Suma_Tintas[existe].Cantidad = Number(_this82.Suma_Tintas[existe].Cantidad) + Number(data.Cantidad);
+                      _this83.Suma_Tintas[existe].Cantidad = Number(_this83.Suma_Tintas[existe].Cantidad) + Number(data.Cantidad);
                     }
                   })();
                 }
@@ -27631,7 +27860,7 @@
         }, {
           key: "consumos",
           value: function consumos(id, op) {
-            var _this83 = this;
+            var _this84 = this;
 
             this.lote_mayor = [];
             this.c_devoluciones = [];
@@ -27645,26 +27874,26 @@
             var _loop5 = function _loop5(i) {
               var _loop6 = function _loop6(n) {
                 // console.log(this.c_lotes[i].material[n].material.calibre)
-                var index = _this83.lote_mayor.find(function (x) {
-                  return x.nombre === _this83.c_lotes[i].material[n].material.nombre && x.ancho === _this83.c_lotes[i].material[n].material.ancho && x.largo === _this83.c_lotes[i].material[n].material.largo && x.calibre === _this83.c_lotes[i].material[n].material.calibre && x.gramaje === _this83.c_lotes[i].material[n].material.gramaje;
+                var index = _this84.lote_mayor.find(function (x) {
+                  return x.nombre === _this84.c_lotes[i].material[n].material.nombre && x.ancho === _this84.c_lotes[i].material[n].material.ancho && x.largo === _this84.c_lotes[i].material[n].material.largo && x.calibre === _this84.c_lotes[i].material[n].material.calibre && x.gramaje === _this84.c_lotes[i].material[n].material.gramaje;
                 });
 
                 if (!index) {
-                  var marca = _this83.c_lotes[i].material[n].material.marca;
-                  var _id2 = _this83.c_lotes[i].material[n].material._id;
-                  var cant = _this83.c_lotes[i].material[n].cantidad; // cant = cant.toFixed(2)
+                  var marca = _this84.c_lotes[i].material[n].material.marca;
+                  var _id2 = _this84.c_lotes[i].material[n].material._id;
+                  var cant = _this84.c_lotes[i].material[n].cantidad; // cant = cant.toFixed(2)
 
-                  if (_this83.c_lotes[i].material[n].material.ancho) {
-                    var ancho = _this83.c_lotes[i].material[n].material.ancho;
-                    var largo = _this83.c_lotes[i].material[n].material.largo;
-                    var calibre = _this83.c_lotes[i].material[n].material.calibre;
-                    var gramaje = _this83.c_lotes[i].material[n].material.gramaje;
+                  if (_this84.c_lotes[i].material[n].material.ancho) {
+                    var ancho = _this84.c_lotes[i].material[n].material.ancho;
+                    var largo = _this84.c_lotes[i].material[n].material.largo;
+                    var calibre = _this84.c_lotes[i].material[n].material.calibre;
+                    var gramaje = _this84.c_lotes[i].material[n].material.gramaje;
 
-                    _this83.lote_mayor.push({
+                    _this84.lote_mayor.push({
                       op: op,
                       id: _id2,
                       marca: marca,
-                      nombre: _this83.c_lotes[i].material[n].material.nombre,
+                      nombre: _this84.c_lotes[i].material[n].material.nombre,
                       cantidad: cant,
                       ancho: ancho,
                       largo: largo,
@@ -27672,11 +27901,11 @@
                       gramaje: gramaje
                     });
                   } else {
-                    _this83.lote_mayor.push({
+                    _this84.lote_mayor.push({
                       op: op,
                       id: _id2,
                       marca: marca,
-                      nombre: _this83.c_lotes[i].material[n].material.nombre,
+                      nombre: _this84.c_lotes[i].material[n].material.nombre,
                       cantidad: cant,
                       ancho: null,
                       largo: null,
@@ -27685,15 +27914,15 @@
                     });
                   }
                 } else {
-                  var b = _this83.lote_mayor.findIndex(function (x) {
-                    return x.nombre === _this83.c_lotes[i].material[n].material.nombre;
+                  var b = _this84.lote_mayor.findIndex(function (x) {
+                    return x.nombre === _this84.c_lotes[i].material[n].material.nombre;
                   });
 
-                  _this83.lote_mayor[b].cantidad = Number(_this83.lote_mayor[b].cantidad) + Number(_this83.c_lotes[i].material[n].cantidad);
+                  _this84.lote_mayor[b].cantidad = Number(_this84.lote_mayor[b].cantidad) + Number(_this84.c_lotes[i].material[n].cantidad);
                 }
               };
 
-              for (var n = 0; n < _this83.c_lotes[i].material.length; n++) {
+              for (var n = 0; n < _this84.c_lotes[i].material.length; n++) {
                 _loop6(n);
               }
             };
@@ -27725,7 +27954,7 @@
         }, {
           key: "Buscar_estadisticas",
           value: function Buscar_estadisticas(desde, hasta) {
-            var _this84 = this;
+            var _this85 = this;
 
             this.vacio = false;
             this.sinBusqueda = false;
@@ -27748,7 +27977,7 @@
                 op: op
               }).subscribe(function (resp) {
                 if (resp.length < 1) {
-                  _this84.vacio = true;
+                  _this85.vacio = true;
                 }
 
                 if (resp.mensaje) {
@@ -27761,35 +27990,35 @@
                   return;
                 }
 
-                _this84.data = resp;
-                _this84.Tinta_load = false;
-                _this84.Ordenes = resp.orden;
-                _this84.Despachos = resp.despachos;
-                _this84.devoluciones = resp.devoluciones;
-                _this84.gestiones = resp.gestiones;
-                _this84.Lotes = resp.lotes;
-                _this84.requisiciones = resp.requisiciones;
-                _this84.trabajos = resp.trabajos;
-                _this84.adicionales = resp.Adicionales; // console.log(resp)
+                _this85.data = resp;
+                _this85.Tinta_load = false;
+                _this85.Ordenes = resp.orden;
+                _this85.Despachos = resp.despachos;
+                _this85.devoluciones = resp.devoluciones;
+                _this85.gestiones = resp.gestiones;
+                _this85.Lotes = resp.lotes;
+                _this85.requisiciones = resp.requisiciones;
+                _this85.trabajos = resp.trabajos;
+                _this85.adicionales = resp.Adicionales; // console.log(resp)
 
-                _this84.cargando = false;
-                _this84.Sustrato_load = false;
-                _this84.Barniz_load = false;
-                _this84.Cajas_loading = false;
-                _this84.Pega_loading = false; // this.sumaTinta();
+                _this85.cargando = false;
+                _this85.Sustrato_load = false;
+                _this85.Barniz_load = false;
+                _this85.Cajas_loading = false;
+                _this85.Pega_loading = false; // this.sumaTinta();
                 // this.sumaSustrato();
 
-                _this84.sumaDevoluciones(_this84.devoluciones);
+                _this85.sumaDevoluciones(_this85.devoluciones);
 
-                _this84.createChart();
+                _this85.createChart();
 
-                _this84.SustratoChar();
+                _this85.SustratoChar();
 
-                _this84.BarnizChart();
+                _this85.BarnizChart();
 
-                _this84.CajasChart();
+                _this85.CajasChart();
 
-                _this84.PegaChart();
+                _this85.PegaChart();
               });
               return;
             }
@@ -27844,7 +28073,7 @@
 
                 this.api.EstadisticasOrden(data).subscribe(function (resp) {
                   if (resp.length < 1) {
-                    _this84.vacio = true;
+                    _this85.vacio = true;
                   }
 
                   if (resp.mensaje) {
@@ -27857,35 +28086,35 @@
                     return;
                   }
 
-                  _this84.data = resp;
-                  _this84.Tinta_load = false;
-                  _this84.Ordenes = resp.orden;
-                  _this84.Despachos = resp.despachos;
-                  _this84.devoluciones = resp.devoluciones;
-                  _this84.gestiones = resp.gestiones;
-                  _this84.Lotes = resp.lotes;
-                  _this84.requisiciones = resp.requisiciones;
-                  _this84.trabajos = resp.trabajos;
-                  _this84.adicionales = resp.Adicionales;
+                  _this85.data = resp;
+                  _this85.Tinta_load = false;
+                  _this85.Ordenes = resp.orden;
+                  _this85.Despachos = resp.despachos;
+                  _this85.devoluciones = resp.devoluciones;
+                  _this85.gestiones = resp.gestiones;
+                  _this85.Lotes = resp.lotes;
+                  _this85.requisiciones = resp.requisiciones;
+                  _this85.trabajos = resp.trabajos;
+                  _this85.adicionales = resp.Adicionales;
                   console.log(resp);
-                  _this84.cargando = false;
-                  _this84.Sustrato_load = false;
-                  _this84.Barniz_load = false;
-                  _this84.Cajas_loading = false;
-                  _this84.Pega_loading = false; // this.sumaTinta();
+                  _this85.cargando = false;
+                  _this85.Sustrato_load = false;
+                  _this85.Barniz_load = false;
+                  _this85.Cajas_loading = false;
+                  _this85.Pega_loading = false; // this.sumaTinta();
                   // this.sumaSustrato();
 
-                  _this84.sumaDevoluciones(_this84.devoluciones);
+                  _this85.sumaDevoluciones(_this85.devoluciones);
 
-                  _this84.createChart();
+                  _this85.createChart();
 
-                  _this84.SustratoChar();
+                  _this85.SustratoChar();
 
-                  _this84.BarnizChart();
+                  _this85.BarnizChart();
 
-                  _this84.CajasChart();
+                  _this85.CajasChart();
 
-                  _this84.PegaChart();
+                  _this85.PegaChart();
                 });
                 return; // TEST
               }
@@ -27920,38 +28149,38 @@
               hasta: hasta
             }).subscribe(function (resp) {
               if (resp.length < 1) {
-                _this84.vacio = true;
+                _this85.vacio = true;
               }
 
-              _this84.data = resp;
-              _this84.Tinta_load = false;
-              _this84.Ordenes = resp.orden;
-              _this84.Despachos = resp.despachos;
-              _this84.devoluciones = resp.devoluciones;
-              _this84.gestiones = resp.gestiones;
-              _this84.Lotes = resp.lotes;
-              _this84.requisiciones = resp.requisiciones;
-              _this84.trabajos = resp.trabajos;
-              _this84.adicionales = resp.Adicionales;
-              _this84.cargando = false;
-              _this84.Sustrato_load = false;
-              _this84.Barniz_load = false;
-              _this84.Cajas_loading = false;
-              _this84.Pega_loading = false;
-              console.log(_this84.data); // this.sumaTinta();
+              _this85.data = resp;
+              _this85.Tinta_load = false;
+              _this85.Ordenes = resp.orden;
+              _this85.Despachos = resp.despachos;
+              _this85.devoluciones = resp.devoluciones;
+              _this85.gestiones = resp.gestiones;
+              _this85.Lotes = resp.lotes;
+              _this85.requisiciones = resp.requisiciones;
+              _this85.trabajos = resp.trabajos;
+              _this85.adicionales = resp.Adicionales;
+              _this85.cargando = false;
+              _this85.Sustrato_load = false;
+              _this85.Barniz_load = false;
+              _this85.Cajas_loading = false;
+              _this85.Pega_loading = false;
+              console.log(_this85.data); // this.sumaTinta();
               // this.sumaSustrato();
 
-              _this84.sumaDevoluciones(_this84.devoluciones);
+              _this85.sumaDevoluciones(_this85.devoluciones);
 
-              _this84.createChart();
+              _this85.createChart();
 
-              _this84.SustratoChar();
+              _this85.SustratoChar();
 
-              _this84.BarnizChart();
+              _this85.BarnizChart();
 
-              _this84.CajasChart();
+              _this85.CajasChart();
 
-              _this84.PegaChart();
+              _this85.PegaChart();
             }, function (err) {
               alert(err);
               console.log(err);
@@ -27960,7 +28189,7 @@
         }, {
           key: "sumaDevoluciones",
           value: function sumaDevoluciones(dev) {
-            var _this85 = this;
+            var _this86 = this;
 
             this.D_Negro = 0;
             this.D_Amarillo = 0;
@@ -27978,40 +28207,40 @@
                 if (color && grupo == "61fd54e2d9115415a4416f17") {
                   switch (color) {
                     case 'Amarillo':
-                      _this85.D_Amarillo = _this85.D_Amarillo + Number(material.cantidad);
+                      _this86.D_Amarillo = _this86.D_Amarillo + Number(material.cantidad);
                       break;
 
                     case 'Cyan':
-                      _this85.D_Cyan = _this85.D_Cyan + Number(material.cantidad);
+                      _this86.D_Cyan = _this86.D_Cyan + Number(material.cantidad);
                       break;
 
                     case 'Magenta':
-                      _this85.D_Magenta = _this85.D_Magenta + Number(material.cantidad);
+                      _this86.D_Magenta = _this86.D_Magenta + Number(material.cantidad);
                       break;
 
                     case 'Negro':
-                      _this85.D_Negro = _this85.D_Negro + Number(material.cantidad);
+                      _this86.D_Negro = _this86.D_Negro + Number(material.cantidad);
                       break;
 
                     default:
-                      _this85.D_Pantone = _this85.D_Pantone + Number(material.cantidad);
+                      _this86.D_Pantone = _this86.D_Pantone + Number(material.cantidad);
                       break;
                   }
                 }
 
-                var index = _this85.D_Tintas.findIndex(function (x) {
+                var index = _this86.D_Tintas.findIndex(function (x) {
                   return x.color == material.material.nombre && x.marca == material.marca;
                 });
 
                 if (index == -1) {
-                  _this85.D_Tintas.push({
+                  _this86.D_Tintas.push({
                     color: material.nombre,
                     marca: material.marca,
                     cantidad: material.cantidad
                   }); // alert(index)
 
                 } else {
-                  _this85.D_Tintas[index].cantidad = _this85.D_Tintas[index].cantidad + Number(material.cantidad); // alert('aja')
+                  _this86.D_Tintas[index].cantidad = _this86.D_Tintas[index].cantidad + Number(material.cantidad); // alert('aja')
                 }
               };
 
@@ -28978,6 +29207,390 @@
             type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Output"]
           }]
         });
+      })();
+      /***/
+
+    },
+
+    /***/
+    "ixT5":
+    /*!****************************************************************!*\
+      !*** ./src/app/token-validation/token-validation.component.ts ***!
+      \****************************************************************/
+
+    /*! exports provided: TokenValidationComponent */
+
+    /***/
+    function ixT5(module, __webpack_exports__, __webpack_require__) {
+      "use strict";
+
+      __webpack_require__.r(__webpack_exports__);
+      /* harmony export (binding) */
+
+
+      __webpack_require__.d(__webpack_exports__, "TokenValidationComponent", function () {
+        return TokenValidationComponent;
+      });
+      /* harmony import */
+
+
+      var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+      /*! @angular/core */
+      "fXoL");
+      /* harmony import */
+
+
+      var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+      /*! sweetalert2 */
+      "PSD3");
+      /* harmony import */
+
+
+      var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
+      /* harmony import */
+
+
+      var _services_rest_api_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! ../services/rest-api.service */
+      "n6ga");
+      /* harmony import */
+
+
+      var _angular_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+      /*! @angular/router */
+      "tyNb");
+      /* harmony import */
+
+
+      var _angular_common__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @angular/common */
+      "ofXK");
+      /* harmony import */
+
+
+      var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+      /*! @angular/forms */
+      "3Pt+");
+
+      function TokenValidationComponent_div_0_Template(rf, ctx) {
+        if (rf & 1) {
+          var _r4 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "div", 2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "span", 5);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "a", 6);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "i", 7);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "span", 8);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "img", 9);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "span", 10);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](10, " Ingrese su PIN ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](11, "br");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](12, "input", 11, 12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](14, "br");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](15, "br");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "span", 13);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "button", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TokenValidationComponent_div_0_Template_button_click_17_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r4);
+
+            var _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](13);
+
+            var ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+            return ctx_r3.Verificar(_r2.value);
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](18, " Continuar ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+      }
+
+      function TokenValidationComponent_div_2_button_18_Template(rf, ctx) {
+        if (rf & 1) {
+          var _r7 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TokenValidationComponent_div_2_button_18_Template_button_click_0_listener() {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7);
+
+            var ctx_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
+
+            return ctx_r6.Crear_pin();
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "span", 19);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "i", 20);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "span");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Crear PIN");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+      }
+
+      function TokenValidationComponent_div_2_Template(rf, ctx) {
+        if (rf & 1) {
+          var _r9 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "div", 2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 3);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](4, "span", 10);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, " Crear PIN de seguridad ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "br");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, " Crear nuevo PIN de seguridad para acceder al m\xF3dulo. ");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](8, "hr");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 15);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](10, "label", 16);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11, "Ingrese PIN");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](12, "input", 17);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TokenValidationComponent_div_2_Template_input_ngModelChange_12_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r9);
+
+            var ctx_r8 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+            return ctx_r8.pin1 = $event;
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "div", 15);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "label", 16);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "Repetir PIN");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](16, "input", 17);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TokenValidationComponent_div_2_Template_input_ngModelChange_16_listener($event) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r9);
+
+            var ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+            return ctx_r10.pin2 = $event;
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](17, "br");
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, TokenValidationComponent_div_2_button_18_Template, 5, 0, "button", 18);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+        }
+
+        if (rf & 2) {
+          var ctx_r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](12);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r1.pin1);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngModel", ctx_r1.pin2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r1.pin1 != "" && ctx_r1.pin1 === ctx_r1.pin2);
+        }
+      }
+
+      var TokenValidationComponent = /*#__PURE__*/function () {
+        function TokenValidationComponent(api, router) {
+          _classCallCheck(this, TokenValidationComponent);
+
+          this.api = api;
+          this.router = router;
+          this.nuevo_pin = true;
+          this.sin_autorizar = true;
+          this.pin1 = '';
+          this.pin2 = '';
+          this.usuario = this.api.usuario;
+          console.log(this.usuario);
+        }
+
+        _createClass(TokenValidationComponent, [{
+          key: "ngOnInit",
+          value: function ngOnInit() {
+            if (this.usuario.Precios === 1) {
+              if (this.usuario.pin === '') {
+                this.nuevo_pin = true;
+              } else {
+                this.nuevo_pin = false;
+              }
+            } else {
+              this.sin_autorizar = true;
+              this.router.navigateByUrl('/');
+            }
+          }
+        }, {
+          key: "Crear_pin",
+          value: function Crear_pin() {
+            var _this87 = this;
+
+            var data = {
+              pin: this.pin2,
+              correo: this.usuario.Correo
+            };
+            this.api.crearPin(data).subscribe(function (resp) {
+              sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+                title: 'Pin creado',
+                text: 'Se creó nuevo PIN para acceder al modulo',
+                icon: 'success',
+                showConfirmButton: true
+              });
+              _this87.usuario.pin = '0';
+              _this87.nuevo_pin = false;
+            });
+          }
+        }, {
+          key: "Verificar",
+          value: function Verificar(pin) {
+            var _this88 = this;
+
+            var data = {
+              correo: this.usuario.Correo,
+              pin: pin
+            };
+            this.api.TwoStepsValidation(data).subscribe(function (resp) {
+              localStorage.setItem('token_two', resp.token_two);
+
+              _this88.router.navigateByUrl('/ventas');
+            }, function (err) {
+              // console.log(err)
+              sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+                title: 'Error',
+                text: err.error.err.message,
+                icon: 'error',
+                showConfirmButton: false
+              });
+            });
+          }
+        }]);
+
+        return TokenValidationComponent;
+      }();
+
+      TokenValidationComponent.ɵfac = function TokenValidationComponent_Factory(t) {
+        return new (t || TokenValidationComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_services_rest_api_service__WEBPACK_IMPORTED_MODULE_2__["RestApiService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]));
+      };
+
+      TokenValidationComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
+        type: TokenValidationComponent,
+        selectors: [["app-token-validation"]],
+        decls: 3,
+        vars: 2,
+        consts: [["class", "modal is-active", 4, "ngIf"], [1, "modal", "is-active"], [1, "modal-background"], [1, "modal-card"], [1, "modal-card-body"], [1, "volver"], ["href", "/"], [1, "fas", "fa-angle-double-left"], [1, "logo"], ["src", "../../assets/blindaje.png", "width", "150"], [1, "subtitulo"], ["type", "password", 1, "input"], ["pin", ""], [1, "confirmacion"], [1, "button", "is-success", 3, "click"], [1, "field"], ["for", "", 1, "label"], ["type", "text", 1, "input", 3, "ngModel", "ngModelChange"], ["class", "button is-success", 3, "click", 4, "ngIf"], [1, "icon"], [1, "fas", "fa-lock"]],
+        template: function TokenValidationComponent_Template(rf, ctx) {
+          if (rf & 1) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, TokenValidationComponent_div_0_Template, 19, 0, "div", 0);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "div");
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](2, TokenValidationComponent_div_2_Template, 19, 3, "div", 0);
+          }
+
+          if (rf & 2) {
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.nuevo_pin);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.nuevo_pin);
+          }
+        },
+        directives: [_angular_common__WEBPACK_IMPORTED_MODULE_4__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_5__["NgModel"]],
+        styles: ["@font-face {\r\n    font-family: Roboto;\r\n    src: url('Roboto-Black.ttf');\r\n}\r\n@-webkit-keyframes spin {\r\n    from {\r\n        transform:rotate(0deg);\r\n    }\r\n    to {\r\n        transform:rotate(360deg);\r\n    }\r\n}\r\n@keyframes spin {\r\n    from {\r\n        transform:rotate(0deg);\r\n    }\r\n    to {\r\n        transform:rotate(360deg);\r\n    }\r\n}\r\n.containe[_ngcontent-%COMP%]{\r\n    margin-left: 1%;\r\n    width: 98%;\r\n}\r\n.titulo[_ngcontent-%COMP%]{\r\n    font-size: 45px;\r\n    font-family: Roboto;\r\n}\r\n.subtitulo[_ngcontent-%COMP%]{\r\n    display: block;\r\n    font-size: 25px;\r\n    font-family: Roboto;\r\n    text-align: center;\r\n}\r\n.modal-card[_ngcontent-%COMP%]{\r\n    width: 250px;\r\n}\r\n.volver[_ngcontent-%COMP%]{\r\n    display: block;\r\n    \r\n    width: 20px;\r\n    height: 20px;\r\n    border-radius: 500px;\r\n    padding: 15px;\r\n    font-size: x-large;\r\n}\r\n.volver[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]{\r\n    display: block;\r\n    margin-top: -18px;\r\n    margin-left: -11px;\r\n}\r\n.logo[_ngcontent-%COMP%]{\r\n    display: block;\r\n    text-align: center;\r\n    align-content: center;\r\n    font-size: 100px;\r\n    padding: 0px;\r\n}\r\n.confirmacion[_ngcontent-%COMP%]{\r\n    display: block;\r\n    align-items: center;\r\n    align-content: center;\r\n    text-align: center;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdG9rZW4tdmFsaWRhdGlvbi90b2tlbi12YWxpZGF0aW9uLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxtQkFBbUI7SUFDbkIsNEJBQThDO0FBQ2xEO0FBQ0E7SUFDSTtRQUNJLHNCQUFzQjtJQUMxQjtJQUNBO1FBQ0ksd0JBQXdCO0lBQzVCO0FBQ0o7QUFQQTtJQUNJO1FBQ0ksc0JBQXNCO0lBQzFCO0lBQ0E7UUFDSSx3QkFBd0I7SUFDNUI7QUFDSjtBQUdBO0lBQ0ksZUFBZTtJQUNmLFVBQVU7QUFDZDtBQUNBO0lBQ0ksZUFBZTtJQUNmLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksY0FBYztJQUNkLGVBQWU7SUFDZixtQkFBbUI7SUFDbkIsa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxZQUFZO0FBQ2hCO0FBRUE7SUFDSSxjQUFjO0lBQ2QsNkJBQTZCO0lBQzdCLFdBQVc7SUFDWCxZQUFZO0lBQ1osb0JBQW9CO0lBQ3BCLGFBQWE7SUFDYixrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLGNBQWM7SUFDZCxpQkFBaUI7SUFDakIsa0JBQWtCO0FBQ3RCO0FBRUE7SUFDSSxjQUFjO0lBQ2Qsa0JBQWtCO0lBQ2xCLHFCQUFxQjtJQUNyQixnQkFBZ0I7SUFDaEIsWUFBWTtBQUNoQjtBQUVBO0lBQ0ksY0FBYztJQUNkLG1CQUFtQjtJQUNuQixxQkFBcUI7SUFDckIsa0JBQWtCO0FBQ3RCO0FBR0EsdUJBQXVCIiwiZmlsZSI6InNyYy9hcHAvdG9rZW4tdmFsaWRhdGlvbi90b2tlbi12YWxpZGF0aW9uLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAZm9udC1mYWNlIHtcclxuICAgIGZvbnQtZmFtaWx5OiBSb2JvdG87XHJcbiAgICBzcmM6IHVybCguLi8uLi9hc3NldHMvUm9ib3RvL1JvYm90by1CbGFjay50dGYpO1xyXG59XHJcbkBrZXlmcmFtZXMgc3BpbiB7XHJcbiAgICBmcm9tIHtcclxuICAgICAgICB0cmFuc2Zvcm06cm90YXRlKDBkZWcpO1xyXG4gICAgfVxyXG4gICAgdG8ge1xyXG4gICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMzYwZGVnKTtcclxuICAgIH1cclxufVxyXG5cclxuXHJcbi5jb250YWluZXtcclxuICAgIG1hcmdpbi1sZWZ0OiAxJTtcclxuICAgIHdpZHRoOiA5OCU7XHJcbn1cclxuLnRpdHVsb3tcclxuICAgIGZvbnQtc2l6ZTogNDVweDtcclxuICAgIGZvbnQtZmFtaWx5OiBSb2JvdG87XHJcbn1cclxuLnN1YnRpdHVsb3tcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgZm9udC1zaXplOiAyNXB4O1xyXG4gICAgZm9udC1mYW1pbHk6IFJvYm90bztcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG4ubW9kYWwtY2FyZHtcclxuICAgIHdpZHRoOiAyNTBweDtcclxufVxyXG5cclxuLnZvbHZlcntcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgLyogYm9yZGVyOiBzb2xpZCAycHggYmxhY2s7ICovXHJcbiAgICB3aWR0aDogMjBweDtcclxuICAgIGhlaWdodDogMjBweDtcclxuICAgIGJvcmRlci1yYWRpdXM6IDUwMHB4O1xyXG4gICAgcGFkZGluZzogMTVweDtcclxuICAgIGZvbnQtc2l6ZTogeC1sYXJnZTtcclxufVxyXG4udm9sdmVyIGF7XHJcbiAgICBkaXNwbGF5OiBibG9jaztcclxuICAgIG1hcmdpbi10b3A6IC0xOHB4O1xyXG4gICAgbWFyZ2luLWxlZnQ6IC0xMXB4O1xyXG59XHJcblxyXG4ubG9nb3tcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xyXG4gICAgYWxpZ24tY29udGVudDogY2VudGVyO1xyXG4gICAgZm9udC1zaXplOiAxMDBweDtcclxuICAgIHBhZGRpbmc6IDBweDtcclxufVxyXG5cclxuLmNvbmZpcm1hY2lvbntcclxuICAgIGRpc3BsYXk6IGJsb2NrO1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGFsaWduLWNvbnRlbnQ6IGNlbnRlcjtcclxuICAgIHRleHQtYWxpZ246IGNlbnRlcjtcclxufVxyXG5cclxuXHJcbi8qIC8vcGluIHZlcmlmaWNhY2lvbiAqLyJdfQ== */"]
+      });
+      /*@__PURE__*/
+
+      (function () {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](TokenValidationComponent, [{
+          type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
+          args: [{
+            selector: 'app-token-validation',
+            templateUrl: './token-validation.component.html',
+            styleUrls: ['./token-validation.component.css']
+          }]
+        }], function () {
+          return [{
+            type: _services_rest_api_service__WEBPACK_IMPORTED_MODULE_2__["RestApiService"]
+          }, {
+            type: _angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]
+          }];
+        }, null);
       })();
       /***/
 
@@ -30675,13 +31288,13 @@
         _createClass(BarChartComponent, [{
           key: "ngOnInit",
           value: function ngOnInit() {
-            var _this86 = this;
+            var _this89 = this;
 
             // consultaDolar.$monitor().then($=>{console.log($)})
             this.api.GetClientes().subscribe(function (resp) {
-              _this86.clientes = resp.clientes;
-              console.log(_this86.clientes);
-              _this86.carga_clientes = false;
+              _this89.clientes = resp.clientes;
+              console.log(_this89.clientes);
+              _this89.carga_clientes = false;
             });
           }
         }, {
@@ -30701,7 +31314,7 @@
         }, {
           key: "Delete",
           value: function Delete(i, n) {
-            var _this87 = this;
+            var _this90 = this;
 
             sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
               title: '¿Quieres eliminar este intervalo?',
@@ -30713,9 +31326,9 @@
             }).then(function (result) {
               /* Read more about isConfirmed, isDenied below */
               if (result.isConfirmed) {
-                _this87.intervalos[n].escalas.splice(i, 1);
+                _this90.intervalos[n].escalas.splice(i, 1);
 
-                _this87.api.putIntervalo(_this87.intervalos[n]).subscribe(function (resp) {
+                _this90.api.putIntervalo(_this90.intervalos[n]).subscribe(function (resp) {
                   sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
                     title: 'Eliminado',
                     icon: 'success',
@@ -30739,10 +31352,10 @@
         }, {
           key: "FindDescripcion",
           value: function FindDescripcion(e) {
-            var _this88 = this;
+            var _this91 = this;
 
             var El_producto = this.productos.find(function (x) {
-              return x._id == _this88.producto;
+              return x._id == _this91.producto;
             });
             this.Descripcion = false;
 
@@ -30822,13 +31435,13 @@
         }, {
           key: "select_producto",
           value: function select_producto(e) {
-            var _this89 = this;
+            var _this92 = this;
 
             if (e != '#') {
               if (e === 'all') {
                 this.producto_seleccionado = false;
                 this.api.GetEscalaByCliente(this.Cliente_selected).subscribe(function (resp) {
-                  _this89.intervalos = resp;
+                  _this92.intervalos = resp;
                 });
               } else {
                 this.producto = e;
@@ -30843,7 +31456,7 @@
                 }
 
                 this.api.getEscala(e).subscribe(function (resp) {
-                  _this89.intervalos = resp;
+                  _this92.intervalos = resp;
                 });
               }
             } else {
@@ -30873,7 +31486,7 @@
         }, {
           key: "new_escala_vesion",
           value: function new_escala_vesion() {
-            var _this90 = this;
+            var _this93 = this;
 
             var data = {
               descripcion: this.desc,
@@ -30884,12 +31497,12 @@
             };
             this.intervalos.push(data);
             this.api.postEscala(data).subscribe(function (resp) {
-              _this90.desc = 'Debes seleccionar un montaje';
-              _this90.montaj = [], _this90.escala = [], _this90.producto = '';
+              _this93.desc = 'Debes seleccionar un montaje';
+              _this93.montaj = [], _this93.escala = [], _this93.producto = '';
               document.getElementById('count').value = '';
               document.getElementById('price').value = '';
-              _this90.newTable = false;
-              _this90.Descripcion = false;
+              _this93.newTable = false;
+              _this93.Descripcion = false;
               sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
                 title: 'Hecho',
                 text: 'Se creó nueva tabla en este producto',
@@ -30941,21 +31554,21 @@
         }, {
           key: "select_cliente",
           value: function select_cliente(e) {
-            var _this91 = this;
+            var _this94 = this;
 
             if (e != '#') {
               this.Cliente_selected = e;
               console.log(this.Cliente_selected);
               this.api.getById(e).subscribe(function (resp) {
-                _this91.productos = resp.productos;
-                _this91.carga_ordenes = false;
+                _this94.productos = resp.productos;
+                _this94.carga_ordenes = false;
               });
             }
           }
         }, {
           key: "select_orden",
           value: function select_orden(e) {
-            var _this92 = this;
+            var _this95 = this;
 
             this.Despachos = [];
 
@@ -30964,7 +31577,7 @@
                 for (var i = 0; i < resp.length; i++) {
                   for (var x = 0; x < resp[i].despacho.length; x++) {
                     if (resp[i].despacho[x].op === e) {
-                      _this92.Despachos.push({
+                      _this95.Despachos.push({
                         producto: resp[i].despacho[x].producto,
                         cantidad: resp[i].despacho[x].cantidad
                       });
@@ -30972,15 +31585,15 @@
                   }
                 }
 
-                console.log(_this92.Despachos);
-                _this92.cargar_despachos = false;
+                console.log(_this95.Despachos);
+                _this95.cargar_despachos = false;
               });
             }
           }
         }, {
           key: "Select_Despacho",
           value: function Select_Despacho(e) {
-            var _this93 = this;
+            var _this96 = this;
 
             if (e != '#') {
               var separado = e.split('*');
@@ -30992,11 +31605,11 @@
               this.api.GetOneEscala(producto, {
                 cantidad: cantidad
               }).subscribe(function (resp) {
-                _this93.Escala = resp.Escala[resp.Escala.length - 1].cantidad;
-                _this93.PrecioXunidad = resp.Escala[resp.Escala.length - 1].precio;
+                _this96.Escala = resp.Escala[resp.Escala.length - 1].cantidad;
+                _this96.PrecioXunidad = resp.Escala[resp.Escala.length - 1].precio;
                 resp.MonitorBCV;
                 var split_dolar = resp.MonitorBCV.split(' ');
-                _this93.tasa = Number(split_dolar[1]);
+                _this96.tasa = Number(split_dolar[1]);
               });
             } else {
               this.cargar_previo = true;
@@ -31005,19 +31618,19 @@
         }, {
           key: "escalas_modal",
           value: function escalas_modal() {
-            var _this94 = this;
+            var _this97 = this;
 
             if (!this.escalas) {
               this.productos = [];
               this.Escalas = [];
               this.escalas = true;
               this.api.getById(this.Cliente_selected).subscribe(function (resp) {
-                _this94.productos = resp.productos;
-                console.log(_this94.productos);
-                _this94.cargo_productos = false;
+                _this97.productos = resp.productos;
+                console.log(_this97.productos);
+                _this97.cargo_productos = false;
 
-                _this94.api.getEscala(_this94.Cliente_selected).subscribe(function (resp) {
-                  _this94.Escalas = resp;
+                _this97.api.getEscala(_this97.Cliente_selected).subscribe(function (resp) {
+                  _this97.Escalas = resp;
                 });
               });
             } else {
@@ -31041,7 +31654,7 @@
         }, {
           key: "NuevoIntervalo",
           value: function NuevoIntervalo(cantidad, precio, producto, i) {
-            var _this95 = this;
+            var _this98 = this;
 
             var data = {
               producto: producto,
@@ -31050,17 +31663,17 @@
               cliente: this.Cliente_selected
             };
             this.api.postEscala(data).subscribe(function (resp) {
-              _this95.escalas_modal();
+              _this98.escalas_modal();
 
-              _this95.escalas_modal();
+              _this98.escalas_modal();
 
-              _this95.cancelar_intervalo(i);
+              _this98.cancelar_intervalo(i);
             });
           }
         }, {
           key: "delete_escala",
           value: function delete_escala(escala) {
-            var _this96 = this;
+            var _this99 = this;
 
             sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
               title: '¿Quieres eliminar este intervalo de la escala?',
@@ -31073,10 +31686,10 @@
             }).then(function (result) {
               /* Read more about isConfirmed, isDenied below */
               if (result.isConfirmed) {
-                _this96.api.DeleteEscala(escala).subscribe(function (resp) {
-                  _this96.escalas_modal();
+                _this99.api.DeleteEscala(escala).subscribe(function (resp) {
+                  _this99.escalas_modal();
 
-                  _this96.escalas_modal();
+                  _this99.escalas_modal();
 
                   sweetalert2__WEBPACK_IMPORTED_MODULE_2___default.a.fire({
                     title: 'Eliminado',
@@ -31957,10 +32570,10 @@
         }, {
           key: "buscarPendientes",
           value: function buscarPendientes() {
-            var _this97 = this;
+            var _this100 = this;
 
             this.api.getRequiEspera().subscribe(function (resp) {
-              _this97.Pendiente = resp;
+              _this100.Pendiente = resp;
             });
           }
         }, {
@@ -31977,7 +32590,7 @@
         }, {
           key: "aprobar",
           value: function aprobar(id) {
-            var _this98 = this;
+            var _this101 = this;
 
             sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
               title: '¿Aprobar Solicitud?',
@@ -31990,10 +32603,10 @@
               cancelButtonText: 'Cancelar'
             }).then(function (result) {
               if (result.isConfirmed) {
-                _this98.api.UpdateRequi(id).subscribe(function (resp) {
-                  _this98.buscarPendientes();
+                _this101.api.UpdateRequi(id).subscribe(function (resp) {
+                  _this101.buscarPendientes();
 
-                  _this98.onReset.emit();
+                  _this101.onReset.emit();
                 });
 
                 sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
@@ -32008,7 +32621,7 @@
         }, {
           key: "rechazar",
           value: function rechazar(id) {
-            var _this99 = this;
+            var _this102 = this;
 
             sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
               title: '¿Rechazar Solicitud?',
@@ -32021,10 +32634,10 @@
               cancelButtonText: 'Cancelar'
             }).then(function (result) {
               if (result.isConfirmed) {
-                _this99.api.DeleteRequi(id).subscribe(function (resp) {
-                  _this99.buscarPendientes();
+                _this102.api.DeleteRequi(id).subscribe(function (resp) {
+                  _this102.buscarPendientes();
 
-                  _this99.onReset.emit();
+                  _this102.onReset.emit();
                 });
 
                 sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
@@ -37490,10 +38103,10 @@
         }, {
           key: "filterList",
           value: function filterList() {
-            var _this100 = this;
+            var _this103 = this;
 
             this.searchTerm$.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["debounceTime"])(400), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["distinctUntilChanged"])(), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_8__["takeUntil"])(this.OnDestroy$)).subscribe(function (term) {
-              _this100.listFiltered = _this100.Almacenado.filter(function (item) {
+              _this103.listFiltered = _this103.Almacenado.filter(function (item) {
                 return item.material.nombre.toLowerCase().indexOf(term.toLowerCase()) >= 0;
               });
             });
@@ -37501,7 +38114,7 @@
         }, {
           key: "CancelarDevolucion",
           value: function CancelarDevolucion(id) {
-            var _this101 = this;
+            var _this104 = this;
 
             sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
               title: 'Cuidado!',
@@ -37516,7 +38129,7 @@
             }).then(function (result) {
               if (result.isConfirmed) {
                 // // console.log(id);
-                _this101.api.DeleteDevolucion(id).subscribe(function (resp) {
+                _this104.api.DeleteDevolucion(id).subscribe(function (resp) {
                   sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
                     title: 'Cancelado!',
                     text: 'Esta devolución fué cancelada, el almacén no sufrio ningun cambio.',
@@ -37524,11 +38137,11 @@
                     showConfirmButton: false
                   });
 
-                  _this101.getDevolucion();
+                  _this104.getDevolucion();
 
-                  _this101.Modal_Devolucion();
+                  _this104.Modal_Devolucion();
 
-                  _this101.getAalmacenado();
+                  _this104.getAalmacenado();
                 });
               }
             });
@@ -37545,7 +38158,7 @@
         }, {
           key: "confirmarDevolucion",
           value: function confirmarDevolucion(data, id) {
-            var _this102 = this;
+            var _this105 = this;
 
             sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
               title: 'Cuidado!',
@@ -37561,7 +38174,7 @@
               if (result.isConfirmed) {
                 // // console.log(data);
                 // // console.log(id);
-                _this102.api.putDevolucion(id, data).subscribe(function (resp) {
+                _this105.api.putDevolucion(id, data).subscribe(function (resp) {
                   sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
                     title: 'Confirmado!',
                     text: 'El material fué agregado al almacén.',
@@ -37569,11 +38182,11 @@
                     showConfirmButton: false
                   });
 
-                  _this102.getDevolucion();
+                  _this105.getDevolucion();
 
-                  _this102.Modal_Devolucion();
+                  _this105.Modal_Devolucion();
 
-                  _this102.getAalmacenado();
+                  _this105.getAalmacenado();
                 });
               }
             });
@@ -37581,28 +38194,28 @@
         }, {
           key: "getDevolucion",
           value: function getDevolucion() {
-            var _this103 = this;
+            var _this106 = this;
 
             this.api.getDevolucion().subscribe(function (resp) {
-              _this103.Devoluciones = resp;
+              _this106.Devoluciones = resp;
             });
           }
         }, {
           key: "getOrdenes",
           value: function getOrdenes() {
-            var _this104 = this;
+            var _this107 = this;
 
             this.api.getOrden().subscribe(function (resp) {
-              _this104.orden = resp;
+              _this107.orden = resp;
             });
           }
         }, {
           key: "buscarPendientes",
           value: function buscarPendientes() {
-            var _this105 = this;
+            var _this108 = this;
 
             this.api.getRequiEspera().subscribe(function (resp) {
-              _this105.Pendiente = resp;
+              _this108.Pendiente = resp;
             });
           }
         }, {
@@ -37622,10 +38235,10 @@
         }, {
           key: "porConfirmar",
           value: function porConfirmar() {
-            var _this106 = this;
+            var _this109 = this;
 
             this.api.getMaterialesPorConfirmar().subscribe(function (resp) {
-              _this106.necesario = resp; // // console.log( this.necesario ,'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
+              _this109.necesario = resp; // // console.log( this.necesario ,'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
             });
           }
         }, {
@@ -37682,7 +38295,7 @@
         }, {
           key: "buscarSustratos",
           value: function buscarSustratos() {
-            var _this107 = this;
+            var _this110 = this;
 
             var x = 0;
             var sustratos = this.ALMACEN.filter(function (x) {
@@ -37690,14 +38303,14 @@
             });
 
             var _loop8 = function _loop8(i) {
-              var sustrato = _this107._sustratos_.find(function (x) {
+              var sustrato = _this110._sustratos_.find(function (x) {
                 return x == sustratos[i].nombre;
               });
 
               x++;
 
               if (!sustrato) {
-                _this107._sustratos_.push({
+                _this110._sustratos_.push({
                   Marca: "".concat(sustratos[i].nombre, " (").concat(sustratos[i].marca, ")"),
                   Nombre: "".concat(sustratos[i].nombre)
                 });
@@ -37705,9 +38318,9 @@
 
               if (x == sustratos.length) {
                 var newArray_test;
-                newArray_test = _this107._sustratos_;
+                newArray_test = _this110._sustratos_;
 
-                var UniqueArrayforMarca = _toConsumableArray(new Map(_this107._sustratos_.map(function (item) {
+                var UniqueArrayforMarca = _toConsumableArray(new Map(_this110._sustratos_.map(function (item) {
                   return [item["Marca"], item];
                 })).values());
 
@@ -37717,7 +38330,7 @@
                 var Test_UniqueObjectNewMap = new Map(Test_UniqueObject);
                 var Test_UniqueObjectNewMap_keys = Test_UniqueObjectNewMap.keys();
                 var Test_UniqueObjectNewMap_values = Test_UniqueObjectNewMap.values();
-                _this107.Test_UniqueObjectNewMap_valuesAsArr = _toConsumableArray(Test_UniqueObjectNewMap_values); // console.log(this.Test_UniqueObjectNewMap_valuesAsArr)
+                _this110.Test_UniqueObjectNewMap_valuesAsArr = _toConsumableArray(Test_UniqueObjectNewMap_values); // console.log(this.Test_UniqueObjectNewMap_valuesAsArr)
                 // console.log(this._sustratos_)
               }
             };
@@ -37729,7 +38342,7 @@
         }, {
           key: "buscarCalibre",
           value: function buscarCalibre(e) {
-            var _this108 = this;
+            var _this111 = this;
 
             var material = document.getElementById('Material_Seleccionado').value;
             var splitted = material.split('_');
@@ -37740,12 +38353,12 @@
             }); // // console.log(sustratos,'15515151515151515151515151515151')
 
             var _loop9 = function _loop9(i) {
-              var calibre = _this108._calibre_.find(function (x) {
+              var calibre = _this111._calibre_.find(function (x) {
                 return x.calibre == sustratos[i].calibre;
               });
 
               if (!calibre) {
-                _this108._calibre_.push(sustratos[i]);
+                _this111._calibre_.push(sustratos[i]);
               }
             };
 
@@ -37756,7 +38369,7 @@
         }, {
           key: "buscarGramaje",
           value: function buscarGramaje(e) {
-            var _this109 = this;
+            var _this112 = this;
 
             var splitted = e.split('_');
             var e1 = splitted[0];
@@ -37767,12 +38380,12 @@
             });
 
             var _loop10 = function _loop10(i) {
-              var gramaje = _this109._gramajes_.find(function (x) {
+              var gramaje = _this112._gramajes_.find(function (x) {
                 return x.gramaje == sustratos[i].gramaje;
               });
 
               if (!gramaje) {
-                _this109._gramajes_.push(sustratos[i]);
+                _this112._gramajes_.push(sustratos[i]);
               }
             };
 
@@ -37784,7 +38397,7 @@
         }, {
           key: "buscarAncho",
           value: function buscarAncho(e) {
-            var _this110 = this;
+            var _this113 = this;
 
             var material = document.getElementById('Material_Seleccionado').value;
             var splitted = material.split('_');
@@ -37797,12 +38410,12 @@
             });
 
             var _loop11 = function _loop11(i) {
-              var ancho = _this110._ancho_.find(function (x) {
+              var ancho = _this113._ancho_.find(function (x) {
                 return x.ancho == sustratos[i].ancho;
               });
 
               if (!ancho) {
-                _this110._ancho_.push(sustratos[i]);
+                _this113._ancho_.push(sustratos[i]);
               }
             };
 
@@ -37823,18 +38436,18 @@
         }, {
           key: "Editar_2",
           value: function Editar_2(id) {
-            var _this111 = this;
+            var _this114 = this;
 
             this.Modal_Almacen_ep();
             this.api.getMaterialesID(id).subscribe(function (resp) {
-              _this111.MaterialID = resp;
+              _this114.MaterialID = resp;
 
               if (resp.grupo.nombre === 'Tinta') {
-                _this111.New_color = true;
+                _this114.New_color = true;
               }
 
               if (resp.grupo.nombre === 'Cajas Corrugadas') {
-                _this111.caja_ = true;
+                _this114.caja_ = true;
               } // // console.log(this.MaterialID,'ok')
 
             });
@@ -37842,19 +38455,19 @@
         }, {
           key: "Editar_Material_F",
           value: function Editar_Material_F() {
-            var _this112 = this;
+            var _this115 = this;
 
             var grupo = this.MaterialID.grupo._id;
             this.MaterialID.grupo = grupo; // // console.log(this.MaterialID)
 
             this.api.putMaterialID(this.MaterialID._id, this.MaterialID).subscribe(function (resp) {
-              _this112.Modal_Almacen_ep();
+              _this115.Modal_Almacen_ep();
 
-              _this112.getAalmacenado();
+              _this115.getAalmacenado();
 
-              _this112.BuscarAlmacen();
+              _this115.BuscarAlmacen();
 
-              _this112.totalizar_materiales();
+              _this115.totalizar_materiales();
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
                 position: 'center',
@@ -37868,23 +38481,23 @@
         }, {
           key: "Editar",
           value: function Editar(id) {
-            var _this113 = this;
+            var _this116 = this;
 
             this.edit_almacen();
             this.api.getAlmacenadoID(id).subscribe(function (resp) {
-              _this113.AlmacenadoId = resp;
+              _this116.AlmacenadoId = resp;
 
-              _this113.selecciona_producto(_this113.AlmacenadoId.material.grupo.nombre);
+              _this116.selecciona_producto(_this116.AlmacenadoId.material.grupo.nombre);
 
-              _this113.codigoID = _this113.AlmacenadoId.codigo;
-              _this113.loteID = _this113.AlmacenadoId.lote;
-              _this113.cantidadID = _this113.AlmacenadoId.cantidad;
+              _this116.codigoID = _this116.AlmacenadoId.codigo;
+              _this116.loteID = _this116.AlmacenadoId.lote;
+              _this116.cantidadID = _this116.AlmacenadoId.cantidad;
             });
           }
         }, {
           key: "_Editar",
           value: function _Editar(producto) {
-            var _this114 = this;
+            var _this117 = this;
 
             var body = {
               material: this.AlmacenadoId.material._id,
@@ -37894,7 +38507,7 @@
               motivo: this.Edition__
             };
             this.api.putAlmacenadoID(this.AlmacenadoId._id, body).subscribe(function (resp) {
-              _this114.edit_almacen();
+              _this117.edit_almacen();
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
                 position: 'center',
@@ -37904,16 +38517,16 @@
                 timer: 1500
               });
 
-              _this114.getAalmacenado();
+              _this117.getAalmacenado();
 
-              _this114.BuscarAlmacen();
+              _this117.BuscarAlmacen();
 
-              _this114.totalizar_materiales();
+              _this117.totalizar_materiales();
 
-              _this114.codigoID = '';
-              _this114.loteID = '';
-              _this114.cantidadID = '';
-              _this114.AlmacenadoId = '';
+              _this117.codigoID = '';
+              _this117.loteID = '';
+              _this117.cantidadID = '';
+              _this117.AlmacenadoId = '';
             });
           }
         }, {
@@ -37953,20 +38566,20 @@
         }, {
           key: "getAalmacenado",
           value: function getAalmacenado() {
-            var _this115 = this;
+            var _this118 = this;
 
             this.api.getAlmacenado().subscribe(function (resp) {
-              _this115.Almacenado = resp;
-              _this115.Almacenado = _this115.Almacenado.sort(function (a, b) {
+              _this118.Almacenado = resp;
+              _this118.Almacenado = _this118.Almacenado.sort(function (a, b) {
                 if (a.material.nombre.toLowerCase() < b.material.nombre.toLowerCase()) return -1;
                 if (a.material.nombre.toLowerCase() > b.material.nombre.toLowerCase()) return 1;
                 return 0;
               }); // // console.log(this.Almacenado)
               // this.listFiltered = this.Almacenado
 
-              _this115.filterList();
+              _this118.filterList();
 
-              _this115.totalizar_materiales();
+              _this118.totalizar_materiales();
             });
           }
         }, {
@@ -38070,7 +38683,7 @@
         }, {
           key: "descontar_bobina_",
           value: function descontar_bobina_(numero) {
-            var _this116 = this;
+            var _this119 = this;
 
             var data = {
               bobina: this.bobina__,
@@ -38083,38 +38696,38 @@
                 showConfirmButton: false
               });
 
-              _this116.getbobinas();
+              _this119.getbobinas();
 
-              _this116.descontar_bobina();
+              _this119.descontar_bobina();
 
-              _this116.Buscar_conversiones();
+              _this119.Buscar_conversiones();
             });
           }
         }, {
           key: "BuscarGruposEnAlmacen",
           value: function BuscarGruposEnAlmacen() {
-            var _this117 = this;
+            var _this120 = this;
 
             this.loading = true;
             this.api.GetGrupoMp().subscribe(function (resp) {
-              _this117.SECCIONES = resp;
-              _this117.loading = false;
+              _this120.SECCIONES = resp;
+              _this120.loading = false;
             });
           }
         }, {
           key: "BuscarAlmacen",
           value: function BuscarAlmacen() {
-            var _this118 = this;
+            var _this121 = this;
 
             this.loading = true;
             this.api.getAlmacen().subscribe(function (resp) {
-              _this118.ALMACEN = resp.materiales;
+              _this121.ALMACEN = resp.materiales;
 
-              _this118.filterList();
+              _this121.filterList();
 
-              _this118.totalizar_materiales();
+              _this121.totalizar_materiales();
 
-              _this118.loading = false;
+              _this121.loading = false;
             });
           }
         }, {
@@ -38175,7 +38788,7 @@
         }, {
           key: "almacenar",
           value: function almacenar(producto) {
-            var _this119 = this;
+            var _this122 = this;
 
             var data = {
               material: producto.value,
@@ -38193,15 +38806,15 @@
                 timer: 1500
               });
 
-              _this119.Nuevo_producto();
+              _this122.Nuevo_producto();
 
-              _this119.BuscarAlmacen();
+              _this122.BuscarAlmacen();
 
-              _this119.getAalmacenado();
+              _this122.getAalmacenado();
 
-              _this119.codigo = '';
-              _this119.lote = '';
-              _this119.cantidad = '';
+              _this122.codigo = '';
+              _this122.lote = '';
+              _this122.cantidad = '';
               document.getElementById('Nuevoproducto').value = "0";
             }, function (err) {
               sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
@@ -38228,7 +38841,7 @@
         }, {
           key: "Almacenar",
           value: function Almacenar() {
-            var _this120 = this;
+            var _this123 = this;
 
             var grupo;
 
@@ -38262,13 +38875,13 @@
             }
 
             this.api.PostAlmacen(data).subscribe(function (resp) {
-              _this120.InventarioForm.reset();
+              _this123.InventarioForm.reset();
 
-              _this120.BuscarAlmacen();
+              _this123.BuscarAlmacen();
 
-              _this120.BuscarGruposEnAlmacen();
+              _this123.BuscarGruposEnAlmacen();
 
-              _this120.Modal_Almacen(); // this.getSustratos();
+              _this123.Modal_Almacen(); // this.getSustratos();
 
             });
           }
@@ -38341,7 +38954,7 @@
         }, {
           key: "nuevaBobina",
           value: function nuevaBobina() {
-            var _this121 = this;
+            var _this124 = this;
 
             var splited = this.BobinaForm.get('material').value;
             splited = splited.split('_');
@@ -38349,11 +38962,11 @@
             this.BobinaForm.get('material').setValue(splited[0]);
             this.BobinaForm.get('marca').setValue(marca[1].slice(0, -1));
             this.api.postNuevaBobina(this.BobinaForm.value).subscribe(function (resp) {
-              _this121.BobinaForm.reset();
+              _this124.BobinaForm.reset();
 
-              _this121.Modal_bobinas();
+              _this124.Modal_bobinas();
 
-              _this121.getbobinas();
+              _this124.getbobinas();
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
                 title: 'Nueva Bobina Agregada!',
@@ -38366,7 +38979,7 @@
         }, {
           key: "seleccionar_material",
           value: function seleccionar_material(e) {
-            var _this122 = this;
+            var _this125 = this;
 
             document.getElementById('bobina_selected').disabled = false;
             this.SUSTRATO_CONVERSION = [];
@@ -38379,25 +38992,25 @@
             var _loop12 = function _loop12(i) {
               var bobina = BobinasEnConvertidora[i];
 
-              var sustrato = _this122.ALMACEN.filter(function (x) {
+              var sustrato = _this125.ALMACEN.filter(function (x) {
                 return x.nombre == bobina.material && x.marca == bobina.marca && x.ancho == bobina.ancho && x.gramaje == bobina.gramaje && x.calibre == bobina.calibre;
               });
 
               console.log(sustrato, 'aja');
 
               if (sustrato) {
-                var _loop13 = function _loop13(_i4) {
-                  var existe = _this122.SUSTRATO_CONVERSION.find(function (x) {
-                    return x._id == sustrato[_i4]._id;
+                var _loop13 = function _loop13(_i6) {
+                  var existe = _this125.SUSTRATO_CONVERSION.find(function (x) {
+                    return x._id == sustrato[_i6]._id;
                   });
 
                   if (!existe) {
-                    _this122.SUSTRATO_CONVERSION.push(sustrato[_i4]);
+                    _this125.SUSTRATO_CONVERSION.push(sustrato[_i6]);
                   }
                 };
 
-                for (var _i4 = 0; _i4 < sustrato.length; _i4++) {
-                  _loop13(_i4);
+                for (var _i6 = 0; _i6 < sustrato.length; _i6++) {
+                  _loop13(_i6);
                 }
               }
             };
@@ -38409,60 +39022,60 @@
         }, {
           key: "getbobinas",
           value: function getbobinas() {
-            var _this123 = this;
+            var _this126 = this;
 
             this.I_f = 0;
             this.I_r = 0;
             this.BobinasSencillas = [];
             this.api.getBobina().subscribe(function (resp) {
-              _this123.BOBINAS_ = resp;
-              var Almacen = _this123.ALMACEN;
+              _this126.BOBINAS_ = resp;
+              var Almacen = _this126.ALMACEN;
 
               var _loop14 = function _loop14(i) {
-                var bobina = _this123.BOBINAS_[i];
+                var bobina = _this126.BOBINAS_[i];
 
                 if (bobina.convertidora === 'Convertidora Finlandia, C.A.') {
-                  _this123.I_f++;
+                  _this126.I_f++;
                 } else {
-                  _this123.I_r++;
+                  _this126.I_r++;
                 }
 
-                var sumada = _this123.BobinasSencillas.findIndex(function (x) {
-                  return x.material === _this123.BOBINAS_[i].material && x.marca === _this123.BOBINAS_[i].marca && x.ancho === _this123.BOBINAS_[i].ancho && x.gramaje === _this123.BOBINAS_[i].gramaje && x.calibre === _this123.BOBINAS_[i].calibre && x.convertidora === _this123.BOBINAS_[i].convertidora;
+                var sumada = _this126.BobinasSencillas.findIndex(function (x) {
+                  return x.material === _this126.BOBINAS_[i].material && x.marca === _this126.BOBINAS_[i].marca && x.ancho === _this126.BOBINAS_[i].ancho && x.gramaje === _this126.BOBINAS_[i].gramaje && x.calibre === _this126.BOBINAS_[i].calibre && x.convertidora === _this126.BOBINAS_[i].convertidora;
                 });
 
                 if (sumada < 0) {
                   var data = {
-                    material: _this123.BOBINAS_[i].material,
-                    marca: _this123.BOBINAS_[i].marca,
-                    calibre: _this123.BOBINAS_[i].calibre,
-                    gramaje: _this123.BOBINAS_[i].gramaje,
-                    ancho: _this123.BOBINAS_[i].ancho,
-                    convertidora: _this123.BOBINAS_[i].convertidora,
-                    peso: _this123.BOBINAS_[i].peso
+                    material: _this126.BOBINAS_[i].material,
+                    marca: _this126.BOBINAS_[i].marca,
+                    calibre: _this126.BOBINAS_[i].calibre,
+                    gramaje: _this126.BOBINAS_[i].gramaje,
+                    ancho: _this126.BOBINAS_[i].ancho,
+                    convertidora: _this126.BOBINAS_[i].convertidora,
+                    peso: _this126.BOBINAS_[i].peso
                   };
 
-                  _this123.BobinasSencillas.push(data);
+                  _this126.BobinasSencillas.push(data);
                 } else {
-                  var peso = Number(_this123.BobinasSencillas[sumada].peso) + Number(_this123.BOBINAS_[i].peso);
-                  _this123.BobinasSencillas[sumada].peso = peso;
+                  var peso = Number(_this126.BobinasSencillas[sumada].peso) + Number(_this126.BOBINAS_[i].peso);
+                  _this126.BobinasSencillas[sumada].peso = peso;
                 }
 
-                console.log(_this123.BobinasSencillas);
+                console.log(_this126.BobinasSencillas);
 
-                var sustrato = _this123.ALMACEN.find(function (x) {
+                var sustrato = _this126.ALMACEN.find(function (x) {
                   return x.nombre == bobina.material && x.marca == bobina.marca && x.ancho == bobina.ancho && x.gramaje == bobina.gramaje;
                 });
 
                 console.log(sustrato);
 
                 if (sustrato) {
-                  var existe = _this123.SUSTRATO_CONVERSION.find(function (x) {
+                  var existe = _this126.SUSTRATO_CONVERSION.find(function (x) {
                     return x._id == sustrato._id;
                   });
 
                   if (!existe) {
-                    _this123.SUSTRATO_CONVERSION.push(sustrato);
+                    _this126.SUSTRATO_CONVERSION.push(sustrato);
                   }
                 } // let sustrato = this.ALMACEN.find(x => x.nombre == bobina.material && x.gramaje == bobina.gramaje && x.ancho == bobina.ancho)
                 // console.log(sustrato, 'bobina')
@@ -38472,7 +39085,7 @@
 
               };
 
-              for (var i = 0; i < _this123.BOBINAS_.length; i++) {
+              for (var i = 0; i < _this126.BOBINAS_.length; i++) {
                 _loop14(i);
               }
             });
@@ -38480,10 +39093,10 @@
         }, {
           key: "Buscar_conversiones",
           value: function Buscar_conversiones() {
-            var _this124 = this;
+            var _this127 = this;
 
             this.api.getConversiones().subscribe(function (resp) {
-              _this124.conversiones = resp;
+              _this127.conversiones = resp;
             });
           }
         }, {
@@ -38512,7 +39125,7 @@
         }, {
           key: "Generar_Conversion",
           value: function Generar_Conversion() {
-            var _this125 = this;
+            var _this128 = this;
 
             var sustrato = document.getElementById('bobina_selected').value;
             var peso = document.getElementById('_peso').value;
@@ -38536,7 +39149,7 @@
             var hojas = data.hojas.toString();
             var hoy = moment__WEBPACK_IMPORTED_MODULE_5__().format('DD/MM/YYYY');
             this.api.postNuevoSustrato(data).subscribe(function (resp) {
-              _this125.modal_Conversion();
+              _this128.modal_Conversion();
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_6___default.a.fire({
                 title: 'Nueva Solicitud de Conversion Creada',
@@ -38681,43 +39294,43 @@
         }, {
           key: "confirmar_eliminacion",
           value: function confirmar_eliminacion(motivo) {
-            var _this126 = this;
+            var _this129 = this;
 
             motivo = motivo.value;
 
             if (this.eliminar_sustrato) {
               this.api.eliminarSustrato(this.id_p_e, motivo).subscribe(function (resp) {
-                _this126.BuscarAlmacen();
+                _this129.BuscarAlmacen();
 
-                _this126.porConfirmar();
+                _this129.porConfirmar();
 
-                _this126.modal_eliminacion();
+                _this129.modal_eliminacion();
 
-                _this126.BuscarAlmacen();
+                _this129.BuscarAlmacen();
 
-                _this126.BuscarGruposEnAlmacen();
+                _this129.BuscarGruposEnAlmacen();
 
-                _this126.getbobinas(); // this.getSustratos();
+                _this129.getbobinas(); // this.getSustratos();
 
 
-                _this126.porConfirmar(); // // console.log(resp)
+                _this129.porConfirmar(); // // console.log(resp)
 
               });
             } else {
               this.api.eliminarMaterial(this.id_p_e, motivo).subscribe(function (resp) {
                 // // console.log(resp)
-                _this126.BuscarAlmacen();
+                _this129.BuscarAlmacen();
 
-                _this126.porConfirmar();
+                _this129.porConfirmar();
 
-                _this126.modal_eliminacion();
+                _this129.modal_eliminacion();
               });
             }
           }
         }, {
           key: "descargarInventario",
           value: function descargarInventario(desde, hasta) {
-            var _this127 = this;
+            var _this130 = this;
 
             var data = {
               desde: desde.value,
@@ -38730,7 +39343,7 @@
 
               function generarPDF() {
                 return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee6() {
-                  var i, _i5, _i6;
+                  var i, _i7, _i8;
 
                   return regeneratorRuntime.wrap(function _callee6$(_context6) {
                     while (1) {
@@ -38751,8 +39364,8 @@
                           pdf.add(pdf.ln(2));
                           pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("NOMBRE").end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("PRESENTACI\xD3N").end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("CANTIDAD").end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("C\xD3DIGO").end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("LOTE").end).end]]).widths(['20%', '20%', '20%', '20%', '20%']).end);
 
-                          for (_i5 = 0; _i5 < resp.ingresos.length; _i5++) {
-                            pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.ingresos[_i5].material.nombre)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.ingresos[_i5].material.presentacion, " ").concat(resp.ingresos[_i5].material.neto, " ").concat(resp.ingresos[_i5].material.unidad)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.ingresos[_i5].material.cantidad)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.ingresos[_i5].material.codigo)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.ingresos[_i5].material.lote)).end).end]]).widths(['20%', '20%', '20%', '20%', '20%']).end);
+                          for (_i7 = 0; _i7 < resp.ingresos.length; _i7++) {
+                            pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.ingresos[_i7].material.nombre)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.ingresos[_i7].material.presentacion, " ").concat(resp.ingresos[_i7].material.neto, " ").concat(resp.ingresos[_i7].material.unidad)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.ingresos[_i7].material.cantidad)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.ingresos[_i7].material.codigo)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.ingresos[_i7].material.lote)).end).end]]).widths(['20%', '20%', '20%', '20%', '20%']).end);
                           }
 
                           pdf.add(pdf.ln(2));
@@ -38760,8 +39373,8 @@
                           pdf.add(pdf.ln(2));
                           pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("NOMBRE").end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("PRESENTACI\xD3N").end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("CANTIDAD").end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("RAZON").end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("FECHA").end).end]]).widths(['20%', '20%', '20%', '20%', '20%']).end);
 
-                          for (_i6 = 0; _i6 < resp.descuentos.length; _i6++) {
-                            pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.descuentos[_i6].material.nombre)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.descuentos[_i6].material.presentacion, " ").concat(resp.descuentos[_i6].material.neto, " ").concat(resp.descuentos[_i6].material.unidad)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.descuentos[_i6].descuento)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.descuentos[_i6].razon)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.descuentos[_i6].fecha.slice(0, 10))).end).end]]).widths(['20%', '20%', '20%', '20%', '20%']).end);
+                          for (_i8 = 0; _i8 < resp.descuentos.length; _i8++) {
+                            pdf.add(new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Table"]([[new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.descuentos[_i8].material.nombre)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.descuentos[_i8].material.presentacion, " ").concat(resp.descuentos[_i8].material.neto, " ").concat(resp.descuentos[_i8].material.unidad)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.descuentos[_i8].descuento)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.descuentos[_i8].razon)).end).end, new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Cell"](new pdfmake_wrapper__WEBPACK_IMPORTED_MODULE_3__["Txt"]("".concat(resp.descuentos[_i8].fecha.slice(0, 10))).end).end]]).widths(['20%', '20%', '20%', '20%', '20%']).end);
                           }
 
                           pdf.create().download();
@@ -38777,46 +39390,46 @@
 
               generarPDF();
 
-              _this127.modal_reporte();
+              _this130.modal_reporte();
             });
           }
         }, {
           key: "totalizar_materiales",
           value: function totalizar_materiales() {
-            var _this128 = this;
+            var _this131 = this;
 
             var _loop15 = function _loop15(i) {
-              var existe = _this128.TOTALES.find(function (x) {
-                return x.material == _this128.Almacenado[i].material.nombre && x.marca == _this128.Almacenado[i].material.marca && x.ancho == _this128.Almacenado[i].material.ancho && x.largo == _this128.Almacenado[i].material.largo && x.calibre == _this128.Almacenado[i].material.calibre && x.gramaje == _this128.Almacenado[i].material.gramaje;
+              var existe = _this131.TOTALES.find(function (x) {
+                return x.material == _this131.Almacenado[i].material.nombre && x.marca == _this131.Almacenado[i].material.marca && x.ancho == _this131.Almacenado[i].material.ancho && x.largo == _this131.Almacenado[i].material.largo && x.calibre == _this131.Almacenado[i].material.calibre && x.gramaje == _this131.Almacenado[i].material.gramaje;
               });
 
               if (existe) {
-                var x = _this128.TOTALES.findIndex(function (x) {
-                  return x.material == _this128.Almacenado[i].material.nombre && x.marca == _this128.Almacenado[i].material.marca && x.ancho == _this128.Almacenado[i].material.ancho && x.largo == _this128.Almacenado[i].material.largo && x.calibre == _this128.Almacenado[i].material.calibre && x.gramaje == _this128.Almacenado[i].material.gramaje;
+                var x = _this131.TOTALES.findIndex(function (x) {
+                  return x.material == _this131.Almacenado[i].material.nombre && x.marca == _this131.Almacenado[i].material.marca && x.ancho == _this131.Almacenado[i].material.ancho && x.largo == _this131.Almacenado[i].material.largo && x.calibre == _this131.Almacenado[i].material.calibre && x.gramaje == _this131.Almacenado[i].material.gramaje;
                 });
 
-                _this128.TOTALES[x].total = Number(_this128.TOTALES[x].total);
-                _this128.Almacenado[i].cantidad = Number(_this128.Almacenado[i].cantidad);
-                _this128.Almacenado[i].neto = Number(_this128.Almacenado[i].material.neto);
-                var def = _this128.Almacenado[i].neto * _this128.Almacenado[i].cantidad / _this128.TOTALES[x].neto;
-                _this128.TOTALES[x].total = _this128.TOTALES[x].total + def;
+                _this131.TOTALES[x].total = Number(_this131.TOTALES[x].total);
+                _this131.Almacenado[i].cantidad = Number(_this131.Almacenado[i].cantidad);
+                _this131.Almacenado[i].neto = Number(_this131.Almacenado[i].material.neto);
+                var def = _this131.Almacenado[i].neto * _this131.Almacenado[i].cantidad / _this131.TOTALES[x].neto;
+                _this131.TOTALES[x].total = _this131.TOTALES[x].total + def;
               } else {
-                _this128.TOTALES.push({
-                  material: _this128.Almacenado[i].material.nombre,
-                  marca: _this128.Almacenado[i].material.marca,
-                  calibre: _this128.Almacenado[i].material.calibre,
-                  gramaje: _this128.Almacenado[i].material.gramaje,
-                  grupo: _this128.Almacenado[i].material.grupo.nombre,
-                  presentacion: _this128.Almacenado[i].material.presentacion,
-                  neto: _this128.Almacenado[i].material.neto,
-                  unidad: _this128.Almacenado[i].material.unidad,
-                  ancho: _this128.Almacenado[i].material.ancho,
-                  largo: _this128.Almacenado[i].material.largo,
-                  total: _this128.Almacenado[i].cantidad
+                _this131.TOTALES.push({
+                  material: _this131.Almacenado[i].material.nombre,
+                  marca: _this131.Almacenado[i].material.marca,
+                  calibre: _this131.Almacenado[i].material.calibre,
+                  gramaje: _this131.Almacenado[i].material.gramaje,
+                  grupo: _this131.Almacenado[i].material.grupo.nombre,
+                  presentacion: _this131.Almacenado[i].material.presentacion,
+                  neto: _this131.Almacenado[i].material.neto,
+                  unidad: _this131.Almacenado[i].material.unidad,
+                  ancho: _this131.Almacenado[i].material.ancho,
+                  largo: _this131.Almacenado[i].material.largo,
+                  total: _this131.Almacenado[i].cantidad
                 });
               }
 
-              if (i === _this128.Almacenado.length - 1) {// console.log(this.TOTALES)
+              if (i === _this131.Almacenado.length - 1) {// console.log(this.TOTALES)
               }
             };
 
@@ -40474,6 +41087,18 @@
             return localStorage.getItem('token') || '';
           }
         }, {
+          key: "token_two",
+          get: function get() {
+            return localStorage.getItem('token_two') || '';
+          }
+        }, {
+          key: "headers2",
+          get: function get() {
+            return {
+              'Authorization': this.token_two
+            };
+          }
+        }, {
           key: "headers",
           get: function get() {
             return {
@@ -40690,7 +41315,7 @@
         }, {
           key: "validarToken",
           value: function validarToken() {
-            var _this129 = this;
+            var _this132 = this;
 
             return this.http.get("".concat(this.api_url, "/renew"), {
               headers: this.headers
@@ -40710,9 +41335,25 @@
                   Planificacion = _resp$usuario.Planificacion,
                   Gestiones = _resp$usuario.Gestiones,
                   Despacho = _resp$usuario.Despacho,
-                  Estadisticas = _resp$usuario.Estadisticas;
-              _this129.usuario = new _models_usuario_model__WEBPACK_IMPORTED_MODULE_4__["Usuario"](estado, _id, Nombre, Apellido, Correo, Departamento, Role, Nueva_orden, Consulta, Almacen, Maquinaria, Planificacion, Gestiones, Despacho, Estadisticas);
+                  Estadisticas = _resp$usuario.Estadisticas,
+                  Precios = _resp$usuario.Precios,
+                  pin = _resp$usuario.pin;
+              _this132.usuario = new _models_usuario_model__WEBPACK_IMPORTED_MODULE_4__["Usuario"](estado, _id, Nombre, Apellido, Correo, Departamento, Role, Nueva_orden, Consulta, Almacen, Maquinaria, Planificacion, Gestiones, Despacho, Estadisticas, Precios, pin);
               localStorage.setItem('token', resp.token);
+              localStorage.setItem('menu', JSON.stringify(resp.menu));
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (resp) {
+              return true;
+            }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["catchError"])(function (error) {
+              return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(false);
+            }));
+          }
+        }, {
+          key: "ValidarVerificacion",
+          value: function ValidarVerificacion() {
+            return this.http.get("".concat(this.api_url, "/renew2"), {
+              headers: this.headers2
+            }).pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["tap"])(function (resp) {
+              localStorage.setItem('token_two', resp.token_two);
               localStorage.setItem('menu', JSON.stringify(resp.menu));
             }), Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (resp) {
               return true;
@@ -40724,6 +41365,7 @@
           key: "logout",
           value: function logout() {
             localStorage.removeItem('token');
+            localStorage.removeItem('token_two');
             localStorage.removeItem('menu');
             this.router.navigateByUrl('login');
           }
@@ -41047,6 +41689,18 @@
           value: function getDespachosYOrdenes() {
             var url = "".concat(this.api_url, "/despachos/pre-facturacion");
             return this.http.get(url);
+          }
+        }, {
+          key: "TwoStepsValidation",
+          value: function TwoStepsValidation(pin) {
+            var url = "".concat(this.api_url, "/validation2steps");
+            return this.http.post(url, pin);
+          }
+        }, {
+          key: "crearPin",
+          value: function crearPin(data) {
+            var url = "".concat(this.api_url, "/crear-pin");
+            return this.http.post(url, data);
           }
         }]);
 
@@ -41936,7 +42590,7 @@
         }, {
           key: "cerrarOrden",
           value: function cerrarOrden() {
-            var _this130 = this;
+            var _this133 = this;
 
             sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
               title: '¿Cerrar orden de producción?',
@@ -41947,10 +42601,10 @@
             }).then(function (result) {
               /* Read more about isConfirmed, isDenied below */
               if (result.isConfirmed) {
-                _this130.api.CerrarOrden(_this130.orden_id).subscribe(function (resp) {
-                  _this130.CargarOrdenes.emit();
+                _this133.api.CerrarOrden(_this133.orden_id).subscribe(function (resp) {
+                  _this133.CargarOrdenes.emit();
 
-                  _this130.onClose();
+                  _this133.onClose();
 
                   sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('¡Cerrada!', '', 'success');
                 });
@@ -41962,19 +42616,19 @@
         }, {
           key: "buscarDespachos",
           value: function buscarDespachos() {
-            var _this131 = this;
+            var _this134 = this;
 
             this.api.GetDespachoByOrden(this.orden_detalle).subscribe(function (resp) {
               for (var i = 0; i < resp.length; i++) {
                 for (var y = 0; y < resp[i].despacho.length; y++) {
-                  if (resp[i].despacho[y].op === _this131.orden_detalle) {
-                    _this131.despachos.push(resp[i].despacho[y]);
+                  if (resp[i].despacho[y].op === _this134.orden_detalle) {
+                    _this134.despachos.push(resp[i].despacho[y]);
 
-                    _this131.despachos.push({
+                    _this134.despachos.push({
                       fecha: resp[i].fecha
                     });
 
-                    _this131.despacho = _this131.despacho + resp[i].despacho[y].cantidad; // console.log(this.despachos)
+                    _this134.despacho = _this134.despacho + resp[i].despacho[y].cantidad; // console.log(this.despachos)
                   }
                 }
               }
@@ -41983,10 +42637,10 @@
         }, {
           key: "buscarGestiones",
           value: function buscarGestiones() {
-            var _this132 = this;
+            var _this135 = this;
 
             this.api.getGestiones().subscribe(function (resp) {
-              _this132.gestiones_ = resp;
+              _this135.gestiones_ = resp;
             });
           }
         }, {
@@ -41997,20 +42651,20 @@
         }, {
           key: "buscarTrabajos",
           value: function buscarTrabajos() {
-            var _this133 = this;
+            var _this136 = this;
 
             this.api.getMaquinasByOrdens(this.orden_id).subscribe(function (resp) {
-              _this133.trabajos = resp.maquinasDB; // this.trabajos = this.trabajos.sort(x => x.fechaI)
+              _this136.trabajos = resp.maquinasDB; // this.trabajos = this.trabajos.sort(x => x.fechaI)
             });
           }
         }, {
           key: "BuscarMaquinas",
           value: function BuscarMaquinas() {
-            var _this134 = this;
+            var _this137 = this;
 
             this.api.GetMaquinas().subscribe(function (resp) {
-              _this134.Maquinas = resp;
-              console.log(_this134.Maquinas);
+              _this137.Maquinas = resp;
+              console.log(_this137.Maquinas);
             });
           }
         }, {
@@ -42354,11 +43008,7 @@
 
       function MainComponent_div_4_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 6);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 4);
         }
       }
 
@@ -42366,7 +43016,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 7);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 6);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -42376,7 +43026,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 8);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 7);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -42386,7 +43036,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 9);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 8);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -42396,7 +43046,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 10);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 9);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -42406,7 +43056,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 11);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 10);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -42416,7 +43066,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 12);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 11);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -42424,11 +43074,7 @@
 
       function MainComponent_div_11_Template(rf, ctx) {
         if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 13);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 4);
         }
       }
 
@@ -42436,47 +43082,7 @@
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 14);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        }
-      }
-
-      function MainComponent_div_13_Template(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 15);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        }
-      }
-
-      function MainComponent_div_14_Template(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 16);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        }
-      }
-
-      function MainComponent_div_15_Template(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 17);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-        }
-      }
-
-      function MainComponent_div_16_Template(rf, ctx) {
-        if (rf & 1) {
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 4);
-
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 18);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "img", 12);
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         }
@@ -42509,9 +43115,9 @@
       MainComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
         type: MainComponent,
         selectors: [["app-main"]],
-        decls: 17,
-        vars: 14,
-        consts: [[1, "hero", "is-small", "is-primary"], [1, "container", "mt-5", "animate__animated", "animate__fadeIn"], [1, "columns", "menu"], ["class", "column", 4, "ngIf"], [1, "column"], ["src", "../../../assets/BANNER-NUEVA-ORDEN.png", "alt", "", "routerLink", "/orden"], ["src", "../../../assets/BANNER-NUEVA-ORDEN-BN.png", "alt", ""], ["src", "../../../assets/BANNER-ALMACEN.png", "routerLink", "/almacen"], ["src", "../../../assets/BANNER-ALMACEN-BN.png", "alt", ""], ["src", "../../../assets/BANNER-PRODUCTOS-Y-MAQUINARIA.png", "routerLink", "/gestiones"], ["src", "../../../assets/BANNER-PRODUCTOS-Y-MAQUINARIA-BN.png", "alt", ""], ["src", "../../../assets/BANNER-CONSULTA.png", "routerLink", "/ordenes"], ["src", "../../../assets/BANNER-CONSULTA-BN.png", "alt", ""], ["src", "../../../assets/BANNER-GESTIONES.png", "routerLink", "/ordenes/gestion"], ["src", "../../../assets/BANNER-GESTIONES-BN.png", "alt", ""], ["src", "../../../assets/BANNER-PLANIFICACION.png", "routerLink", "/planificacion"], ["src", "../../../assets/BANNER-PLANIFICACION-BN.png", "alt", ""], ["src", "../../../assets/BANNER-ESTADISTICAS-BN.png", "alt", ""], ["src", "../../../assets/BANNER-ESTADISTICAS.png", "routerLink", "/estadisticas"]],
+        decls: 13,
+        vars: 10,
+        consts: [[1, "hero", "is-small", "is-primary"], [1, "container", "mt-5", "animate__animated", "animate__fadeIn"], [1, "columns", "menu"], ["class", "column", 4, "ngIf"], [1, "column"], ["src", "../../../assets/BANNER-NUEVA-ORDEN.png", "alt", "", "routerLink", "/orden"], ["src", "../../../assets/BANNER-ALMACEN.png", "routerLink", "/almacen"], ["src", "../../../assets/BANNER-PRODUCTOS-Y-MAQUINARIA.png", "routerLink", "/gestiones"], ["src", "../../../assets/BANNER-CONSULTA.png", "routerLink", "/ordenes"], ["src", "../../../assets/BANNER-GESTIONES.png", "routerLink", "/ordenes/gestion"], ["src", "../../../assets/BANNER-PLANIFICACION.png", "routerLink", "/planificacion"], ["src", "../../../assets/BANNER-ESTADISTICAS.png", "routerLink", "/estadisticas"], ["src", "../../../assets/BANNER-VENTAS.png", "routerLink", "/ventas"]],
         template: function MainComponent_Template(rf, ctx) {
           if (rf & 1) {
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "section", 0);
@@ -42522,7 +43128,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, MainComponent_div_3_Template, 2, 0, "div", 3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, MainComponent_div_4_Template, 2, 0, "div", 3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](4, MainComponent_div_4_Template, 1, 0, "div", 3);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, MainComponent_div_5_Template, 2, 0, "div", 3);
 
@@ -42536,17 +43142,9 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](10, MainComponent_div_10_Template, 2, 0, "div", 3);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](11, MainComponent_div_11_Template, 2, 0, "div", 3);
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](11, MainComponent_div_11_Template, 1, 0, "div", 3);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](12, MainComponent_div_12_Template, 2, 0, "div", 3);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](13, MainComponent_div_13_Template, 2, 0, "div", 3);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](14, MainComponent_div_14_Template, 2, 0, "div", 3);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](15, MainComponent_div_15_Template, 2, 0, "div", 3);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, MainComponent_div_16_Template, 2, 0, "div", 3);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -42568,15 +43166,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.usuario.Almacen === 0);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.usuario.Maquinaria != 0);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.usuario.Maquinaria === 0);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
@@ -42584,15 +43174,7 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.usuario.Consulta === 0);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.usuario.Gestiones != 0);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.usuario.Gestiones === 0);
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
@@ -42600,15 +43182,15 @@
 
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
 
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.usuario.Planificacion === 0);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.usuario.Estadisticas === 0);
-
-            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-
             _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.usuario.Estadisticas === 1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.usuario.Estadisticas != 1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
+
+            _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.usuario.Precios === 1);
           }
         },
         directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_router__WEBPACK_IMPORTED_MODULE_3__["RouterLink"]],
@@ -44507,11 +45089,11 @@
         }, {
           key: "buscarRequisicion",
           value: function buscarRequisicion() {
-            var _this135 = this;
+            var _this138 = this;
 
             this.api.getRequi().subscribe(function (resp) {
               for (var i = 0; i < resp.length; i++) {
-                _this135.necesario.push(resp[i]); // console.log(this.Almacenado, 'almacenado')
+                _this138.necesario.push(resp[i]); // console.log(this.Almacenado, 'almacenado')
 
               } // this.onAgregarRequisicioes.emit(resp)
 
@@ -44590,7 +45172,7 @@
         }, {
           key: "Lote",
           value: function Lote(e, index, orden, material, i, hojas, grupo, cantidad, m_cantidad, unidad, cinta) {
-            var _this136 = this;
+            var _this139 = this;
 
             // alert(index)
             // // console.log({
@@ -44756,7 +45338,7 @@
               cantidad_solicitada = EnAlmacen.cantidad;
 
               check.onclick = function () {
-                return _this136.fijalote(Mname, EA_Cantidad, e, codigo, 0, i, EnAlmacen.cantidad * EnAlmacen.material.neto, restante, cantidad_solicitada, unidad, _cantidad, material);
+                return _this139.fijalote(Mname, EA_Cantidad, e, codigo, 0, i, EnAlmacen.cantidad * EnAlmacen.material.neto, restante, cantidad_solicitada, unidad, _cantidad, material);
               };
             } else {
               document.getElementById("fijar_lote-".concat(index, "-").concat(i)).style.display = "none";
@@ -44862,7 +45444,7 @@
         }, {
           key: "Restar",
           value: function Restar(orden, solicitud, index, n, requi) {
-            var _this137 = this;
+            var _this140 = this;
 
             var largo = solicitud.length;
 
@@ -44883,7 +45465,7 @@
             var Cargados = this.LOTES.length;
 
             var _loop16 = function _loop16(i) {
-              var existe = _this137.LOTES.find(function (x) {
+              var existe = _this140.LOTES.find(function (x) {
                 return x.i === i;
               }); // // console.log(En_Almacen.length,'/-',i)
 
@@ -44905,7 +45487,7 @@
                 // alert('2')
                 // // console.log(En_Almacen[0][i],'i')
                 if (En_Almacen[i].producto.grupo.nombre === 'Cajas Corrugadas' && !requi) {
-                  var _existe = _this137.LOTES.find(function (x) {
+                  var _existe = _this140.LOTES.find(function (x) {
                     return x.i === 100;
                   });
 
@@ -44950,9 +45532,9 @@
                 timer: 1500
               });
 
-              _this137.onCloseModal.emit();
+              _this140.onCloseModal.emit();
 
-              _this137.onFinalizarAsignacion.emit();
+              _this140.onFinalizarAsignacion.emit();
             });
           }
         }]);
@@ -45131,7 +45713,13 @@
 
       var _Auth_auth_guard_guard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
       /*! ./Auth/auth-guard.guard */
-      "I1LG"); // import { MainComponent } from './index/main/main.component';
+      "I1LG");
+      /* harmony import */
+
+
+      var _token_validation_token_validation_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+      /*! ./token-validation/token-validation.component */
+      "ixT5"); // import { MainComponent } from './index/main/main.component';
 
 
       var routes = [{
@@ -45199,7 +45787,7 @@
           });
         }
       }, {
-        path: 'precios',
+        path: 'ventas',
         canActivate: [_Auth_auth_guard_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]],
         loadChildren: function loadChildren() {
           return Promise.resolve().then(__webpack_require__.bind(null,
@@ -45218,6 +45806,9 @@
       }, {
         path: 'login',
         component: _login_login_component__WEBPACK_IMPORTED_MODULE_5__["LoginComponent"]
+      }, {
+        path: 'verificacion',
+        component: _token_validation_token_validation_component__WEBPACK_IMPORTED_MODULE_8__["TokenValidationComponent"]
       }];
 
       var AppRoutingModule = function AppRoutingModule() {
@@ -45355,7 +45946,7 @@
         }, {
           key: "login",
           value: function login() {
-            var _this138 = this;
+            var _this141 = this;
 
             var _a, _b; //Agregar clase de cargar a boton
 
@@ -45372,9 +45963,9 @@
             this.api.Login(this.loginForm.value).subscribe(function (resp) {
               localStorage.setItem('token', resp.token);
 
-              _this138.router.navigateByUrl('/');
+              _this141.router.navigateByUrl('/');
             }, function (err) {
-              _this138.cargando = false; // console.log(err)
+              _this141.cargando = false; // console.log(err)
 
               sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire('Error', err.error.err.message, 'error');
             }); // // console.log(this.loginForm.value)

@@ -2,7 +2,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const Usuario = require('../database/models/usuarios.model');
-const { verificarToken } = require('../auth/autenticacion');
+const { verificarToken, verificarToken2 } = require('../auth/autenticacion');
 
 const app = express();
 
@@ -21,71 +21,75 @@ app.get('/api/renew', verificarToken, (req,res)=>{
     });
 })
 
-app.post('/api/test-login', (req, res)=>{
-    console.log(`DEBUG: Received login request`);
+app.get('/api/renew2', verificarToken2, (req,res)=>{
 
-    if (commons.userObject.uname && commons.userObject.upass) {
-        if (!commons.userObject.tfa || !commons.userObject.tfa.secret) {
-            if (req.body.uname == commons.userObject.uname && req.body.upass == commons.userObject.upass) {
-                console.log(`DEBUG: Login without TFA is successful`);
+    let token_two = jwt.sign({
+        usuario:req.usuario
+    }, process.env.SEED, {expiresIn:120});
 
-                return res.send({
-                    "status": 200,
-                    "message": "success"
-                });
-            }
-            console.log(`ERROR: Login without TFA is not successful`);
+    
 
-            return res.send({
-                "status": 403,
-                "message": "Invalid username or password"
-            });
-
-        } else {
-            if (req.body.uname != commons.userObject.uname || req.body.upass != commons.userObject.upass) {
-                console.log(`ERROR: Login with TFA is not successful`);
-
-                return res.send({
-                    "status": 403,
-                    "message": "Invalid username or password"
-                });
-            }
-            if (!req.headers['x-tfa']) {
-                console.log(`WARNING: Login was partial without TFA header`);
-
-                return res.send({
-                    "status": 206,
-                    "message": "Please enter the Auth Code"
-                });
-            }
-            let isVerified = speakeasy.totp.verify({
-                secret: commons.userObject.tfa.secret,
-                encoding: 'base32',
-                token: req.headers['x-tfa']
-            });
-
-            if (isVerified) {
-                console.log(`DEBUG: Login with TFA is verified to be successful`);
-
-                return res.send({
-                    "status": 200,
-                    "message": "success"
-                });
-            } else {
-                console.log(`ERROR: Invalid AUTH code`);
-
-                return res.send({
-                    "status": 206,
-                    "message": "Invalid Auth Code"
-                });
-            }
-        }
-    }
-
-    return res.send({
-        "status": 404,
-        "message": "Please register to login"
+    res.json({
+        ok:true,
+        usuario:req.usuario,
+        token_two,
     });
+})
+
+app.post('/api/validation2steps', (req,res)=>{
+    let body = req.body;
+
+    Usuario.findOne({Correo:body.correo}, (err, usuarioDB)=>{
+        if ( err ){
+            return res.status(500).json({
+                ok:false,
+                err
+            });
+        }
+
+        console.log(usuarioDB.pin)
+        if(!bcrypt.compareSync( body.pin, usuarioDB.pin )){
+            // console.log(usuarioDB.TSV,'/',body.pin)
+            return res.status(400).json({
+                ok:false,
+                err:{
+                    message:'PIN INVALIDO'
+                }
+            });
+        }
+
+        let token_two = jwt.sign({
+            pin:usuarioDB.pin
+        }, process.env.SEED, {expiresIn:120});
+
+        res.json({
+            ok:true,
+            usuario:usuarioDB,
+            token_two
+        });
+
+
+    })
+})
+
+app.post('/api/crear-pin', (req,res)=>{
+    let body = req.body
+    body.pin = bcrypt.hashSync(body.pin, 10)
+
+    Usuario.findOneAndUpdate({Correo:body.correo}, {pin:body.pin}, (err, usuarioDB)=>{
+        if ( err ){
+            return res.status(400).json({
+                ok:false,
+                err
+            });
+        }
+
+        res.json({
+            ok:true,
+            usuario:usuarioDB
+        });
+    })
+    
 })
 
 app.post('/api/login', (req,res)=>{
