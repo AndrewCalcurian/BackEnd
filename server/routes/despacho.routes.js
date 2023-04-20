@@ -22,6 +22,19 @@ app.get('/api/despacho', (req,res)=>{
     })
 });
 
+app.get('/api/despachos-pendientes/:orden',(req, res)=>{
+    let orden = req.params.orden
+    Despacho.find({"despacho.op":orden}, (err, DespachoDB)=>{
+        if( err ){
+            return res.status(400).json({
+                ok:false,
+                err
+            });
+        }
+        res.json(DespachoDB)
+    })
+})
+
 app.get('/api/despacho/:orden', (req, res)=>{
     let orden = req.params.orden
 
@@ -82,7 +95,6 @@ app.put('/api/despacho/:id', (req, res)=>{
                                 if(porcentaje > 110){
                                     limite  = body.despacho[i].op
                                     // //console.log(limite,'menor')
-
                                 }
                                 if(i === body.despacho.length-1){
                                     if(limite > 0){

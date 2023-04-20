@@ -30,17 +30,9 @@ app.get('/api/lotes/:orden', (req, res)=>{
 app.post('/api/almacenado', (req, res)=>{
 
     let body = req.body;
+    let existencia = []
 
-    const NewAlmacenado = new Almacenado(
-        {
-            material:body.material,
-            codigo:body.codigo,
-            lote:body.lote,
-            cantidad:body.cantidad
-        }
-    )
-
-    NewAlmacenado.save((err, almacenDB)=>{
+    Almacenado.find({lote:body.lote,codigo:body.codigo},(err,existe)=>{
         if( err ){
             return res.status(400).json({
                 ok:false,
@@ -48,9 +40,38 @@ app.post('/api/almacenado', (req, res)=>{
             });
         }
 
-        res.json({
-            almacen:almacenDB
-        })
+        if(existe.length<1){
+            const NewAlmacenado = new Almacenado(
+                {
+                    material:body.material,
+                    codigo:body.codigo,
+                    lote:body.lote,
+                    cantidad:body.cantidad,
+                    pedido:body.pedido
+                }
+            )
+        
+            NewAlmacenado.save((err, almacenDB)=>{
+                if( err ){
+                    return res.status(400).json({
+                        ok:false,
+                        err
+                    });
+                }
+        
+                res.json({
+                    almacen:almacenDB
+                })
+            })
+        }else{
+
+            err = {mensaje:'Este N° de Lote, junto a este código ya se encuentra registrado en Sio. Es necesario que cada producto almacenado sea unico en el sistema.'}
+            return res.status(400).json({
+                ok:false,
+                err
+            });
+            console.log('si')
+        }
     })
 
 });
@@ -385,9 +406,131 @@ app.post('/api/material/devolucion', (req, res)=>{
 
 })
 
+
+app.get('/api/reenvio/:lote', (req,res)=>{
+
+
+    let Lotes_ = '';
+    let names;
+    // console.log(body.lotes);
+    let x = 0;
+
+    let materiales = [];
+    let lotes = [];
+    let solicitados = [];
+
+    let orden = []
+    let material__ = []
+
+    let Requi = false;
+
+    let id = req.params.lote
+    Lote.findById(id, (err, LoteDB)=>{
+        if( err ){
+            return res.status(400).json({
+                    ok:false,
+                    err
+                });
+            }
+
+        for(let i= 0; i<LoteDB.material.length; i++){
+            console.log('x')
+            Almacenado.findOne({material:LoteDB.material[i].material,LoteDB:LoteDB.material[i].LoteDB,codigo:LoteDB.material[i].codigo})
+                .populate({
+                    path: 'material',
+                    populate: {
+                        path: 'grupo'
+                    }
+                })
+                .exec((err, MaterialDB)=>{
+                    if( err ){
+                        return res.status(400).json({
+                            ok:false,
+                            err
+                        });
+                    }
+                
+                    Material.findById(MaterialDB.material, (err, material)=>{
+                        if( err ){
+                         return res.status(400).json({
+                                 ok:false,
+                                 err
+                             });
+                         }
+
+                         names = `${material.nombre} (${material.marca})`;
+                         if(material.ancho){
+                            names = `${material.nombre} ${material.ancho} x ${material.largo} (${material.marca}) - Paleta: ${LoteDB.material[i].codigo}`;
+                         }
+                         if(material.grupo == "61fd54e2d9115415a4416f17" || material.grupo == "61fd6300d9115415a4416f60"){
+                         names = `${material.nombre} (${material.marca}) - Lata: ${LoteDB.material[i].codigo}`;
+                         }
+                         if(material.grupo == "61fd72ecd9115415a4416f68"){
+                            names = `${material.nombre} (${material.marca}) - Cuñete: ${LoteDB.material[i].codigo}`;
+                         }
+
+                        
+
+                         materiales[i] = names;
+                         //  console.log(materiales)
+                          lotes[i] = LoteDB.material[i].lote;
+                        // LoteDB.materials.push(body.LoteDB.materials[i].LoteDB.material)
+                        //  console.log(LoteDB.materials)
+                        if(material.unidad == 'Und'){
+                            LoteDB.material[i].cantidad = Math.ceil(LoteDB.material[i].cantidad);
+                        }
+                        if(material.unidad === "PALETA" || material.unidad === "Paleta"){
+                            solicitados[i] = `${LoteDB.material[i].solicitado} Und`
+                            // solicitados.push(`${LoteDB.material[i].solicitado} Und - ${material.neto}${material.unidad}`)
+                            // material.unidad = 'Und'
+                        }else{
+                            if(material.grupo == "61fd54e2d9115415a4416f17" || material.grupo == "61fd6300d9115415a4416f60"  || material.grupo == "61fd72ecd9115415a4416f68"){
+                                solicitados[i]= `${material.unidad} - ${LoteDB.material[i].EA_Cantidad} ${material.unidad}`
+                                LoteDB.material[i].solicitado = LoteDB.material[i].EA_Cantidad
+                                // console.log(body.LoteDBs[i].EA_Cantidad)
+                            }else{
+                                solicitados[i] = `${material.unidad} - ${LoteDB.material[i].cantidad} ${material.unidad}`
+                            }
+                        }
+                        x++
+                        
+                       
+
+                        data = `<tr><td>${names}</td>
+                        <td>${LoteDB.material[i].lote}</td>
+                        <td>${material.unidad} - ${LoteDB.material[i].cantidad} ${material.unidad}</td></tr>`
+                        Lotes_ = Lotes_ + data;
+
+
+                         let final = LoteDB.material.length;
+                         if(materiales.length == LoteDB.material.length && LoteDB.material.length == LoteDB.material.length && solicitados.length == LoteDB.material.length){
+
+                            if(x == final){
+
+                                FAL005(LoteDB.orden,487, Lotes_, materiales,lotes,solicitados,Requi)
+                            
+                                console.log(materiales)
+                                // res.send(lotes_)
+                                res.json('ok')
+                            }
+                            
+                            // console.log(materiales,'_' ,lotes)
+
+                        }
+                     })
+
+
+                
+                })
+        }
+
+    })
+})
+
 app.post('/api/material/descuento', (req, res)=>{
 
     let body = req.body;
+
 
     let lotes_ = '';
     let names;
@@ -450,7 +593,7 @@ app.post('/api/material/descuento', (req, res)=>{
                 })
                 .exec((err, resp)=>{
                         if(resp.material.grupo.nombre === "Tinta" || resp.material.grupo.nombre === "Barniz" || resp.material.grupo.nombre === "Pega"){
-                            if(body.lotes[i].EA_Cantidad > 1)
+                            if(body.lotes[i].EA_Cantidad > 0)
                             {
                                 body.lotes[i].resta = 0;
                             }
@@ -533,6 +676,7 @@ app.post('/api/material/descuento', (req, res)=>{
                         //         // })
 
                                 material__.push({
+                                   asignacion:body.solicitud,
                                    material:material._id,
                                    lote: body.lotes[i].lote,
                                    codigo: body.lotes[i].codigo,

@@ -3,7 +3,9 @@ const express = require('express');
 const Orden = require('../database/models/orden.model');
 const iasignacion = require('../database/models/iasignacion.modal')
 const Producto = require('../database/models/producto.model');
+const Lotes = require('../database/models/lotes.model')
 const Grupo = require('../database/models/grupos.model')
+const Cancelacion = require('../database/models/cancelaciones.model')
 const {NuevaOrden } = require('../middlewares/emails/nuevo.email');
 const {SolicitudMateria} = require('../middlewares/emails/solicitudMaterial.email')
 
@@ -103,11 +105,66 @@ app.post('/api/orden', (req, res)=>{
 
 });
 
+app.get('/api/orden-cliente/:cliente', (req, res)=>{
+    let cliente = req.params.cliente
+
+    Orden.find({cliente:cliente, estado:'activo'})
+        .exec((err, ordenes)=>{
+            if( err ){
+                return res.status(400).json({
+                    ok:false,
+                    err
+                });
+            }
+    
+            // console.log(orden)
+            res.json(ordenes)
+        })
+})
+
+app.get('/api/orden-todo', (req, res)=>{
+
+    // Lotes.find()
+    // .populate('material.material')
+    // .exec((err, adcionalesDB)=>{
+    //     for(let n = 0; n<adcionalesDB.length; n++){
+    //         for(let n_i = 0; n_i<adcionalesDB[n].material.length; n_i++){
+    //             if(!adcionalesDB[n].material[n_i].EA_Cantidad){
+    //                 let add = adcionalesDB[n].material[n_i].push({EA_Cantidad:0})
+    //                 console.log(adcionalesDB[n].material[n_i])
+    //             }else{
+    //                 console.log('work')
+    //             }
+    //         }
+    //     }
+    // })
+
+    Orden.find()
+    .populate('cliente')
+    .populate('producto.grupo')
+    .populate('producto.cliente')
+    .populate('producto.materiales')
+    .populate({path:'producto', populate:{path:'materiales.producto'}})
+    .populate({path:'producto.materiales.producto', populate:{path:'grupo'}})
+        // .populate('cliente producto producto.grupo')
+        .exec((err, orden)=>{
+        if( err ){
+            return res.status(400).json({
+                ok:false,
+                err
+            });
+        }
+
+        // console.log(orden)
+        res.json(orden)
+    });
+})
+
 app.get('/api/orden', (req, res)=>{
 
     const id = req.params.id;
 
-    Orden.find({estado:'activo'})
+    Orden.find({$or:[{estado:'activo'},{estado:'Espera'}]})
     .populate('cliente')
     .populate('producto.grupo')
     .populate('producto.cliente')
@@ -152,6 +209,67 @@ app.get('/api/orden_material', (req, res)=>{
     });
 
 });
+
+app.get('/api/orden/cancelar/:orden/:motivo', (req, res)=>{
+
+
+
+
+    Orden.findByIdAndUpdate(req.params.orden, {estado:'CANCELADA'}, (err, orden)=>{
+         if( err ){
+             return res.status(400).json({
+                 ok:false,
+                err
+             });
+         }
+    
+         let NewCancelacion = new Cancelacion({
+             orden:req.params.orden,
+             Motivo:req.params.motivo
+         }).save((err, resp)=>{
+             if( err ){
+                 return res.status(400).json({
+                     ok:false,
+                     err
+                 });
+             }
+             
+             res.json('¡Orden Cancelada!')
+         })
+    
+    })
+
+
+
+
+})
+app.get('/api/orden/cancelar/:orden/', (req, res)=>{
+
+
+
+    return res.status(400).json({
+        ok:false,
+        err
+    });
+
+
+})
+
+app.put('/api/orden/:id', (req, res)=>{
+    const id = req.params.id;
+    const data = req.body
+
+    Orden.findByIdAndUpdate(id, data, (err, ordenEdited)=>{
+        if( err ){
+            return res.status(400).json({
+                ok:false,
+                err
+            });
+        }
+
+        res.json(ordenEdited)
+    })
+})
 
 app.get('/api/orden/:id', (req, res)=>{
 

@@ -169,6 +169,25 @@ app.post('/api/sustrato', (req, res)=>{
 
 });
 
+app.put('/api/sustrato/:id', (req, res)=>{
+    const body = req.body
+    const id = req.params.id
+
+    console.log(id)
+    console.log(body)
+
+    Bobina.findOneAndUpdate({_id:id}, body,(err, sustrato)=>{
+        if( err ){
+            return res.status(400).json({
+                ok:false,
+                err
+            });
+        }
+
+        res.json('done')
+    })
+})
+
 app.post('/api/sustratos/:id', (req, res)=>{
     const id = req.params.id;
     const body = req.body

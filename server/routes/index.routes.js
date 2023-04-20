@@ -21,6 +21,7 @@ app.use ( require('./requisicion.routes'));
 app.use ( require('./devolucion.routes'));
 app.use ( require('./despacho.routes'));
 app.use ( require('./estadisticas.routes'));
+app.use ( require('./cotizaciones.routes'));
 
 
 

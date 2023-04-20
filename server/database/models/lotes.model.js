@@ -14,6 +14,7 @@ var LoteSchema = new mongoose.Schema({
             codigo:{type:String},
             cantidad:{type:String},
             EA_Cantidad:{type:Number},
+            asignacion:{type:String}
         }
     ],
     fecha:{

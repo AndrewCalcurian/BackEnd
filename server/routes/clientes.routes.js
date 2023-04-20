@@ -27,6 +27,28 @@ app.get('/api/clientes', (req, res)=>{
 
 });
 
+app.put('/api/cliente/:id', (req, res)=>{
+
+
+    let id = req.params.id
+    let data = req.body
+
+    console.log(data)
+
+    Cliente.findByIdAndUpdate(id, data, (err, ClienteDB)=>{
+        if( err ){
+            return res.status(400).json({
+                ok:false,
+                err
+            });
+        }
+
+        res.json(ClienteDB)
+
+    })
+
+})
+
 app.post('/api/clientes', (req, res)=>{
 
     // --SE ACORTA EL REQUEST--
@@ -36,6 +58,9 @@ app.post('/api/clientes', (req, res)=>{
     const NewCliente = new Cliente({
         nombre: body.nombre,
         codigo:body.codigo,
+        rif:body.rif,
+        direccion:body.direccion,
+        contactos:body.contactos,
         almacenes:body.almacenes
     })
 

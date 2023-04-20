@@ -15,6 +15,15 @@ let ClienteSchema = new Schema([{
     almacenes:{
         type:Array,
     },
+    rif:{
+        type:String
+    },
+    direccion:{
+        type:String
+    },
+    contactos:{
+        type:Array
+    },
     fecha:{
         type:Date,
         default:Date.now

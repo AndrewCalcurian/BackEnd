@@ -10,12 +10,81 @@ const Devolucion = require('../database/models/devolucion.model')
 const Lotes = require('../database/models/lotes.model')
 const moment = require('moment')
 
+app.get('/api/estadisticas/maquinas', (req,res)=>{
+
+    trabajos_realizados = []
+
+    Gestiones.find()
+                .populate('maquina')
+                .exec((err, trabajos)=>{
+                    if( err ){
+                        return res.status(400).json({
+                            ok:false,
+                            err
+                            });
+                        }
+
+                     for(let i=0;i<trabajos.length;i++){
+
+                         let fecha = moment(trabajos[i].fecha,'yyyy-MM-DD')
+
+                         let mes = fecha.month()+1
+                         let ano = fecha.year()
+
+                         let index = trabajos_realizados.findIndex(x=> x.maquina === trabajos[i].maquina.nombre)
+                         if(index < 0){
+                             dato = {maquina:trabajos[i].maquina.nombre,datos:[{[ano]:{[mes]:{}}}]}
+                             trabajos_realizados.push(
+                             dato
+                             )
+                         }else{
+
+                            let year = ano.toString()
+                            let month = mes.toString()
+
+                            
+                            for(let n =0; n<trabajos_realizados[index].datos.length;n++){
+                                // if(!trabajos_realizados[index].datos[n])
+                            }
+                            return
+
+                            // if(!trabajos_realizados[index].datos.[year])
+                            // {
+                            //     console.log(ano)
+                            //     console.log(trabajos_realizados[index].push({[ano]:{[mes]:{}}}))
+                                
+                            //     return
+                            // }
+                            //  if(!trabajos_realizados[index][year]){
+                            //     trabajos_realizados[index].push({[ano]:{[mes]:{}}})
+                            //  }
+                            // console.log(trabajos_realizados[index][anuel])
+
+                            // let find_mes = trabajos_realizados.findIndex(x=> x.maquina === trabajos[i].maquina.nombre && x.mes === mes)
+                            //  if(find_mes < 0){
+                            //     dato = {maquina:trabajos[i].maquina.nombre,mes,ano,productos:trabajos[i].productos,hojas:trabajos[i].hojas}
+                            //     trabajos_realizados.push(
+                            //      dato
+                            //     )
+                            //  }else{
+                            //     console.log(trabajos_realizados[index].hojas)
+                            //     trabajos_realizados[index].hojas === Number(trabajos_realizados[index].hojas) + Number(trabajos[i].hojas)
+                            //     trabajos_realizados[index].productos === Number(trabajos_realizados[index].productos) + Number(trabajos[i].productos)
+                            //  }
+                         }
+                     }
+
+                    res.json(trabajos_realizados)
+                })
+
+})
+
 app.post('/api/estadisticas/ordens', (req, res)=>{
 
     let body = req.body;
     let sort;
     let orden__;
-    
+
     // console.log(body.desde,'/',body.hasta);
 
     let desde = moment(body.desde)
@@ -32,11 +101,23 @@ app.post('/api/estadisticas/ordens', (req, res)=>{
         // Orden.find({fecha:{
     //     $gte:desde,
     //     $lt: hasta
-    // }}, 
+    // }},
     }
 
     if(body.cliente){
-        sort = {cliente:body.cliente.cliente}
+        if(body.producto){
+            if(body.desde && body.hasta){
+                sort = {cliente:body.cliente.cliente,'producto.producto':body.producto, fecha:{$gte:desde,$lt:hasta}}
+            }else{
+                sort = {cliente:body.cliente.cliente,'producto.producto':body.producto}
+            }
+        }else{
+            if(body.desde && body.hasta){
+                sort = {cliente:body.cliente.cliente, fecha:{$gte:desde,$lt:hasta}}
+            }else{
+                sort = {cliente:body.cliente.cliente}
+            }
+        }
     }
 
     let desde_f = moment(body.desde).format('DD-MM-yyyy')
@@ -51,20 +132,28 @@ app.post('/api/estadisticas/ordens', (req, res)=>{
     let Adicionales = [];
     let Tintas = [];
     let Sustratos = [];
+    let Devolucion_Sustratos = [];
     let Papel_Asignado = 0;
     let Carton_Asignado = 0;
+    let Papel_Devuelto = 0;
+    let Carton_Devuelto = 0;
     let Ordenes = []
     let Sustratos_adicionales = []
     let x = 0;
 
     let Caja = []
+    let Devolucion_Caja = []
 
     let Pega = [];
+    let Devolucion_Pega = [];
     let Total_Pega = 0;
+    let Devolucion_Total_pega = 0;
 
     let Barniz = []
+    let Devolucion_Barniz = []
     let Barniz_acuoso = []
     let Total_barniz = 0;
+    let Devolucion_Total_barniz = 0;
     let Total_barniz_acuoso = 0;
 
     let adicional_Amarillo = 0;
@@ -97,8 +186,8 @@ app.post('/api/estadisticas/ordens', (req, res)=>{
     // Orden.find({fecha:{
     //     $gte:desde,
     //     $lt: hasta
-    // }}, 
-    Orden.find(sort, 
+    // }},
+    Orden.find(sort,
     (err, orden)=>{
         if( err ){
             return res.status(400).json({
@@ -106,7 +195,7 @@ app.post('/api/estadisticas/ordens', (req, res)=>{
                 err
                 });
             }
-    
+
             Ordenes= orden;
     if(orden.length < 1){
         res.json({mensaje:'No se encontró orden de producción'})
@@ -141,7 +230,7 @@ app.post('/api/estadisticas/ordens', (req, res)=>{
         })
         Trabajo.find({orden:orden[i]._id})
             .populate('maquina')
-            .sort('pos') 
+            .sort('pos')
             .exec((err, Trabajos)=>{
             if( err ){
                 return res.status(400).json({
@@ -157,7 +246,23 @@ app.post('/api/estadisticas/ordens', (req, res)=>{
 
         })
 
-        
+        Despacho.find({'despacho.op':orden[i].sort})
+        .exec((err, resp)=>{
+            if( err ){
+                return res.status(400).json({
+                    ok:false,
+                    err
+                });
+            }
+
+            for(let n = 0; n<resp.length; n++){
+                despachos.push(resp[n])
+                // console.log(despachos)
+            }
+        })
+
+
+
         if(body.cliente){
             orderss.push(orden[i].sort)
             orden__ = {orden:{$in:orderss}}
@@ -200,7 +305,91 @@ app.post('/api/estadisticas/ordens', (req, res)=>{
                             Devolucion_Pantone = Devolucion_Pantone + cantidad
                         break;
                     }
-                }else{
+                }
+                if(material.grupo == '61fd6300d9115415a4416f60'){
+                    let material_adicional = DevolucionesDB[i].filtrado[x].material
+                    let cantidad = Number((DevolucionesDB[i].filtrado[x].cantidad).toFixed(2))
+
+                    let Existencia = Devolucion_Barniz.findIndex(x=> x.Nombre === material_adicional.nombre && x.Marca === material_adicional.marca)
+                        if(Existencia != -1){
+                            Devolucion_Barniz[Existencia].Cantidad = Number(Devolucion_Barniz[Existencia].Cantidad)+Number(cantidad)
+                            Devolucion_Barniz[Existencia].Cantidad = (Devolucion_Barniz[Existencia].Cantidad).toFixed(2)
+                        }else{
+                            Devolucion_Barniz.push({Nombre:material_adicional.nombre,
+                                             Marca:material_adicional.marca,
+                                             Cantidad:cantidad})
+                        }
+                    Devolucion_Total_barniz = Number(Devolucion_Total_barniz) + Number(cantidad);
+
+                }
+                if(material.grupo == '61fd7a8ed9115415a4416f74'){
+                    let material_adicional = DevolucionesDB[i].filtrado[x].material
+                    let cantidad = Number((DevolucionesDB[i].filtrado[x].cantidad).toFixed(2))
+
+                    let Existencia = Devolucion_Caja.findIndex(x=> x.Nombre === material_adicional.nombre)
+                        if(Existencia != -1){
+                            Devolucion_Caja[Existencia].Cantidad = Number(Devolucion_Caja[Existencia].Cantidad)+Number(cantidad)
+                            Devolucion_Caja[Existencia].Cantidad = (Devolucion_Caja[Existencia].Cantidad).toFixed(2)
+                        }else{
+                            Devolucion_Caja.push({Nombre:material_adicional.nombre,
+                                             Cantidad:cantidad})
+                        }
+
+                }
+                if(material.grupo == '61fd72ecd9115415a4416f68'){
+                    let material_adicional = DevolucionesDB[i].filtrado[x].material
+                    let cantidad = Number((DevolucionesDB[i].filtrado[x].cantidad).toFixed(2))
+
+                    let Existencia = Devolucion_Pega.findIndex(x=> x.Nombre === material_adicional.nombre && x.Marca === material_adicional.marca)
+                        if(Existencia != -1){
+                            Devolucion_Pega[Existencia].Cantidad = Number(Devolucion_Pega[Existencia].Cantidad)+Number(cantidad)
+                            Devolucion_Pega[Existencia].Cantidad = (Devolucion_Pega[Existencia].Cantidad).toFixed(2)
+                        }else{
+                            Devolucion_Pega.push({Nombre:material_adicional.nombre,
+                                                  Marca:material_adicional.marca,
+                                             Cantidad:cantidad})
+                        }
+                    Devolucion_Total_pega = Number(Devolucion_Total_pega) + Number(cantidad);
+
+                }
+                // SUSTRATOOOO
+                if(material.grupo == '61f92a1f2126d717f004cca6'){
+
+                    let material_adicional = DevolucionesDB[i].filtrado[x].material
+                    let cantidad = Number((DevolucionesDB[i].filtrado[x].cantidad).toFixed(2))
+
+                    let Existencia = Devolucion_Sustratos.findIndex(x=> x.Nombre === material_adicional.nombre && x.Marca === material_adicional.marca && x.Ancho === material_adicional.ancho && x.Largo === material_adicional.largo && x.Calibre === material_adicional.calibre && x.Gramaje === material_adicional.gramaje)
+                    let Peso = cantidad*material_adicional.gramaje*material_adicional.ancho*material_adicional.largo;
+                    Peso = Peso/ 10000000000;
+                    Peso = Peso.toFixed(2);
+
+                    if(Number(material_adicional.gramaje) < 100){
+                        Papel_Devuelto = Number(Papel_Asignado) + Number(Peso)
+                        Papel_Devuelto = Papel_Devuelto.toFixed(2)
+                    }
+                    else{
+                        Carton_Devuelto = Number(Carton_Devuelto) + Number(Peso)
+                        Carton_Devuelto = Carton_Devuelto.toFixed(2)
+                    }
+                    if(Existencia != -1){
+                        Devolucion_Sustratos[Existencia].Cantidad = Number(Devolucion_Sustratos[Existencia].Cantidad)+Number(cantidad)
+                        Devolucion_Sustratos[Existencia].Cantidad = (Devolucion_Sustratos[Existencia].Cantidad).toFixed(2)
+                        Devolucion_Sustratos[Existencia].Peso = Number(Devolucion_Sustratos[Existencia].Peso) + Number(Peso)
+                        Devolucion_Sustratos[Existencia].Peso = Devolucion_Sustratos[Existencia].Peso.toFixed(2)
+                    }else{
+                        Devolucion_Sustratos.push({Nombre:material_adicional.nombre,
+                                         Marca:material_adicional.marca,
+                                         Ancho:material_adicional.ancho,
+                                         Largo:material_adicional.largo,
+                                         Gramaje:material_adicional.gramaje,
+                                         Calibre:material_adicional.calibre,
+                                         Cantidad:cantidad,
+                                         Peso})
+                    }
+
+            }
+                // SUSTRATOOOO
+                else{
                     let index = devoluciones_totales.findIndex(x=>x.id === material._id)
                     if(index == -1){
                         devoluciones_totales.push({Nombre:material.nombre,Marca:material.marca,Cantidad:cantidad,id:material._id,Ancho:material.ancho,Largo:material.largo,Calibre:material.calibre,Gramaje:material.gramaje})
@@ -234,27 +423,32 @@ Lotes.find(orden__)
             for(let n_i = 0; n_i<adcionalesDB[n].material.length; n_i++){
                 let orden = adcionalesDB[n].orden
                 let material_adicional = adcionalesDB[n].material[n_i].material
-                let cantidad = Number((adcionalesDB[n].material[n_i].EA_Cantidad).toFixed(2))
-                if(material_adicional.grupo == '61fd54e2d9115415a4416f17'){ 
+                let cantidad;
+                if(adcionalesDB[n].material[n_i].EA_Cantidad){
+                    cantidad = Number((adcionalesDB[n].material[n_i].EA_Cantidad).toFixed(2))
+                }else{
+                    cantidad = adcionalesDB[n].material[n_i].cantidad
+                }
+                if(material_adicional.grupo == '61fd54e2d9115415a4416f17'){
                     if(orden === '#'){
                         switch(material_adicional.color){
                             case 'Amarillo':
-                                adicional_Amarillo = adicional_Amarillo + cantidad
+                                adicional_Amarillo = Number(adicional_Amarillo) + Number(cantidad)
                             break;
                             case 'Cyan':
-                                adicional_Cyan = adicional_Cyan + cantidad
+                                adicional_Cyan = Number(adicional_Cyan) + Number(cantidad)
                             break;
                             case 'Magenta':
-                                adicional_Magenta = adicional_Magenta + cantidad
+                                adicional_Magenta = Number(adicional_Magenta) + Number(cantidad)
                             break;
                             case 'Negro':
-                                adicional_Negro = adicional_Negro + cantidad
+                                adicional_Negro = Number(adicional_Negro) + Number(cantidad)
                             break;
                             default:
-                                adicional_Pantone = adicional_Pantone + cantidad
+                                adicional_Pantone = Number(adicional_Pantone) + Number(cantidad)
                             break;
                         }
-                        Total_Tintas_Adicionales = Total_Tintas_Adicionales + cantidad
+                        Total_Tintas_Adicionales = Number(Total_Tintas_Adicionales) + Number(cantidad)
                         let Existencia = Adicionales.findIndex(x=> x.Nombre === material_adicional.nombre && x.Marca === material_adicional.marca)
                         if(Existencia != -1){
                             Adicionales[Existencia].Cantidad = Number(Adicionales[Existencia].Cantidad)+Number(cantidad)
@@ -262,7 +456,7 @@ Lotes.find(orden__)
                         }else{
                             Adicionales.push({Nombre:material_adicional.nombre,
                                              Marca:material_adicional.marca,
-                                             Cantidad:cantidad})
+                                             Cantidad:Number(cantidad)})
                         }
                     }else{
                         switch(material_adicional.color){
@@ -290,7 +484,7 @@ Lotes.find(orden__)
                         }else{
                             Tintas.push({Nombre:material_adicional.nombre,
                                              Marca:material_adicional.marca,
-                                             Cantidad:cantidad})
+                                             Cantidad:Number(cantidad)})
                         }
                     }
                 }
@@ -300,7 +494,7 @@ Lotes.find(orden__)
                         let Peso = cantidad*material_adicional.gramaje*material_adicional.ancho*material_adicional.largo;
                         Peso = Peso/ 10000000000;
                         Peso = Peso.toFixed(2);
-                        
+
                         if(Number(material_adicional.gramaje) < 100){
                             Papel_Asignado = Number(Papel_Asignado) + Number(Peso)
                             Papel_Asignado = Papel_Asignado.toFixed(2)
@@ -324,11 +518,16 @@ Lotes.find(orden__)
                                              Cantidad:cantidad,
                                              Peso})
                         }
-                    
+
                 }
                 if(material_adicional.grupo == '61fd6300d9115415a4416f60'){
                     let material_adicional = adcionalesDB[n].material[n_i].material
-                    let cantidad = Number((adcionalesDB[n].material[n_i].EA_Cantidad).toFixed(2))
+                    let cantidad;
+                    if(adcionalesDB[n].material[n_i].EA_Cantidad){
+                        cantidad = Number((adcionalesDB[n].material[n_i].EA_Cantidad).toFixed(2))
+                    }else{
+                        cantidad = adcionalesDB[n].material[n_i].cantidad
+                    }
 
                     let Existencia = Barniz.findIndex(x=> x.Nombre === material_adicional.nombre && x.Marca === material_adicional.marca)
                         if(Existencia != -1){
@@ -399,22 +598,23 @@ Lotes.find(orden__)
             if(a.Nombre.toLowerCase() < b.Nombre.toLowerCase()) return -1
             if(a.Nombre.toLowerCase() > b.Nombre.toLowerCase()) return 1
             return 0
-    
+
           })
         Adicionales = Adicionales.sort(function(a, b) {
             if(a.Nombre.toLowerCase() < b.Nombre.toLowerCase()) return -1
             if(a.Nombre.toLowerCase() > b.Nombre.toLowerCase()) return 1
             return 0
-    
+
           })
 
           Caja = Caja.sort(function(a, b) {
             if(a.Nombre.toLowerCase() < b.Nombre.toLowerCase()) return -1
             if(a.Nombre.toLowerCase() > b.Nombre.toLowerCase()) return 1
             return 0
-    
+
           })
         data = {
+            despachos,
             Ordenes,
             devoluciones,
             devoluciones_totales,
@@ -422,49 +622,57 @@ Lotes.find(orden__)
             Gestiones:gestiones,
             Trabajos:trabajos,
             Caja:{
-                Caja
+                Caja,
+                Devolucion_Caja
             },
             Pega:{
                 Pega,
+                Devolucion_Pega,
+                Devolucion_Total_pega,
                 Total_Pega
             },
             Barniz:{
                 Barniz,
+                Devolucion_Barniz,
                 Total_Barniz:(Total_barniz).toFixed(2),
+                Devolucion_Total_barniz:Devolucion_Total_barniz.toFixed(2),
                 Barniz_acuoso,
                 Total_barniz_acuoso:(Total_barniz_acuoso).toFixed(2)
             },
-            Suma_de_tintas:(Number(Total_Tintas_Adicionales.toFixed(2)) + Number(Total_Tintas.toFixed(2))).toFixed(2),
+            Suma_de_tintas:(Number(Total_Tintas_Adicionales) + Number(Total_Tintas)).toFixed(2),
             Colores_devueltos:{
-                Amarillo:(Devolucion_Amarillo).toFixed(2),
-                Cyan:(Devolucion_Cyan).toFixed(2),
-                Magenta:(Devolucion_Magenta).toFixed(2),
-                Negro:(Devolucion_Negro).toFixed(2),
-                Pantone:(Devolucion_Pantone).toFixed(2)
+                Amarillo:Number(Devolucion_Amarillo).toFixed(2),
+                Cyan:Number(Devolucion_Cyan).toFixed(2),
+                Magenta:Number(Devolucion_Magenta).toFixed(2),
+                Negro:Number(Devolucion_Negro).toFixed(2),
+                Pantone:Number(Devolucion_Pantone).toFixed(2)
             },
             total_tintas_devueltas,
             adicionales:{
             Tintas:Adicionales,
             detalle_tintas:{
-                Amarillo:(adicional_Amarillo).toFixed(2),
-                Cyan:(adicional_Cyan).toFixed(2),
-                Magenta:(adicional_Magenta).toFixed(2),
-                Negro:(adicional_Negro).toFixed(2),
-                Pantone:(adicional_Pantone).toFixed(2)
+                Amarillo:Number(adicional_Amarillo).toFixed(2),
+                Cyan:Number(adicional_Cyan).toFixed(2),
+                Magenta:Number(adicional_Magenta).toFixed(2),
+                Negro:Number(adicional_Negro).toFixed(2),
+                Pantone:Number(adicional_Pantone).toFixed(2)
             },
-            Total:Total_Tintas_Adicionales.toFixed(2),
+            Total:Number(Total_Tintas_Adicionales).toFixed(2),
             },
             asignados:{
             Tintas,
             detalle_tintas:{
-                Amarillo:(Amarillo).toFixed(2),
-                Cyan:(Cyan).toFixed(2),
-                Magenta:(Magenta).toFixed(2),
-                Negro:(Negro).toFixed(2),
-                Pantone:(Pantone).toFixed(2)
+                Amarillo:Number(Amarillo).toFixed(2),
+                Cyan:Number(Cyan).toFixed(2),
+                Magenta:Number(Magenta).toFixed(2),
+                Negro:Number(Negro).toFixed(2),
+                Pantone:Number(Pantone).toFixed(2)
             },
-            Total:Total_Tintas.toFixed(2),
+            Total:Number(Total_Tintas).toFixed(2),
             Sustratos,
+            Devolucion_Sustratos,
+            Papel_Devuelto,
+            Carton_Devuelto,
             Papel:Papel_Asignado,
             Carton:Carton_Asignado
             }
@@ -512,7 +720,7 @@ res.json(data)
     //                     trabajos.push(Trabajos[n])
 
     //                 }
-                    
+
     //                 Gestiones.find({op:orden[i]._id}, (err, GestinesDB)=>{
     //                     if( err ){
     //                         return res.status(400).json({
@@ -566,13 +774,13 @@ res.json(data)
     //                                     lotes.push(LotesDB[n])
     //                                 }
 
-                                    
+
 
     //                                     if(x == orden.length){
     //                                         res.json({orden,despachos,trabajos,gestiones,requisiciones,devoluciones,lotes,Adicionales})
     //                                     }
 
-                                    
+
     //                             })
 
     //                         })
@@ -584,7 +792,7 @@ res.json(data)
 
     //             })
 
-                
+
     //         })
 
     //     }
@@ -596,13 +804,13 @@ res.json(data)
         //             err
         //         });
         //     }
-        
-            
+
+
 
 
         //     res.json({orden,despachos})
         // })
-        
+
     // })
 
 })
