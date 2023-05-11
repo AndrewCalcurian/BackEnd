@@ -1,8 +1,20 @@
 const express = require('express');
 const Cliente = require('../database/models/clientes.model');
-
-
+const QRCode = require('qrcode');
+// var printer = require('printer');
+var util = require('util');
 const app = express();
+
+
+// app.get('/printers', (req, res)=>{
+
+//     let printers = printer.getPrinters();
+
+//     console.log('default printer name: ' + (printer.getDefaultPrinterName() || 'is not defined on your computer'));
+// //         util = require('util');
+// //         console.log("installed printers:\n"+util.inspect(printer.getPrinters(), {colors:true, depth:10}));
+//     res.send('test')
+// })
 
 app.get('/api/clientes', (req, res)=>{
 
@@ -47,6 +59,16 @@ app.put('/api/cliente/:id', (req, res)=>{
 
     })
 
+})
+
+app.get('/api/qr/:info', (req, res)=>{
+
+    let info = req.params.info
+
+    QRCode.toString(info,{type:'terminal'}, function (err, url) {
+        console.log(url)
+        res.json('ok')
+      })
 })
 
 app.post('/api/clientes', (req, res)=>{

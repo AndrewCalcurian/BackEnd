@@ -40,6 +40,15 @@ let DespachoSchema = new Schema(
             documento:{
                 type:String,
                 default:''
+            },
+            tasa:{
+                type:Number,
+            },
+            escala:{
+                type:Number,
+            },
+            precio:{
+                type:Number,
             }
         }]
     }

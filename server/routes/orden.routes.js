@@ -1,8 +1,10 @@
 const express = require('express');
 
 const Orden = require('../database/models/orden.model');
+const Trabajo = require('../database/models/trabajos.model');
 const iasignacion = require('../database/models/iasignacion.modal')
 const Producto = require('../database/models/producto.model');
+const Gestiones = require('../database/models/gestiones.model')
 const Lotes = require('../database/models/lotes.model')
 const Grupo = require('../database/models/grupos.model')
 const Cancelacion = require('../database/models/cancelaciones.model')
@@ -269,6 +271,51 @@ app.put('/api/orden/:id', (req, res)=>{
 
         res.json(ordenEdited)
     })
+})
+
+app.get('/api/etiquetar/:id', (req, res)=>{
+    const id = req.params.id;
+    Orden.findOne({_id:id})
+    .populate('cliente')
+    .populate('producto.grupo')
+    .populate('producto.cliente')
+    .populate('producto.materiales')
+    .populate({path:'producto', populate:{path:'materiales.producto'}})
+    .populate({path:'producto.materiales.producto', populate:{path:'grupo'}})
+        // .populate({path:'producto', populate:{path:'grupo materiales.producto', populate:{path:'grupo'}}})
+        .exec((err, orden)=>{
+        if( err ){
+            return res.status(400).json({
+                ok:false,
+                err
+            });
+        }
+
+        Trabajo.find({orden:id}, (err, trabajos)=>{
+
+            let ultimo = trabajos.filter(x => x.pos == trabajos.length - 1)
+
+            Gestiones.find({maquina:ultimo[0].maquina, op:id}, (err, gestiones)=>{
+
+
+                let splitted = gestiones[0].fecha.split('-')
+                
+                console.log(
+                    {
+                        ordenes:orden,
+                        trabajos:`${splitted[1]}/${splitted[0]}`
+                    }
+                )
+                res.json({
+                    ordenes:orden,
+                    trabajos:`${splitted[1]}/${splitted[0]}`
+                })
+            })
+
+
+        })
+    });
+
 })
 
 app.get('/api/orden/:id', (req, res)=>{

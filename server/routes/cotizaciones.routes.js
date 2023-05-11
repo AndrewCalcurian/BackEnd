@@ -5,6 +5,7 @@ const Producto = require('../database/models/producto.model')
 const consultaDolar = require('consulta-dolar-venezuela');
 const Despacho = require('../database/models/despacho.model');
 const Orden = require('../database/models/orden.model');
+const icotizacion = require('../database/models/icotizacion.model')
 
 
 app.post('/api/cotizacion/intervalo', (req, res)=>{
@@ -138,6 +139,64 @@ app.post('/api/cotizacion/intervalo/producto/:producto', (req, res)=>{
 
         })
     })
+})
+
+app.put('/api/facturado', (req, res)=>{
+    let body = req.body
+
+    Despacho.findOne({"despacho._id":body._id}, (err, DespachoDB)=>{
+
+        for(let i=0;i<DespachoDB.despacho.length;i++){
+            let id = DespachoDB._id
+
+            if(DespachoDB.despacho[i]._id == body._id){
+
+                let itemIndex = i
+                DespachoDB.despacho[i].documento = body.documento
+
+                Despacho.findOneAndUpdate({_id:DespachoDB._id}, DespachoDB, (err, DespachoDBS)=>{
+                    console.log(DespachoDBS)
+                })
+            }
+        }
+    })
+})
+
+app.post('/api/incremento/pre', (req, res)=>{
+    
+    let body = req.body
+    // console.log(body)
+
+    Despacho.findOne({"despacho._id":body._id}, (err, DespachoDB)=>{
+
+        for(let i=0;i<DespachoDB.despacho.length;i++){
+            let id = DespachoDB._id
+
+            if(DespachoDB.despacho[i]._id == body._id){
+
+                let itemIndex = i
+                DespachoDB.despacho[i].tasa = body.tasa
+                DespachoDB.despacho[i].precio = body.precio
+                DespachoDB.despacho[i].escala = body.escala
+
+                Despacho.findOneAndUpdate({_id:DespachoDB._id}, DespachoDB, (err, DespachoDBS)=>{
+                    console.log(DespachoDBS)
+                })
+            }
+        }
+    })
+
+    icotizacion.findByIdAndUpdate({_id: 'iterator'}, {$inc: {seq: 1}}, {new: true, upset:true})
+                .exec((err, devolucion)=>{
+                    if( err ){
+                        return res.status(400).json({
+                            ok:false,
+                            err
+                        });
+                    }
+
+                    res.json(devolucion.seq);
+                })
 })
 
 

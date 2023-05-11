@@ -76,11 +76,81 @@ app.post('/api/almacenado', (req, res)=>{
 
 });
 
+app.get('/api/almacenados/:id', (req, res)=>{
+
+    const id = req.params.id;
+    let almacenado = []
+
+    console.log(id,'ooook')
+
+    Material.findById(id, (err, materialDBB)=>{
+        if(materialDBB.presentacion === 'Caja'){
+            Material.find({presentacion:'Caja', nombre:materialDBB.nombre}, (err, cajas)=>{
+                for(let i=0;i<cajas.length;i++){
+                    Almacenado.find({material:cajas[i]._id})
+                         .populate({
+                           path: 'material',
+                           populate: {
+                           path: 'grupo'
+                             }
+                         })
+                        .exec((err, Almacen)=>{
+                if( err ){
+                    return res.status(400).json({
+                        ok:false,
+                        err
+                    });
+                }
+                
+                if(Almacen[0]){
+                    almacenado.push(Almacen[0])
+                    console.log(almacenado)
+                }
+                if(i == cajas.length -1){
+                    console.log(almacenado)
+                    res.json(almacenado)
+                }
+            })
+
+
+                }
+
+            })
+        }else{
+            Almacenado.find({material:id})
+                         .populate({
+                           path: 'material',
+                           populate: {
+                           path: 'grupo'
+                             }
+                         })
+                        .exec((err, Almacen)=>{
+                if( err ){
+                    return res.status(400).json({
+                        ok:false,
+                        err
+                    });
+                }
+        
+                console.log(Almacen)
+                almacenado = 
+                res.json(almacenado)
+                
+            })
+        }
+    })
+
+
+
+});
+
 app.get('/api/almacenado/:id', (req, res)=>{
 
     const id = req.params.id;
 
-    Almacenado.findById(id)
+    console.log(id)
+
+    Almacenado.findOne({_id:id})
                 .populate({
                     path: 'material',
                     populate: {
@@ -95,6 +165,7 @@ app.get('/api/almacenado/:id', (req, res)=>{
             });
         }
 
+        console.log(Almacen)
         res.json(Almacen)
     })
 
@@ -115,6 +186,36 @@ app.put('/api/almacenado/:id', (req, res)=>{
 
                     res.json(AlmacenadoDB)
                 })
+
+})
+
+app.get('/api/almacenados/:id/:cantidad', (req, res)=>{
+    const id = req.params.id;
+    const cantidad = req.params.cantidad
+    const body = req.body;
+    let total = 0;
+
+    Almacenado.find({material:id, cantidad:{$gt:0}}, (err, almacenado)=>{
+        if( err ){
+            return res.status(400).json({
+                ok:false,
+                err
+            });
+        }
+
+        for(let i=0;i<almacenado.length;i++){
+            total = total + Number(almacenado[i].cantidad)
+            if(cantidad > total){
+                return res.status(400).json({
+                    ok:false,
+                    mensaje:'se supero cantidad'
+                });
+            }
+
+        }
+
+        res.json('listo')
+    })
 
 })
 
@@ -507,7 +608,7 @@ app.get('/api/reenvio/:lote', (req,res)=>{
 
                             if(x == final){
 
-                                FAL005(LoteDB.orden,487, Lotes_, materiales,lotes,solicitados,Requi)
+                                FAL005(LoteDB.orden,594, Lotes_, materiales,lotes,solicitados,Requi)
                             
                                 console.log(materiales)
                                 // res.send(lotes_)
