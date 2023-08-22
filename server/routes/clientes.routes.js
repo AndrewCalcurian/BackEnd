@@ -1,20 +1,14 @@
 const express = require('express');
 const Cliente = require('../database/models/clientes.model');
 const QRCode = require('qrcode');
-// var printer = require('printer');
+var printer = require('printer');
 var util = require('util');
 const app = express();
 
 
-// app.get('/printers', (req, res)=>{
-
-//     let printers = printer.getPrinters();
-
-//     console.log('default printer name: ' + (printer.getDefaultPrinterName() || 'is not defined on your computer'));
-// //         util = require('util');
-// //         console.log("installed printers:\n"+util.inspect(printer.getPrinters(), {colors:true, depth:10}));
-//     res.send('test')
-// })
+app.get('/api/printers', (req, res)=>{
+    res.send('ok')
+})
 
 app.get('/api/clientes', (req, res)=>{
 
